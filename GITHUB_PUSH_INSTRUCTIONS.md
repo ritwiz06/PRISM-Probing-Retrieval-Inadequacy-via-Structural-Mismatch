@@ -4,7 +4,8 @@
 
 - Local repo path: `/Users/ritik/Documents/Projects/LLMRouter`
 - Branch: `main`
-- Local commit created: `ad54d09 Initial PRISM project state`
+- Initial project commit: `ad54d09 Initial PRISM project state`
+- Current local `HEAD` also includes this helper file and should be pushed as-is.
 - Git remote `origin` is configured.
 - The repo was initialized locally because this directory was not previously a git repository.
 - `.gitignore` is present and ignores local virtualenvs, caches, bytecode, local model/vector caches, and Python build artifacts.
