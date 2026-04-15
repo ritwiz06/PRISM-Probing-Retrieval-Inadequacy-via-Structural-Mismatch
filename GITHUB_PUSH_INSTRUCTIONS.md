@@ -6,6 +6,7 @@
 - Branch: `main`
 - Initial project commit: `ad54d09 Initial PRISM project state`
 - Current local `HEAD` also includes this helper file and should be pushed as-is.
+- Status at handoff: clean local `main` branch after committing the project and this helper file.
 - Git remote `origin` is configured.
 - The repo was initialized locally because this directory was not previously a git repository.
 - `.gitignore` is present and ignores local virtualenvs, caches, bytecode, local model/vector caches, and Python build artifacts.
@@ -34,6 +35,8 @@ Escalated/network attempt:
 Host key verification failed.
 fatal: Could not read from remote repository.
 ```
+
+Final retry after committing this helper file produced the same SSH host-key failure.
 
 This means the local commit exists, but SSH trust/auth setup needs to be completed in your normal terminal.
 
