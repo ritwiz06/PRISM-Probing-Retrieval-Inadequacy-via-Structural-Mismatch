@@ -1,0 +1,51 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Packaging/build artifacts
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs/temp files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Local-only model/vector caches
+.cache/
+model_cache/
+models/
+data/indices/
+*.faiss
+*.index
+*.pkl
+*.pickle
+
+# Local notebook checkpoints
+.ipynb_checkpoints/

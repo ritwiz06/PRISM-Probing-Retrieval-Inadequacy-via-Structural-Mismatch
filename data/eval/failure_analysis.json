@@ -1,0 +1,2208 @@
+{
+  "method": {
+    "previous_fallback": "Recomputed with RetrievalConfig(dense_backend='numpy') through the current stable retriever interface.",
+    "pre_robustness": "Recomputed with sentence-transformers/FAISS and semantic_rerank=False to approximate the post-Dense-upgrade regression state.",
+    "current_robust": "Current sentence-transformers/FAISS retriever with metadata-visible semantic concept reranking enabled."
+  },
+  "failure_count": 4,
+  "failures": [
+    {
+      "id": "curated_which_idea_is_daylight_carbohydrate_alchemy",
+      "benchmark": "curated_end_to_end",
+      "slice": "semantic",
+      "query": "Which idea is daylight carbohydrate alchemy?",
+      "gold_answer": "Photosynthesis.",
+      "pre_robustness_answer": "Circadian rhythm. A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism. [evidence: sem_circadian_rhythm::chunk_0]",
+      "post_robustness_answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+      "answer_match": false,
+      "post_robustness_answer_match": true,
+      "gold_evidence_ids": [
+        "sem_photosynthesis"
+      ],
+      "retrieved_evidence_ids": [
+        "sem_background_043",
+        "sem_background_043::chunk_0",
+        "sem_circadian_rhythm",
+        "sem_circadian_rhythm::chunk_0",
+        "sem_photosynthesis",
+        "sem_photosynthesis::chunk_0"
+      ],
+      "evidence_hit": true,
+      "route_correct": true,
+      "top1_hit": false,
+      "top_competing_evidence": {
+        "item_id": "sem_circadian_rhythm::chunk_0",
+        "parent_doc_id": "sem_circadian_rhythm",
+        "title": "Circadian rhythm",
+        "score": 0.26951560378074646,
+        "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+      },
+      "post_robustness_top_evidence": {
+        "item_id": "sem_photosynthesis::chunk_0",
+        "parent_doc_id": "sem_photosynthesis",
+        "title": "Photosynthesis",
+        "score": 0.5975327491760254,
+        "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+      },
+      "suggested_remediation": "Gold evidence was present but under-ranked; use a narrow semantic alias/concept rerank rather than changing gold labels.",
+      "error_buckets": [
+        "answer_synthesis_miss",
+        "ranking_error",
+        "semantic_drift"
+      ]
+    },
+    {
+      "id": "curated_which_response_is_a_benign_trigger_false_alarm",
+      "benchmark": "curated_end_to_end",
+      "slice": "semantic",
+      "query": "Which response is a benign trigger false alarm?",
+      "gold_answer": "Allergy.",
+      "pre_robustness_answer": "Impostor syndrome. Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence. [evidence: sem_impostor_syndrome::chunk_0]",
+      "post_robustness_answer": "Allergy. An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food. [evidence: sem_allergy::chunk_0]",
+      "answer_match": false,
+      "post_robustness_answer_match": true,
+      "gold_evidence_ids": [
+        "sem_allergy"
+      ],
+      "retrieved_evidence_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_510::chunk_0",
+        "sem_butterfly_effect",
+        "sem_butterfly_effect::chunk_0",
+        "sem_impostor_syndrome",
+        "sem_impostor_syndrome::chunk_0"
+      ],
+      "evidence_hit": false,
+      "route_correct": true,
+      "top1_hit": false,
+      "top_competing_evidence": {
+        "item_id": "sem_impostor_syndrome::chunk_0",
+        "parent_doc_id": "sem_impostor_syndrome",
+        "title": "Impostor syndrome",
+        "score": 0.26443496346473694,
+        "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+      },
+      "post_robustness_top_evidence": {
+        "item_id": "sem_allergy::chunk_0",
+        "parent_doc_id": "sem_allergy",
+        "title": "Allergy",
+        "score": 0.5766639113426208,
+        "snippet": "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food."
+      },
+      "suggested_remediation": "Gold evidence was absent from top-k; inspect semantic drift and add transparent reranking only if the query is already locally grounded.",
+      "error_buckets": [
+        "lexical_confusion",
+        "retrieval_miss",
+        "semantic_drift"
+      ]
+    },
+    {
+      "id": "curated_which_idea_is_an_internal_metronome",
+      "benchmark": "curated_end_to_end",
+      "slice": "semantic",
+      "query": "Which idea is an internal metronome?",
+      "gold_answer": "Circadian rhythm.",
+      "pre_robustness_answer": "Situated knowledge. Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know. [evidence: sem_situated_knowledge::chunk_0]",
+      "post_robustness_answer": "Circadian rhythm. A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism. [evidence: sem_circadian_rhythm::chunk_0]",
+      "answer_match": false,
+      "post_robustness_answer_match": true,
+      "gold_evidence_ids": [
+        "sem_circadian_rhythm"
+      ],
+      "retrieved_evidence_ids": [
+        "sem_circadian_rhythm",
+        "sem_circadian_rhythm::chunk_0",
+        "sem_circular_economy",
+        "sem_circular_economy::chunk_0",
+        "sem_situated_knowledge",
+        "sem_situated_knowledge::chunk_0"
+      ],
+      "evidence_hit": true,
+      "route_correct": true,
+      "top1_hit": false,
+      "top_competing_evidence": {
+        "item_id": "sem_situated_knowledge::chunk_0",
+        "parent_doc_id": "sem_situated_knowledge",
+        "title": "Situated knowledge",
+        "score": 0.2305479496717453,
+        "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+      },
+      "post_robustness_top_evidence": {
+        "item_id": "sem_circadian_rhythm::chunk_0",
+        "parent_doc_id": "sem_circadian_rhythm",
+        "title": "Circadian rhythm",
+        "score": 0.5744515061378479,
+        "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+      },
+      "suggested_remediation": "Gold evidence was present but under-ranked; use a narrow semantic alias/concept rerank rather than changing gold labels.",
+      "error_buckets": [
+        "answer_synthesis_miss",
+        "ranking_error",
+        "semantic_drift"
+      ]
+    },
+    {
+      "id": "external_photosynthesis_status",
+      "benchmark": "external_mini_benchmark",
+      "slice": "semantic",
+      "query": "What concept turns daylight into carbohydrates?",
+      "gold_answer": "Photosynthesis.",
+      "status": "fixed",
+      "previous_fallback_answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+      "current_answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+      "top_competing_evidence": [
+        "sem_photosynthesis::chunk_0",
+        "sem_circadian_rhythm::chunk_0",
+        "sem_water_cycle::chunk_0"
+      ],
+      "error_buckets": [],
+      "suggested_remediation": "No change needed; current real Dense plus robustness rerank answers the external photosynthesis paraphrase."
+    }
+  ],
+  "semantic_runs": {
+    "numpy_fallback": {
+      "total": 20,
+      "top1": 20,
+      "hit_at_3": 20,
+      "top1_accuracy": 1.0,
+      "hit_at_3_accuracy": 1.0,
+      "dense_backend_status": {
+        "active_backend": "numpy_fallback",
+        "embedding_backend": "numpy_fallback",
+        "model_name": "hashing-semantic-fallback",
+        "index_backend": "numpy",
+        "faiss_active": false,
+        "chunk_count": 148,
+        "fallback_reason": "Configured dense_backend=numpy.",
+        "semantic_rerank": true
+      },
+      "rows": [
+        {
+          "query": "Which idea is solastalgia homesick planet?",
+          "gold_answer": "Climate anxiety.",
+          "gold_evidence_id": "sem_climate_anxiety",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_climate_anxiety::chunk_0",
+              "parent_doc_id": "sem_climate_anxiety",
+              "score": 1.285055160522461,
+              "title": "Climate anxiety",
+              "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+            },
+            {
+              "item_id": "rel_bird_vertebrate::chunk_0",
+              "parent_doc_id": "rel_bird_vertebrate",
+              "score": 0.020725667476654053,
+              "title": "Bird vertebrate relation",
+              "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+            },
+            {
+              "item_id": "rel_insect_animal::chunk_0",
+              "parent_doc_id": "rel_insect_animal",
+              "score": 0.020725667476654053,
+              "title": "Insect animal relation",
+              "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+            }
+          ]
+        },
+        {
+          "query": "Which pattern is the charlatan feeling after success?",
+          "gold_answer": "Impostor syndrome.",
+          "gold_evidence_id": "sem_impostor_syndrome",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 1.2984029054641724,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "lex_postgres_jsonb_set::chunk_0",
+              "parent_doc_id": "lex_postgres_jsonb_set",
+              "score": 0.26542437076568604,
+              "title": "PostgreSQL jsonb_set",
+              "snippet": "PostgreSQL jsonb_set updates or inserts a value at a specified JSONB path."
+            },
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 0.057840071618556976,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is daylight carbohydrate alchemy?",
+          "gold_answer": "Photosynthesis.",
+          "gold_evidence_id": "sem_photosynthesis",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_photosynthesis::chunk_0",
+              "parent_doc_id": "sem_photosynthesis",
+              "score": 1.2689001560211182,
+              "title": "Photosynthesis",
+              "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+            },
+            {
+              "item_id": "rel_penguin_swim::chunk_0",
+              "parent_doc_id": "rel_penguin_swim",
+              "score": 0.06666666269302368,
+              "title": "Penguin swim relation",
+              "snippet": "The penguin to swim relation is capability: penguin is capable of swim in the demo KG."
+            },
+            {
+              "item_id": "rel_penguin_vertebrate::chunk_0",
+              "parent_doc_id": "rel_penguin_vertebrate",
+              "score": 0.06172133982181549,
+              "title": "Penguin to vertebrate bridge",
+              "snippet": "A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate."
+            }
+          ]
+        },
+        {
+          "query": "What is novelty adoption cascade?",
+          "gold_answer": "Diffusion of innovations.",
+          "gold_evidence_id": "sem_diffusion_innovations",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_diffusion_innovations::chunk_0",
+              "parent_doc_id": "sem_diffusion_innovations",
+              "score": 1.2887433767318726,
+              "title": "Diffusion of innovations",
+              "snippet": "Diffusion of innovations explains how new ideas, practices, and technologies spread through communities and social systems."
+            },
+            {
+              "item_id": "rel_penguin_swim::chunk_0",
+              "parent_doc_id": "rel_penguin_swim",
+              "score": 0.025405488908290863,
+              "title": "Penguin swim relation",
+              "snippet": "The penguin to swim relation is capability: penguin is capable of swim in the demo KG."
+            },
+            {
+              "item_id": "rel_bird_vertebrate::chunk_0",
+              "parent_doc_id": "rel_bird_vertebrate",
+              "score": 0.02074349671602249,
+              "title": "Bird vertebrate relation",
+              "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+            }
+          ]
+        },
+        {
+          "query": "What is an asphalt warmth pocket?",
+          "gold_answer": "Urban heat island.",
+          "gold_evidence_id": "sem_urban_heat_island",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_urban_heat_island::chunk_0",
+              "parent_doc_id": "sem_urban_heat_island",
+              "score": 1.28597092628479,
+              "title": "Urban heat island",
+              "snippet": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+            },
+            {
+              "item_id": "lex_html_aria_label::chunk_0",
+              "parent_doc_id": "lex_html_aria_label",
+              "score": 0.07698003947734833,
+              "title": "HTML aria-label",
+              "snippet": "The aria-label attribute defines an accessible name for an element when no visible label is available."
+            },
+            {
+              "item_id": "rel_mosquito_animal::chunk_0",
+              "parent_doc_id": "rel_mosquito_animal",
+              "score": 0.06666666269302368,
+              "title": "Mosquito to animal bridge",
+              "snippet": "A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is durable recall filing?",
+          "gold_answer": "Memory consolidation.",
+          "gold_evidence_id": "sem_memory_consolidation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_memory_consolidation::chunk_0",
+              "parent_doc_id": "sem_memory_consolidation",
+              "score": 1.294450044631958,
+              "title": "Memory consolidation",
+              "snippet": "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep."
+            },
+            {
+              "item_id": "sem_background_013::chunk_0",
+              "parent_doc_id": "sem_background_013",
+              "score": 0.17772115767002106,
+              "title": "Background note 013: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            },
+            {
+              "item_id": "sem_background_053::chunk_0",
+              "parent_doc_id": "sem_background_053",
+              "score": 0.17772115767002106,
+              "title": "Background note 053: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            }
+          ]
+        },
+        {
+          "query": "Which response is a benign trigger false alarm?",
+          "gold_answer": "Allergy.",
+          "gold_evidence_id": "sem_allergy",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_allergy::chunk_0",
+              "parent_doc_id": "sem_allergy",
+              "score": 1.3065578937530518,
+              "title": "Allergy",
+              "snippet": "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food."
+            },
+            {
+              "item_id": "lex_hipaa_164_514::chunk_0",
+              "parent_doc_id": "lex_hipaa_164_514",
+              "score": 0.29244884848594666,
+              "title": "HIPAA 45 CFR 164.514",
+              "snippet": "HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information."
+            },
+            {
+              "item_id": "lex_hipaa_164_510::chunk_0",
+              "parent_doc_id": "lex_hipaa_164_510",
+              "score": 0.23606684803962708,
+              "title": "HIPAA 45 CFR 164.510",
+              "snippet": "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object."
+            }
+          ]
+        },
+        {
+          "query": "Which root fungus web links neighboring vegetation?",
+          "gold_answer": "Mycorrhizal network.",
+          "gold_evidence_id": "sem_mycorrhizal_network",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_mycorrhizal_network::chunk_0",
+              "parent_doc_id": "sem_mycorrhizal_network",
+              "score": 1.293345332145691,
+              "title": "Mycorrhizal network",
+              "snippet": "A mycorrhizal network is a relationship between fungi and plant roots that can move nutrients and chemical signals through soil."
+            },
+            {
+              "item_id": "lex_postgres_jsonb_set::chunk_0",
+              "parent_doc_id": "lex_postgres_jsonb_set",
+              "score": 0.2392435073852539,
+              "title": "PostgreSQL jsonb_set",
+              "snippet": "PostgreSQL jsonb_set updates or inserts a value at a specified JSONB path."
+            },
+            {
+              "item_id": "lex_postgres_jsonb_insert::chunk_0",
+              "parent_doc_id": "lex_postgres_jsonb_insert",
+              "score": 0.20016548037528992,
+              "title": "PostgreSQL jsonb_insert",
+              "snippet": "PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path."
+            }
+          ]
+        },
+        {
+          "query": "Which issue is an automated unfairness pattern?",
+          "gold_answer": "Algorithmic bias.",
+          "gold_evidence_id": "sem_algorithmic_bias",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 1.2493599653244019,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            },
+            {
+              "item_id": "sem_background_022::chunk_0",
+              "parent_doc_id": "sem_background_022",
+              "score": 0.18143264949321747,
+              "title": "Background note 022: Antibiotic Resistance",
+              "snippet": "This concise background note discusses antibiotic resistance with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is i"
+            },
+            {
+              "item_id": "sem_background_042::chunk_0",
+              "parent_doc_id": "sem_background_042",
+              "score": 0.18143264949321747,
+              "title": "Background note 042: Antibiotic Resistance",
+              "snippet": "This concise background note discusses antibiotic resistance with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is i"
+            }
+          ]
+        },
+        {
+          "query": "Which idea is an internal metronome?",
+          "gold_answer": "Circadian rhythm.",
+          "gold_evidence_id": "sem_circadian_rhythm",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_circadian_rhythm::chunk_0",
+              "parent_doc_id": "sem_circadian_rhythm",
+              "score": 1.2959294319152832,
+              "title": "Circadian rhythm",
+              "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+            },
+            {
+              "item_id": "rel_mosquito_animal::chunk_0",
+              "parent_doc_id": "rel_mosquito_animal",
+              "score": 0.06666666269302368,
+              "title": "Mosquito to animal bridge",
+              "snippet": "A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+            },
+            {
+              "item_id": "rel_insect_animal::chunk_0",
+              "parent_doc_id": "rel_insect_animal",
+              "score": 0.061237238347530365,
+              "title": "Insect animal relation",
+              "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+            }
+          ]
+        },
+        {
+          "query": "Which tool is a pollution price signal?",
+          "gold_answer": "Carbon pricing.",
+          "gold_evidence_id": "sem_carbon_pricing",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_carbon_pricing::chunk_0",
+              "parent_doc_id": "sem_carbon_pricing",
+              "score": 1.2770812511444092,
+              "title": "Carbon pricing",
+              "snippet": "Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices."
+            },
+            {
+              "item_id": "lex_torch_nll_loss::chunk_0",
+              "parent_doc_id": "lex_torch_nll_loss",
+              "score": 0.2896462678909302,
+              "title": "torch.nn.NLLLoss",
+              "snippet": "torch.nn.NLLLoss computes the negative log likelihood loss and is commonly paired with LogSoftmax."
+            },
+            {
+              "item_id": "rel_whale_vertebrate::chunk_0",
+              "parent_doc_id": "rel_whale_vertebrate",
+              "score": 0.05193702131509781,
+              "title": "Whale to vertebrate bridge",
+              "snippet": "A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate."
+            }
+          ]
+        },
+        {
+          "query": "Which theory frames selfhood through autobiography?",
+          "gold_answer": "Narrative identity.",
+          "gold_evidence_id": "sem_narrative_identity",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 1.2937451601028442,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            },
+            {
+              "item_id": "lex_html_aria_labelledby::chunk_0",
+              "parent_doc_id": "lex_html_aria_labelledby",
+              "score": 0.2828426957130432,
+              "title": "HTML aria-labelledby",
+              "snippet": "The aria-labelledby attribute identifies elements that label the current element."
+            },
+            {
+              "item_id": "sem_background_072::chunk_0",
+              "parent_doc_id": "sem_background_072",
+              "score": 0.17597652971744537,
+              "title": "Background note 072: Desertification",
+              "snippet": "This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            }
+          ]
+        },
+        {
+          "query": "Which term names a collaborative web resource governed by users?",
+          "gold_answer": "Digital commons.",
+          "gold_evidence_id": "sem_digital_commons",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_digital_commons::chunk_0",
+              "parent_doc_id": "sem_digital_commons",
+              "score": 1.2878901958465576,
+              "title": "Digital commons",
+              "snippet": "Digital commons are shared online knowledge resources maintained through community norms, open collaboration, and collective governance."
+            },
+            {
+              "item_id": "lex_sklearn_tfidf::chunk_0",
+              "parent_doc_id": "lex_sklearn_tfidf",
+              "score": 0.05825517699122429,
+              "title": "sklearn.feature_extraction.text.TfidfVectorizer",
+              "snippet": "TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features."
+            },
+            {
+              "item_id": "lex_section_1983::chunk_0",
+              "parent_doc_id": "lex_section_1983",
+              "score": 0.05661386251449585,
+              "title": "42 U.S.C. \u00a71983",
+              "snippet": "42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law."
+            }
+          ]
+        },
+        {
+          "query": "Which loop is planetary moisture circulation?",
+          "gold_answer": "Water cycle.",
+          "gold_evidence_id": "sem_water_cycle",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_water_cycle::chunk_0",
+              "parent_doc_id": "sem_water_cycle",
+              "score": 1.2737603187561035,
+              "title": "Water cycle",
+              "snippet": "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+            },
+            {
+              "item_id": "lex_numpy_linalg_svd::chunk_0",
+              "parent_doc_id": "lex_numpy_linalg_svd",
+              "score": 0.3464101552963257,
+              "title": "numpy.linalg.svd",
+              "snippet": "numpy.linalg.svd performs singular value decomposition on an array."
+            },
+            {
+              "item_id": "lex_torch_nll_loss::chunk_0",
+              "parent_doc_id": "lex_torch_nll_loss",
+              "score": 0.045291077345609665,
+              "title": "torch.nn.NLLLoss",
+              "snippet": "torch.nn.NLLLoss computes the negative log likelihood loss and is commonly paired with LogSoftmax."
+            }
+          ]
+        },
+        {
+          "query": "Which method is reward driven agent training?",
+          "gold_answer": "Reinforcement learning.",
+          "gold_evidence_id": "sem_reinforcement_learning",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_reinforcement_learning::chunk_0",
+              "parent_doc_id": "sem_reinforcement_learning",
+              "score": 1.30329167842865,
+              "title": "Reinforcement learning",
+              "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+            },
+            {
+              "item_id": "rel_bird_vertebrate::chunk_0",
+              "parent_doc_id": "rel_bird_vertebrate",
+              "score": 0.04068941995501518,
+              "title": "Bird vertebrate relation",
+              "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+            },
+            {
+              "item_id": "rel_insect_animal::chunk_0",
+              "parent_doc_id": "rel_insect_animal",
+              "score": 0.04068941995501518,
+              "title": "Insect animal relation",
+              "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+            }
+          ]
+        },
+        {
+          "query": "Which approach is lexical neighborhood meaning?",
+          "gold_answer": "Distributional semantics.",
+          "gold_evidence_id": "sem_distributional_semantics",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_distributional_semantics::chunk_0",
+              "parent_doc_id": "sem_distributional_semantics",
+              "score": 1.3151596784591675,
+              "title": "Distributional semantics",
+              "snippet": "Distributional semantics represents word meaning through patterns of nearby context and usage across language data."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.6535786390304565,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.6523715257644653,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            }
+          ]
+        },
+        {
+          "query": "Which problem is alert churn scatters concentration?",
+          "gold_answer": "Attention fragmentation.",
+          "gold_evidence_id": "sem_attention_fragmentation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 1.2577152252197266,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "rel_bird_vertebrate::chunk_0",
+              "parent_doc_id": "rel_bird_vertebrate",
+              "score": 0.04068941995501518,
+              "title": "Bird vertebrate relation",
+              "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+            },
+            {
+              "item_id": "rel_insect_animal::chunk_0",
+              "parent_doc_id": "rel_insect_animal",
+              "score": 0.04068941995501518,
+              "title": "Insect animal relation",
+              "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+            }
+          ]
+        },
+        {
+          "query": "Which concept is a habitat job slot?",
+          "gold_answer": "Ecological niche.",
+          "gold_evidence_id": "sem_ecological_niche",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_ecological_niche::chunk_0",
+              "parent_doc_id": "sem_ecological_niche",
+              "score": 1.2871047258377075,
+              "title": "Ecological niche",
+              "snippet": "An ecological niche is the role a species occupies in an environment, including resources, interactions, and conditions for survival."
+            },
+            {
+              "item_id": "lex_torch_nll_loss::chunk_0",
+              "parent_doc_id": "lex_torch_nll_loss",
+              "score": 0.2896462678909302,
+              "title": "torch.nn.NLLLoss",
+              "snippet": "torch.nn.NLLLoss computes the negative log likelihood loss and is commonly paired with LogSoftmax."
+            },
+            {
+              "item_id": "rel_whale_vertebrate::chunk_0",
+              "parent_doc_id": "rel_whale_vertebrate",
+              "score": 0.05193702131509781,
+              "title": "Whale to vertebrate bridge",
+              "snippet": "A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate."
+            }
+          ]
+        },
+        {
+          "query": "Which view says standpoint shapes knowing?",
+          "gold_answer": "Situated knowledge.",
+          "gold_evidence_id": "sem_situated_knowledge",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 1.2571146488189697,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "sem_memory_consolidation::chunk_0",
+              "parent_doc_id": "sem_memory_consolidation",
+              "score": 0.08339503407478333,
+              "title": "Memory consolidation",
+              "snippet": "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep."
+            },
+            {
+              "item_id": "lex_hipaa_164_512::chunk_0",
+              "parent_doc_id": "lex_hipaa_164_512",
+              "score": 0.03333333134651184,
+              "title": "HIPAA 45 CFR 164.512",
+              "snippet": "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required."
+            }
+          ]
+        },
+        {
+          "query": "Which effect is minor starting nudge cascades?",
+          "gold_answer": "Butterfly effect.",
+          "gold_evidence_id": "sem_butterfly_effect",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 1.3174211978912354,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "rel_bird_vertebrate::chunk_0",
+              "parent_doc_id": "rel_bird_vertebrate",
+              "score": 0.061034128069877625,
+              "title": "Bird vertebrate relation",
+              "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+            },
+            {
+              "item_id": "rel_insect_animal::chunk_0",
+              "parent_doc_id": "rel_insect_animal",
+              "score": 0.061034128069877625,
+              "title": "Insect animal relation",
+              "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+            }
+          ]
+        }
+      ]
+    },
+    "sentence_transformers_faiss_pre_robustness": {
+      "total": 20,
+      "top1": 17,
+      "hit_at_3": 19,
+      "top1_accuracy": 0.85,
+      "hit_at_3_accuracy": 0.95,
+      "dense_backend_status": {
+        "active_backend": "sentence_transformers+faiss",
+        "embedding_backend": "sentence_transformers",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "index_backend": "faiss",
+        "faiss_active": true,
+        "chunk_count": 148,
+        "fallback_reason": "",
+        "semantic_rerank": false
+      },
+      "rows": [
+        {
+          "query": "Which idea is solastalgia homesick planet?",
+          "gold_answer": "Climate anxiety.",
+          "gold_evidence_id": "sem_climate_anxiety",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_climate_anxiety::chunk_0",
+              "parent_doc_id": "sem_climate_anxiety",
+              "score": 0.3286275267601013,
+              "title": "Climate anxiety",
+              "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+            },
+            {
+              "item_id": "sem_background_003::chunk_0",
+              "parent_doc_id": "sem_background_003",
+              "score": 0.2972635328769684,
+              "title": "Background note 003: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            },
+            {
+              "item_id": "sem_background_023::chunk_0",
+              "parent_doc_id": "sem_background_023",
+              "score": 0.2972635328769684,
+              "title": "Background note 023: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            }
+          ]
+        },
+        {
+          "query": "Which pattern is the charlatan feeling after success?",
+          "gold_answer": "Impostor syndrome.",
+          "gold_evidence_id": "sem_impostor_syndrome",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.32434403896331787,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 0.2634996175765991,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.241608127951622,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is daylight carbohydrate alchemy?",
+          "gold_answer": "Photosynthesis.",
+          "gold_evidence_id": "sem_photosynthesis",
+          "top1_hit": false,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_circadian_rhythm::chunk_0",
+              "parent_doc_id": "sem_circadian_rhythm",
+              "score": 0.26951560378074646,
+              "title": "Circadian rhythm",
+              "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+            },
+            {
+              "item_id": "sem_photosynthesis::chunk_0",
+              "parent_doc_id": "sem_photosynthesis",
+              "score": 0.24753275513648987,
+              "title": "Photosynthesis",
+              "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+            },
+            {
+              "item_id": "sem_background_043::chunk_0",
+              "parent_doc_id": "sem_background_043",
+              "score": 0.21655595302581787,
+              "title": "Background note 043: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            }
+          ]
+        },
+        {
+          "query": "What is novelty adoption cascade?",
+          "gold_answer": "Diffusion of innovations.",
+          "gold_evidence_id": "sem_diffusion_innovations",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_diffusion_innovations::chunk_0",
+              "parent_doc_id": "sem_diffusion_innovations",
+              "score": 0.38337263464927673,
+              "title": "Diffusion of innovations",
+              "snippet": "Diffusion of innovations explains how new ideas, practices, and technologies spread through communities and social systems."
+            },
+            {
+              "item_id": "sem_ecological_niche::chunk_0",
+              "parent_doc_id": "sem_ecological_niche",
+              "score": 0.27994999289512634,
+              "title": "Ecological niche",
+              "snippet": "An ecological niche is the role a species occupies in an environment, including resources, interactions, and conditions for survival."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.2562826871871948,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            }
+          ]
+        },
+        {
+          "query": "What is an asphalt warmth pocket?",
+          "gold_answer": "Urban heat island.",
+          "gold_evidence_id": "sem_urban_heat_island",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_urban_heat_island::chunk_0",
+              "parent_doc_id": "sem_urban_heat_island",
+              "score": 0.3408287763595581,
+              "title": "Urban heat island",
+              "snippet": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+            },
+            {
+              "item_id": "sem_background_033::chunk_0",
+              "parent_doc_id": "sem_background_033",
+              "score": 0.24052079021930695,
+              "title": "Background note 033: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            },
+            {
+              "item_id": "sem_background_073::chunk_0",
+              "parent_doc_id": "sem_background_073",
+              "score": 0.24052079021930695,
+              "title": "Background note 073: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            }
+          ]
+        },
+        {
+          "query": "Which idea is durable recall filing?",
+          "gold_answer": "Memory consolidation.",
+          "gold_evidence_id": "sem_memory_consolidation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_memory_consolidation::chunk_0",
+              "parent_doc_id": "sem_memory_consolidation",
+              "score": 0.31510108709335327,
+              "title": "Memory consolidation",
+              "snippet": "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep."
+            },
+            {
+              "item_id": "doc_exact::chunk_0",
+              "parent_doc_id": "doc_exact",
+              "score": 0.2606569528579712,
+              "title": "Identifier Guide",
+              "snippet": "Exact identifiers, codes, and section references are best handled by sparse lexical retrieval."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.2482347935438156,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            }
+          ]
+        },
+        {
+          "query": "Which response is a benign trigger false alarm?",
+          "gold_answer": "Allergy.",
+          "gold_evidence_id": "sem_allergy",
+          "top1_hit": false,
+          "hit_at_3": false,
+          "top_evidence": [
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.26443496346473694,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.2538191080093384,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "lex_hipaa_164_510::chunk_0",
+              "parent_doc_id": "lex_hipaa_164_510",
+              "score": 0.23135173320770264,
+              "title": "HIPAA 45 CFR 164.510",
+              "snippet": "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object."
+            }
+          ]
+        },
+        {
+          "query": "Which root fungus web links neighboring vegetation?",
+          "gold_answer": "Mycorrhizal network.",
+          "gold_evidence_id": "sem_mycorrhizal_network",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_mycorrhizal_network::chunk_0",
+              "parent_doc_id": "sem_mycorrhizal_network",
+              "score": 0.5222247838973999,
+              "title": "Mycorrhizal network",
+              "snippet": "A mycorrhizal network is a relationship between fungi and plant roots that can move nutrients and chemical signals through soil."
+            },
+            {
+              "item_id": "sem_background_054::chunk_0",
+              "parent_doc_id": "sem_background_054",
+              "score": 0.3183148503303528,
+              "title": "Background note 054: Biodiversity Corridors",
+              "snippet": "This concise background note discusses biodiversity corridors with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is "
+            },
+            {
+              "item_id": "sem_background_034::chunk_0",
+              "parent_doc_id": "sem_background_034",
+              "score": 0.3183148503303528,
+              "title": "Background note 034: Biodiversity Corridors",
+              "snippet": "This concise background note discusses biodiversity corridors with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is "
+            }
+          ]
+        },
+        {
+          "query": "Which issue is an automated unfairness pattern?",
+          "gold_answer": "Algorithmic bias.",
+          "gold_evidence_id": "sem_algorithmic_bias",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.5204654335975647,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.2979735732078552,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_collective_intelligence::chunk_0",
+              "parent_doc_id": "sem_collective_intelligence",
+              "score": 0.24564112722873688,
+              "title": "Collective intelligence",
+              "snippet": "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is an internal metronome?",
+          "gold_answer": "Circadian rhythm.",
+          "gold_evidence_id": "sem_circadian_rhythm",
+          "top1_hit": false,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.2305479496717453,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "sem_circadian_rhythm::chunk_0",
+              "parent_doc_id": "sem_circadian_rhythm",
+              "score": 0.22445149719715118,
+              "title": "Circadian rhythm",
+              "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.22205933928489685,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            }
+          ]
+        },
+        {
+          "query": "Which tool is a pollution price signal?",
+          "gold_answer": "Carbon pricing.",
+          "gold_evidence_id": "sem_carbon_pricing",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_carbon_pricing::chunk_0",
+              "parent_doc_id": "sem_carbon_pricing",
+              "score": 0.40766119956970215,
+              "title": "Carbon pricing",
+              "snippet": "Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.2113906443119049,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            },
+            {
+              "item_id": "sem_reinforcement_learning::chunk_0",
+              "parent_doc_id": "sem_reinforcement_learning",
+              "score": 0.20438368618488312,
+              "title": "Reinforcement learning",
+              "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+            }
+          ]
+        },
+        {
+          "query": "Which theory frames selfhood through autobiography?",
+          "gold_answer": "Narrative identity.",
+          "gold_evidence_id": "sem_narrative_identity",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 0.5785088539123535,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.39736253023147583,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.28743645548820496,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            }
+          ]
+        },
+        {
+          "query": "Which term names a collaborative web resource governed by users?",
+          "gold_answer": "Digital commons.",
+          "gold_evidence_id": "sem_digital_commons",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_digital_commons::chunk_0",
+              "parent_doc_id": "sem_digital_commons",
+              "score": 0.43919432163238525,
+              "title": "Digital commons",
+              "snippet": "Digital commons are shared online knowledge resources maintained through community norms, open collaboration, and collective governance."
+            },
+            {
+              "item_id": "sem_background_019::chunk_0",
+              "parent_doc_id": "sem_background_019",
+              "score": 0.3333383798599243,
+              "title": "Background note 019: Human-Computer Interaction",
+              "snippet": "This concise background note discusses human-computer interaction with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It"
+            },
+            {
+              "item_id": "sem_background_039::chunk_0",
+              "parent_doc_id": "sem_background_039",
+              "score": 0.3333383798599243,
+              "title": "Background note 039: Human-Computer Interaction",
+              "snippet": "This concise background note discusses human-computer interaction with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It"
+            }
+          ]
+        },
+        {
+          "query": "Which loop is planetary moisture circulation?",
+          "gold_answer": "Water cycle.",
+          "gold_evidence_id": "sem_water_cycle",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_water_cycle::chunk_0",
+              "parent_doc_id": "sem_water_cycle",
+              "score": 0.47319358587265015,
+              "title": "Water cycle",
+              "snippet": "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+            },
+            {
+              "item_id": "sem_climate_anxiety::chunk_0",
+              "parent_doc_id": "sem_climate_anxiety",
+              "score": 0.249019056558609,
+              "title": "Climate anxiety",
+              "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+            },
+            {
+              "item_id": "sem_urban_heat_island::chunk_0",
+              "parent_doc_id": "sem_urban_heat_island",
+              "score": 0.19594994187355042,
+              "title": "Urban heat island",
+              "snippet": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+            }
+          ]
+        },
+        {
+          "query": "Which method is reward driven agent training?",
+          "gold_answer": "Reinforcement learning.",
+          "gold_evidence_id": "sem_reinforcement_learning",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_reinforcement_learning::chunk_0",
+              "parent_doc_id": "sem_reinforcement_learning",
+              "score": 0.6825156211853027,
+              "title": "Reinforcement learning",
+              "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+            },
+            {
+              "item_id": "sem_collective_intelligence::chunk_0",
+              "parent_doc_id": "sem_collective_intelligence",
+              "score": 0.2586023509502411,
+              "title": "Collective intelligence",
+              "snippet": "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems."
+            },
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.24949102103710175,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            }
+          ]
+        },
+        {
+          "query": "Which approach is lexical neighborhood meaning?",
+          "gold_answer": "Distributional semantics.",
+          "gold_evidence_id": "sem_distributional_semantics",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_distributional_semantics::chunk_0",
+              "parent_doc_id": "sem_distributional_semantics",
+              "score": 0.5052933692932129,
+              "title": "Distributional semantics",
+              "snippet": "Distributional semantics represents word meaning through patterns of nearby context and usage across language data."
+            },
+            {
+              "item_id": "sem_background_045::chunk_0",
+              "parent_doc_id": "sem_background_045",
+              "score": 0.37190356850624084,
+              "title": "Background note 045: River Deltas",
+              "snippet": "This concise background note discusses river deltas with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included t"
+            },
+            {
+              "item_id": "sem_background_065::chunk_0",
+              "parent_doc_id": "sem_background_065",
+              "score": 0.37190356850624084,
+              "title": "Background note 065: River Deltas",
+              "snippet": "This concise background note discusses river deltas with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included t"
+            }
+          ]
+        },
+        {
+          "query": "Which problem is alert churn scatters concentration?",
+          "gold_answer": "Attention fragmentation.",
+          "gold_evidence_id": "sem_attention_fragmentation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.3898235261440277,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.30083006620407104,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.25727149844169617,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            }
+          ]
+        },
+        {
+          "query": "Which concept is a habitat job slot?",
+          "gold_answer": "Ecological niche.",
+          "gold_evidence_id": "sem_ecological_niche",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_ecological_niche::chunk_0",
+              "parent_doc_id": "sem_ecological_niche",
+              "score": 0.5091080665588379,
+              "title": "Ecological niche",
+              "snippet": "An ecological niche is the role a species occupies in an environment, including resources, interactions, and conditions for survival."
+            },
+            {
+              "item_id": "rel_duck_swim::chunk_0",
+              "parent_doc_id": "rel_duck_swim",
+              "score": 0.3031634986400604,
+              "title": "Duck swim relation",
+              "snippet": "The duck to swim relation is capability based: duck is capable of swim."
+            },
+            {
+              "item_id": "rel_sparrow_wings::chunk_0",
+              "parent_doc_id": "rel_sparrow_wings",
+              "score": 0.2860942482948303,
+              "title": "Sparrow wings relation",
+              "snippet": "The sparrow to wings relation is property based: sparrow has property wings."
+            }
+          ]
+        },
+        {
+          "query": "Which view says standpoint shapes knowing?",
+          "gold_answer": "Situated knowledge.",
+          "gold_evidence_id": "sem_situated_knowledge",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.3343939483165741,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "doc_prism::chunk_0",
+              "parent_doc_id": "doc_prism",
+              "score": 0.2605511546134949,
+              "title": "PRISM Overview",
+              "snippet": "PRISM is a multi-representation retrieval router that compares BM25, dense, KG, and hybrid backends."
+            },
+            {
+              "item_id": "sem_background_038::chunk_0",
+              "parent_doc_id": "sem_background_038",
+              "score": 0.2187637984752655,
+              "title": "Background note 038: Data Visualization",
+              "snippet": "This concise background note discusses data visualization with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is incl"
+            }
+          ]
+        },
+        {
+          "query": "Which effect is minor starting nudge cascades?",
+          "gold_answer": "Butterfly effect.",
+          "gold_evidence_id": "sem_butterfly_effect",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.4424208700656891,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.28414028882980347,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "lex_torch_nll_loss::chunk_0",
+              "parent_doc_id": "lex_torch_nll_loss",
+              "score": 0.1900900900363922,
+              "title": "torch.nn.NLLLoss",
+              "snippet": "torch.nn.NLLLoss computes the negative log likelihood loss and is commonly paired with LogSoftmax."
+            }
+          ]
+        }
+      ]
+    },
+    "sentence_transformers_faiss_robust": {
+      "total": 20,
+      "top1": 20,
+      "hit_at_3": 20,
+      "top1_accuracy": 1.0,
+      "hit_at_3_accuracy": 1.0,
+      "dense_backend_status": {
+        "active_backend": "sentence_transformers+faiss",
+        "embedding_backend": "sentence_transformers",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "index_backend": "faiss",
+        "faiss_active": true,
+        "chunk_count": 148,
+        "fallback_reason": "",
+        "semantic_rerank": true
+      },
+      "rows": [
+        {
+          "query": "Which idea is solastalgia homesick planet?",
+          "gold_answer": "Climate anxiety.",
+          "gold_evidence_id": "sem_climate_anxiety",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_climate_anxiety::chunk_0",
+              "parent_doc_id": "sem_climate_anxiety",
+              "score": 0.6786274909973145,
+              "title": "Climate anxiety",
+              "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+            },
+            {
+              "item_id": "sem_background_003::chunk_0",
+              "parent_doc_id": "sem_background_003",
+              "score": 0.2972635328769684,
+              "title": "Background note 003: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            },
+            {
+              "item_id": "sem_background_023::chunk_0",
+              "parent_doc_id": "sem_background_023",
+              "score": 0.2972635328769684,
+              "title": "Background note 023: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            }
+          ]
+        },
+        {
+          "query": "Which pattern is the charlatan feeling after success?",
+          "gold_answer": "Impostor syndrome.",
+          "gold_evidence_id": "sem_impostor_syndrome",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.6743440628051758,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 0.2634996175765991,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.241608127951622,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is daylight carbohydrate alchemy?",
+          "gold_answer": "Photosynthesis.",
+          "gold_evidence_id": "sem_photosynthesis",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_photosynthesis::chunk_0",
+              "parent_doc_id": "sem_photosynthesis",
+              "score": 0.5975327491760254,
+              "title": "Photosynthesis",
+              "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+            },
+            {
+              "item_id": "sem_circadian_rhythm::chunk_0",
+              "parent_doc_id": "sem_circadian_rhythm",
+              "score": 0.26951560378074646,
+              "title": "Circadian rhythm",
+              "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+            },
+            {
+              "item_id": "sem_background_043::chunk_0",
+              "parent_doc_id": "sem_background_043",
+              "score": 0.21655595302581787,
+              "title": "Background note 043: Solar Eclipses",
+              "snippet": "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included"
+            }
+          ]
+        },
+        {
+          "query": "What is novelty adoption cascade?",
+          "gold_answer": "Diffusion of innovations.",
+          "gold_evidence_id": "sem_diffusion_innovations",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_diffusion_innovations::chunk_0",
+              "parent_doc_id": "sem_diffusion_innovations",
+              "score": 0.7333726286888123,
+              "title": "Diffusion of innovations",
+              "snippet": "Diffusion of innovations explains how new ideas, practices, and technologies spread through communities and social systems."
+            },
+            {
+              "item_id": "sem_ecological_niche::chunk_0",
+              "parent_doc_id": "sem_ecological_niche",
+              "score": 0.27994999289512634,
+              "title": "Ecological niche",
+              "snippet": "An ecological niche is the role a species occupies in an environment, including resources, interactions, and conditions for survival."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.2562826871871948,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            }
+          ]
+        },
+        {
+          "query": "What is an asphalt warmth pocket?",
+          "gold_answer": "Urban heat island.",
+          "gold_evidence_id": "sem_urban_heat_island",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_urban_heat_island::chunk_0",
+              "parent_doc_id": "sem_urban_heat_island",
+              "score": 0.690828800201416,
+              "title": "Urban heat island",
+              "snippet": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+            },
+            {
+              "item_id": "sem_background_033::chunk_0",
+              "parent_doc_id": "sem_background_033",
+              "score": 0.24052079021930695,
+              "title": "Background note 033: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            },
+            {
+              "item_id": "sem_background_073::chunk_0",
+              "parent_doc_id": "sem_background_073",
+              "score": 0.24052079021930695,
+              "title": "Background note 073: Glacier Retreat",
+              "snippet": "This concise background note discusses glacier retreat with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is include"
+            }
+          ]
+        },
+        {
+          "query": "Which idea is durable recall filing?",
+          "gold_answer": "Memory consolidation.",
+          "gold_evidence_id": "sem_memory_consolidation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_memory_consolidation::chunk_0",
+              "parent_doc_id": "sem_memory_consolidation",
+              "score": 0.6651010513305664,
+              "title": "Memory consolidation",
+              "snippet": "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep."
+            },
+            {
+              "item_id": "doc_exact::chunk_0",
+              "parent_doc_id": "doc_exact",
+              "score": 0.2606569528579712,
+              "title": "Identifier Guide",
+              "snippet": "Exact identifiers, codes, and section references are best handled by sparse lexical retrieval."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.2482347935438156,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            }
+          ]
+        },
+        {
+          "query": "Which response is a benign trigger false alarm?",
+          "gold_answer": "Allergy.",
+          "gold_evidence_id": "sem_allergy",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_allergy::chunk_0",
+              "parent_doc_id": "sem_allergy",
+              "score": 0.5766639113426208,
+              "title": "Allergy",
+              "snippet": "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.26443496346473694,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.2538191080093384,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            }
+          ]
+        },
+        {
+          "query": "Which root fungus web links neighboring vegetation?",
+          "gold_answer": "Mycorrhizal network.",
+          "gold_evidence_id": "sem_mycorrhizal_network",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_mycorrhizal_network::chunk_0",
+              "parent_doc_id": "sem_mycorrhizal_network",
+              "score": 0.8722248077392578,
+              "title": "Mycorrhizal network",
+              "snippet": "A mycorrhizal network is a relationship between fungi and plant roots that can move nutrients and chemical signals through soil."
+            },
+            {
+              "item_id": "sem_background_054::chunk_0",
+              "parent_doc_id": "sem_background_054",
+              "score": 0.3183148503303528,
+              "title": "Background note 054: Biodiversity Corridors",
+              "snippet": "This concise background note discusses biodiversity corridors with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is "
+            },
+            {
+              "item_id": "sem_background_034::chunk_0",
+              "parent_doc_id": "sem_background_034",
+              "score": 0.3183148503303528,
+              "title": "Background note 034: Biodiversity Corridors",
+              "snippet": "This concise background note discusses biodiversity corridors with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is "
+            }
+          ]
+        },
+        {
+          "query": "Which issue is an automated unfairness pattern?",
+          "gold_answer": "Algorithmic bias.",
+          "gold_evidence_id": "sem_algorithmic_bias",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.8704653978347778,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.2979735732078552,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_collective_intelligence::chunk_0",
+              "parent_doc_id": "sem_collective_intelligence",
+              "score": 0.24564112722873688,
+              "title": "Collective intelligence",
+              "snippet": "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems."
+            }
+          ]
+        },
+        {
+          "query": "Which idea is an internal metronome?",
+          "gold_answer": "Circadian rhythm.",
+          "gold_evidence_id": "sem_circadian_rhythm",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_circadian_rhythm::chunk_0",
+              "parent_doc_id": "sem_circadian_rhythm",
+              "score": 0.5744515061378479,
+              "title": "Circadian rhythm",
+              "snippet": "A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism."
+            },
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.2305479496717453,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.22205933928489685,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            }
+          ]
+        },
+        {
+          "query": "Which tool is a pollution price signal?",
+          "gold_answer": "Carbon pricing.",
+          "gold_evidence_id": "sem_carbon_pricing",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_carbon_pricing::chunk_0",
+              "parent_doc_id": "sem_carbon_pricing",
+              "score": 0.7576612234115601,
+              "title": "Carbon pricing",
+              "snippet": "Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices."
+            },
+            {
+              "item_id": "sem_circular_economy::chunk_0",
+              "parent_doc_id": "sem_circular_economy",
+              "score": 0.2113906443119049,
+              "title": "Circular economy",
+              "snippet": "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling."
+            },
+            {
+              "item_id": "sem_reinforcement_learning::chunk_0",
+              "parent_doc_id": "sem_reinforcement_learning",
+              "score": 0.20438368618488312,
+              "title": "Reinforcement learning",
+              "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+            }
+          ]
+        },
+        {
+          "query": "Which theory frames selfhood through autobiography?",
+          "gold_answer": "Narrative identity.",
+          "gold_evidence_id": "sem_narrative_identity",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_narrative_identity::chunk_0",
+              "parent_doc_id": "sem_narrative_identity",
+              "score": 0.9285088777542114,
+              "title": "Narrative identity",
+              "snippet": "Narrative identity is the way people form a sense of self by organizing memories and events into a life story."
+            },
+            {
+              "item_id": "sem_impostor_syndrome::chunk_0",
+              "parent_doc_id": "sem_impostor_syndrome",
+              "score": 0.39736253023147583,
+              "title": "Impostor syndrome",
+              "snippet": "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence."
+            },
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.28743645548820496,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            }
+          ]
+        },
+        {
+          "query": "Which term names a collaborative web resource governed by users?",
+          "gold_answer": "Digital commons.",
+          "gold_evidence_id": "sem_digital_commons",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_digital_commons::chunk_0",
+              "parent_doc_id": "sem_digital_commons",
+              "score": 0.7891943454742432,
+              "title": "Digital commons",
+              "snippet": "Digital commons are shared online knowledge resources maintained through community norms, open collaboration, and collective governance."
+            },
+            {
+              "item_id": "sem_background_019::chunk_0",
+              "parent_doc_id": "sem_background_019",
+              "score": 0.3333383798599243,
+              "title": "Background note 019: Human-Computer Interaction",
+              "snippet": "This concise background note discusses human-computer interaction with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It"
+            },
+            {
+              "item_id": "sem_background_039::chunk_0",
+              "parent_doc_id": "sem_background_039",
+              "score": 0.3333383798599243,
+              "title": "Background note 039: Human-Computer Interaction",
+              "snippet": "This concise background note discusses human-computer interaction with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It"
+            }
+          ]
+        },
+        {
+          "query": "Which loop is planetary moisture circulation?",
+          "gold_answer": "Water cycle.",
+          "gold_evidence_id": "sem_water_cycle",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_water_cycle::chunk_0",
+              "parent_doc_id": "sem_water_cycle",
+              "score": 0.8231935501098633,
+              "title": "Water cycle",
+              "snippet": "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+            },
+            {
+              "item_id": "sem_climate_anxiety::chunk_0",
+              "parent_doc_id": "sem_climate_anxiety",
+              "score": 0.249019056558609,
+              "title": "Climate anxiety",
+              "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+            },
+            {
+              "item_id": "sem_urban_heat_island::chunk_0",
+              "parent_doc_id": "sem_urban_heat_island",
+              "score": 0.19594994187355042,
+              "title": "Urban heat island",
+              "snippet": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+            }
+          ]
+        },
+        {
+          "query": "Which method is reward driven agent training?",
+          "gold_answer": "Reinforcement learning.",
+          "gold_evidence_id": "sem_reinforcement_learning",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_reinforcement_learning::chunk_0",
+              "parent_doc_id": "sem_reinforcement_learning",
+              "score": 1.0325156450271606,
+              "title": "Reinforcement learning",
+              "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+            },
+            {
+              "item_id": "sem_collective_intelligence::chunk_0",
+              "parent_doc_id": "sem_collective_intelligence",
+              "score": 0.2586023509502411,
+              "title": "Collective intelligence",
+              "snippet": "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems."
+            },
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.24949102103710175,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            }
+          ]
+        },
+        {
+          "query": "Which approach is lexical neighborhood meaning?",
+          "gold_answer": "Distributional semantics.",
+          "gold_evidence_id": "sem_distributional_semantics",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_distributional_semantics::chunk_0",
+              "parent_doc_id": "sem_distributional_semantics",
+              "score": 0.8552933931350708,
+              "title": "Distributional semantics",
+              "snippet": "Distributional semantics represents word meaning through patterns of nearby context and usage across language data."
+            },
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.6365062594413757,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.4573512077331543,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            }
+          ]
+        },
+        {
+          "query": "Which problem is alert churn scatters concentration?",
+          "gold_answer": "Attention fragmentation.",
+          "gold_evidence_id": "sem_attention_fragmentation",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.7398235201835632,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.30083006620407104,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "sem_algorithmic_bias::chunk_0",
+              "parent_doc_id": "sem_algorithmic_bias",
+              "score": 0.25727149844169617,
+              "title": "Algorithmic bias",
+              "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+            }
+          ]
+        },
+        {
+          "query": "Which concept is a habitat job slot?",
+          "gold_answer": "Ecological niche.",
+          "gold_evidence_id": "sem_ecological_niche",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_ecological_niche::chunk_0",
+              "parent_doc_id": "sem_ecological_niche",
+              "score": 0.8591080904006958,
+              "title": "Ecological niche",
+              "snippet": "An ecological niche is the role a species occupies in an environment, including resources, interactions, and conditions for survival."
+            },
+            {
+              "item_id": "rel_duck_swim::chunk_0",
+              "parent_doc_id": "rel_duck_swim",
+              "score": 0.3031634986400604,
+              "title": "Duck swim relation",
+              "snippet": "The duck to swim relation is capability based: duck is capable of swim."
+            },
+            {
+              "item_id": "rel_sparrow_wings::chunk_0",
+              "parent_doc_id": "rel_sparrow_wings",
+              "score": 0.2860942482948303,
+              "title": "Sparrow wings relation",
+              "snippet": "The sparrow to wings relation is property based: sparrow has property wings."
+            }
+          ]
+        },
+        {
+          "query": "Which view says standpoint shapes knowing?",
+          "gold_answer": "Situated knowledge.",
+          "gold_evidence_id": "sem_situated_knowledge",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_situated_knowledge::chunk_0",
+              "parent_doc_id": "sem_situated_knowledge",
+              "score": 0.6843939423561096,
+              "title": "Situated knowledge",
+              "snippet": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know."
+            },
+            {
+              "item_id": "doc_prism::chunk_0",
+              "parent_doc_id": "doc_prism",
+              "score": 0.2605511546134949,
+              "title": "PRISM Overview",
+              "snippet": "PRISM is a multi-representation retrieval router that compares BM25, dense, KG, and hybrid backends."
+            },
+            {
+              "item_id": "sem_background_038::chunk_0",
+              "parent_doc_id": "sem_background_038",
+              "score": 0.2187637984752655,
+              "title": "Background note 038: Data Visualization",
+              "snippet": "This concise background note discusses data visualization with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is incl"
+            }
+          ]
+        },
+        {
+          "query": "Which effect is minor starting nudge cascades?",
+          "gold_answer": "Butterfly effect.",
+          "gold_evidence_id": "sem_butterfly_effect",
+          "top1_hit": true,
+          "hit_at_3": true,
+          "top_evidence": [
+            {
+              "item_id": "sem_butterfly_effect::chunk_0",
+              "parent_doc_id": "sem_butterfly_effect",
+              "score": 0.7924208641052246,
+              "title": "Butterfly effect",
+              "snippet": "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences."
+            },
+            {
+              "item_id": "sem_attention_fragmentation::chunk_0",
+              "parent_doc_id": "sem_attention_fragmentation",
+              "score": 0.28414028882980347,
+              "title": "Attention fragmentation",
+              "snippet": "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort."
+            },
+            {
+              "item_id": "lex_torch_nll_loss::chunk_0",
+              "parent_doc_id": "lex_torch_nll_loss",
+              "score": 0.1900900900363922,
+              "title": "torch.nn.NLLLoss",
+              "snippet": "torch.nn.NLLLoss computes the negative log likelihood loss and is commonly paired with LogSoftmax."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "end_to_end_summary": {
+    "numpy_fallback": {
+      "total": 80,
+      "route_accuracy": 1.0,
+      "evidence_hit_at_k": 1.0,
+      "answer_accuracy": 1.0,
+      "answer_matches": 80,
+      "evidence_hits": 80,
+      "per_slice": {
+        "deductive": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "lexical": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "relational": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "semantic": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        }
+      }
+    },
+    "sentence_transformers_faiss_pre_robustness": {
+      "total": 80,
+      "route_accuracy": 1.0,
+      "evidence_hit_at_k": 0.9875,
+      "answer_accuracy": 0.9625,
+      "answer_matches": 77,
+      "evidence_hits": 79,
+      "per_slice": {
+        "deductive": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "lexical": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "relational": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "semantic": {
+          "answer_matches": 17,
+          "evidence_hits": 19,
+          "total": 20
+        }
+      }
+    },
+    "sentence_transformers_faiss_robust": {
+      "total": 80,
+      "route_accuracy": 1.0,
+      "evidence_hit_at_k": 1.0,
+      "answer_accuracy": 1.0,
+      "answer_matches": 80,
+      "evidence_hits": 80,
+      "per_slice": {
+        "deductive": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "lexical": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "relational": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        },
+        "semantic": {
+          "answer_matches": 20,
+          "evidence_hits": 20,
+          "total": 20
+        }
+      }
+    }
+  },
+  "external_summary": {
+    "numpy_fallback": {
+      "total": 32,
+      "answer_matches": 31,
+      "answer_accuracy": 0.96875,
+      "per_family": {
+        "bm25": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "dense": {
+          "answer_matches": 7,
+          "total": 8,
+          "answer_accuracy": 0.875
+        },
+        "hybrid": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "kg": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        }
+      }
+    },
+    "sentence_transformers_faiss_pre_robustness": {
+      "total": 32,
+      "answer_matches": 32,
+      "answer_accuracy": 1.0,
+      "per_family": {
+        "bm25": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "dense": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "hybrid": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "kg": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        }
+      }
+    },
+    "sentence_transformers_faiss_robust": {
+      "total": 32,
+      "answer_matches": 32,
+      "answer_accuracy": 1.0,
+      "per_family": {
+        "bm25": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "dense": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "hybrid": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        },
+        "kg": {
+          "answer_matches": 8,
+          "total": 8,
+          "answer_accuracy": 1.0
+        }
+      }
+    }
+  },
+  "photosynthesis_external_fixed": {
+    "query": "What concept turns daylight into carbohydrates?",
+    "fallback_answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+    "fallback_answer_match": false,
+    "current_answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+    "current_fixed": true,
+    "current_top_evidence_ids": [
+      "sem_photosynthesis::chunk_0",
+      "sem_circadian_rhythm::chunk_0",
+      "sem_water_cycle::chunk_0"
+    ]
+  }
+}

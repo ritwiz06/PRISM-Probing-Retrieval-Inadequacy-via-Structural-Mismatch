@@ -1,0 +1,378 @@
+{
+  "total": 20,
+  "top_k": 3,
+  "dense_top1": 20,
+  "dense_hit_at_k": 20,
+  "bm25_hit_at_k": 5,
+  "dense_beats_bm25": 15,
+  "required_dense_hit_at_k": 14,
+  "required_dense_beats_bm25": 12,
+  "passed": true,
+  "dense_embedding_backend": "sentence_transformers",
+  "dense_index_backend": "faiss",
+  "dense_active_backend": "sentence_transformers+faiss",
+  "dense_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "dense_fallback_reason": "",
+  "results": [
+    {
+      "query": "Which idea is solastalgia homesick planet?",
+      "gold_evidence_doc_id": "sem_climate_anxiety",
+      "dense_top_ids": [
+        "sem_climate_anxiety",
+        "sem_background_003",
+        "sem_background_023"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which pattern is the charlatan feeling after success?",
+      "gold_evidence_doc_id": "sem_impostor_syndrome",
+      "dense_top_ids": [
+        "sem_impostor_syndrome",
+        "sem_narrative_identity",
+        "sem_attention_fragmentation"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which idea is daylight carbohydrate alchemy?",
+      "gold_evidence_doc_id": "sem_photosynthesis",
+      "dense_top_ids": [
+        "sem_photosynthesis",
+        "sem_circadian_rhythm",
+        "sem_background_043"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "What is novelty adoption cascade?",
+      "gold_evidence_doc_id": "sem_diffusion_innovations",
+      "dense_top_ids": [
+        "sem_diffusion_innovations",
+        "sem_ecological_niche",
+        "sem_impostor_syndrome"
+      ],
+      "bm25_top_ids": [
+        "sem_situated_knowledge",
+        "rel_mammal_vertebrate",
+        "rel_insect_animal"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "What is an asphalt warmth pocket?",
+      "gold_evidence_doc_id": "sem_urban_heat_island",
+      "dense_top_ids": [
+        "sem_urban_heat_island",
+        "sem_background_033",
+        "sem_background_073"
+      ],
+      "bm25_top_ids": [
+        "rel_mosquito_animal",
+        "sem_situated_knowledge",
+        "lex_html_aria_label"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which idea is durable recall filing?",
+      "gold_evidence_doc_id": "sem_memory_consolidation",
+      "dense_top_ids": [
+        "sem_memory_consolidation",
+        "doc_exact",
+        "sem_circular_economy"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": true,
+      "dense_beats_bm25": false
+    },
+    {
+      "query": "Which response is a benign trigger false alarm?",
+      "gold_evidence_doc_id": "sem_allergy",
+      "dense_top_ids": [
+        "sem_allergy",
+        "sem_impostor_syndrome",
+        "sem_butterfly_effect"
+      ],
+      "bm25_top_ids": [
+        "sem_allergy",
+        "sem_memory_consolidation",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": true,
+      "dense_beats_bm25": false
+    },
+    {
+      "query": "Which root fungus web links neighboring vegetation?",
+      "gold_evidence_doc_id": "sem_mycorrhizal_network",
+      "dense_top_ids": [
+        "sem_mycorrhizal_network",
+        "sem_background_054",
+        "sem_background_034"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which issue is an automated unfairness pattern?",
+      "gold_evidence_doc_id": "sem_algorithmic_bias",
+      "dense_top_ids": [
+        "sem_algorithmic_bias",
+        "sem_impostor_syndrome",
+        "sem_collective_intelligence"
+      ],
+      "bm25_top_ids": [
+        "sem_allergy",
+        "lex_hipaa_164_512",
+        "rel_mosquito_animal"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which idea is an internal metronome?",
+      "gold_evidence_doc_id": "sem_circadian_rhythm",
+      "dense_top_ids": [
+        "sem_circadian_rhythm",
+        "sem_situated_knowledge",
+        "sem_circular_economy"
+      ],
+      "bm25_top_ids": [
+        "sem_circadian_rhythm",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": true,
+      "dense_beats_bm25": false
+    },
+    {
+      "query": "Which tool is a pollution price signal?",
+      "gold_evidence_doc_id": "sem_carbon_pricing",
+      "dense_top_ids": [
+        "sem_carbon_pricing",
+        "sem_circular_economy",
+        "sem_reinforcement_learning"
+      ],
+      "bm25_top_ids": [
+        "sem_allergy",
+        "sem_memory_consolidation",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which theory frames selfhood through autobiography?",
+      "gold_evidence_doc_id": "sem_narrative_identity",
+      "dense_top_ids": [
+        "sem_narrative_identity",
+        "sem_impostor_syndrome",
+        "sem_situated_knowledge"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which term names a collaborative web resource governed by users?",
+      "gold_evidence_doc_id": "sem_digital_commons",
+      "dense_top_ids": [
+        "sem_digital_commons",
+        "sem_background_019",
+        "sem_background_039"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_butterfly_effect",
+        "lex_numpy_linalg_norm"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which loop is planetary moisture circulation?",
+      "gold_evidence_doc_id": "sem_water_cycle",
+      "dense_top_ids": [
+        "sem_water_cycle",
+        "sem_climate_anxiety",
+        "sem_urban_heat_island"
+      ],
+      "bm25_top_ids": [
+        "sem_climate_anxiety",
+        "sem_memory_consolidation",
+        "sem_allergy"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which method is reward driven agent training?",
+      "gold_evidence_doc_id": "sem_reinforcement_learning",
+      "dense_top_ids": [
+        "sem_reinforcement_learning",
+        "sem_collective_intelligence",
+        "sem_algorithmic_bias"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which approach is lexical neighborhood meaning?",
+      "gold_evidence_doc_id": "sem_distributional_semantics",
+      "dense_top_ids": [
+        "sem_distributional_semantics",
+        "sem_situated_knowledge",
+        "sem_attention_fragmentation"
+      ],
+      "bm25_top_ids": [
+        "sem_distributional_semantics",
+        "sem_memory_consolidation",
+        "sem_allergy"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": true,
+      "dense_beats_bm25": false
+    },
+    {
+      "query": "Which problem is alert churn scatters concentration?",
+      "gold_evidence_doc_id": "sem_attention_fragmentation",
+      "dense_top_ids": [
+        "sem_attention_fragmentation",
+        "sem_butterfly_effect",
+        "sem_algorithmic_bias"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which concept is a habitat job slot?",
+      "gold_evidence_doc_id": "sem_ecological_niche",
+      "dense_top_ids": [
+        "sem_ecological_niche",
+        "rel_duck_swim",
+        "rel_sparrow_wings"
+      ],
+      "bm25_top_ids": [
+        "sem_allergy",
+        "sem_memory_consolidation",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which view says standpoint shapes knowing?",
+      "gold_evidence_doc_id": "sem_situated_knowledge",
+      "dense_top_ids": [
+        "sem_situated_knowledge",
+        "doc_prism",
+        "sem_background_038"
+      ],
+      "bm25_top_ids": [
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_512"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": false,
+      "dense_beats_bm25": true
+    },
+    {
+      "query": "Which effect is minor starting nudge cascades?",
+      "gold_evidence_doc_id": "sem_butterfly_effect",
+      "dense_top_ids": [
+        "sem_butterfly_effect",
+        "sem_attention_fragmentation",
+        "lex_torch_nll_loss"
+      ],
+      "bm25_top_ids": [
+        "sem_butterfly_effect",
+        "sem_memory_consolidation",
+        "sem_allergy"
+      ],
+      "dense_top1": true,
+      "dense_hit_at_k": true,
+      "bm25_hit_at_k": true,
+      "dense_beats_bm25": false
+    }
+  ]
+}

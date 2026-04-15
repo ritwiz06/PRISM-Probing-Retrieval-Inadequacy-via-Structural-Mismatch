@@ -1,0 +1,22 @@
+project_name: PRISM
+log_level: INFO
+data_dir: data
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  indices_dir: data/indices
+  eval_dir: data/eval
+retrieval:
+  default_top_k: 3
+  dense_weight: 0.5
+  sparse_weight: 0.3
+  kg_weight: 0.2
+  dense_model_name: sentence-transformers/all-MiniLM-L6-v2
+  dense_chunk_size: 80
+  dense_chunk_overlap: 20
+  dense_backend: sentence-transformers
+evaluation:
+  smoke_queries:
+    - What is PRISM?
+    - Which backend handles exact identifiers?
+    - Can mammals fly?

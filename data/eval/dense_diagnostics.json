@@ -1,0 +1,74 @@
+{
+  "dense_backend_status": {
+    "active_backend": "sentence_transformers+faiss",
+    "embedding_backend": "sentence_transformers",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "index_backend": "faiss",
+    "faiss_active": true,
+    "chunk_count": 148,
+    "fallback_reason": "",
+    "semantic_rerank": true
+  },
+  "sample_queries": [
+    {
+      "query": "What concept turns daylight into carbohydrates?",
+      "top_hits": [
+        {
+          "item_id": "sem_photosynthesis::chunk_0",
+          "parent_doc_id": "sem_photosynthesis",
+          "title": "Photosynthesis",
+          "score": 0.46774813532829285,
+          "active_dense_backend": "sentence_transformers+faiss",
+          "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+        }
+      ]
+    },
+    {
+      "query": "What feels like climate anxiety?",
+      "top_hits": [
+        {
+          "item_id": "sem_climate_anxiety::chunk_0",
+          "parent_doc_id": "sem_climate_anxiety",
+          "title": "Climate anxiety",
+          "score": 1.053665041923523,
+          "active_dense_backend": "sentence_transformers+faiss",
+          "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
+        }
+      ]
+    },
+    {
+      "query": "Which term means automated unfairness pattern?",
+      "top_hits": [
+        {
+          "item_id": "sem_algorithmic_bias::chunk_0",
+          "parent_doc_id": "sem_algorithmic_bias",
+          "title": "Algorithmic bias",
+          "score": 0.8425406217575073,
+          "active_dense_backend": "sentence_transformers+faiss",
+          "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
+        }
+      ]
+    },
+    {
+      "query": "Which term names reward driven agent training?",
+      "top_hits": [
+        {
+          "item_id": "sem_reinforcement_learning::chunk_0",
+          "parent_doc_id": "sem_reinforcement_learning",
+          "title": "Reinforcement learning",
+          "score": 0.9878422021865845,
+          "active_dense_backend": "sentence_transformers+faiss",
+          "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+        }
+      ]
+    }
+  ],
+  "external_semantic_result": {
+    "total": 8,
+    "route_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "route_correct": 8,
+    "answer_correct": 8
+  },
+  "external_semantic_query_count": 8
+}

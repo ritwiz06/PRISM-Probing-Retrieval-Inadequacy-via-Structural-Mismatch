@@ -1,0 +1,8 @@
+system,route_accuracy,evidence_hit_at_k,answer_accuracy,route_correct,evidence_hits,answer_matches,total
+computed_ras,1.0,1.0,1.0,80,80,80,80
+always_bm25,0.25,0.3125,0.5125,20,25,41,80
+always_dense,0.25,0.5,0.6625,20,40,53,80
+always_kg,0.25,0.25,0.3125,20,20,25,80
+always_hybrid,0.25,0.6625,0.675,20,53,54,80
+random_router,0.375,0.5375,0.6,30,43,48,80
+oracle_route,1.0,1.0,1.0,80,80,80,80

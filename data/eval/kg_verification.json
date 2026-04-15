@@ -1,0 +1,555 @@
+{
+  "total": 20,
+  "top_k": 3,
+  "kg_top1": 19,
+  "kg_hit_at_k": 20,
+  "dense_hit_at_k": 0,
+  "bm25_hit_at_k": 0,
+  "kg_beats_dense": 20,
+  "kg_beats_bm25": 20,
+  "required_kg_hit_at_k": 16,
+  "required_kg_beats_dense": 12,
+  "passed": true,
+  "triple_count": 99,
+  "rdflib_triple_count": 98,
+  "networkx_node_count": 52,
+  "networkx_edge_count": 99,
+  "results": [
+    {
+      "query": "Is a bat a mammal?",
+      "gold_evidence_ids": [
+        "kg_bat_is_mammal"
+      ],
+      "kg_top_ids": [
+        "kg_bat_is_mammal"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_mammal_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "membership"
+    },
+    {
+      "query": "Can a mammal fly?",
+      "gold_evidence_ids": [
+        "path:kg_bat_is_mammal->kg_bat_capable_fly"
+      ],
+      "kg_top_ids": [
+        "path:kg_bat_is_mammal->kg_bat_capable_fly"
+      ],
+      "dense_top_ids": [
+        "doc_mammal::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "doc_mammal",
+        "rel_whale_vertebrate",
+        "rel_bat_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "existential"
+    },
+    {
+      "query": "Are all mammals able to fly?",
+      "gold_evidence_ids": [
+        "path:kg_whale_is_mammal->kg_whale_not_fly",
+        "path:kg_dolphin_is_mammal->kg_dolphin_not_fly"
+      ],
+      "kg_top_ids": [
+        "path:kg_whale_is_mammal->kg_whale_not_fly",
+        "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+        "path:kg_mouse_is_mammal->kg_mouse_not_fly"
+      ],
+      "dense_top_ids": [
+        "rel_bat_fly::chunk_0",
+        "doc_mammal::chunk_0",
+        "doc_bm25::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "doc_mammal",
+        "rel_bat_fly",
+        "doc_exact"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "universal_counterexample"
+    },
+    {
+      "query": "Is a penguin a bird?",
+      "gold_evidence_ids": [
+        "kg_penguin_is_bird"
+      ],
+      "kg_top_ids": [
+        "kg_penguin_is_bird"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_vertebrate",
+        "rel_bird_vertebrate",
+        "rel_penguin_swim"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "membership"
+    },
+    {
+      "query": "Are all birds able to fly?",
+      "gold_evidence_ids": [
+        "path:kg_penguin_is_bird->kg_penguin_not_fly",
+        "path:kg_ostrich_is_bird->kg_ostrich_not_fly"
+      ],
+      "kg_top_ids": [
+        "path:kg_penguin_is_bird->kg_penguin_not_fly",
+        "path:kg_ostrich_is_bird->kg_ostrich_not_fly",
+        "path:kg_chicken_is_bird->kg_chicken_not_capable_of_fly"
+      ],
+      "dense_top_ids": [
+        "rel_bat_fly::chunk_0",
+        "doc_bm25::chunk_0",
+        "doc_policy::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "doc_mammal",
+        "rel_bat_fly",
+        "doc_exact"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "universal_counterexample"
+    },
+    {
+      "query": "What property allows a bat to fly?",
+      "gold_evidence_ids": [
+        "kg_bat_has_wings",
+        "kg_bat_capable_fly"
+      ],
+      "kg_top_ids": [
+        "kg_bat_has_wings",
+        "kg_bat_has_echolocation",
+        "kg_bat_capable_fly"
+      ],
+      "dense_top_ids": [
+        "rel_bat_fly::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_fly",
+        "rel_bat_vertebrate",
+        "rel_dolphin_echolocation"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "property"
+    },
+    {
+      "query": "What two-hop path connects bat to vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "kg_top_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "dense_top_ids": [
+        "sem_attention_fragmentation::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_bat_fly::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    },
+    {
+      "query": "What two-hop path connects penguin to vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate"
+      ],
+      "kg_top_ids": [
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_vertebrate::chunk_0",
+        "sem_attention_fragmentation::chunk_0",
+        "rel_penguin_swim::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    },
+    {
+      "query": "Can a whale fly?",
+      "gold_evidence_ids": [
+        "kg_whale_not_fly"
+      ],
+      "kg_top_ids": [
+        "kg_whale_not_fly",
+        "kg_whale_is_mammal",
+        "kg_fly_is_movement"
+      ],
+      "dense_top_ids": [
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0",
+        "lex_postgres_jsonb_insert::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "doc_mammal",
+        "rel_whale_vertebrate",
+        "rel_whale_swim"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "fallback"
+    },
+    {
+      "query": "Can a whale swim?",
+      "gold_evidence_ids": [
+        "kg_whale_capable_swim"
+      ],
+      "kg_top_ids": [
+        "kg_whale_capable_swim"
+      ],
+      "dense_top_ids": [
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0",
+        "rel_whale_swim::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_swim",
+        "rel_whale_vertebrate",
+        "rel_duck_swim"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "property"
+    },
+    {
+      "query": "Does a mammal produce milk?",
+      "gold_evidence_ids": [
+        "kg_mammal_produces_milk"
+      ],
+      "kg_top_ids": [
+        "kg_mammal_produces_milk"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_mammal_milk::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_mammal_milk",
+        "rel_whale_vertebrate",
+        "rel_bat_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "relation"
+    },
+    {
+      "query": "Is a sparrow a bird?",
+      "gold_evidence_ids": [
+        "kg_sparrow_is_bird"
+      ],
+      "kg_top_ids": [
+        "kg_sparrow_is_bird"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_vertebrate",
+        "rel_bird_vertebrate",
+        "rel_sparrow_wings"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "membership"
+    },
+    {
+      "query": "Can a sparrow fly?",
+      "gold_evidence_ids": [
+        "kg_sparrow_capable_fly"
+      ],
+      "kg_top_ids": [
+        "kg_sparrow_capable_fly"
+      ],
+      "dense_top_ids": [
+        "doc_mammal::chunk_0",
+        "lex_postgres_jsonb_insert::chunk_0",
+        "rel_penguin_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "doc_mammal",
+        "rel_sparrow_wings",
+        "rel_bat_fly"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "property"
+    },
+    {
+      "query": "What eats mosquito?",
+      "gold_evidence_ids": [
+        "kg_bat_eats_mosquito",
+        "kg_frog_eats_mosquito"
+      ],
+      "kg_top_ids": [
+        "kg_frog_eats_mosquito",
+        "kg_bat_eats_mosquito"
+      ],
+      "dense_top_ids": [
+        "rel_bat_mosquito::chunk_0",
+        "rel_frog_mosquito::chunk_0",
+        "rel_mosquito_animal::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_frog_mosquito",
+        "rel_bat_mosquito",
+        "rel_mosquito_animal"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "inverse_relation"
+    },
+    {
+      "query": "What two-hop path connects whale to vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "kg_top_ids": [
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_whale_vertebrate::chunk_0",
+        "sem_attention_fragmentation::chunk_0",
+        "rel_whale_swim::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    },
+    {
+      "query": "Is a salmon a vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate"
+      ],
+      "kg_top_ids": [
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_salmon_vertebrate::chunk_0",
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_salmon_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    },
+    {
+      "query": "Are all birds able to swim?",
+      "gold_evidence_ids": [
+        "path:kg_eagle_is_bird->kg_eagle_not_swim",
+        "path:kg_chicken_is_bird->kg_chicken_not_swim"
+      ],
+      "kg_top_ids": [
+        "path:kg_owl_is_bird->kg_owl_not_swim",
+        "path:kg_eagle_is_bird->kg_eagle_not_swim",
+        "path:kg_chicken_is_bird->kg_chicken_not_swim"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_swim::chunk_0",
+        "rel_duck_swim::chunk_0",
+        "rel_whale_swim::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_swim",
+        "rel_duck_swim",
+        "rel_penguin_swim"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": false,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "universal_counterexample"
+    },
+    {
+      "query": "What property does dolphin have?",
+      "gold_evidence_ids": [
+        "kg_dolphin_has_property_echolocation"
+      ],
+      "kg_top_ids": [
+        "kg_dolphin_has_property_echolocation"
+      ],
+      "dense_top_ids": [
+        "rel_dolphin_echolocation::chunk_0",
+        "rel_sparrow_wings::chunk_0",
+        "lex_section_1985::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_dolphin_echolocation",
+        "rel_sparrow_wings",
+        "sem_situated_knowledge"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "property"
+    },
+    {
+      "query": "What two-hop path connects mosquito to animal?",
+      "gold_evidence_ids": [
+        "path:kg_mosquito_is_insect->kg_insect_is_animal"
+      ],
+      "kg_top_ids": [
+        "path:kg_mosquito_is_insect->kg_insect_is_animal"
+      ],
+      "dense_top_ids": [
+        "rel_mosquito_animal::chunk_0",
+        "sem_attention_fragmentation::chunk_0",
+        "rel_frog_mosquito::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_mosquito_animal",
+        "rel_insect_animal",
+        "rel_frog_mosquito"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    },
+    {
+      "query": "Is a bat a vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "kg_top_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "kg_hit_at_k": true,
+      "kg_top1": true,
+      "dense_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "kg_beats_dense": true,
+      "kg_beats_bm25": true,
+      "query_mode": "two_hop"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "total": 20,
+  "top1_correct": 20,
+  "top1_accuracy": 1.0,
+  "required_top1_correct": 16,
+  "passed": true,
+  "results": [
+    {
+      "query": "What does HIPAA 164.512 cover?",
+      "gold_evidence_doc_id": "lex_hipaa_164_512",
+      "top_ids": [
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_510"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find HIPAA section 164.510.",
+      "gold_evidence_doc_id": "lex_hipaa_164_510",
+      "top_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_512"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Which HIPAA section is 164.514?",
+      "gold_evidence_doc_id": "lex_hipaa_164_514",
+      "top_ids": [
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_510"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is ICD-10 J18.9?",
+      "gold_evidence_doc_id": "lex_icd_j18_9",
+      "top_ids": [
+        "lex_icd_j18_9",
+        "sem_situated_knowledge",
+        "rel_mammal_vertebrate"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Look up ICD-10-CM code J18.0.",
+      "gold_evidence_doc_id": "lex_icd_j18_0",
+      "top_ids": [
+        "lex_icd_j18_0",
+        "lex_icd_j18_9",
+        "lex_icd_j18_1"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find code J18.1 in ICD-10-CM.",
+      "gold_evidence_doc_id": "lex_icd_j18_1",
+      "top_ids": [
+        "lex_icd_j18_1",
+        "lex_icd_j18_9",
+        "lex_icd_j18_0"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is torch.nn.CrossEntropyLoss?",
+      "gold_evidence_doc_id": "lex_torch_cross_entropy_loss",
+      "top_ids": [
+        "lex_torch_cross_entropy_loss",
+        "sem_situated_knowledge",
+        "rel_mammal_vertebrate"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find torch.nn.NLLLoss.",
+      "gold_evidence_doc_id": "lex_torch_nll_loss",
+      "top_ids": [
+        "lex_torch_nll_loss",
+        "sem_water_cycle",
+        "sem_urban_heat_island"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What does torch.nn.BCELoss measure?",
+      "gold_evidence_doc_id": "lex_torch_bce_loss",
+      "top_ids": [
+        "lex_torch_bce_loss",
+        "sem_situated_knowledge",
+        "sem_water_cycle"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What does RFC-7231 define?",
+      "gold_evidence_doc_id": "lex_rfc_7231",
+      "top_ids": [
+        "lex_rfc_7231",
+        "sem_situated_knowledge",
+        "sem_water_cycle"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find RFC 7230.",
+      "gold_evidence_doc_id": "lex_rfc_7230",
+      "top_ids": [
+        "lex_rfc_7230",
+        "sem_water_cycle",
+        "sem_urban_heat_island"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is RFC-7235 about?",
+      "gold_evidence_doc_id": "lex_rfc_7235",
+      "top_ids": [
+        "lex_rfc_7235",
+        "rel_bat_fly",
+        "sem_situated_knowledge"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is 42 U.S.C. \u00a71983?",
+      "gold_evidence_doc_id": "lex_section_1983",
+      "top_ids": [
+        "lex_section_1983",
+        "lex_section_1985",
+        "lex_section_1981"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find 42 USC \u00a71981.",
+      "gold_evidence_doc_id": "lex_section_1981",
+      "top_ids": [
+        "lex_section_1981",
+        "lex_section_1985",
+        "lex_section_1983"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What does \u00a71985 concern?",
+      "gold_evidence_doc_id": "lex_section_1985",
+      "top_ids": [
+        "lex_section_1985",
+        "sem_situated_knowledge",
+        "sem_water_cycle"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is PostgreSQL jsonb_set?",
+      "gold_evidence_doc_id": "lex_postgres_jsonb_set",
+      "top_ids": [
+        "lex_postgres_jsonb_set",
+        "lex_postgres_jsonb_insert",
+        "sem_situated_knowledge"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find PostgreSQL jsonb_insert.",
+      "gold_evidence_doc_id": "lex_postgres_jsonb_insert",
+      "top_ids": [
+        "lex_postgres_jsonb_insert",
+        "lex_postgres_jsonb_set",
+        "sem_water_cycle"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What does numpy.linalg.norm return?",
+      "gold_evidence_doc_id": "lex_numpy_linalg_norm",
+      "top_ids": [
+        "lex_numpy_linalg_norm",
+        "sem_situated_knowledge",
+        "sem_water_cycle"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "Find numpy.linalg.svd.",
+      "gold_evidence_doc_id": "lex_numpy_linalg_svd",
+      "top_ids": [
+        "lex_numpy_linalg_svd",
+        "sem_water_cycle",
+        "sem_urban_heat_island"
+      ],
+      "top1_correct": true
+    },
+    {
+      "query": "What is sklearn.feature_extraction.text.TfidfVectorizer?",
+      "gold_evidence_doc_id": "lex_sklearn_tfidf",
+      "top_ids": [
+        "lex_sklearn_tfidf",
+        "sem_situated_knowledge",
+        "rel_mammal_vertebrate"
+      ],
+      "top1_correct": true
+    }
+  ]
+}

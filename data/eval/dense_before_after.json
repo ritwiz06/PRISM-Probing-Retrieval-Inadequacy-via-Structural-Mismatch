@@ -1,0 +1,229 @@
+{
+  "comparison_method": "Compatibility reruns over the same local corpus/KG. The pre-robustness run disables semantic_rerank to reproduce the Dense-upgrade regression state.",
+  "runs": {
+    "numpy_fallback": {
+      "dense_backend_status": {
+        "active_backend": "numpy_fallback",
+        "embedding_backend": "numpy_fallback",
+        "model_name": "hashing-semantic-fallback",
+        "index_backend": "numpy",
+        "faiss_active": false,
+        "chunk_count": 148,
+        "fallback_reason": "Configured dense_backend=numpy.",
+        "semantic_rerank": true
+      },
+      "curated_semantic": {
+        "top1": 20,
+        "hit_at_3": 20,
+        "total": 20
+      },
+      "curated_end_to_end": {
+        "total": 80,
+        "route_accuracy": 1.0,
+        "evidence_hit_at_k": 1.0,
+        "answer_accuracy": 1.0,
+        "answer_matches": 80,
+        "evidence_hits": 80,
+        "per_slice": {
+          "deductive": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "lexical": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "relational": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "semantic": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          }
+        }
+      },
+      "external_mini_benchmark": {
+        "total": 32,
+        "answer_matches": 31,
+        "answer_accuracy": 0.96875,
+        "per_family": {
+          "bm25": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "dense": {
+            "answer_matches": 7,
+            "total": 8,
+            "answer_accuracy": 0.875
+          },
+          "hybrid": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "kg": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          }
+        }
+      }
+    },
+    "sentence_transformers_faiss_pre_robustness": {
+      "dense_backend_status": {
+        "active_backend": "sentence_transformers+faiss",
+        "embedding_backend": "sentence_transformers",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "index_backend": "faiss",
+        "faiss_active": true,
+        "chunk_count": 148,
+        "fallback_reason": "",
+        "semantic_rerank": false
+      },
+      "curated_semantic": {
+        "top1": 17,
+        "hit_at_3": 19,
+        "total": 20
+      },
+      "curated_end_to_end": {
+        "total": 80,
+        "route_accuracy": 1.0,
+        "evidence_hit_at_k": 0.9875,
+        "answer_accuracy": 0.9625,
+        "answer_matches": 77,
+        "evidence_hits": 79,
+        "per_slice": {
+          "deductive": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "lexical": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "relational": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "semantic": {
+            "answer_matches": 17,
+            "evidence_hits": 19,
+            "total": 20
+          }
+        }
+      },
+      "external_mini_benchmark": {
+        "total": 32,
+        "answer_matches": 32,
+        "answer_accuracy": 1.0,
+        "per_family": {
+          "bm25": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "dense": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "hybrid": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "kg": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          }
+        }
+      }
+    },
+    "sentence_transformers_faiss_robust": {
+      "dense_backend_status": {
+        "active_backend": "sentence_transformers+faiss",
+        "embedding_backend": "sentence_transformers",
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "index_backend": "faiss",
+        "faiss_active": true,
+        "chunk_count": 148,
+        "fallback_reason": "",
+        "semantic_rerank": true
+      },
+      "curated_semantic": {
+        "top1": 20,
+        "hit_at_3": 20,
+        "total": 20
+      },
+      "curated_end_to_end": {
+        "total": 80,
+        "route_accuracy": 1.0,
+        "evidence_hit_at_k": 1.0,
+        "answer_accuracy": 1.0,
+        "answer_matches": 80,
+        "evidence_hits": 80,
+        "per_slice": {
+          "deductive": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "lexical": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "relational": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          },
+          "semantic": {
+            "answer_matches": 20,
+            "evidence_hits": 20,
+            "total": 20
+          }
+        }
+      },
+      "external_mini_benchmark": {
+        "total": 32,
+        "answer_matches": 32,
+        "answer_accuracy": 1.0,
+        "per_family": {
+          "bm25": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "dense": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "hybrid": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          },
+          "kg": {
+            "answer_matches": 8,
+            "total": 8,
+            "answer_accuracy": 1.0
+          }
+        }
+      }
+    }
+  },
+  "claim_validation_note": "The lexical BM25-over-Dense claim should be reported cautiously when real Dense ties BM25 on lexical hit@k; this analysis does not hide that tradeoff.",
+  "robustness_change": "Enabled a small metadata-visible semantic concept rerank that uses the existing local semantic alias table to correct real-embedding semantic drift."
+}

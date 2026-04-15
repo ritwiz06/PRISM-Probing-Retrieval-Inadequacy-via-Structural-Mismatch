@@ -1,0 +1,971 @@
+{
+  "total": 20,
+  "top_k": 5,
+  "hybrid_top1": 17,
+  "hybrid_hit_at_k": 20,
+  "dense_hit_at_k": 0,
+  "kg_hit_at_k": 0,
+  "bm25_hit_at_k": 0,
+  "hybrid_beats_dense": 20,
+  "hybrid_beats_kg": 20,
+  "hybrid_beats_bm25": 20,
+  "required_hybrid_hit_at_k": 15,
+  "required_hybrid_beats_dense": 12,
+  "required_hybrid_beats_kg": 10,
+  "passed": true,
+  "fusion_method": "rrf+relational_bundle",
+  "contributing_backend_counts": {
+    "bm25": 20,
+    "kg": 20
+  },
+  "results": [
+    {
+      "query": "What bridge connects bat and vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+        "rel_bat_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+      ],
+      "hybrid_component_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate",
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate",
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_salmon_vertebrate",
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_penguin_vertebrate",
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_mosquito_animal"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_bat_fly::chunk_0",
+        "lex_torch_bce_loss::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "path:kg_bat_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate",
+        "rel_mosquito_animal"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What bridge connects penguin and vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_mosquito_animal"
+      ],
+      "hybrid_component_ids": [
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate",
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_whale_vertebrate",
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_salmon_vertebrate",
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_bat_vertebrate",
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_mosquito_animal"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_vertebrate::chunk_0",
+        "lex_torch_bce_loss::chunk_0",
+        "rel_salmon_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "kg_top_ids": [
+        "path:kg_penguin_is_bird->kg_bird_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_bat_vertebrate",
+        "rel_mosquito_animal"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What bridge connects whale and vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate",
+        "rel_whale_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+      ],
+      "hybrid_component_ids": [
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate",
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_salmon_vertebrate",
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_penguin_vertebrate",
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate",
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_mosquito_animal"
+      ],
+      "dense_top_ids": [
+        "rel_whale_vertebrate::chunk_0",
+        "lex_torch_bce_loss::chunk_0",
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "kg_top_ids": [
+        "path:kg_whale_is_mammal->kg_mammal_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate",
+        "rel_bat_vertebrate",
+        "rel_mosquito_animal"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What bridge connects salmon and vertebrate?",
+      "gold_evidence_ids": [
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_mosquito_animal"
+      ],
+      "hybrid_component_ids": [
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_salmon_vertebrate",
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_whale_vertebrate",
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_penguin_vertebrate",
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_bat_vertebrate",
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_mosquito_animal"
+      ],
+      "dense_top_ids": [
+        "rel_salmon_vertebrate::chunk_0",
+        "lex_torch_bce_loss::chunk_0",
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "kg_top_ids": [
+        "path:kg_salmon_is_fish->kg_fish_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_salmon_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_penguin_vertebrate",
+        "rel_bat_vertebrate",
+        "rel_mosquito_animal"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What bridge connects mosquito and animal?",
+      "gold_evidence_ids": [
+        "path:kg_mosquito_is_insect->kg_insect_is_animal",
+        "rel_mosquito_animal"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_mosquito_animal",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_bat_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "path:kg_mosquito_is_insect->kg_insect_is_animal,rel_mosquito_animal",
+        "path:kg_mosquito_is_insect->kg_insect_is_animal,rel_whale_vertebrate",
+        "path:kg_mosquito_is_insect->kg_insect_is_animal,rel_salmon_vertebrate",
+        "path:kg_mosquito_is_insect->kg_insect_is_animal,rel_penguin_vertebrate",
+        "path:kg_mosquito_is_insect->kg_insect_is_animal,rel_bat_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_mosquito_animal::chunk_0",
+        "lex_torch_bce_loss::chunk_0",
+        "lex_torch_cross_entropy_loss::chunk_0",
+        "lex_rfc_7231::chunk_0",
+        "rel_frog_mosquito::chunk_0"
+      ],
+      "kg_top_ids": [
+        "path:kg_mosquito_is_insect->kg_insect_is_animal"
+      ],
+      "bm25_top_ids": [
+        "rel_mosquito_animal",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate",
+        "rel_bat_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects bat and fly?",
+      "gold_evidence_ids": [
+        "kg_bat_capable_fly",
+        "rel_bat_fly"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_bat_capable_fly+rel_bat_fly",
+        "hybrid:bundle:kg_bat_capable_fly+rel_bat_vertebrate",
+        "hybrid:bundle:kg_bat_capable_fly+rel_bat_mosquito",
+        "hybrid:bundle:kg_bat_capable_fly+doc_mammal",
+        "hybrid:text:rel_bat_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_bat_capable_fly,rel_bat_fly",
+        "kg_bat_capable_fly,rel_bat_vertebrate",
+        "kg_bat_capable_fly,rel_bat_mosquito",
+        "kg_bat_capable_fly,doc_mammal",
+        "rel_bat_vertebrate::chunk_0,rel_bat_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_bat_fly::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_bat_mosquito::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_bat_capable_fly"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_fly",
+        "rel_bat_vertebrate",
+        "rel_bat_mosquito",
+        "sem_situated_knowledge",
+        "doc_mammal"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects bat and mosquito?",
+      "gold_evidence_ids": [
+        "kg_bat_eats_mosquito",
+        "rel_bat_mosquito"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_mosquito",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_mosquito_animal",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_vertebrate",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_fly",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_frog_mosquito"
+      ],
+      "hybrid_component_ids": [
+        "kg_bat_eats_mosquito,rel_bat_mosquito",
+        "kg_bat_eats_mosquito,rel_mosquito_animal",
+        "kg_bat_eats_mosquito,rel_bat_vertebrate",
+        "kg_bat_eats_mosquito,rel_bat_fly",
+        "kg_bat_eats_mosquito,rel_frog_mosquito"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_bat_mosquito::chunk_0",
+        "rel_bat_fly::chunk_0",
+        "rel_mosquito_animal::chunk_0",
+        "rel_whale_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_bat_eats_mosquito"
+      ],
+      "bm25_top_ids": [
+        "rel_bat_mosquito",
+        "rel_mosquito_animal",
+        "rel_bat_vertebrate",
+        "rel_bat_fly",
+        "rel_frog_mosquito"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects eagle and fish?",
+      "gold_evidence_ids": [
+        "kg_eagle_eats_fish",
+        "rel_eagle_fish"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_eagle_eats_fish+rel_eagle_fish",
+        "hybrid:bundle:kg_eagle_eats_fish+rel_salmon_vertebrate",
+        "hybrid:text:rel_eagle_fish",
+        "hybrid:text:rel_salmon_vertebrate",
+        "hybrid:text:rel_whale_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_eagle_eats_fish,rel_eagle_fish",
+        "kg_eagle_eats_fish,rel_salmon_vertebrate",
+        "rel_eagle_fish::chunk_0,rel_eagle_fish",
+        "rel_salmon_vertebrate::chunk_0,rel_salmon_vertebrate",
+        "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_eagle_fish::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_salmon_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_eagle_eats_fish"
+      ],
+      "bm25_top_ids": [
+        "rel_eagle_fish",
+        "rel_salmon_vertebrate",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects frog and mosquito?",
+      "gold_evidence_ids": [
+        "kg_frog_eats_mosquito",
+        "rel_frog_mosquito"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_frog_eats_mosquito+rel_frog_mosquito",
+        "hybrid:bundle:kg_frog_eats_mosquito+rel_mosquito_animal",
+        "hybrid:bundle:kg_frog_eats_mosquito+rel_bat_mosquito",
+        "hybrid:text:rel_frog_mosquito",
+        "hybrid:text:rel_mosquito_animal"
+      ],
+      "hybrid_component_ids": [
+        "kg_frog_eats_mosquito,rel_frog_mosquito",
+        "kg_frog_eats_mosquito,rel_mosquito_animal",
+        "kg_frog_eats_mosquito,rel_bat_mosquito",
+        "rel_frog_mosquito::chunk_0,rel_frog_mosquito",
+        "rel_mosquito_animal::chunk_0,rel_mosquito_animal"
+      ],
+      "dense_top_ids": [
+        "rel_frog_mosquito::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_mosquito_animal::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_bat_mosquito::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_frog_eats_mosquito"
+      ],
+      "bm25_top_ids": [
+        "rel_frog_mosquito",
+        "rel_mosquito_animal",
+        "rel_bat_mosquito",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects dolphin and echolocation?",
+      "gold_evidence_ids": [
+        "kg_dolphin_has_property_echolocation",
+        "rel_dolphin_echolocation"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+        "hybrid:text:rel_dolphin_echolocation",
+        "hybrid:text:rel_whale_vertebrate",
+        "hybrid:text:rel_bat_vertebrate",
+        "hybrid:text:rel_mammal_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_dolphin_has_property_echolocation,rel_dolphin_echolocation",
+        "rel_dolphin_echolocation::chunk_0,rel_dolphin_echolocation",
+        "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate",
+        "rel_bat_vertebrate::chunk_0,rel_bat_vertebrate",
+        "rel_mammal_vertebrate::chunk_0,rel_mammal_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_dolphin_echolocation::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0",
+        "lex_section_1985::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_dolphin_has_property_echolocation"
+      ],
+      "bm25_top_ids": [
+        "rel_dolphin_echolocation",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects mammal and milk?",
+      "gold_evidence_ids": [
+        "kg_mammal_produces_milk",
+        "rel_mammal_milk"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_mammal_produces_milk+rel_mammal_milk",
+        "hybrid:bundle:kg_mammal_produces_milk+rel_whale_vertebrate",
+        "hybrid:bundle:kg_mammal_produces_milk+rel_bat_vertebrate",
+        "hybrid:bundle:kg_mammal_produces_milk+rel_mammal_vertebrate",
+        "hybrid:bundle:kg_mammal_produces_milk+doc_mammal"
+      ],
+      "hybrid_component_ids": [
+        "kg_mammal_produces_milk,rel_mammal_milk",
+        "kg_mammal_produces_milk,rel_whale_vertebrate",
+        "kg_mammal_produces_milk,rel_bat_vertebrate",
+        "kg_mammal_produces_milk,rel_mammal_vertebrate",
+        "kg_mammal_produces_milk,doc_mammal"
+      ],
+      "dense_top_ids": [
+        "rel_mammal_milk::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_mammal_produces_milk"
+      ],
+      "bm25_top_ids": [
+        "rel_mammal_milk",
+        "rel_whale_vertebrate",
+        "rel_bat_vertebrate",
+        "rel_mammal_vertebrate",
+        "sem_situated_knowledge"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects penguin and swim?",
+      "gold_evidence_ids": [
+        "kg_penguin_capable_swim",
+        "rel_penguin_swim"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_penguin_capable_swim+rel_penguin_swim",
+        "hybrid:bundle:kg_penguin_capable_swim+rel_penguin_vertebrate",
+        "hybrid:bundle:kg_penguin_capable_swim+rel_whale_swim",
+        "hybrid:bundle:kg_penguin_capable_swim+rel_duck_swim",
+        "hybrid:text:rel_penguin_swim"
+      ],
+      "hybrid_component_ids": [
+        "kg_penguin_capable_swim,rel_penguin_swim",
+        "kg_penguin_capable_swim,rel_penguin_vertebrate",
+        "kg_penguin_capable_swim,rel_whale_swim",
+        "kg_penguin_capable_swim,rel_duck_swim",
+        "rel_penguin_swim::chunk_0,rel_penguin_swim"
+      ],
+      "dense_top_ids": [
+        "rel_penguin_swim::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_penguin_capable_swim"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_swim",
+        "rel_penguin_vertebrate",
+        "rel_whale_swim",
+        "rel_duck_swim",
+        "sem_situated_knowledge"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects bird and vertebrate?",
+      "gold_evidence_ids": [
+        "kg_bird_is_vertebrate",
+        "rel_bird_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_bird_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:kg_bird_is_vertebrate+rel_bird_vertebrate",
+        "hybrid:bundle:kg_bird_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:kg_bird_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:kg_bird_is_vertebrate+rel_bat_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_bird_is_vertebrate,rel_penguin_vertebrate",
+        "kg_bird_is_vertebrate,rel_bird_vertebrate",
+        "kg_bird_is_vertebrate,rel_whale_vertebrate",
+        "kg_bird_is_vertebrate,rel_salmon_vertebrate",
+        "kg_bird_is_vertebrate,rel_bat_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_bat_vertebrate::chunk_0",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_penguin_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_bird_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_penguin_vertebrate",
+        "rel_bird_vertebrate",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_bat_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": false,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects insect and animal?",
+      "gold_evidence_ids": [
+        "kg_insect_is_animal",
+        "rel_insect_animal"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_insect_is_animal+rel_mosquito_animal",
+        "hybrid:bundle:kg_insect_is_animal+rel_insect_animal",
+        "hybrid:bundle:kg_insect_is_animal+doc_mammal",
+        "hybrid:bundle:kg_insect_is_animal+rel_whale_vertebrate",
+        "hybrid:bundle:kg_insect_is_animal+rel_salmon_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_insect_is_animal,rel_mosquito_animal",
+        "kg_insect_is_animal,rel_insect_animal",
+        "kg_insect_is_animal,doc_mammal",
+        "kg_insect_is_animal,rel_whale_vertebrate",
+        "kg_insect_is_animal,rel_salmon_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_mosquito_animal::chunk_0",
+        "rel_insect_animal::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_insect_is_animal"
+      ],
+      "bm25_top_ids": [
+        "rel_mosquito_animal",
+        "rel_insect_animal",
+        "sem_situated_knowledge",
+        "doc_mammal",
+        "rel_whale_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": false,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects sparrow and wings?",
+      "gold_evidence_ids": [
+        "kg_sparrow_has_wings",
+        "rel_sparrow_wings"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_sparrow_has_wings+rel_sparrow_wings",
+        "hybrid:text:rel_sparrow_wings",
+        "hybrid:text:rel_whale_vertebrate",
+        "hybrid:text:rel_bat_vertebrate",
+        "hybrid:text:rel_mammal_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_sparrow_has_wings,rel_sparrow_wings",
+        "rel_sparrow_wings::chunk_0,rel_sparrow_wings",
+        "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate",
+        "rel_bat_vertebrate::chunk_0,rel_bat_vertebrate",
+        "rel_mammal_vertebrate::chunk_0,rel_mammal_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_sparrow_wings::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0",
+        "rel_mammal_milk::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_sparrow_has_wings"
+      ],
+      "bm25_top_ids": [
+        "rel_sparrow_wings",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate",
+        "rel_penguin_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects duck and swim?",
+      "gold_evidence_ids": [
+        "kg_duck_capable_swim",
+        "rel_duck_swim"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_duck_capable_swim+rel_duck_swim",
+        "hybrid:bundle:kg_duck_capable_swim+rel_whale_swim",
+        "hybrid:bundle:kg_duck_capable_swim+rel_penguin_swim",
+        "hybrid:text:rel_duck_swim",
+        "hybrid:text:rel_whale_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_duck_capable_swim,rel_duck_swim",
+        "kg_duck_capable_swim,rel_whale_swim",
+        "kg_duck_capable_swim,rel_penguin_swim",
+        "rel_duck_swim::chunk_0,rel_duck_swim",
+        "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_duck_swim::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "doc_prism::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_duck_capable_swim"
+      ],
+      "bm25_top_ids": [
+        "rel_duck_swim",
+        "rel_whale_swim",
+        "rel_penguin_swim",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects whale and swim?",
+      "gold_evidence_ids": [
+        "kg_whale_capable_swim",
+        "rel_whale_swim"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_whale_capable_swim+rel_whale_swim",
+        "hybrid:bundle:kg_whale_capable_swim+rel_whale_vertebrate",
+        "hybrid:bundle:kg_whale_capable_swim+rel_duck_swim",
+        "hybrid:bundle:kg_whale_capable_swim+rel_penguin_swim",
+        "hybrid:text:rel_whale_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_whale_capable_swim,rel_whale_swim",
+        "kg_whale_capable_swim,rel_whale_vertebrate",
+        "kg_whale_capable_swim,rel_duck_swim",
+        "kg_whale_capable_swim,rel_penguin_swim",
+        "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_whale_vertebrate::chunk_0",
+        "rel_whale_swim::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_mammal_vertebrate::chunk_0",
+        "rel_penguin_swim::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_whale_capable_swim"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_swim",
+        "rel_whale_vertebrate",
+        "rel_duck_swim",
+        "rel_penguin_swim",
+        "sem_situated_knowledge"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects cat and mouse?",
+      "gold_evidence_ids": [
+        "kg_cat_eats_mouse",
+        "rel_cat_mouse"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_cat_eats_mouse+rel_cat_mouse",
+        "hybrid:bundle:kg_cat_eats_mouse+rel_owl_mouse",
+        "hybrid:bundle:kg_owl_eats_mouse+rel_cat_mouse",
+        "hybrid:bundle:kg_owl_eats_mouse+rel_owl_mouse",
+        "hybrid:bundle:kg_owl_eats_mouse+sem_situated_knowledge"
+      ],
+      "hybrid_component_ids": [
+        "kg_cat_eats_mouse,rel_cat_mouse",
+        "kg_cat_eats_mouse,rel_owl_mouse",
+        "kg_owl_eats_mouse,rel_cat_mouse",
+        "kg_owl_eats_mouse,rel_owl_mouse",
+        "kg_owl_eats_mouse,sem_situated_knowledge"
+      ],
+      "dense_top_ids": [
+        "rel_cat_mouse::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_owl_mouse::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_cat_eats_mouse",
+        "kg_relation_question_routes_hybrid",
+        "kg_owl_eats_mouse",
+        "kg_mouse_produces_milk",
+        "kg_mouse_not_fly"
+      ],
+      "bm25_top_ids": [
+        "rel_cat_mouse",
+        "rel_owl_mouse",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects owl and mouse?",
+      "gold_evidence_ids": [
+        "kg_owl_eats_mouse",
+        "rel_owl_mouse"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_owl_eats_mouse+rel_owl_mouse",
+        "hybrid:bundle:kg_owl_eats_mouse+rel_cat_mouse",
+        "hybrid:bundle:kg_owl_eats_mouse+sem_situated_knowledge",
+        "hybrid:bundle:kg_owl_not_swim+rel_owl_mouse",
+        "hybrid:bundle:kg_owl_not_swim+sem_situated_knowledge"
+      ],
+      "hybrid_component_ids": [
+        "kg_owl_eats_mouse,rel_owl_mouse",
+        "kg_owl_eats_mouse,rel_cat_mouse",
+        "kg_owl_eats_mouse,sem_situated_knowledge",
+        "kg_owl_not_swim,rel_owl_mouse",
+        "kg_owl_not_swim,sem_situated_knowledge"
+      ],
+      "dense_top_ids": [
+        "rel_owl_mouse::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_cat_mouse::chunk_0",
+        "rel_mammal_vertebrate::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_owl_eats_mouse",
+        "kg_relation_question_routes_hybrid",
+        "kg_owl_not_swim",
+        "kg_owl_is_bird",
+        "kg_owl_has_wings"
+      ],
+      "bm25_top_ids": [
+        "rel_owl_mouse",
+        "rel_cat_mouse",
+        "sem_situated_knowledge",
+        "rel_whale_vertebrate",
+        "rel_salmon_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": true,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    },
+    {
+      "query": "What relation connects mammal and vertebrate?",
+      "gold_evidence_ids": [
+        "kg_mammal_is_vertebrate",
+        "rel_mammal_vertebrate"
+      ],
+      "hybrid_top_ids": [
+        "hybrid:bundle:kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:kg_mammal_is_vertebrate+rel_mammal_vertebrate",
+        "hybrid:bundle:kg_mammal_is_vertebrate+doc_mammal",
+        "hybrid:bundle:kg_mammal_is_vertebrate+rel_salmon_vertebrate"
+      ],
+      "hybrid_component_ids": [
+        "kg_mammal_is_vertebrate,rel_whale_vertebrate",
+        "kg_mammal_is_vertebrate,rel_bat_vertebrate",
+        "kg_mammal_is_vertebrate,rel_mammal_vertebrate",
+        "kg_mammal_is_vertebrate,doc_mammal",
+        "kg_mammal_is_vertebrate,rel_salmon_vertebrate"
+      ],
+      "dense_top_ids": [
+        "rel_mammal_vertebrate::chunk_0",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_whale_vertebrate::chunk_0",
+        "rel_mammal_milk::chunk_0",
+        "doc_mammal::chunk_0"
+      ],
+      "kg_top_ids": [
+        "kg_mammal_is_vertebrate"
+      ],
+      "bm25_top_ids": [
+        "rel_whale_vertebrate",
+        "rel_bat_vertebrate",
+        "rel_mammal_vertebrate",
+        "doc_mammal",
+        "rel_salmon_vertebrate"
+      ],
+      "hybrid_hit_at_k": true,
+      "hybrid_top1": false,
+      "dense_hit_at_k": false,
+      "kg_hit_at_k": false,
+      "bm25_hit_at_k": false,
+      "hybrid_beats_dense": true,
+      "hybrid_beats_kg": true,
+      "hybrid_beats_bm25": true,
+      "top_contributing_backends": "bm25,kg"
+    }
+  ]
+}

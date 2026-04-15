@@ -1,0 +1,197 @@
+{
+  "output_dir": "data/eval/report",
+  "json_summary": "data/eval/report/prism_report_summary.json",
+  "csv_tables": [
+    "data/eval/report/baseline_comparison.csv",
+    "data/eval/report/per_slice_backend_comparison.csv",
+    "data/eval/report/ablation_impacts.csv",
+    "data/eval/report/claim_validation.csv"
+  ],
+  "markdown_summary": "data/eval/report/prism_report_summary.md",
+  "plots": [
+    "data/eval/report/overall_baseline_comparison.png",
+    "data/eval/report/per_slice_backend_performance.png",
+    "data/eval/report/predicted_backend_distribution.png",
+    "data/eval/report/ablation_impact.png"
+  ],
+  "summary": {
+    "corpus_size": 148,
+    "kg_size": 99,
+    "benchmark_sizes": {
+      "lexical": 20,
+      "semantic": 20,
+      "deductive": 20,
+      "relational": 20,
+      "total": 80
+    },
+    "baseline_evaluation": {
+      "computed_ras": {
+        "route_accuracy": 1.0,
+        "evidence_hit_at_k": 1.0,
+        "answer_accuracy": 1.0,
+        "predicted_distribution": {
+          "bm25": 20,
+          "dense": 20,
+          "kg": 20,
+          "hybrid": 20
+        }
+      },
+      "always_bm25": {
+        "route_accuracy": 0.25,
+        "evidence_hit_at_k": 0.3125,
+        "answer_accuracy": 0.5125,
+        "predicted_distribution": {
+          "bm25": 80
+        }
+      },
+      "always_dense": {
+        "route_accuracy": 0.25,
+        "evidence_hit_at_k": 0.5,
+        "answer_accuracy": 0.6625,
+        "predicted_distribution": {
+          "dense": 80
+        }
+      },
+      "always_kg": {
+        "route_accuracy": 0.25,
+        "evidence_hit_at_k": 0.25,
+        "answer_accuracy": 0.3125,
+        "predicted_distribution": {
+          "kg": 80
+        }
+      },
+      "always_hybrid": {
+        "route_accuracy": 0.25,
+        "evidence_hit_at_k": 0.6625,
+        "answer_accuracy": 0.675,
+        "predicted_distribution": {
+          "hybrid": 80
+        }
+      },
+      "random_router": {
+        "route_accuracy": 0.375,
+        "evidence_hit_at_k": 0.5375,
+        "answer_accuracy": 0.6,
+        "predicted_distribution": {
+          "kg": 18,
+          "dense": 15,
+          "hybrid": 20,
+          "bm25": 27
+        }
+      },
+      "oracle_route": {
+        "route_accuracy": 1.0,
+        "evidence_hit_at_k": 1.0,
+        "answer_accuracy": 1.0,
+        "predicted_distribution": {
+          "bm25": 20,
+          "dense": 20,
+          "kg": 20,
+          "hybrid": 20
+        }
+      }
+    },
+    "claim_validation": {
+      "claims": [
+        {
+          "name": "lexical_queries_favor_bm25_over_dense",
+          "statement": "Lexical queries favor BM25 over Dense on evidence hit@k.",
+          "primary_metric": 1.0,
+          "baseline_metric": 1.0,
+          "margin": 0.0,
+          "supported": false
+        },
+        {
+          "name": "semantic_queries_favor_dense_over_bm25",
+          "statement": "Semantic queries favor Dense over BM25 on evidence hit@k.",
+          "primary_metric": 1.0,
+          "baseline_metric": 0.25,
+          "margin": 0.75,
+          "supported": true
+        },
+        {
+          "name": "deductive_queries_favor_kg_over_dense_bm25",
+          "statement": "Deductive queries favor KG over Dense and BM25 on evidence hit@k.",
+          "primary_metric": 1.0,
+          "baseline_metric": 0.0,
+          "margin": 1.0,
+          "supported": true
+        },
+        {
+          "name": "relational_queries_favor_hybrid_over_single_backends",
+          "statement": "Relational queries favor Hybrid over single backends on evidence hit@k.",
+          "primary_metric": 1.0,
+          "baseline_metric": 0.0,
+          "margin": 1.0,
+          "supported": true
+        },
+        {
+          "name": "computed_ras_beats_or_matches_fixed_backends_overall",
+          "statement": "Computed RAS routing beats or matches the strongest fixed-backend baseline overall on answer accuracy.",
+          "primary_metric": 1.0,
+          "baseline_metric": 0.675,
+          "margin": 0.32499999999999996,
+          "supported": true
+        }
+      ],
+      "all_supported": false,
+      "baseline_summary": {
+        "computed_ras": {
+          "route_accuracy": 1.0,
+          "evidence_hit_at_k": 1.0,
+          "answer_accuracy": 1.0
+        },
+        "always_bm25": {
+          "route_accuracy": 0.25,
+          "evidence_hit_at_k": 0.3125,
+          "answer_accuracy": 0.5125
+        },
+        "always_dense": {
+          "route_accuracy": 0.25,
+          "evidence_hit_at_k": 0.5,
+          "answer_accuracy": 0.6625
+        },
+        "always_kg": {
+          "route_accuracy": 0.25,
+          "evidence_hit_at_k": 0.25,
+          "answer_accuracy": 0.3125
+        },
+        "always_hybrid": {
+          "route_accuracy": 0.25,
+          "evidence_hit_at_k": 0.6625,
+          "answer_accuracy": 0.675
+        },
+        "random_router": {
+          "route_accuracy": 0.375,
+          "evidence_hit_at_k": 0.5375,
+          "answer_accuracy": 0.6
+        },
+        "oracle_route": {
+          "route_accuracy": 1.0,
+          "evidence_hit_at_k": 1.0,
+          "answer_accuracy": 1.0
+        }
+      }
+    },
+    "ablation_impacts": [
+      {
+        "ablation": "hybrid_no_kg",
+        "relational_evidence_hit_at_k": 0.0,
+        "relational_answer_accuracy": 1.0,
+        "delta_vs_full_hybrid_evidence_hit_at_k": -1.0
+      },
+      {
+        "ablation": "hybrid_no_bm25",
+        "relational_evidence_hit_at_k": 1.0,
+        "relational_answer_accuracy": 1.0,
+        "delta_vs_full_hybrid_evidence_hit_at_k": 0.0
+      },
+      {
+        "ablation": "hybrid_no_dense",
+        "relational_evidence_hit_at_k": 1.0,
+        "relational_answer_accuracy": 1.0,
+        "delta_vs_full_hybrid_evidence_hit_at_k": 0.0
+      }
+    ]
+  }
+}

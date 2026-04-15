@@ -1,0 +1,2787 @@
+{
+  "benchmark": {
+    "total": 32,
+    "counts": {
+      "route_family": {
+        "bm25": 8,
+        "dense": 8,
+        "hybrid": 8,
+        "kg": 8
+      },
+      "source_dataset": {
+        "BEIR": 8,
+        "HotpotQA": 8,
+        "Natural Questions": 8,
+        "WebQSP": 8
+      }
+    },
+    "path": "data/processed/external_mini_benchmark.jsonl",
+    "note": "Small normalized public-source-style mini-benchmark kept separate from the curated 80-query benchmark."
+  },
+  "dense_backend_status": {
+    "active_backend": "sentence_transformers+faiss",
+    "embedding_backend": "sentence_transformers",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "index_backend": "faiss",
+    "faiss_active": true,
+    "chunk_count": 148,
+    "fallback_reason": "",
+    "semantic_rerank": true
+  },
+  "seed": 11,
+  "systems": {
+    "computed_ras": {
+      "system": "computed_ras",
+      "total": 32,
+      "route_accuracy": 1.0,
+      "answer_accuracy": 1.0,
+      "route_correct": 32,
+      "answer_correct": 32,
+      "predicted_backend_distribution": {
+        "bm25": 8,
+        "dense": 8,
+        "kg": 8,
+        "hybrid": 8
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "RFC-7231 HTTP/1.1 Semantics and Content: RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation. [evidence: lex_rfc_7231]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "ICD-10-CM J18.9: ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "HIPAA 45 CFR 164.512: HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required. [evidence: lex_hipaa_164_512]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "torch.nn.CrossEntropyLoss: torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "PostgreSQL jsonb_insert: PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "42 U.S.C. \u00a71983: 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law. [evidence: lex_section_1983]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "numpy.linalg.svd: numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "sklearn.feature_extraction.text.TfidfVectorizer: TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features. [evidence: lex_sklearn_tfidf]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Climate anxiety.",
+          "answer": "Climate anxiety. Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "Impostor syndrome. Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence. [evidence: sem_impostor_syndrome::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Photosynthesis.",
+          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Urban heat island.",
+          "answer": "Urban heat island. An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Memory consolidation.",
+          "answer": "Memory consolidation. Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "Algorithmic bias. Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs. [evidence: sem_algorithmic_bias::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "Circadian rhythm. A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism. [evidence: sem_circadian_rhythm::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "Reinforcement learning. Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Yes. bat is_a mammal. [evidence: kg_bat_is_mammal]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "No. Counterexample evidence: whale is_a mammal ; whale not_capable_of fly; platypus is_a mammal ; platypus not_capable_of fly; mouse is_a mammal ; mouse not_capable_of fly. [evidence: path:kg_whale_is_mammal->kg_whale_not_fly, path:kg_platypus_is_mammal->kg_platypus_not_fly, path:kg_mouse_is_mammal->kg_mouse_not_fly]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "bat has_property wings. [evidence: kg_bat_has_wings]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "whale capable_of swim. [evidence: kg_whale_capable_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Yes, indirectly: salmon is_a fish ; fish is_a vertebrate. [evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "frog eats mosquito. [evidence: kg_frog_eats_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "No. Counterexample evidence: owl is_a bird ; owl not_capable_of swim; eagle is_a bird ; eagle not_capable_of swim; chicken is_a bird ; chicken not_capable_of swim. [evidence: path:kg_owl_is_bird->kg_owl_not_swim, path:kg_eagle_is_bird->kg_eagle_not_swim, path:kg_chicken_is_bird->kg_chicken_not_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_bat_eats_mosquito] bat eats mosquito\n[bm25:rel_bat_mosquito] The bat to mosquito relation is dietary: bat eats mosquito in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_bat_eats_mosquito,rel_bat_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_dolphin_has_property_echolocation] dolphin has_property echolocation\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.. This combines structured evidence plus text relation evidence. [fused evidence: kg_dolphin_has_property_echolocation,rel_dolphin_echolocation]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_salmon_is_fish->kg_fish_is_vertebrate] salmon is_a fish ; fish is_a vertebrate\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_salmon_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_mammal_produces_milk] mammal produces milk\n[bm25:rel_mammal_milk] The mammal to milk relation is production: mammal produces milk in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_mammal_produces_milk,rel_mammal_milk]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_owl_eats_mouse] owl eats mouse\n[bm25:rel_owl_mouse] The owl to mouse relation is dietary: owl eats mouse in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_owl_eats_mouse,rel_owl_mouse]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_duck_capable_swim] duck capable_of swim\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: kg_duck_capable_swim,rel_duck_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        }
+      ]
+    },
+    "always_bm25": {
+      "system": "always_bm25",
+      "total": 32,
+      "route_accuracy": 0.25,
+      "answer_accuracy": 0.5625,
+      "route_correct": 8,
+      "answer_correct": 18,
+      "predicted_backend_distribution": {
+        "bm25": 32
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.5,
+          "route_correct": 0,
+          "answer_correct": 4
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.5,
+          "route_correct": 0,
+          "answer_correct": 4
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "RFC-7231 HTTP/1.1 Semantics and Content: RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation. [evidence: lex_rfc_7231]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "ICD-10-CM J18.9: ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "HIPAA 45 CFR 164.512: HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required. [evidence: lex_hipaa_164_512]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "torch.nn.CrossEntropyLoss: torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "PostgreSQL jsonb_insert: PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "42 U.S.C. \u00a71983: 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law. [evidence: lex_section_1983]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "numpy.linalg.svd: numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "sklearn.feature_extraction.text.TfidfVectorizer: TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features. [evidence: lex_sklearn_tfidf]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Climate anxiety.",
+          "answer": "Climate anxiety: Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "Memory consolidation: Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Photosynthesis.",
+          "answer": "Situated knowledge: Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know. [evidence: sem_situated_knowledge]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Urban heat island.",
+          "answer": "Urban heat island: An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Memory consolidation.",
+          "answer": "Memory consolidation: Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "Memory consolidation: Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "Circadian rhythm: A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism. [evidence: sem_circadian_rhythm]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "Butterfly effect: The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences. [evidence: sem_butterfly_effect]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Bat to vertebrate bridge: A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Mammal Facts: A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "Mammal Facts: A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "Bat flight relation: The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight. [evidence: rel_bat_fly]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "Whale swim relation: The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Salmon to vertebrate bridge: A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate. [evidence: rel_salmon_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "Frog mosquito relation: The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "Whale swim relation: The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "Bat to vertebrate bridge: A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "Penguin to vertebrate bridge: A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate. [evidence: rel_penguin_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "Bat mosquito relation: The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "Dolphin echolocation relation: The dolphin to echolocation relation is a property relation: dolphin has property echolocation. [evidence: rel_dolphin_echolocation]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "Salmon to vertebrate bridge: A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate. [evidence: rel_salmon_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "Mammal milk relation: The mammal to milk relation is production: mammal produces milk in the demo KG. [evidence: rel_mammal_milk]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "Owl mouse relation: The owl to mouse relation is dietary: owl eats mouse in the demo KG. [evidence: rel_owl_mouse]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "Duck swim relation: The duck to swim relation is capability based: duck is capable of swim. [evidence: rel_duck_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        }
+      ]
+    },
+    "always_dense": {
+      "system": "always_dense",
+      "total": 32,
+      "route_accuracy": 0.25,
+      "answer_accuracy": 0.59375,
+      "route_correct": 8,
+      "answer_correct": 19,
+      "predicted_backend_distribution": {
+        "dense": 32
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.625,
+          "route_correct": 0,
+          "answer_correct": 5
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.625,
+          "route_correct": 0,
+          "answer_correct": 5
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "RFC-7230 HTTP/1.1 Message Syntax and Routing. RFC-7230 defines HTTP/1.1 message syntax, routing, connection management, and related requirements. [evidence: lex_rfc_7230::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "ICD-10-CM J18.9. ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "HIPAA 45 CFR 164.514. HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information. [evidence: lex_hipaa_164_514::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "torch.nn.CrossEntropyLoss. torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "42 U.S.C. \u00a71985. 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights. [evidence: lex_section_1985::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "numpy.linalg.svd. numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "sklearn.feature_extraction.text.TfidfVectorizer. TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features. [evidence: lex_sklearn_tfidf::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Climate anxiety.",
+          "answer": "Climate anxiety. Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "Impostor syndrome. Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence. [evidence: sem_impostor_syndrome::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Photosynthesis.",
+          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Urban heat island.",
+          "answer": "Urban heat island. An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Memory consolidation.",
+          "answer": "Memory consolidation. Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "Algorithmic bias. Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs. [evidence: sem_algorithmic_bias::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "Circadian rhythm. A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism. [evidence: sem_circadian_rhythm::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "Reinforcement learning. Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Mammal Facts. A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Mammal Facts. A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "Mammal Facts. A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "Bat flight relation. The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight. [evidence: rel_bat_fly::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Salmon to vertebrate bridge. A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate. [evidence: rel_salmon_vertebrate::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "Frog mosquito relation. The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "Duck swim relation. The duck to swim relation is capability based: duck is capable of swim. [evidence: rel_duck_swim::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "Bat to vertebrate bridge. A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "Penguin to vertebrate bridge. A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate. [evidence: rel_penguin_vertebrate::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "Bat mosquito relation. The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "Dolphin echolocation relation. The dolphin to echolocation relation is a property relation: dolphin has property echolocation. [evidence: rel_dolphin_echolocation::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "Salmon to vertebrate bridge. A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate. [evidence: rel_salmon_vertebrate::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "Mammal milk relation. The mammal to milk relation is production: mammal produces milk in the demo KG. [evidence: rel_mammal_milk::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "Owl mouse relation. The owl to mouse relation is dietary: owl eats mouse in the demo KG. [evidence: rel_owl_mouse::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "Duck swim relation. The duck to swim relation is capability based: duck is capable of swim. [evidence: rel_duck_swim::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        }
+      ]
+    },
+    "always_kg": {
+      "system": "always_kg",
+      "total": 32,
+      "route_accuracy": 0.25,
+      "answer_accuracy": 0.34375,
+      "route_correct": 8,
+      "answer_correct": 11,
+      "predicted_backend_distribution": {
+        "kg": 32
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.0,
+          "route_correct": 0,
+          "answer_correct": 0
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.0,
+          "route_correct": 0,
+          "answer_correct": 0
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.0,
+          "route_correct": 0,
+          "answer_correct": 0
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.0,
+          "route_correct": 0,
+          "answer_correct": 0
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Climate anxiety.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Photosynthesis.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Urban heat island.",
+          "answer": "Yes. wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Memory consolidation.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Yes. bat is_a mammal. [evidence: kg_bat_is_mammal]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "No. Counterexample evidence: whale is_a mammal ; whale not_capable_of fly; platypus is_a mammal ; platypus not_capable_of fly; mouse is_a mammal ; mouse not_capable_of fly. [evidence: path:kg_whale_is_mammal->kg_whale_not_fly, path:kg_platypus_is_mammal->kg_platypus_not_fly, path:kg_mouse_is_mammal->kg_mouse_not_fly]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "bat has_property wings. [evidence: kg_bat_has_wings]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "whale capable_of swim. [evidence: kg_whale_capable_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Yes, indirectly: salmon is_a fish ; fish is_a vertebrate. [evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "frog eats mosquito. [evidence: kg_frog_eats_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "kg",
+          "route_correct": true,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "No. Counterexample evidence: owl is_a bird ; owl not_capable_of swim; eagle is_a bird ; eagle not_capable_of swim; chicken is_a bird ; chicken not_capable_of swim. [evidence: path:kg_owl_is_bird->kg_owl_not_swim, path:kg_eagle_is_bird->kg_eagle_not_swim, path:kg_chicken_is_bird->kg_chicken_not_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "bat is_a mammal ; mammal is_a vertebrate. [evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "penguin is_a bird ; bird is_a vertebrate. [evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "bat eats mosquito. [evidence: kg_bat_eats_mosquito]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "dolphin has_property echolocation. [evidence: kg_dolphin_has_property_echolocation]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "salmon is_a fish ; fish is_a vertebrate. [evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "mammal produces milk. [evidence: kg_mammal_produces_milk]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "owl eats mouse. [evidence: kg_owl_eats_mouse]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "duck capable_of swim. [evidence: kg_duck_capable_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        }
+      ]
+    },
+    "always_hybrid": {
+      "system": "always_hybrid",
+      "total": 32,
+      "route_accuracy": 0.25,
+      "answer_accuracy": 0.6875,
+      "route_correct": 8,
+      "answer_correct": 22,
+      "predicted_backend_distribution": {
+        "hybrid": 32
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.75,
+          "route_correct": 0,
+          "answer_correct": 6
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.625,
+          "route_correct": 0,
+          "answer_correct": 5
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.75,
+          "route_correct": 0,
+          "answer_correct": 6
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 1.0,
+          "answer_accuracy": 1.0,
+          "route_correct": 8,
+          "answer_correct": 8
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.625,
+          "route_correct": 0,
+          "answer_correct": 5
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "Hybrid connection: [dense:lex_rfc_7231::chunk_0] RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.\n[bm25:lex_rfc_7231] RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.. This combines structured evidence plus text relation evidence. [fused evidence: lex_rfc_7231::chunk_0,lex_rfc_7231]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "Hybrid connection: [dense:lex_icd_j18_9::chunk_0] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.\n[bm25:lex_icd_j18_9] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.. This combines structured evidence plus text relation evidence. [fused evidence: lex_icd_j18_9::chunk_0,lex_icd_j18_9]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "Hybrid connection: [dense:lex_hipaa_164_514::chunk_0] HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.\n[bm25:lex_hipaa_164_514] HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.. This combines structured evidence plus text relation evidence. [fused evidence: lex_hipaa_164_514::chunk_0,lex_hipaa_164_514]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "Hybrid connection: [dense:lex_torch_cross_entropy_loss::chunk_0] torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities.\n[bm25:lex_torch_cross_entropy_loss] torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities.. This combines structured evidence plus text relation evidence. [fused evidence: lex_torch_cross_entropy_loss::chunk_0,lex_torch_cross_entropy_loss]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "Hybrid connection: [dense:lex_postgres_jsonb_insert::chunk_0] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.\n[bm25:lex_postgres_jsonb_insert] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.. This combines structured evidence plus text relation evidence. [fused evidence: lex_postgres_jsonb_insert::chunk_0,lex_postgres_jsonb_insert]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "Hybrid connection: [dense:lex_section_1985::chunk_0] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.\n[bm25:lex_section_1985] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1985::chunk_0,lex_section_1985]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "Hybrid connection: [dense:lex_numpy_linalg_svd::chunk_0] numpy.linalg.svd performs singular value decomposition on an array.\n[bm25:lex_numpy_linalg_svd] numpy.linalg.svd performs singular value decomposition on an array.. This combines structured evidence plus text relation evidence. [fused evidence: lex_numpy_linalg_svd::chunk_0,lex_numpy_linalg_svd]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "Hybrid connection: [dense:lex_sklearn_tfidf::chunk_0] TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features.\n[bm25:lex_sklearn_tfidf] TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features.. This combines structured evidence plus text relation evidence. [fused evidence: lex_sklearn_tfidf::chunk_0,lex_sklearn_tfidf]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Climate anxiety.",
+          "answer": "Hybrid connection: [dense:sem_climate_anxiety::chunk_0] Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.\n[bm25:sem_climate_anxiety] Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.. This combines structured evidence plus text relation evidence. [fused evidence: sem_climate_anxiety::chunk_0,sem_climate_anxiety]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "Hybrid connection: [dense:sem_memory_consolidation::chunk_0] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.\n[bm25:sem_memory_consolidation] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.. This combines structured evidence plus text relation evidence. [fused evidence: sem_memory_consolidation::chunk_0,sem_memory_consolidation]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Photosynthesis.",
+          "answer": "Hybrid connection: [dense:sem_photosynthesis::chunk_0] Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.\n[bm25:sem_photosynthesis] Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.. This combines structured evidence plus text relation evidence. [fused evidence: sem_photosynthesis::chunk_0,sem_photosynthesis]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Urban heat island.",
+          "answer": "Hybrid connection: [dense:sem_urban_heat_island::chunk_0] An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.\n[bm25:sem_urban_heat_island] An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.. This combines structured evidence plus text relation evidence. [fused evidence: sem_urban_heat_island::chunk_0,sem_urban_heat_island]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Memory consolidation.",
+          "answer": "Hybrid connection: [dense:sem_memory_consolidation::chunk_0] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.\n[bm25:sem_memory_consolidation] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.. This combines structured evidence plus text relation evidence. [fused evidence: sem_memory_consolidation::chunk_0,sem_memory_consolidation]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "Hybrid connection: [dense:sem_allergy::chunk_0] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.\n[bm25:sem_allergy] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.. This combines structured evidence plus text relation evidence. [fused evidence: sem_allergy::chunk_0,sem_allergy]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "Hybrid connection: [dense:sem_circadian_rhythm::chunk_0] A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism.\n[bm25:sem_circadian_rhythm] A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism.. This combines structured evidence plus text relation evidence. [fused evidence: sem_circadian_rhythm::chunk_0,sem_circadian_rhythm]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "Hybrid connection: [dense:sem_reinforcement_learning::chunk_0] Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.\n[bm25:sem_reinforcement_learning] Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.. This combines structured evidence plus text relation evidence. [fused evidence: sem_reinforcement_learning::chunk_0,sem_reinforcement_learning]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Hybrid connection: [dense:rel_bat_vertebrate::chunk_0] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: rel_bat_vertebrate::chunk_0,rel_bat_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Hybrid connection: [dense:doc_mammal::chunk_0] A mammal is a vertebrate animal. Bats are mammals and can fly.\n[bm25:doc_mammal] A mammal is a vertebrate animal. Bats are mammals and can fly.. This combines structured evidence plus text relation evidence. [fused evidence: doc_mammal::chunk_0,doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "Hybrid connection: [dense:doc_mammal::chunk_0] A mammal is a vertebrate animal. Bats are mammals and can fly.\n[bm25:doc_mammal] A mammal is a vertebrate animal. Bats are mammals and can fly.. This combines structured evidence plus text relation evidence. [fused evidence: doc_mammal::chunk_0,doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "Hybrid connection: [dense:rel_bat_fly::chunk_0] The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight.\n[bm25:rel_bat_fly] The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight.. This combines structured evidence plus text relation evidence. [fused evidence: rel_bat_fly::chunk_0,rel_bat_fly]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "Hybrid connection: [dense:rel_whale_swim::chunk_0] The whale to swim relation is capability based: whale is capable of swim.\n[bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_whale_swim::chunk_0,rel_whale_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Hybrid connection: [dense:rel_salmon_vertebrate::chunk_0] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: rel_salmon_vertebrate::chunk_0,rel_salmon_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "Hybrid connection: [dense:rel_frog_mosquito::chunk_0] The frog to mosquito relation is dietary: frog eats mosquito in the demo KG.\n[bm25:rel_frog_mosquito] The frog to mosquito relation is dietary: frog eats mosquito in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_frog_mosquito::chunk_0,rel_frog_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "Hybrid connection: [dense:rel_duck_swim::chunk_0] The duck to swim relation is capability based: duck is capable of swim.\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_duck_swim::chunk_0,rel_duck_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_bat_eats_mosquito] bat eats mosquito\n[bm25:rel_bat_mosquito] The bat to mosquito relation is dietary: bat eats mosquito in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_bat_eats_mosquito,rel_bat_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_dolphin_has_property_echolocation] dolphin has_property echolocation\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.. This combines structured evidence plus text relation evidence. [fused evidence: kg_dolphin_has_property_echolocation,rel_dolphin_echolocation]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_salmon_is_fish->kg_fish_is_vertebrate] salmon is_a fish ; fish is_a vertebrate\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_salmon_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_mammal_produces_milk] mammal produces milk\n[bm25:rel_mammal_milk] The mammal to milk relation is production: mammal produces milk in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_mammal_produces_milk,rel_mammal_milk]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_owl_eats_mouse] owl eats mouse\n[bm25:rel_owl_mouse] The owl to mouse relation is dietary: owl eats mouse in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_owl_eats_mouse,rel_owl_mouse]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_duck_capable_swim] duck capable_of swim\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: kg_duck_capable_swim,rel_duck_swim]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        }
+      ]
+    },
+    "random_router": {
+      "system": "random_router",
+      "total": 32,
+      "route_accuracy": 0.15625,
+      "answer_accuracy": 0.65625,
+      "route_correct": 5,
+      "answer_correct": 21,
+      "predicted_backend_distribution": {
+        "hybrid": 10,
+        "dense": 9,
+        "bm25": 10,
+        "kg": 3
+      },
+      "per_family": {
+        "bm25": {
+          "total": 8,
+          "route_accuracy": 0.125,
+          "answer_accuracy": 0.75,
+          "route_correct": 1,
+          "answer_correct": 6
+        },
+        "dense": {
+          "total": 8,
+          "route_accuracy": 0.25,
+          "answer_accuracy": 0.75,
+          "route_correct": 2,
+          "answer_correct": 6
+        },
+        "hybrid": {
+          "total": 8,
+          "route_accuracy": 0.25,
+          "answer_accuracy": 0.75,
+          "route_correct": 2,
+          "answer_correct": 6
+        },
+        "kg": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "per_source_dataset": {
+        "BEIR": {
+          "total": 8,
+          "route_accuracy": 0.125,
+          "answer_accuracy": 0.75,
+          "route_correct": 1,
+          "answer_correct": 6
+        },
+        "HotpotQA": {
+          "total": 8,
+          "route_accuracy": 0.25,
+          "answer_accuracy": 0.75,
+          "route_correct": 2,
+          "answer_correct": 6
+        },
+        "Natural Questions": {
+          "total": 8,
+          "route_accuracy": 0.25,
+          "answer_accuracy": 0.75,
+          "route_correct": 2,
+          "answer_correct": 6
+        },
+        "WebQSP": {
+          "total": 8,
+          "route_accuracy": 0.0,
+          "answer_accuracy": 0.375,
+          "route_correct": 0,
+          "answer_correct": 3
+        }
+      },
+      "results": [
+        {
+          "id": "ext_lex_001",
+          "query": "RFC-7231",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "HTTP/1.1 semantics and content.",
+          "answer": "Hybrid connection: [dense:lex_rfc_7231::chunk_0] RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.\n[bm25:lex_rfc_7231] RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.. This combines structured evidence plus text relation evidence. [fused evidence: lex_rfc_7231::chunk_0,lex_rfc_7231]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_002",
+          "query": "What is ICD-10 J18.9?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Pneumonia, unspecified organism.",
+          "answer": "Hybrid connection: [dense:lex_icd_j18_9::chunk_0] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.\n[bm25:lex_icd_j18_9] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.. This combines structured evidence plus text relation evidence. [fused evidence: lex_icd_j18_9::chunk_0,lex_icd_j18_9]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_003",
+          "query": "Find HIPAA section 164.512.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+          "answer": "Hybrid connection: [dense:lex_hipaa_164_514::chunk_0] HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.\n[bm25:lex_hipaa_164_514] HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.. This combines structured evidence plus text relation evidence. [fused evidence: lex_hipaa_164_514::chunk_0,lex_hipaa_164_514]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_004",
+          "query": "What is torch.nn.CrossEntropyLoss?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Cross entropy loss for logits and targets.",
+          "answer": "torch.nn.CrossEntropyLoss. torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_005",
+          "query": "Find PostgreSQL jsonb_insert.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Inserts a new value into a JSONB document.",
+          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_006",
+          "query": "What is 42 U.S.C. \u00a71983?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Civil action for deprivation of rights under color of state law.",
+          "answer": "Hybrid connection: [dense:lex_section_1985::chunk_0] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.\n[bm25:lex_section_1985] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1985::chunk_0,lex_section_1985]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_007",
+          "query": "Find numpy.linalg.svd.",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Singular value decomposition.",
+          "answer": "numpy.linalg.svd. numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_lex_008",
+          "query": "What does sklearn.feature_extraction.text.TfidfVectorizer do?",
+          "source_dataset": "BEIR",
+          "route_family": "bm25",
+          "predicted_backend": "bm25",
+          "route_correct": true,
+          "gold_answer": "A converter from raw documents to TF-IDF features.",
+          "answer": "sklearn.feature_extraction.text.TfidfVectorizer: TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features. [evidence: lex_sklearn_tfidf]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_001",
+          "query": "What feels like climate anxiety?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Climate anxiety.",
+          "answer": "Hybrid connection: [dense:sem_climate_anxiety::chunk_0] Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.\n[bm25:sem_climate_anxiety] Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.. This combines structured evidence plus text relation evidence. [fused evidence: sem_climate_anxiety::chunk_0,sem_climate_anxiety]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_002",
+          "query": "Which condition is the charlatan feeling after success?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "Impostor syndrome.",
+          "answer": "wings is_a body_part. [evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_003",
+          "query": "What concept turns daylight into carbohydrates?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Photosynthesis.",
+          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_004",
+          "query": "What is a city asphalt warmth pocket called?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Urban heat island.",
+          "answer": "Urban heat island: An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_005",
+          "query": "Which concept describes durable recall filing during sleep?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Memory consolidation.",
+          "answer": "Memory consolidation: Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep. [evidence: sem_memory_consolidation]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_006",
+          "query": "Which term means automated unfairness pattern?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Algorithmic bias.",
+          "answer": "Hybrid connection: [dense:sem_allergy::chunk_0] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.\n[bm25:sem_allergy] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.. This combines structured evidence plus text relation evidence. [fused evidence: sem_allergy::chunk_0,sem_allergy]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_007",
+          "query": "What is the internal metronome of daily biology?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "Circadian rhythm.",
+          "answer": "Hybrid connection: [dense:sem_circadian_rhythm::chunk_0] A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism.\n[bm25:sem_circadian_rhythm] A circadian rhythm is an internal daily timing cycle that helps regulate sleep, hormones, alertness, and metabolism.. This combines structured evidence plus text relation evidence. [fused evidence: sem_circadian_rhythm::chunk_0,sem_circadian_rhythm]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_sem_008",
+          "query": "Which term names reward driven agent training?",
+          "source_dataset": "Natural Questions",
+          "route_family": "dense",
+          "predicted_backend": "dense",
+          "route_correct": true,
+          "gold_answer": "Reinforcement learning.",
+          "answer": "Reinforcement learning. Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_001",
+          "query": "Is a bat a mammal?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Yes. bat is_a mammal.",
+          "answer": "Bat to vertebrate bridge: A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_002",
+          "query": "Can a mammal fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+          "answer": "Mammal Facts: A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_003",
+          "query": "Are all mammals able to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "No. whale and dolphin are mammal counterexamples.",
+          "answer": "Mammal Facts: A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_004",
+          "query": "What property allows a bat to fly?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat has_property wings and bat capable_of fly.",
+          "answer": "Bat flight relation: The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight. [evidence: rel_bat_fly]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_005",
+          "query": "Can a whale swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Yes. whale capable_of swim.",
+          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_006",
+          "query": "Is a salmon a vertebrate?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "Indirectly yes through salmon is_a fish and fish is_a vertebrate.",
+          "answer": "Salmon to vertebrate bridge. A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate. [evidence: rel_salmon_vertebrate::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_007",
+          "query": "What eats mosquito?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito and frog eats mosquito.",
+          "answer": "Frog mosquito relation: The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_kg_008",
+          "query": "Are all birds able to swim?",
+          "source_dataset": "WebQSP",
+          "route_family": "kg",
+          "predicted_backend": "hybrid",
+          "route_correct": false,
+          "gold_answer": "No. eagle and chicken are bird counterexamples.",
+          "answer": "Hybrid connection: [dense:rel_duck_swim::chunk_0] The duck to swim relation is capability based: duck is capable of swim.\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_duck_swim::chunk_0,rel_duck_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_001",
+          "query": "What bridge connects bat and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+          "answer": "bat is_a mammal ; mammal is_a vertebrate. [evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_002",
+          "query": "What bridge connects penguin and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+          "answer": "Hybrid connection: [kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_003",
+          "query": "What relation connects bat and mosquito?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "bat eats mosquito plus text relation evidence.",
+          "answer": "Bat mosquito relation. The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito::chunk_0]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_004",
+          "query": "What relation connects dolphin and echolocation?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "dense",
+          "route_correct": false,
+          "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+          "answer": "Dolphin echolocation relation. The dolphin to echolocation relation is a property relation: dolphin has property echolocation. [evidence: rel_dolphin_echolocation::chunk_0]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_005",
+          "query": "What bridge connects salmon and vertebrate?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "kg",
+          "route_correct": false,
+          "gold_answer": "salmon -> fish -> vertebrate plus text bridge evidence.",
+          "answer": "salmon is_a fish ; fish is_a vertebrate. [evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_006",
+          "query": "What relation connects mammal and milk?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "hybrid",
+          "route_correct": true,
+          "gold_answer": "mammal produces milk plus text relation evidence.",
+          "answer": "Hybrid connection: [kg:kg_mammal_produces_milk] mammal produces milk\n[bm25:rel_mammal_milk] The mammal to milk relation is production: mammal produces milk in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: kg_mammal_produces_milk,rel_mammal_milk]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_007",
+          "query": "What relation connects owl and mouse?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "owl eats mouse plus text relation evidence.",
+          "answer": "Owl mouse relation: The owl to mouse relation is dietary: owl eats mouse in the demo KG. [evidence: rel_owl_mouse]",
+          "answer_correct": true,
+          "reasoning_trace_generated": true
+        },
+        {
+          "id": "ext_rel_008",
+          "query": "What relation connects duck and swim?",
+          "source_dataset": "HotpotQA",
+          "route_family": "hybrid",
+          "predicted_backend": "bm25",
+          "route_correct": false,
+          "gold_answer": "duck capable_of swim plus text relation evidence.",
+          "answer": "Duck swim relation: The duck to swim relation is capability based: duck is capable of swim. [evidence: rel_duck_swim]",
+          "answer_correct": false,
+          "reasoning_trace_generated": true
+        }
+      ]
+    }
+  },
+  "takeaways": [
+    "Computed RAS answer accuracy is 1.000.",
+    "Strongest fixed-backend baseline is always_hybrid at 0.688.",
+    "External mini-benchmark remains separate from the curated 80-query benchmark."
+  ]
+}

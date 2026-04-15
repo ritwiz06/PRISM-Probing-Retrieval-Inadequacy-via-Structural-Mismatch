@@ -1,0 +1,1936 @@
+{
+  "example_count": 8,
+  "route_families": [
+    "bm25",
+    "dense",
+    "hybrid",
+    "kg"
+  ],
+  "examples": [
+    {
+      "label": "Lexical: RFC-7231",
+      "query": "RFC-7231",
+      "gold_route": null,
+      "gold_answer": null,
+      "parsed_features": {
+        "query": "RFC-7231",
+        "lexical": true,
+        "semantic": false,
+        "deductive": false,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 0.4,
+        "dense": 1.2,
+        "kg": 1.0,
+        "hybrid": 1.0
+      },
+      "selected_backend": "bm25",
+      "answer": {
+        "final_answer": "RFC-7231 HTTP/1.1 Semantics and Content: RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation. [evidence: lex_rfc_7231]",
+        "answer_type": "lexical_exact_match",
+        "selected_backend": "bm25",
+        "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+        "evidence_ids": [
+          "lex_rfc_7231",
+          "sem_water_cycle",
+          "sem_urban_heat_island",
+          "sem_situated_knowledge",
+          "sem_reinforcement_learning"
+        ],
+        "evidence_snippets": [
+          "RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.",
+          "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+          "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+          "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+          "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "lexical"
+            ],
+            "features": {
+              "query": "RFC-7231",
+              "lexical": true,
+              "semantic": false,
+              "deductive": false,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 0.4,
+              "dense": 1.2,
+              "kg": 1.0,
+              "hybrid": 1.0
+            },
+            "best_backend": "bm25",
+            "runner_up_backend": "kg"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "bm25",
+            "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+            "why_others_not_preferred": [
+              "kg RAS=1.000 vs selected bm25 RAS=0.400",
+              "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+              "dense RAS=1.200 vs selected bm25 RAS=0.400"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "lex_rfc_7231",
+              "sem_water_cycle",
+              "sem_urban_heat_island",
+              "sem_situated_knowledge",
+              "sem_reinforcement_learning"
+            ],
+            "evidence_modes": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "lex_rfc_7231",
+              "sem_water_cycle",
+              "sem_urban_heat_island",
+              "sem_situated_knowledge",
+              "sem_reinforcement_learning"
+            ],
+            "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+          }
+        ],
+        "support_score": 0.9605274742201506,
+        "backend_metadata": {
+          "top_evidence_type": "document",
+          "top_query_mode": null,
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "lex_rfc_7231",
+          "score": 24.334076810217663,
+          "source_type": "document",
+          "content": "RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.",
+          "metadata": {
+            "title": "RFC-7231 HTTP/1.1 Semantics and Content",
+            "source": "lexical:rfc",
+            "bm25_score": "14.234077"
+          }
+        },
+        {
+          "item_id": "sem_water_cycle",
+          "score": 0.0,
+          "source_type": "document",
+          "content": "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+          "metadata": {
+            "title": "Water cycle",
+            "source": "seed:wikipedia",
+            "bm25_score": "0.000000"
+          }
+        },
+        {
+          "item_id": "sem_urban_heat_island",
+          "score": 0.0,
+          "source_type": "document",
+          "content": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+          "metadata": {
+            "title": "Urban heat island",
+            "source": "seed:wikipedia",
+            "bm25_score": "0.000000"
+          }
+        },
+        {
+          "item_id": "sem_situated_knowledge",
+          "score": 0.0,
+          "source_type": "document",
+          "content": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+          "metadata": {
+            "title": "Situated knowledge",
+            "source": "seed:wikipedia",
+            "bm25_score": "0.000000"
+          }
+        },
+        {
+          "item_id": "sem_reinforcement_learning",
+          "score": 0.0,
+          "source_type": "document",
+          "content": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.",
+          "metadata": {
+            "title": "Reinforcement learning",
+            "source": "seed:wikipedia",
+            "bm25_score": "0.000000"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "RFC-7231",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_rfc_7231",
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_rfc_7231",
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_match": null
+    },
+    {
+      "label": "Lexical: ICD-10 J18.9",
+      "query": "What is ICD-10 J18.9?",
+      "gold_route": "bm25",
+      "gold_answer": "Pneumonia, unspecified organism.",
+      "parsed_features": {
+        "query": "What is ICD-10 J18.9?",
+        "lexical": true,
+        "semantic": false,
+        "deductive": false,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 0.4,
+        "dense": 1.2,
+        "kg": 1.0,
+        "hybrid": 1.0
+      },
+      "selected_backend": "bm25",
+      "answer": {
+        "final_answer": "ICD-10-CM J18.9: ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9]",
+        "answer_type": "lexical_exact_match",
+        "selected_backend": "bm25",
+        "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+        "evidence_ids": [
+          "lex_icd_j18_9",
+          "sem_situated_knowledge",
+          "rel_mammal_vertebrate",
+          "rel_insect_animal",
+          "rel_bird_vertebrate"
+        ],
+        "evidence_snippets": [
+          "ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.",
+          "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+          "The mammal to vertebrate relation is class inheritance: mammal is a vertebrate.",
+          "The insect to animal relation is class inheritance: insect is an animal.",
+          "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "lexical"
+            ],
+            "features": {
+              "query": "What is ICD-10 J18.9?",
+              "lexical": true,
+              "semantic": false,
+              "deductive": false,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 0.4,
+              "dense": 1.2,
+              "kg": 1.0,
+              "hybrid": 1.0
+            },
+            "best_backend": "bm25",
+            "runner_up_backend": "kg"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "bm25",
+            "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+            "why_others_not_preferred": [
+              "kg RAS=1.000 vs selected bm25 RAS=0.400",
+              "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+              "dense RAS=1.200 vs selected bm25 RAS=0.400"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "lex_icd_j18_9",
+              "sem_situated_knowledge",
+              "rel_mammal_vertebrate",
+              "rel_insect_animal",
+              "rel_bird_vertebrate"
+            ],
+            "evidence_modes": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "lex_icd_j18_9",
+              "sem_situated_knowledge",
+              "rel_mammal_vertebrate",
+              "rel_insect_animal",
+              "rel_bird_vertebrate"
+            ],
+            "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+          }
+        ],
+        "support_score": 0.9546522529605005,
+        "backend_metadata": {
+          "top_evidence_type": "document",
+          "top_query_mode": null,
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "lex_icd_j18_9",
+          "score": 21.051812168947766,
+          "source_type": "document",
+          "content": "ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.",
+          "metadata": {
+            "title": "ICD-10-CM J18.9",
+            "source": "lexical:icd10",
+            "bm25_score": "15.951812"
+          }
+        },
+        {
+          "item_id": "sem_situated_knowledge",
+          "score": 5.593557746844878,
+          "source_type": "document",
+          "content": "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+          "metadata": {
+            "title": "Situated knowledge",
+            "source": "seed:wikipedia",
+            "bm25_score": "5.543558"
+          }
+        },
+        {
+          "item_id": "rel_mammal_vertebrate",
+          "score": 1.7854590685581946,
+          "source_type": "document",
+          "content": "The mammal to vertebrate relation is class inheritance: mammal is a vertebrate.",
+          "metadata": {
+            "title": "Mammal vertebrate relation",
+            "source": "seed:relational",
+            "bm25_score": "1.735459"
+          }
+        },
+        {
+          "item_id": "rel_insect_animal",
+          "score": 1.7854590685581946,
+          "source_type": "document",
+          "content": "The insect to animal relation is class inheritance: insect is an animal.",
+          "metadata": {
+            "title": "Insect animal relation",
+            "source": "seed:relational",
+            "bm25_score": "1.735459"
+          }
+        },
+        {
+          "item_id": "rel_bird_vertebrate",
+          "score": 1.7854590685581946,
+          "source_type": "document",
+          "content": "The bird to vertebrate relation is class inheritance: bird is a vertebrate.",
+          "metadata": {
+            "title": "Bird vertebrate relation",
+            "source": "seed:relational",
+            "bm25_score": "1.735459"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "What is ICD-10 J18.9?",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_icd_j18_9",
+            "sem_situated_knowledge",
+            "rel_mammal_vertebrate",
+            "rel_insect_animal",
+            "rel_bird_vertebrate"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_icd_j18_9",
+            "sem_situated_knowledge",
+            "rel_mammal_vertebrate",
+            "rel_insect_animal",
+            "rel_bird_vertebrate"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_match": true
+    },
+    {
+      "label": "Semantic: climate anxiety",
+      "query": "What feels like climate anxiety?",
+      "gold_route": null,
+      "gold_answer": null,
+      "parsed_features": {
+        "query": "What feels like climate anxiety?",
+        "lexical": false,
+        "semantic": true,
+        "deductive": false,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 0.5,
+        "kg": 1.0,
+        "hybrid": 1.0
+      },
+      "selected_backend": "dense",
+      "answer": {
+        "final_answer": "Climate anxiety. Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety::chunk_0]",
+        "answer_type": "semantic_summary",
+        "selected_backend": "dense",
+        "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+        "evidence_ids": [
+          "sem_climate_anxiety::chunk_0",
+          "doc_exact::chunk_0",
+          "doc_bm25::chunk_0",
+          "sem_background_012::chunk_0",
+          "sem_background_032::chunk_0"
+        ],
+        "evidence_snippets": [
+          "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.",
+          "Exact identifiers, codes, and section references are best handled by sparse lexical retrieval.",
+          "Lexical or exact identifier questions should route to BM25. Semantic questions should route to dense retrieval.",
+          "This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus without building a full ...",
+          "This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus without building a full ..."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "semantic"
+            ],
+            "features": {
+              "query": "What feels like climate anxiety?",
+              "lexical": false,
+              "semantic": true,
+              "deductive": false,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 0.5,
+              "kg": 1.0,
+              "hybrid": 1.0
+            },
+            "best_backend": "dense",
+            "runner_up_backend": "bm25"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "dense",
+            "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+            "why_others_not_preferred": [
+              "bm25 RAS=1.000 vs selected dense RAS=0.500",
+              "kg RAS=1.000 vs selected dense RAS=0.500",
+              "hybrid RAS=1.000 vs selected dense RAS=0.500"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "sem_climate_anxiety::chunk_0",
+              "doc_exact::chunk_0",
+              "doc_bm25::chunk_0",
+              "sem_background_012::chunk_0",
+              "sem_background_032::chunk_0"
+            ],
+            "evidence_modes": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "sem_climate_anxiety::chunk_0",
+              "doc_exact::chunk_0",
+              "doc_bm25::chunk_0",
+              "sem_background_012::chunk_0",
+              "sem_background_032::chunk_0"
+            ],
+            "synthesis_note": "Summarized the top semantic chunk."
+          }
+        ],
+        "support_score": 0.4854002410125176,
+        "backend_metadata": {
+          "top_evidence_type": "chunk",
+          "top_query_mode": null,
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "sem_climate_anxiety::chunk_0",
+          "score": 0.9432578086853027,
+          "source_type": "chunk",
+          "content": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.",
+          "metadata": {
+            "parent_doc_id": "sem_climate_anxiety",
+            "title": "Climate anxiety",
+            "source": "seed:wikipedia",
+            "chunk_id": "sem_climate_anxiety::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "doc_exact::chunk_0",
+          "score": 0.02272140607237816,
+          "source_type": "chunk",
+          "content": "Exact identifiers, codes, and section references are best handled by sparse lexical retrieval.",
+          "metadata": {
+            "parent_doc_id": "doc_exact",
+            "title": "Identifier Guide",
+            "source": "seed:formal",
+            "chunk_id": "doc_exact::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "doc_bm25::chunk_0",
+          "score": 0.016722502186894417,
+          "source_type": "chunk",
+          "content": "Lexical or exact identifier questions should route to BM25. Semantic questions should route to dense retrieval.",
+          "metadata": {
+            "parent_doc_id": "doc_bm25",
+            "title": "Retrieval Routing Policy",
+            "source": "seed:wikipedia",
+            "chunk_id": "doc_bm25::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "sem_background_012::chunk_0",
+          "score": 0.014713840559124947,
+          "source_type": "chunk",
+          "content": "This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus without building a full Wikipedia dump.",
+          "metadata": {
+            "parent_doc_id": "sem_background_012",
+            "title": "Background note 012: Desertification",
+            "source": "seed:wikipedia_background",
+            "chunk_id": "sem_background_012::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "sem_background_032::chunk_0",
+          "score": 0.014713840559124947,
+          "source_type": "chunk",
+          "content": "This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus without building a full Wikipedia dump.",
+          "metadata": {
+            "parent_doc_id": "sem_background_032",
+            "title": "Background note 032: Desertification",
+            "source": "seed:wikipedia_background",
+            "chunk_id": "sem_background_032::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "What feels like climate anxiety?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_climate_anxiety::chunk_0",
+            "doc_exact::chunk_0",
+            "doc_bm25::chunk_0",
+            "sem_background_012::chunk_0",
+            "sem_background_032::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_climate_anxiety::chunk_0",
+            "doc_exact::chunk_0",
+            "doc_bm25::chunk_0",
+            "sem_background_012::chunk_0",
+            "sem_background_032::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_match": null
+    },
+    {
+      "label": "Semantic: asphalt warmth pocket",
+      "query": "What is an asphalt warmth pocket?",
+      "gold_route": "dense",
+      "gold_answer": "Urban heat island.",
+      "parsed_features": {
+        "query": "What is an asphalt warmth pocket?",
+        "lexical": false,
+        "semantic": true,
+        "deductive": false,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 0.5,
+        "kg": 1.0,
+        "hybrid": 1.0
+      },
+      "selected_backend": "dense",
+      "answer": {
+        "final_answer": "Urban heat island. An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island::chunk_0]",
+        "answer_type": "semantic_summary",
+        "selected_backend": "dense",
+        "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+        "evidence_ids": [
+          "sem_urban_heat_island::chunk_0",
+          "lex_html_aria_label::chunk_0",
+          "rel_mosquito_animal::chunk_0",
+          "rel_insect_animal::chunk_0",
+          "lex_rfc_7230::chunk_0"
+        ],
+        "evidence_snippets": [
+          "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+          "The aria-label attribute defines an accessible name for an element when no visible label is available.",
+          "A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.",
+          "The insect to animal relation is class inheritance: insect is an animal.",
+          "RFC-7230 defines HTTP/1.1 message syntax, routing, connection management, and related requirements."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "semantic"
+            ],
+            "features": {
+              "query": "What is an asphalt warmth pocket?",
+              "lexical": false,
+              "semantic": true,
+              "deductive": false,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 0.5,
+              "kg": 1.0,
+              "hybrid": 1.0
+            },
+            "best_backend": "dense",
+            "runner_up_backend": "bm25"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "dense",
+            "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+            "why_others_not_preferred": [
+              "bm25 RAS=1.000 vs selected dense RAS=0.500",
+              "kg RAS=1.000 vs selected dense RAS=0.500",
+              "hybrid RAS=1.000 vs selected dense RAS=0.500"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "sem_urban_heat_island::chunk_0",
+              "lex_html_aria_label::chunk_0",
+              "rel_mosquito_animal::chunk_0",
+              "rel_insect_animal::chunk_0",
+              "lex_rfc_7230::chunk_0"
+            ],
+            "evidence_modes": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "sem_urban_heat_island::chunk_0",
+              "lex_html_aria_label::chunk_0",
+              "rel_mosquito_animal::chunk_0",
+              "rel_insect_animal::chunk_0",
+              "lex_rfc_7230::chunk_0"
+            ],
+            "synthesis_note": "Summarized the top semantic chunk."
+          }
+        ],
+        "support_score": 0.48346331097325074,
+        "backend_metadata": {
+          "top_evidence_type": "chunk",
+          "top_query_mode": null,
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "sem_urban_heat_island::chunk_0",
+          "score": 0.9359709024429321,
+          "source_type": "chunk",
+          "content": "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+          "metadata": {
+            "parent_doc_id": "sem_urban_heat_island",
+            "title": "Urban heat island",
+            "source": "seed:wikipedia",
+            "chunk_id": "sem_urban_heat_island::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "lex_html_aria_label::chunk_0",
+          "score": 0.07698003947734833,
+          "source_type": "chunk",
+          "content": "The aria-label attribute defines an accessible name for an element when no visible label is available.",
+          "metadata": {
+            "parent_doc_id": "lex_html_aria_label",
+            "title": "HTML aria-label",
+            "source": "lexical:html",
+            "chunk_id": "lex_html_aria_label::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "rel_mosquito_animal::chunk_0",
+          "score": 0.06666666269302368,
+          "source_type": "chunk",
+          "content": "A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.",
+          "metadata": {
+            "parent_doc_id": "rel_mosquito_animal",
+            "title": "Mosquito to animal bridge",
+            "source": "seed:relational",
+            "chunk_id": "rel_mosquito_animal::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "rel_insect_animal::chunk_0",
+          "score": 0.061237238347530365,
+          "source_type": "chunk",
+          "content": "The insect to animal relation is class inheritance: insect is an animal.",
+          "metadata": {
+            "parent_doc_id": "rel_insect_animal",
+            "title": "Insect animal relation",
+            "source": "seed:relational",
+            "chunk_id": "rel_insect_animal::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        },
+        {
+          "item_id": "lex_rfc_7230::chunk_0",
+          "score": 0.04923659563064575,
+          "source_type": "chunk",
+          "content": "RFC-7230 defines HTTP/1.1 message syntax, routing, connection management, and related requirements.",
+          "metadata": {
+            "parent_doc_id": "lex_rfc_7230",
+            "title": "RFC-7230 HTTP/1.1 Message Syntax and Routing",
+            "source": "lexical:rfc",
+            "chunk_id": "lex_rfc_7230::chunk_0",
+            "chunk_ordinal": "0",
+            "embedding_backend": "numpy",
+            "index_backend": "numpy"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "What is an asphalt warmth pocket?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_urban_heat_island::chunk_0",
+            "lex_html_aria_label::chunk_0",
+            "rel_mosquito_animal::chunk_0",
+            "rel_insect_animal::chunk_0",
+            "lex_rfc_7230::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_urban_heat_island::chunk_0",
+            "lex_html_aria_label::chunk_0",
+            "rel_mosquito_animal::chunk_0",
+            "rel_insect_animal::chunk_0",
+            "lex_rfc_7230::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_match": true
+    },
+    {
+      "label": "Deductive: mammal fly",
+      "query": "Can a mammal fly?",
+      "gold_route": "kg",
+      "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+      "parsed_features": {
+        "query": "Can a mammal fly?",
+        "lexical": false,
+        "semantic": false,
+        "deductive": true,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 1.0,
+        "kg": 0.4,
+        "hybrid": 1.0
+      },
+      "selected_backend": "kg",
+      "answer": {
+        "final_answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+        "answer_type": "deductive",
+        "selected_backend": "kg",
+        "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+        "evidence_ids": [
+          "path:kg_bat_is_mammal->kg_bat_capable_fly"
+        ],
+        "evidence_snippets": [
+          "bat is_a mammal ; bat capable_of fly"
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "deductive"
+            ],
+            "features": {
+              "query": "Can a mammal fly?",
+              "lexical": false,
+              "semantic": false,
+              "deductive": true,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 1.0,
+              "kg": 0.4,
+              "hybrid": 1.0
+            },
+            "best_backend": "kg",
+            "runner_up_backend": "bm25"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "kg",
+            "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+            "why_others_not_preferred": [
+              "bm25 RAS=1.000 vs selected kg RAS=0.400",
+              "dense RAS=1.000 vs selected kg RAS=0.400",
+              "hybrid RAS=1.000 vs selected kg RAS=0.400"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "path:kg_bat_is_mammal->kg_bat_capable_fly"
+            ],
+            "evidence_modes": [
+              "existential"
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "path:kg_bat_is_mammal->kg_bat_capable_fly"
+            ],
+            "synthesis_note": "Used KG membership plus property support."
+          }
+        ],
+        "support_score": 0.8571428571428571,
+        "backend_metadata": {
+          "top_evidence_type": "path",
+          "top_query_mode": "existential",
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "path:kg_bat_is_mammal->kg_bat_capable_fly",
+          "score": 6.0,
+          "source_type": "path",
+          "content": "bat is_a mammal ; bat capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_bat_is_mammal->kg_bat_capable_fly",
+            "triple_id": "kg_bat_is_mammal,kg_bat_capable_fly",
+            "source_doc_id": "doc_mammal,doc_mammal",
+            "subject": "bat",
+            "predicate": "is_a -> capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "existential"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Can a mammal fly?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_bat_is_mammal->kg_bat_capable_fly"
+          ],
+          "evidence_modes": [
+            "existential"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_bat_is_mammal->kg_bat_capable_fly"
+          ],
+          "synthesis_note": "Used KG membership plus property support."
+        }
+      ],
+      "route_match": true
+    },
+    {
+      "label": "Deductive: all mammals fly",
+      "query": "Are all mammals able to fly?",
+      "gold_route": "kg",
+      "gold_answer": "No. The demo KG contains mammal counterexamples such as whale not_capable_of fly.",
+      "parsed_features": {
+        "query": "Are all mammals able to fly?",
+        "lexical": false,
+        "semantic": false,
+        "deductive": true,
+        "relational": false
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 1.0,
+        "kg": 0.4,
+        "hybrid": 1.0
+      },
+      "selected_backend": "kg",
+      "answer": {
+        "final_answer": "No. Counterexample evidence: whale is_a mammal ; whale not_capable_of fly; platypus is_a mammal ; platypus not_capable_of fly; mouse is_a mammal ; mouse not_capable_of fly; kangaroo is_a mammal ; kangaroo not_capable_of fly; horse is_a mammal ; horse not_capable_of fly. [evidence: path:kg_whale_is_mammal->kg_whale_not_fly, path:kg_platypus_is_mammal->kg_platypus_not_fly, path:kg_mouse_is_mammal->kg_mouse_not_fly, path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly, path:kg_horse_is_mammal->kg_horse_not_fly]",
+        "answer_type": "deductive",
+        "selected_backend": "kg",
+        "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+        "evidence_ids": [
+          "path:kg_whale_is_mammal->kg_whale_not_fly",
+          "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+          "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+          "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+          "path:kg_horse_is_mammal->kg_horse_not_fly"
+        ],
+        "evidence_snippets": [
+          "whale is_a mammal ; whale not_capable_of fly",
+          "platypus is_a mammal ; platypus not_capable_of fly",
+          "mouse is_a mammal ; mouse not_capable_of fly",
+          "kangaroo is_a mammal ; kangaroo not_capable_of fly",
+          "horse is_a mammal ; horse not_capable_of fly"
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "deductive"
+            ],
+            "features": {
+              "query": "Are all mammals able to fly?",
+              "lexical": false,
+              "semantic": false,
+              "deductive": true,
+              "relational": false
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 1.0,
+              "kg": 0.4,
+              "hybrid": 1.0
+            },
+            "best_backend": "kg",
+            "runner_up_backend": "bm25"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "kg",
+            "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+            "why_others_not_preferred": [
+              "bm25 RAS=1.000 vs selected kg RAS=0.400",
+              "dense RAS=1.000 vs selected kg RAS=0.400",
+              "hybrid RAS=1.000 vs selected kg RAS=0.400"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "path:kg_whale_is_mammal->kg_whale_not_fly",
+              "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+              "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+              "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+              "path:kg_horse_is_mammal->kg_horse_not_fly"
+            ],
+            "evidence_modes": [
+              "universal_counterexample",
+              "universal_counterexample",
+              "universal_counterexample",
+              "universal_counterexample",
+              "universal_counterexample"
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "path:kg_whale_is_mammal->kg_whale_not_fly",
+              "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+              "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+              "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+              "path:kg_horse_is_mammal->kg_horse_not_fly"
+            ],
+            "synthesis_note": "Used KG counterexample evidence for a universal claim."
+          }
+        ],
+        "support_score": 0.875,
+        "backend_metadata": {
+          "top_evidence_type": "path",
+          "top_query_mode": "universal_counterexample",
+          "top_fusion_method": null,
+          "top_contributing_backends": null
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "path:kg_whale_is_mammal->kg_whale_not_fly",
+          "score": 7.0,
+          "source_type": "path",
+          "content": "whale is_a mammal ; whale not_capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_whale_is_mammal->kg_whale_not_fly",
+            "triple_id": "kg_whale_is_mammal,kg_whale_not_fly",
+            "source_doc_id": "kg_doc_whale,kg_doc_whale",
+            "subject": "whale",
+            "predicate": "is_a -> not_capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "universal_counterexample"
+          }
+        },
+        {
+          "item_id": "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+          "score": 7.0,
+          "source_type": "path",
+          "content": "platypus is_a mammal ; platypus not_capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+            "triple_id": "kg_platypus_is_mammal,kg_platypus_not_fly",
+            "source_doc_id": "kg_doc_platypus,kg_doc_platypus",
+            "subject": "platypus",
+            "predicate": "is_a -> not_capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "universal_counterexample"
+          }
+        },
+        {
+          "item_id": "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+          "score": 7.0,
+          "source_type": "path",
+          "content": "mouse is_a mammal ; mouse not_capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+            "triple_id": "kg_mouse_is_mammal,kg_mouse_not_fly",
+            "source_doc_id": "kg_doc_mouse,kg_doc_mouse",
+            "subject": "mouse",
+            "predicate": "is_a -> not_capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "universal_counterexample"
+          }
+        },
+        {
+          "item_id": "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+          "score": 7.0,
+          "source_type": "path",
+          "content": "kangaroo is_a mammal ; kangaroo not_capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+            "triple_id": "kg_kangaroo_is_mammal,kg_kangaroo_not_fly",
+            "source_doc_id": "kg_doc_kangaroo,kg_doc_kangaroo",
+            "subject": "kangaroo",
+            "predicate": "is_a -> not_capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "universal_counterexample"
+          }
+        },
+        {
+          "item_id": "path:kg_horse_is_mammal->kg_horse_not_fly",
+          "score": 7.0,
+          "source_type": "path",
+          "content": "horse is_a mammal ; horse not_capable_of fly",
+          "metadata": {
+            "path_id": "path:kg_horse_is_mammal->kg_horse_not_fly",
+            "triple_id": "kg_horse_is_mammal,kg_horse_not_fly",
+            "source_doc_id": "kg_doc_horse,kg_doc_horse",
+            "subject": "horse",
+            "predicate": "is_a -> not_capable_of",
+            "object": "fly",
+            "hop_count": "2",
+            "backend_type": "kg",
+            "query_mode": "universal_counterexample"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Are all mammals able to fly?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_whale_is_mammal->kg_whale_not_fly",
+            "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+            "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+            "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+            "path:kg_horse_is_mammal->kg_horse_not_fly"
+          ],
+          "evidence_modes": [
+            "universal_counterexample",
+            "universal_counterexample",
+            "universal_counterexample",
+            "universal_counterexample",
+            "universal_counterexample"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_whale_is_mammal->kg_whale_not_fly",
+            "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+            "path:kg_mouse_is_mammal->kg_mouse_not_fly",
+            "path:kg_kangaroo_is_mammal->kg_kangaroo_not_fly",
+            "path:kg_horse_is_mammal->kg_horse_not_fly"
+          ],
+          "synthesis_note": "Used KG counterexample evidence for a universal claim."
+        }
+      ],
+      "route_match": true
+    },
+    {
+      "label": "Relational: bat to vertebrate",
+      "query": "What bridge connects bat and vertebrate?",
+      "gold_route": "hybrid",
+      "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+      "parsed_features": {
+        "query": "What bridge connects bat and vertebrate?",
+        "lexical": false,
+        "semantic": false,
+        "deductive": false,
+        "relational": true
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 1.0,
+        "kg": 0.8,
+        "hybrid": 0.30000000000000004
+      },
+      "selected_backend": "hybrid",
+      "answer": {
+        "final_answer": "Hybrid connection: [kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate]",
+        "answer_type": "relational",
+        "selected_backend": "hybrid",
+        "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+        "evidence_ids": [
+          "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+          "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+          "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+          "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+          "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+        ],
+        "evidence_snippets": [
+          "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.",
+          "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+          "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+          "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+          "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "relational"
+            ],
+            "features": {
+              "query": "What bridge connects bat and vertebrate?",
+              "lexical": false,
+              "semantic": false,
+              "deductive": false,
+              "relational": true
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 1.0,
+              "kg": 0.8,
+              "hybrid": 0.30000000000000004
+            },
+            "best_backend": "hybrid",
+            "runner_up_backend": "kg"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "hybrid",
+            "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+            "why_others_not_preferred": [
+              "kg RAS=0.800 vs selected hybrid RAS=0.300",
+              "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+              "dense RAS=1.000 vs selected hybrid RAS=0.300"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+            ],
+            "evidence_modes": [
+              "rrf+relational_bundle",
+              "rrf+relational_bundle",
+              "rrf+relational_bundle",
+              "rrf+relational_bundle",
+              "rrf+relational_bundle"
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+              "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+            ],
+            "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+          }
+        ],
+        "support_score": 0.07785336356764928,
+        "backend_metadata": {
+          "top_evidence_type": "hybrid",
+          "top_query_mode": null,
+          "top_fusion_method": "rrf+relational_bundle",
+          "top_contributing_backends": "bm25,kg"
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+          "score": 0.08442622950819673,
+          "source_type": "hybrid",
+          "content": "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate",
+            "raw_ranks": "{\"bm25\": 1, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 20.57216478294136, \"kg\": 6.0}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_bat_is_mammal,kg_mammal_is_vertebrate",
+            "path_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+            "kg_source_doc_id": "doc_mammal,doc_mammal",
+            "parent_doc_id": "rel_bat_vertebrate"
+          }
+        },
+        {
+          "item_id": "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+          "score": 0.08418826017979905,
+          "source_type": "hybrid",
+          "content": "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate",
+            "raw_ranks": "{\"bm25\": 2, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 14.305160069829894, \"kg\": 6.0}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_bat_is_mammal,kg_mammal_is_vertebrate",
+            "path_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+            "kg_source_doc_id": "doc_mammal,doc_mammal",
+            "parent_doc_id": "rel_whale_vertebrate"
+          }
+        },
+        {
+          "item_id": "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+          "score": 0.08395784543325527,
+          "source_type": "hybrid",
+          "content": "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_salmon_vertebrate",
+            "raw_ranks": "{\"bm25\": 3, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 14.305160069829894, \"kg\": 6.0}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_bat_is_mammal,kg_mammal_is_vertebrate",
+            "path_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+            "kg_source_doc_id": "doc_mammal,doc_mammal",
+            "parent_doc_id": "rel_salmon_vertebrate"
+          }
+        },
+        {
+          "item_id": "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+          "score": 0.08373463114754098,
+          "source_type": "hybrid",
+          "content": "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_penguin_vertebrate",
+            "raw_ranks": "{\"bm25\": 4, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 14.305160069829894, \"kg\": 6.0}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_bat_is_mammal,kg_mammal_is_vertebrate",
+            "path_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+            "kg_source_doc_id": "doc_mammal,doc_mammal",
+            "parent_doc_id": "rel_penguin_vertebrate"
+          }
+        },
+        {
+          "item_id": "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal",
+          "score": 0.08351828499369483,
+          "source_type": "hybrid",
+          "content": "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_mosquito_animal",
+            "raw_ranks": "{\"bm25\": 5, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 8.941963103803197, \"kg\": 6.0}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_bat_is_mammal,kg_mammal_is_vertebrate",
+            "path_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+            "kg_source_doc_id": "doc_mammal,doc_mammal",
+            "parent_doc_id": "rel_mosquito_animal"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects bat and vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_match": true
+    },
+    {
+      "label": "Relational: dolphin to echolocation",
+      "query": "What relation connects dolphin and echolocation?",
+      "gold_route": "hybrid",
+      "gold_answer": "dolphin has_property echolocation plus text relation evidence.",
+      "parsed_features": {
+        "query": "What relation connects dolphin and echolocation?",
+        "lexical": false,
+        "semantic": false,
+        "deductive": false,
+        "relational": true
+      },
+      "ras_scores": {
+        "bm25": 1.0,
+        "dense": 1.0,
+        "kg": 0.8,
+        "hybrid": 0.30000000000000004
+      },
+      "selected_backend": "hybrid",
+      "answer": {
+        "final_answer": "Hybrid connection: [kg:kg_dolphin_has_property_echolocation] dolphin has_property echolocation\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.. This combines structured evidence plus text relation evidence. [fused evidence: kg_dolphin_has_property_echolocation,rel_dolphin_echolocation]",
+        "answer_type": "relational",
+        "selected_backend": "hybrid",
+        "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+        "evidence_ids": [
+          "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+          "hybrid:text:rel_dolphin_echolocation",
+          "hybrid:text:rel_whale_vertebrate",
+          "hybrid:text:rel_bat_vertebrate",
+          "hybrid:text:rel_mammal_vertebrate"
+        ],
+        "evidence_snippets": [
+          "[kg:kg_dolphin_has_property_echolocation] dolphin has_property echolocation\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.",
+          "[dense:rel_dolphin_echolocation::chunk_0] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphi...",
+          "[dense:rel_whale_vertebrate::chunk_0] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal ...",
+          "[dense:rel_bat_vertebrate::chunk_0] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and...",
+          "[dense:rel_mammal_vertebrate::chunk_0] The mammal to vertebrate relation is class inheritance: mammal is a vertebrate.\n[bm25:rel_mammal_vertebrate] The mammal to vertebrate relation is class inheritance: mammal is a vertebrate."
+        ],
+        "reasoning_trace_steps": [
+          {
+            "step": "parse_query_features",
+            "query_family_signals": [
+              "relational"
+            ],
+            "features": {
+              "query": "What relation connects dolphin and echolocation?",
+              "lexical": false,
+              "semantic": false,
+              "deductive": false,
+              "relational": true
+            }
+          },
+          {
+            "step": "score_ras",
+            "ras_scores": {
+              "bm25": 1.0,
+              "dense": 1.0,
+              "kg": 0.8,
+              "hybrid": 0.30000000000000004
+            },
+            "best_backend": "hybrid",
+            "runner_up_backend": "kg"
+          },
+          {
+            "step": "select_backend",
+            "selected_backend": "hybrid",
+            "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+            "why_others_not_preferred": [
+              "kg RAS=0.800 vs selected hybrid RAS=0.300",
+              "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+              "dense RAS=1.000 vs selected hybrid RAS=0.300"
+            ]
+          },
+          {
+            "step": "retrieve_evidence",
+            "evidence_ids": [
+              "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+              "hybrid:text:rel_dolphin_echolocation",
+              "hybrid:text:rel_whale_vertebrate",
+              "hybrid:text:rel_bat_vertebrate",
+              "hybrid:text:rel_mammal_vertebrate"
+            ],
+            "evidence_modes": [
+              "rrf+relational_bundle",
+              "rrf",
+              "rrf",
+              "rrf",
+              "rrf"
+            ]
+          },
+          {
+            "step": "synthesize_answer",
+            "used_evidence_ids": [
+              "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+              "hybrid:text:rel_dolphin_echolocation",
+              "hybrid:text:rel_whale_vertebrate",
+              "hybrid:text:rel_bat_vertebrate",
+              "hybrid:text:rel_mammal_vertebrate"
+            ],
+            "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+          }
+        ],
+        "support_score": 0.07785336356764928,
+        "backend_metadata": {
+          "top_evidence_type": "hybrid",
+          "top_query_mode": null,
+          "top_fusion_method": "rrf+relational_bundle",
+          "top_contributing_backends": "bm25,kg"
+        }
+      },
+      "evidence": [
+        {
+          "item_id": "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+          "score": 0.08442622950819673,
+          "source_type": "hybrid",
+          "content": "[kg:kg_dolphin_has_property_echolocation] dolphin has_property echolocation\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.",
+          "metadata": {
+            "contributing_backends": "bm25,kg",
+            "component_ids": "kg_dolphin_has_property_echolocation,rel_dolphin_echolocation",
+            "raw_ranks": "{\"bm25\": 1, \"kg\": 1}",
+            "raw_scores": "{\"bm25\": 21.435791684761426, \"kg\": 5.5}",
+            "fusion_method": "rrf+relational_bundle",
+            "evidence_type": "hybrid_relational",
+            "triple_id": "kg_dolphin_has_property_echolocation",
+            "kg_source_doc_id": "kg_doc_dolphin",
+            "parent_doc_id": "rel_dolphin_echolocation"
+          }
+        },
+        {
+          "item_id": "hybrid:text:rel_dolphin_echolocation",
+          "score": 0.03114754098360656,
+          "source_type": "hybrid",
+          "content": "[dense:rel_dolphin_echolocation::chunk_0] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.\n[bm25:rel_dolphin_echolocation] The dolphin to echolocation relation is a property relation: dolphin has property echolocation.",
+          "metadata": {
+            "contributing_backends": "bm25,dense",
+            "component_ids": "rel_dolphin_echolocation::chunk_0,rel_dolphin_echolocation",
+            "raw_ranks": "{\"bm25\": 1, \"dense\": 1}",
+            "raw_scores": "{\"bm25\": 21.435791684761426, \"dense\": 0.3960590064525604}",
+            "fusion_method": "rrf",
+            "evidence_type": "text_chunk",
+            "parent_doc_id": "rel_dolphin_echolocation",
+            "chunk_id": "rel_dolphin_echolocation::chunk_0"
+          }
+        },
+        {
+          "item_id": "hybrid:text:rel_whale_vertebrate",
+          "score": 0.030158730158730156,
+          "source_type": "hybrid",
+          "content": "[dense:rel_whale_vertebrate::chunk_0] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,dense",
+            "component_ids": "rel_whale_vertebrate::chunk_0,rel_whale_vertebrate",
+            "raw_ranks": "{\"bm25\": 3, \"dense\": 3}",
+            "raw_scores": "{\"bm25\": 5.093004334997303, \"dense\": 0.30860671401023865}",
+            "fusion_method": "rrf",
+            "evidence_type": "text_chunk",
+            "parent_doc_id": "rel_whale_vertebrate",
+            "chunk_id": "rel_whale_vertebrate::chunk_0"
+          }
+        },
+        {
+          "item_id": "hybrid:text:rel_bat_vertebrate",
+          "score": 0.029561868078960038,
+          "source_type": "hybrid",
+          "content": "[dense:rel_bat_vertebrate::chunk_0] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,dense",
+            "component_ids": "rel_bat_vertebrate::chunk_0,rel_bat_vertebrate",
+            "raw_ranks": "{\"bm25\": 7, \"dense\": 2}",
+            "raw_scores": "{\"bm25\": 4.919789198478274, \"dense\": 0.3500700294971466}",
+            "fusion_method": "rrf",
+            "evidence_type": "text_chunk",
+            "parent_doc_id": "rel_bat_vertebrate",
+            "chunk_id": "rel_bat_vertebrate::chunk_0"
+          }
+        },
+        {
+          "item_id": "hybrid:text:rel_mammal_vertebrate",
+          "score": 0.02848214285714286,
+          "source_type": "hybrid",
+          "content": "[dense:rel_mammal_vertebrate::chunk_0] The mammal to vertebrate relation is class inheritance: mammal is a vertebrate.\n[bm25:rel_mammal_vertebrate] The mammal to vertebrate relation is class inheritance: mammal is a vertebrate.",
+          "metadata": {
+            "contributing_backends": "bm25,dense",
+            "component_ids": "rel_mammal_vertebrate::chunk_0,rel_mammal_vertebrate",
+            "raw_ranks": "{\"bm25\": 10, \"dense\": 4}",
+            "raw_scores": "{\"bm25\": 3.6952377661643285, \"dense\": 0.27386125922203064}",
+            "fusion_method": "rrf",
+            "evidence_type": "text_chunk",
+            "parent_doc_id": "rel_mammal_vertebrate",
+            "chunk_id": "rel_mammal_vertebrate::chunk_0"
+          }
+        }
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What relation connects dolphin and echolocation?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+            "hybrid:text:rel_dolphin_echolocation",
+            "hybrid:text:rel_whale_vertebrate",
+            "hybrid:text:rel_bat_vertebrate",
+            "hybrid:text:rel_mammal_vertebrate"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf",
+            "rrf",
+            "rrf",
+            "rrf"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+            "hybrid:text:rel_dolphin_echolocation",
+            "hybrid:text:rel_whale_vertebrate",
+            "hybrid:text:rel_bat_vertebrate",
+            "hybrid:text:rel_mammal_vertebrate"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_match": true
+    }
+  ]
+}

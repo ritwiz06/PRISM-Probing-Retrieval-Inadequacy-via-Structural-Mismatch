@@ -1,0 +1,4 @@
+ablation,relational_evidence_hit_at_k,relational_answer_accuracy,delta_vs_full_hybrid_evidence_hit_at_k
+hybrid_no_kg,0.0,1.0,-1.0
+hybrid_no_bm25,1.0,1.0,0.0
+hybrid_no_dense,1.0,1.0,0.0

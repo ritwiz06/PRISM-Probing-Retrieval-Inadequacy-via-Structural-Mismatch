@@ -1,0 +1,299 @@
+{
+  "route_accuracy": 1.0,
+  "summary": {
+    "num_queries": 23
+  },
+  "results": [
+    {
+      "query": "What is PRISM?",
+      "selected_backend": "dense",
+      "answer": "Mosquito to animal bridge. A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal. [evidence: rel_mosquito_animal::chunk_0]",
+      "evidence_ids": [
+        "rel_mosquito_animal::chunk_0",
+        "rel_insect_animal::chunk_0",
+        "lex_html_aria_label::chunk_0"
+      ],
+      "gold_evidence_doc_id": null,
+      "top1_correct": null,
+      "issues": []
+    },
+    {
+      "query": "Which backend handles exact identifiers?",
+      "selected_backend": "bm25",
+      "answer": "Identifier Guide: Exact identifiers, codes, and section references are best handled by sparse lexical retrieval. [evidence: doc_exact]",
+      "evidence_ids": [
+        "doc_exact",
+        "doc_policy",
+        "doc_bm25"
+      ],
+      "gold_evidence_doc_id": null,
+      "top1_correct": null,
+      "issues": []
+    },
+    {
+      "query": "Can mammals fly?",
+      "selected_backend": "kg",
+      "answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+      "evidence_ids": [
+        "path:kg_bat_is_mammal->kg_bat_capable_fly"
+      ],
+      "gold_evidence_doc_id": null,
+      "top1_correct": null,
+      "issues": []
+    },
+    {
+      "query": "What does HIPAA 164.512 cover?",
+      "selected_backend": "bm25",
+      "answer": "HIPAA 45 CFR 164.512: HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required. [evidence: lex_hipaa_164_512]",
+      "evidence_ids": [
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_510"
+      ],
+      "gold_evidence_doc_id": "lex_hipaa_164_512",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Find HIPAA section 164.510.",
+      "selected_backend": "bm25",
+      "answer": "HIPAA 45 CFR 164.510: HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object. [evidence: lex_hipaa_164_510]",
+      "evidence_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_512"
+      ],
+      "gold_evidence_doc_id": "lex_hipaa_164_510",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Which HIPAA section is 164.514?",
+      "selected_backend": "bm25",
+      "answer": "HIPAA 45 CFR 164.514: HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information. [evidence: lex_hipaa_164_514]",
+      "evidence_ids": [
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_510"
+      ],
+      "gold_evidence_doc_id": "lex_hipaa_164_514",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "What is ICD-10 J18.9?",
+      "selected_backend": "bm25",
+      "answer": "ICD-10-CM J18.9: ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9]",
+      "evidence_ids": [
+        "lex_icd_j18_9",
+        "sem_situated_knowledge",
+        "rel_mammal_vertebrate"
+      ],
+      "gold_evidence_doc_id": "lex_icd_j18_9",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Look up ICD-10-CM code J18.0.",
+      "selected_backend": "bm25",
+      "answer": "ICD-10-CM J18.0: ICD-10-CM code J18.0 identifies bronchopneumonia, unspecified organism. [evidence: lex_icd_j18_0]",
+      "evidence_ids": [
+        "lex_icd_j18_0",
+        "lex_icd_j18_9",
+        "lex_icd_j18_1"
+      ],
+      "gold_evidence_doc_id": "lex_icd_j18_0",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Which idea is solastalgia homesick planet?",
+      "selected_backend": "dense",
+      "answer": "Climate anxiety. Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety::chunk_0]",
+      "evidence_ids": [
+        "sem_climate_anxiety::chunk_0",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_insect_animal::chunk_0"
+      ],
+      "gold_evidence_doc_id": "sem_climate_anxiety",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Which pattern is the charlatan feeling after success?",
+      "selected_backend": "dense",
+      "answer": "Impostor syndrome. Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence. [evidence: sem_impostor_syndrome::chunk_0]",
+      "evidence_ids": [
+        "sem_impostor_syndrome::chunk_0",
+        "lex_postgres_jsonb_set::chunk_0",
+        "sem_narrative_identity::chunk_0"
+      ],
+      "gold_evidence_doc_id": "sem_impostor_syndrome",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Which idea is daylight carbohydrate alchemy?",
+      "selected_backend": "dense",
+      "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
+      "evidence_ids": [
+        "sem_photosynthesis::chunk_0",
+        "rel_penguin_swim::chunk_0",
+        "rel_penguin_vertebrate::chunk_0"
+      ],
+      "gold_evidence_doc_id": "sem_photosynthesis",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "What is novelty adoption cascade?",
+      "selected_backend": "dense",
+      "answer": "Diffusion of innovations. Diffusion of innovations explains how new ideas, practices, and technologies spread through communities and social systems. [evidence: sem_diffusion_innovations::chunk_0]",
+      "evidence_ids": [
+        "sem_diffusion_innovations::chunk_0",
+        "rel_penguin_swim::chunk_0",
+        "rel_bird_vertebrate::chunk_0"
+      ],
+      "gold_evidence_doc_id": "sem_diffusion_innovations",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "What is an asphalt warmth pocket?",
+      "selected_backend": "dense",
+      "answer": "Urban heat island. An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas. [evidence: sem_urban_heat_island::chunk_0]",
+      "evidence_ids": [
+        "sem_urban_heat_island::chunk_0",
+        "lex_html_aria_label::chunk_0",
+        "rel_mosquito_animal::chunk_0"
+      ],
+      "gold_evidence_doc_id": "sem_urban_heat_island",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Is a bat a mammal?",
+      "selected_backend": "kg",
+      "answer": "Yes. bat is_a mammal. [evidence: kg_bat_is_mammal]",
+      "evidence_ids": [
+        "kg_bat_is_mammal"
+      ],
+      "gold_evidence_doc_id": "kg_bat_is_mammal",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Can a mammal fly?",
+      "selected_backend": "kg",
+      "answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+      "evidence_ids": [
+        "path:kg_bat_is_mammal->kg_bat_capable_fly"
+      ],
+      "gold_evidence_doc_id": "path:kg_bat_is_mammal->kg_bat_capable_fly",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Are all mammals able to fly?",
+      "selected_backend": "kg",
+      "answer": "No. Counterexample evidence: whale is_a mammal ; whale not_capable_of fly; platypus is_a mammal ; platypus not_capable_of fly; mouse is_a mammal ; mouse not_capable_of fly. [evidence: path:kg_whale_is_mammal->kg_whale_not_fly, path:kg_platypus_is_mammal->kg_platypus_not_fly, path:kg_mouse_is_mammal->kg_mouse_not_fly]",
+      "evidence_ids": [
+        "path:kg_whale_is_mammal->kg_whale_not_fly",
+        "path:kg_platypus_is_mammal->kg_platypus_not_fly",
+        "path:kg_mouse_is_mammal->kg_mouse_not_fly"
+      ],
+      "gold_evidence_doc_id": "path:kg_whale_is_mammal->kg_whale_not_fly",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Is a penguin a bird?",
+      "selected_backend": "kg",
+      "answer": "Yes. penguin is_a bird. [evidence: kg_penguin_is_bird]",
+      "evidence_ids": [
+        "kg_penguin_is_bird"
+      ],
+      "gold_evidence_doc_id": "kg_penguin_is_bird",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "Are all birds able to fly?",
+      "selected_backend": "kg",
+      "answer": "No. Counterexample evidence: penguin is_a bird ; penguin not_capable_of fly; ostrich is_a bird ; ostrich not_capable_of fly; chicken is_a bird ; chicken not_capable_of fly. [evidence: path:kg_penguin_is_bird->kg_penguin_not_fly, path:kg_ostrich_is_bird->kg_ostrich_not_fly, path:kg_chicken_is_bird->kg_chicken_not_capable_of_fly]",
+      "evidence_ids": [
+        "path:kg_penguin_is_bird->kg_penguin_not_fly",
+        "path:kg_ostrich_is_bird->kg_ostrich_not_fly",
+        "path:kg_chicken_is_bird->kg_chicken_not_capable_of_fly"
+      ],
+      "gold_evidence_doc_id": "path:kg_penguin_is_bird->kg_penguin_not_fly",
+      "top1_correct": true,
+      "issues": []
+    },
+    {
+      "query": "What bridge connects bat and vertebrate?",
+      "selected_backend": "hybrid",
+      "answer": "Hybrid connection: [kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate]",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate"
+      ],
+      "gold_evidence_doc_id": "path:kg_bat_is_mammal->kg_mammal_is_vertebrate",
+      "top1_correct": false,
+      "issues": []
+    },
+    {
+      "query": "What bridge connects penguin and vertebrate?",
+      "selected_backend": "hybrid",
+      "answer": "Hybrid connection: [kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate]",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate"
+      ],
+      "gold_evidence_doc_id": "path:kg_penguin_is_bird->kg_bird_is_vertebrate",
+      "top1_correct": false,
+      "issues": []
+    },
+    {
+      "query": "What bridge connects whale and vertebrate?",
+      "selected_backend": "hybrid",
+      "answer": "Hybrid connection: [kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate]",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate"
+      ],
+      "gold_evidence_doc_id": "path:kg_whale_is_mammal->kg_mammal_is_vertebrate",
+      "top1_correct": false,
+      "issues": []
+    },
+    {
+      "query": "What bridge connects salmon and vertebrate?",
+      "selected_backend": "hybrid",
+      "answer": "Hybrid connection: [kg:path:kg_salmon_is_fish->kg_fish_is_vertebrate] salmon is_a fish ; fish is_a vertebrate\n[bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_salmon_is_fish->kg_fish_is_vertebrate,rel_salmon_vertebrate]",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_penguin_vertebrate"
+      ],
+      "gold_evidence_doc_id": "path:kg_salmon_is_fish->kg_fish_is_vertebrate",
+      "top1_correct": false,
+      "issues": []
+    },
+    {
+      "query": "What bridge connects mosquito and animal?",
+      "selected_backend": "hybrid",
+      "answer": "Hybrid connection: [kg:path:kg_mosquito_is_insect->kg_insect_is_animal] mosquito is_a insect ; insect is_a animal\n[bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_mosquito_is_insect->kg_insect_is_animal,rel_mosquito_animal]",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_mosquito_animal",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_mosquito_is_insect->kg_insect_is_animal+rel_salmon_vertebrate"
+      ],
+      "gold_evidence_doc_id": "path:kg_mosquito_is_insect->kg_insect_is_animal",
+      "top1_correct": false,
+      "issues": []
+    }
+  ]
+}
