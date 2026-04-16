@@ -19,11 +19,18 @@ MEMBERSHIP_PATTERN = re.compile(r"^(?:is|are)\s+(?:a|an)?\s*\w+\s+(?:a|an)\s+\w+
 def parse_query_features(query: str) -> QueryFeatures:
     lowered = query.lower()
     features = QueryFeatures(query=query)
-    features.lexical = any(marker in lowered for marker in LEXICAL_MARKERS) or bool(IDENTIFIER_PATTERN.search(query))
-    features.deductive = any(marker in lowered for marker in DEDUCTIVE_MARKERS) or bool(MEMBERSHIP_PATTERN.search(query))
-    features.relational = any(marker in lowered for marker in RELATIONAL_MARKERS)
-    features.semantic = any(marker in lowered for marker in SEMANTIC_MARKERS)
+    features.lexical = _has_marker(lowered, LEXICAL_MARKERS) or bool(IDENTIFIER_PATTERN.search(query))
+    features.deductive = _has_marker(lowered, DEDUCTIVE_MARKERS) or bool(MEMBERSHIP_PATTERN.search(query))
+    features.relational = _has_marker(lowered, RELATIONAL_MARKERS)
+    features.semantic = _has_marker(lowered, SEMANTIC_MARKERS)
 
     if not any((features.lexical, features.deductive, features.relational, features.semantic)):
         features.semantic = True
     return features
+
+
+def _has_marker(lowered_query: str, markers: tuple[str, ...]) -> bool:
+    for marker in markers:
+        if re.search(rf"(?<![a-z0-9]){re.escape(marker)}(?![a-z0-9])", lowered_query):
+            return True
+    return False

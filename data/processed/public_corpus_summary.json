@@ -1,0 +1,31 @@
+{
+  "path": "data/processed/public_corpus.jsonl",
+  "document_count": 48,
+  "target_source_count": 48,
+  "fetch_summary": {
+    "fetched": 0,
+    "cached": 48,
+    "fallback_snapshot": 0,
+    "skipped": 0,
+    "raw_dir": "data/raw/public_corpus"
+  },
+  "content_status_counts": {
+    "fallback_snapshot": 1,
+    "fetched": 47
+  },
+  "counts_by_route_family": {
+    "bm25": 12,
+    "dense": 12,
+    "hybrid": 12,
+    "kg": 12
+  },
+  "counts_by_source_type": {
+    "medical_reference": 1,
+    "official_docs": 5,
+    "official_regulation": 2,
+    "rfc": 4,
+    "wikipedia": 36
+  },
+  "enriched_metadata_path": "data/processed/public_corpus_enriched_metadata.json",
+  "identifier_document_count": 22
+}

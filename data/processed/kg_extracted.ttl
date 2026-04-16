@@ -1,0 +1,7 @@
+@prefix prism: <https://prism.local/kg/> .
+
+prism:bat prism:capable_of prism:fly .
+prism:bat prism:eats prism:mosquito .
+prism:bat prism:is_a prism:mammal .
+prism:mammal prism:is_a prism:vertebrate .
+prism:mammal prism:produces prism:milk .

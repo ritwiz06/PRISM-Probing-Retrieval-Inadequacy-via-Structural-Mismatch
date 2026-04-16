@@ -1,0 +1,13 @@
+split,system,total,route_accuracy,answer_accuracy,evidence_hit_at_k,route_correct,answer_correct,evidence_hits,predicted_backend_distribution
+dev,computed_ras,24,0.9166666666666666,0.9583333333333334,0.875,22,23,21,"{'bm25': 5, 'dense': 6, 'kg': 7, 'hybrid': 6}"
+dev,always_bm25,24,0.25,0.875,0.9166666666666666,6,21,22,{'bm25': 24}
+dev,always_dense,24,0.25,0.8333333333333334,0.9583333333333334,6,20,23,{'dense': 24}
+dev,always_kg,24,0.25,0.5,0.375,6,12,9,{'kg': 24}
+dev,always_hybrid,24,0.25,0.8333333333333334,1.0,6,20,24,{'hybrid': 24}
+dev,random_router,24,0.3333333333333333,0.8333333333333334,1.0,8,20,24,"{'bm25': 9, 'hybrid': 5, 'dense': 9, 'kg': 1}"
+test,computed_ras,24,0.9166666666666666,1.0,1.0,22,24,24,"{'bm25': 4, 'dense': 8, 'kg': 6, 'hybrid': 6}"
+test,always_bm25,24,0.25,0.9583333333333334,1.0,6,23,24,{'bm25': 24}
+test,always_dense,24,0.25,0.9166666666666666,0.9583333333333334,6,22,23,{'dense': 24}
+test,always_kg,24,0.25,0.5,0.5,6,12,12,{'kg': 24}
+test,always_hybrid,24,0.25,0.875,1.0,6,21,24,{'hybrid': 24}
+test,random_router,24,0.3333333333333333,0.9583333333333334,1.0,8,23,24,"{'bm25': 9, 'hybrid': 5, 'dense': 9, 'kg': 1}"

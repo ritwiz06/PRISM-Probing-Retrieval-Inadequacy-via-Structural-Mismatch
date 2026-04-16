@@ -1,0 +1,25 @@
+corpus_mode,split,system,total,route_accuracy,answer_accuracy,route_correct,answer_correct,predicted_backend_distribution
+clean,dev,computed_ras,40,0.975,1.0,39,40,"{'bm25': 9, 'hybrid': 11, 'dense': 10, 'kg': 10}"
+clean,dev,always_bm25,40,0.25,0.9,10,36,{'bm25': 40}
+clean,dev,always_dense,40,0.25,0.925,10,37,{'dense': 40}
+clean,dev,always_kg,40,0.25,0.5,10,20,{'kg': 40}
+clean,dev,always_hybrid,40,0.25,0.9,10,36,{'hybrid': 40}
+clean,dev,random_router,40,0.25,0.825,10,33,"{'kg': 10, 'bm25': 10, 'hybrid': 10, 'dense': 10}"
+clean,test,computed_ras,40,0.95,1.0,38,40,"{'bm25': 8, 'dense': 12, 'kg': 10, 'hybrid': 10}"
+clean,test,always_bm25,40,0.25,0.85,10,34,{'bm25': 40}
+clean,test,always_dense,40,0.25,0.875,10,35,{'dense': 40}
+clean,test,always_kg,40,0.25,0.5,10,20,{'kg': 40}
+clean,test,always_hybrid,40,0.25,0.9,10,36,{'hybrid': 40}
+clean,test,random_router,40,0.25,0.825,10,33,"{'kg': 10, 'bm25': 10, 'hybrid': 10, 'dense': 10}"
+noisy,dev,computed_ras,40,0.975,0.975,39,39,"{'bm25': 9, 'hybrid': 11, 'dense': 10, 'kg': 10}"
+noisy,dev,always_bm25,40,0.25,0.925,10,37,{'bm25': 40}
+noisy,dev,always_dense,40,0.25,0.9,10,36,{'dense': 40}
+noisy,dev,always_kg,40,0.25,0.5,10,20,{'kg': 40}
+noisy,dev,always_hybrid,40,0.25,0.875,10,35,{'hybrid': 40}
+noisy,dev,random_router,40,0.25,0.85,10,34,"{'kg': 10, 'bm25': 10, 'hybrid': 10, 'dense': 10}"
+noisy,test,computed_ras,40,0.95,0.975,38,39,"{'bm25': 8, 'dense': 12, 'kg': 10, 'hybrid': 10}"
+noisy,test,always_bm25,40,0.25,0.85,10,34,{'bm25': 40}
+noisy,test,always_dense,40,0.25,0.9,10,36,{'dense': 40}
+noisy,test,always_kg,40,0.25,0.5,10,20,{'kg': 40}
+noisy,test,always_hybrid,40,0.25,0.9,10,36,{'hybrid': 40}
+noisy,test,random_router,40,0.25,0.825,10,33,"{'kg': 10, 'bm25': 10, 'hybrid': 10, 'dense': 10}"

@@ -1,0 +1,62 @@
+{
+  "total": 5,
+  "patterns": {
+    "bridge_through": 2,
+    "capable_of": 1,
+    "eats": 1,
+    "produces": 1
+  },
+  "average_confidence": 0.8400000000000001,
+  "triples": [
+    {
+      "triple_id": "xkg_bat_capable_of_fly_d52128170899",
+      "subject": "bat",
+      "predicate": "capable_of",
+      "object": "fly",
+      "source_doc_id": "rel_bat",
+      "confidence": 0.86,
+      "pattern": "capable_of",
+      "snippet": "bat is capable of fly."
+    },
+    {
+      "triple_id": "xkg_bat_eats_mosquito_308480625cb2",
+      "subject": "bat",
+      "predicate": "eats",
+      "object": "mosquito",
+      "source_doc_id": "rel_food",
+      "confidence": 0.9,
+      "pattern": "eats",
+      "snippet": "bat eats mosquito."
+    },
+    {
+      "triple_id": "xkg_bat_is_a_mammal_430d29d1932a",
+      "subject": "bat",
+      "predicate": "is_a",
+      "object": "mammal",
+      "source_doc_id": "rel_bat",
+      "confidence": 0.78,
+      "pattern": "bridge_through",
+      "snippet": "A bat connects to vertebrate through mammal."
+    },
+    {
+      "triple_id": "xkg_mammal_is_a_vertebrate_7c534cf092c1",
+      "subject": "mammal",
+      "predicate": "is_a",
+      "object": "vertebrate",
+      "source_doc_id": "rel_bat",
+      "confidence": 0.78,
+      "pattern": "bridge_through",
+      "snippet": "A bat connects to vertebrate through mammal."
+    },
+    {
+      "triple_id": "xkg_mammal_produces_milk_4b3d8fe9ee63",
+      "subject": "mammal",
+      "predicate": "produces",
+      "object": "milk",
+      "source_doc_id": "rel_food",
+      "confidence": 0.88,
+      "pattern": "produces",
+      "snippet": "mammal produces milk."
+    }
+  ]
+}

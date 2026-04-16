@@ -1,0 +1,511 @@
+{
+  "total": 103,
+  "overlap": 44,
+  "public_only": 5,
+  "triple_provenance": {
+    "kg_amphibian_is_vertebrate": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_amphibian",
+      "public_source_doc_id": "pub_vertebrate",
+      "public_triple_id": "pg_amphibian_is_a_vertebrate_6f85ecd7aa"
+    },
+    "kg_bat_capable_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "doc_mammal",
+      "public_source_doc_id": "pub_bat",
+      "public_triple_id": "pg_bat_capable_of_fly_07991410c2"
+    },
+    "kg_bat_eats_mosquito": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_bat_food"
+    },
+    "kg_bat_has_echolocation": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "doc_mammal",
+      "public_source_doc_id": "pub_bat_echolocation",
+      "public_triple_id": "pg_bat_has_property_echolocation_b8a76edd7d"
+    },
+    "kg_bat_has_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "doc_mammal",
+      "public_source_doc_id": "pub_bat",
+      "public_triple_id": "pg_bat_has_property_wings_fb60fdae58"
+    },
+    "kg_bat_is_mammal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "doc_mammal",
+      "public_source_doc_id": "pub_bat",
+      "public_triple_id": "pg_bat_is_a_mammal_7cb52b309b"
+    },
+    "kg_bat_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "doc_mammal"
+    },
+    "kg_bird_is_vertebrate": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_bird",
+      "public_source_doc_id": "pub_bird",
+      "public_triple_id": "pg_bird_is_a_vertebrate_93b2ed78ce"
+    },
+    "kg_cat_eats_mouse": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_cat"
+    },
+    "kg_cat_is_mammal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_cat",
+      "public_source_doc_id": "pub_cat_mammal_pet",
+      "public_triple_id": "pg_cat_is_a_mammal_7d4885aba6"
+    },
+    "kg_cat_not_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_cat",
+      "public_source_doc_id": "pub_cat_mammal_pet",
+      "public_triple_id": "pg_cat_not_capable_of_fly_ed79a9e0f4"
+    },
+    "kg_cat_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_cat"
+    },
+    "kg_chicken_has_property_wings": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_chicken"
+    },
+    "kg_chicken_is_bird": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_chicken"
+    },
+    "kg_chicken_not_capable_of_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_chicken"
+    },
+    "kg_chicken_not_swim": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_chicken"
+    },
+    "kg_cow_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_cow"
+    },
+    "kg_cow_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_cow"
+    },
+    "kg_cow_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_cow"
+    },
+    "kg_dog_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_dog"
+    },
+    "kg_dog_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_dog"
+    },
+    "kg_dog_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_dog"
+    },
+    "kg_dolphin_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_dolphin",
+      "public_source_doc_id": "pub_dolphin",
+      "public_triple_id": "pg_dolphin_capable_of_swim_850ad2a952"
+    },
+    "kg_dolphin_has_property_echolocation": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_dolphin",
+      "public_source_doc_id": "pub_dolphin",
+      "public_triple_id": "pg_dolphin_has_property_echolocation_d0fa24d798"
+    },
+    "kg_dolphin_is_mammal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_dolphin",
+      "public_source_doc_id": "pub_dolphin",
+      "public_triple_id": "pg_dolphin_is_a_mammal_ecd779477b"
+    },
+    "kg_dolphin_not_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_dolphin",
+      "public_source_doc_id": "pub_dolphin",
+      "public_triple_id": "pg_dolphin_not_capable_of_fly_a5300ea8ad"
+    },
+    "kg_dolphin_produces_milk": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_dolphin",
+      "public_source_doc_id": "pub_dolphin",
+      "public_triple_id": "pg_dolphin_produces_milk_cdbf83f37a"
+    },
+    "kg_duck_capable_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_duck",
+      "public_source_doc_id": "pub_duck_bird_swim",
+      "public_triple_id": "pg_duck_capable_of_fly_6e123640a8"
+    },
+    "kg_duck_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_duck",
+      "public_source_doc_id": "pub_duck_bird_swim",
+      "public_triple_id": "pg_duck_capable_of_swim_9d80e6332d"
+    },
+    "kg_duck_has_property_wings": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_duck"
+    },
+    "kg_duck_has_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_duck",
+      "public_source_doc_id": "pub_duck_bird_swim",
+      "public_triple_id": "pg_duck_has_property_wings_41edb9d1c5"
+    },
+    "kg_duck_is_bird": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_duck",
+      "public_source_doc_id": "pub_duck_bird_swim",
+      "public_triple_id": "pg_duck_is_a_bird_461b17939c"
+    },
+    "kg_eagle_capable_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_eagle",
+      "public_source_doc_id": "pub_eagle",
+      "public_triple_id": "pg_eagle_capable_of_fly_eb734ea5a0"
+    },
+    "kg_eagle_eats_fish": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_eagle"
+    },
+    "kg_eagle_has_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_eagle",
+      "public_source_doc_id": "pub_eagle",
+      "public_triple_id": "pg_eagle_has_property_wings_bf64a9be1b"
+    },
+    "kg_eagle_is_bird": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_eagle",
+      "public_source_doc_id": "pub_eagle",
+      "public_triple_id": "pg_eagle_is_a_bird_f0bb1009a7"
+    },
+    "kg_eagle_not_swim": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_eagle"
+    },
+    "kg_echolocation_is_sensory_ability": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_echolocation"
+    },
+    "kg_elephant_has_property_trunk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_elephant"
+    },
+    "kg_elephant_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_elephant"
+    },
+    "kg_elephant_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_elephant"
+    },
+    "kg_elephant_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_elephant"
+    },
+    "kg_fish_is_vertebrate": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_fish",
+      "public_source_doc_id": "pub_salmon_fish_migration",
+      "public_triple_id": "pg_fish_is_a_vertebrate_2ad875b423"
+    },
+    "kg_fly_is_movement": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_fly"
+    },
+    "kg_frog_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_frog",
+      "public_source_doc_id": "pub_frog",
+      "public_triple_id": "pg_frog_capable_of_swim_4a0554a276"
+    },
+    "kg_frog_eats_mosquito": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_frog"
+    },
+    "kg_frog_is_amphibian": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_frog",
+      "public_source_doc_id": "pub_frog",
+      "public_triple_id": "pg_frog_is_a_amphibian_55b0647023"
+    },
+    "kg_horse_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_horse"
+    },
+    "kg_horse_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_horse"
+    },
+    "kg_horse_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_horse"
+    },
+    "kg_insect_is_animal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_insect",
+      "public_source_doc_id": "pub_mosquito_insect_flight",
+      "public_triple_id": "pg_insect_is_a_animal_94faf9bbc9"
+    },
+    "kg_kangaroo_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_kangaroo"
+    },
+    "kg_kangaroo_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_kangaroo"
+    },
+    "kg_kangaroo_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_kangaroo"
+    },
+    "kg_lexical_question_routes_bm25": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "doc_bm25"
+    },
+    "kg_lizard_is_reptile": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_lizard"
+    },
+    "kg_mammal_is_vertebrate": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "doc_mammal",
+      "public_source_doc_id": "pub_mammal",
+      "public_triple_id": "pg_mammal_is_a_vertebrate_3e304696d6"
+    },
+    "kg_mammal_produces_milk": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_mammal",
+      "public_source_doc_id": "pub_mammal",
+      "public_triple_id": "pg_mammal_produces_milk_3493004cfe"
+    },
+    "kg_milk_is_substance": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_milk"
+    },
+    "kg_mosquito_is_insect": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_mosquito",
+      "public_source_doc_id": "pub_mosquito",
+      "public_triple_id": "pg_mosquito_is_a_insect_b3d4b50c0a"
+    },
+    "kg_mouse_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_mouse"
+    },
+    "kg_mouse_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_mouse"
+    },
+    "kg_mouse_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_mouse"
+    },
+    "kg_ostrich_has_property_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_ostrich",
+      "public_source_doc_id": "pub_ostrich",
+      "public_triple_id": "pg_ostrich_has_property_wings_fcc2814d1a"
+    },
+    "kg_ostrich_is_bird": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_ostrich",
+      "public_source_doc_id": "pub_ostrich",
+      "public_triple_id": "pg_ostrich_is_a_bird_f5b45f142d"
+    },
+    "kg_ostrich_not_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_ostrich",
+      "public_source_doc_id": "pub_ostrich",
+      "public_triple_id": "pg_ostrich_not_capable_of_fly_f76efab952"
+    },
+    "kg_owl_capable_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_owl",
+      "public_source_doc_id": "pub_owl_bird_predator",
+      "public_triple_id": "pg_owl_capable_of_fly_a5112b70b5"
+    },
+    "kg_owl_eats_mouse": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_owl"
+    },
+    "kg_owl_has_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_owl",
+      "public_source_doc_id": "pub_owl_bird_predator",
+      "public_triple_id": "pg_owl_has_property_wings_5a3a2852ed"
+    },
+    "kg_owl_is_bird": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_owl",
+      "public_source_doc_id": "pub_owl_bird_predator",
+      "public_triple_id": "pg_owl_is_a_bird_509b30737d"
+    },
+    "kg_owl_not_swim": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_owl"
+    },
+    "kg_penguin_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_penguin",
+      "public_source_doc_id": "pub_penguin",
+      "public_triple_id": "pg_penguin_capable_of_swim_7f3ec432aa"
+    },
+    "kg_penguin_has_property_wings": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_penguin",
+      "public_source_doc_id": "pub_penguin",
+      "public_triple_id": "pg_penguin_has_property_wings_921dec1731"
+    },
+    "kg_penguin_is_bird": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_penguin",
+      "public_source_doc_id": "pub_penguin",
+      "public_triple_id": "pg_penguin_is_a_bird_af93012e17"
+    },
+    "kg_penguin_not_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_penguin",
+      "public_source_doc_id": "pub_penguin",
+      "public_triple_id": "pg_penguin_not_capable_of_fly_8ef92af723"
+    },
+    "kg_platypus_has_property_bill": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_platypus"
+    },
+    "kg_platypus_is_mammal": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_platypus"
+    },
+    "kg_platypus_not_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_platypus"
+    },
+    "kg_platypus_produces_milk": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_platypus"
+    },
+    "kg_property_question_routes_kg": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "doc_policy"
+    },
+    "kg_relation_question_routes_hybrid": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "doc_policy"
+    },
+    "kg_reptile_is_vertebrate": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_reptile"
+    },
+    "kg_salmon_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_salmon",
+      "public_source_doc_id": "pub_salmon",
+      "public_triple_id": "pg_salmon_capable_of_swim_db546eac85"
+    },
+    "kg_salmon_is_fish": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_salmon",
+      "public_source_doc_id": "pub_salmon",
+      "public_triple_id": "pg_salmon_is_a_fish_58baab3649"
+    },
+    "kg_semantic_question_routes_dense": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "doc_bm25"
+    },
+    "kg_shark_capable_swim": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_shark"
+    },
+    "kg_shark_is_fish": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_shark"
+    },
+    "kg_sparrow_capable_fly": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_sparrow"
+    },
+    "kg_sparrow_has_wings": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_sparrow"
+    },
+    "kg_sparrow_is_bird": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_sparrow"
+    },
+    "kg_swim_is_movement": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_swim"
+    },
+    "kg_vertebrate_is_animal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_vertebrate",
+      "public_source_doc_id": "pub_vertebrate",
+      "public_triple_id": "pg_vertebrate_is_a_animal_bce6bade09"
+    },
+    "kg_whale_capable_swim": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_whale",
+      "public_source_doc_id": "pub_whale",
+      "public_triple_id": "pg_whale_capable_of_swim_a75fdf0c80"
+    },
+    "kg_whale_has_property_blowhole": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_whale"
+    },
+    "kg_whale_is_mammal": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_whale",
+      "public_source_doc_id": "pub_whale",
+      "public_triple_id": "pg_whale_is_a_mammal_baa041d29f"
+    },
+    "kg_whale_not_fly": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_whale",
+      "public_source_doc_id": "pub_whale",
+      "public_triple_id": "pg_whale_not_capable_of_fly_8f9e821d6e"
+    },
+    "kg_whale_produces_milk": {
+      "edge_source": "mixed_overlap",
+      "demo_source_doc_id": "kg_doc_whale",
+      "public_source_doc_id": "pub_whale_mammal_milk",
+      "public_triple_id": "pg_whale_produces_milk_5cac387842"
+    },
+    "kg_wing_is_body_part": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_wing"
+    },
+    "kg_wings_is_body_part": {
+      "edge_source": "demo_kg",
+      "source_doc_id": "kg_doc_wings"
+    },
+    "pg_bird_has_property_wings_6f26948600": {
+      "edge_source": "public_graph_only",
+      "source_doc_id": "pub_bird"
+    },
+    "pg_frog_is_a_vertebrate_0e03c62861": {
+      "edge_source": "public_graph_only",
+      "source_doc_id": "pub_frog_vertebrate_amphibian"
+    },
+    "pg_mammal_is_a_animal_db51e5b66f": {
+      "edge_source": "public_graph_only",
+      "source_doc_id": "pub_mammal"
+    },
+    "pg_mosquito_capable_of_fly_f01abbb3ef": {
+      "edge_source": "public_graph_only",
+      "source_doc_id": "pub_mosquito"
+    },
+    "pg_mosquito_has_property_wings_dc97f0f8cd": {
+      "edge_source": "public_graph_only",
+      "source_doc_id": "pub_mosquito"
+    }
+  }
+}

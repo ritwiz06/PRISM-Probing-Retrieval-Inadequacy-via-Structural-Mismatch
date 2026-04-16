@@ -85,16 +85,17 @@ NEGATED_PROPERTIES = {"not_capable_of", "lacks_property"}
 class KGRetriever(BaseRetriever):
     backend_name = "kg"
 
-    def __init__(self, triples: list[Triple]) -> None:
+    def __init__(self, triples: list[Triple], kg_mode: str = "curated") -> None:
         self.triples = triples
+        self.kg_mode = kg_mode
         self.triples_by_id = {triple.triple_id: triple for triple in triples}
         self.graph = Graph()
         self.nx_graph = nx.MultiDiGraph()
         self._build_graphs(triples)
 
     @classmethod
-    def build(cls, triples: list[Triple]) -> "KGRetriever":
-        return cls(triples)
+    def build(cls, triples: list[Triple], kg_mode: str = "curated") -> "KGRetriever":
+        return cls(triples, kg_mode=kg_mode)
 
     def retrieve(self, query: str, top_k: int = 3) -> list[RetrievedItem]:
         candidates = self._template_candidates(query)
@@ -107,20 +108,20 @@ class KGRetriever(BaseRetriever):
         output_path = Path(path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with output_path.open("wb") as file:
-            pickle.dump({"triples": [asdict(triple) for triple in self.triples]}, file)
+            pickle.dump({"triples": [asdict(triple) for triple in self.triples], "kg_mode": self.kg_mode}, file)
         return output_path
 
     @classmethod
     def load(cls, path: str | Path) -> "KGRetriever":
         with Path(path).open("rb") as file:
             payload = pickle.load(file)
-        return cls([Triple(**row) for row in payload["triples"]])
+        return cls([Triple(**row) for row in payload["triples"]], kg_mode=payload.get("kg_mode", "curated"))
 
     @classmethod
-    def load_jsonl(cls, path: str | Path) -> "KGRetriever":
+    def load_jsonl(cls, path: str | Path, kg_mode: str = "curated") -> "KGRetriever":
         from prism.utils import read_jsonl_triples
 
-        return cls(read_jsonl_triples(path))
+        return cls(read_jsonl_triples(path), kg_mode=kg_mode)
 
     def membership_lookup(self, entity: str, klass: str) -> list[RetrievedItem]:
         return [
@@ -277,6 +278,8 @@ class KGRetriever(BaseRetriever):
                 "object": triple.object,
                 "hop_count": "1",
                 "backend_type": "kg",
+                "kg_mode": self.kg_mode,
+                "triple_provenance": _triple_provenance(triple),
                 "query_mode": mode,
             },
         )
@@ -297,6 +300,8 @@ class KGRetriever(BaseRetriever):
                 "object": path[-1].object,
                 "hop_count": str(len(path)),
                 "backend_type": "kg",
+                "kg_mode": self.kg_mode,
+                "triple_provenance": ",".join(_triple_provenance(triple) for triple in path),
                 "query_mode": mode,
             },
         )
@@ -354,3 +359,11 @@ def _is_universal_query(query: str) -> bool:
 
 def _uri(value: str) -> URIRef:
     return URIRef(PRISM[quote(value.replace(" ", "_"), safe="_")])
+
+
+def _triple_provenance(triple: Triple) -> str:
+    if triple.triple_id.startswith("xkg_"):
+        return "extracted"
+    if triple.triple_id.startswith("mixed_"):
+        return "mixed"
+    return "curated"

@@ -1,0 +1,19 @@
+structure_mode,split,system,total,route_accuracy,answer_accuracy,evidence_hit_at_k,route_correct,answer_correct,evidence_hits,predicted_backend_distribution
+demo_kg,dev,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+demo_kg,dev,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+demo_kg,dev,always_hybrid,16,0.5,0.8125,1.0,8,13,16,{'hybrid': 16}
+demo_kg,test,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+demo_kg,test,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+demo_kg,test,always_hybrid,16,0.5,0.875,1.0,8,14,16,{'hybrid': 16}
+public_graph,dev,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+public_graph,dev,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+public_graph,dev,always_hybrid,16,0.5,0.8125,1.0,8,13,16,{'hybrid': 16}
+public_graph,test,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+public_graph,test,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+public_graph,test,always_hybrid,16,0.5,0.875,1.0,8,14,16,{'hybrid': 16}
+mixed_public_demo,dev,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+mixed_public_demo,dev,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+mixed_public_demo,dev,always_hybrid,16,0.5,0.8125,1.0,8,13,16,{'hybrid': 16}
+mixed_public_demo,test,computed_ras,16,1.0,1.0,1.0,16,16,16,"{'kg': 8, 'hybrid': 8}"
+mixed_public_demo,test,always_kg,16,0.5,1.0,1.0,8,16,16,{'kg': 16}
+mixed_public_demo,test,always_hybrid,16,0.5,0.875,1.0,8,14,16,{'hybrid': 16}

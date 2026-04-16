@@ -1,0 +1,3 @@
+PRISM_PUBLIC_SOURCE_METADATA {"fetch_status": "fallback_snapshot", "notes": "", "route_family": "bm25", "source_id": "pub_icd_j18_9", "source_type": "medical_reference", "title": "ICD-10 J18.9 Pneumonia Unspecified Organism", "url": "https://icd.codes/icd10cm/J189"}
+
+ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. Nearby codes include J18.0 and J18.1.

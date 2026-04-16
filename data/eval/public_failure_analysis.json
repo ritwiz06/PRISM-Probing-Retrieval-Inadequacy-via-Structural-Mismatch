@@ -1,0 +1,657 @@
+{
+  "public_eval_source": "data/eval/public_corpus_eval.json",
+  "previous_public_test_reference": {
+    "source": "Prompt 17 public_corpus_eval before public robustness work",
+    "computed_ras_answer_accuracy": 0.917,
+    "computed_ras_answer_correct": 22,
+    "computed_ras_total": 24,
+    "computed_ras_route_accuracy": 0.875,
+    "computed_ras_evidence_hit_at_k": 0.917,
+    "strongest_fixed_backend": "always_bm25",
+    "strongest_fixed_answer_accuracy": 0.958
+  },
+  "previous_prompt17_misses": [
+    {
+      "id": "pub_bm25_11",
+      "query": "Python dataclasses generated special methods",
+      "route_family": "bm25",
+      "previous_predicted_backend": "kg",
+      "previous_buckets": [
+        "route_error",
+        "retrieval_miss",
+        "answer_synthesis_miss",
+        "lexical_confusion"
+      ],
+      "remediation": "Fixed substring marker matching so dataclasses no longer triggers the deductive class marker; public lexical arbitration also recognizes dataclasses as a public-doc alias."
+    },
+    {
+      "id": "pub_bm25_12",
+      "query": "TfidfVectorizer raw documents matrix TF-IDF features",
+      "route_family": "bm25",
+      "previous_predicted_backend": "dense",
+      "previous_buckets": [
+        "route_error",
+        "lexical_confusion"
+      ],
+      "remediation": "Public lexical arbitration recognizes TfidfVectorizer and TF-IDF aliases and routes this identifier-heavy case to BM25 in analysis mode."
+    },
+    {
+      "id": "pub_dense_10",
+      "query": "What immune response mistakes harmless substances for threats?",
+      "route_family": "dense",
+      "previous_predicted_backend": "kg",
+      "previous_buckets": [
+        "route_error",
+        "retrieval_miss",
+        "answer_synthesis_miss",
+        "semantic_drift"
+      ],
+      "remediation": "Fixed substring marker matching so threats no longer triggers the KG eats marker; the query now routes to Dense."
+    }
+  ],
+  "current_test_metrics": {
+    "answer_accuracy": 1.0,
+    "route_accuracy": 0.9166666666666666,
+    "evidence_hit_at_k": 1.0,
+    "answer_correct": 24,
+    "total": 24
+  },
+  "public_arbitrated_test_metrics": {
+    "answer_accuracy": 1.0,
+    "route_accuracy": 1.0,
+    "evidence_hit_at_k": 1.0,
+    "answer_correct": 24,
+    "total": 24
+  },
+  "before_after": {
+    "baseline_answer_accuracy": 1.0,
+    "public_lexical_answer_accuracy": 1.0,
+    "public_arbitrated_answer_accuracy": 1.0,
+    "public_lexical_delta": 0.0,
+    "public_arbitrated_delta": 0.0,
+    "baseline_route_accuracy": 0.9166666666666666,
+    "public_arbitrated_route_accuracy": 1.0,
+    "public_arbitrated_route_delta": 0.08333333333333337,
+    "strongest_fixed_backend": "always_bm25",
+    "strongest_fixed_answer_accuracy": 0.9583333333333334,
+    "fixed_gap_after_arbitration": 0.04166666666666663,
+    "per_family": {
+      "bm25": {
+        "baseline_answer_accuracy": 1.0,
+        "public_arbitrated_answer_accuracy": 1.0,
+        "answer_delta": 0.0
+      },
+      "dense": {
+        "baseline_answer_accuracy": 1.0,
+        "public_arbitrated_answer_accuracy": 1.0,
+        "answer_delta": 0.0
+      },
+      "hybrid": {
+        "baseline_answer_accuracy": 1.0,
+        "public_arbitrated_answer_accuracy": 1.0,
+        "answer_delta": 0.0
+      },
+      "kg": {
+        "baseline_answer_accuracy": 1.0,
+        "public_arbitrated_answer_accuracy": 1.0,
+        "answer_delta": 0.0
+      }
+    }
+  },
+  "bucket_counts": {
+    "correct": 22,
+    "lexical_confusion": 2,
+    "public_identifier_arbitration_candidate": 2,
+    "route_error": 2
+  },
+  "identifier_subgroups": {
+    "identifier_heavy": {
+      "total": 6,
+      "answer_accuracy": 1.0,
+      "route_accuracy": 0.6666666666666666,
+      "arbitrated_route_accuracy": 1.0
+    },
+    "non_identifier": {
+      "total": 18,
+      "answer_accuracy": 1.0,
+      "route_accuracy": 1.0,
+      "arbitrated_route_accuracy": 1.0
+    }
+  },
+  "fixed_bm25_rescues": [
+    {
+      "id": "pub_bm25_11",
+      "query": "Python dataclasses generated special methods",
+      "route_family": "bm25",
+      "computed_predicted_backend": "dense",
+      "bm25_answer_correct": true,
+      "computed_answer_correct": true,
+      "computed_route_correct": false
+    },
+    {
+      "id": "pub_bm25_12",
+      "query": "TfidfVectorizer raw documents matrix TF-IDF features",
+      "route_family": "bm25",
+      "computed_predicted_backend": "dense",
+      "bm25_answer_correct": true,
+      "computed_answer_correct": true,
+      "computed_route_correct": false
+    }
+  ],
+  "rows": [
+    {
+      "id": "pub_bm25_07",
+      "query": "RFC-9110",
+      "route_family": "bm25",
+      "source_dataset_style": "BEIR-style lexical",
+      "source_types": "rfc",
+      "identifier_heavy": true,
+      "predicted_backend": "bm25",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "Keep enriched identifier metadata for regression coverage."
+    },
+    {
+      "id": "pub_bm25_08",
+      "query": "RFC-7235 authentication",
+      "route_family": "bm25",
+      "source_dataset_style": "BEIR-style lexical",
+      "source_types": "rfc",
+      "identifier_heavy": true,
+      "predicted_backend": "bm25",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "Keep enriched identifier metadata for regression coverage."
+    },
+    {
+      "id": "pub_bm25_09",
+      "query": "RFC-3986 URI generic syntax",
+      "route_family": "bm25",
+      "source_dataset_style": "BEIR-style lexical",
+      "source_types": "rfc",
+      "identifier_heavy": true,
+      "predicted_backend": "bm25",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "Keep enriched identifier metadata for regression coverage."
+    },
+    {
+      "id": "pub_bm25_10",
+      "query": "45 CFR 164.510 opportunity to agree or object",
+      "route_family": "bm25",
+      "source_dataset_style": "official regulation",
+      "source_types": "official_regulation",
+      "identifier_heavy": true,
+      "predicted_backend": "bm25",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "Keep enriched identifier metadata for regression coverage."
+    },
+    {
+      "id": "pub_bm25_11",
+      "query": "Python dataclasses generated special methods",
+      "route_family": "bm25",
+      "source_dataset_style": "official docs",
+      "source_types": "official_docs",
+      "identifier_heavy": true,
+      "predicted_backend": "dense",
+      "route_correct": false,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": true,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "route_error",
+        "lexical_confusion",
+        "public_identifier_arbitration_candidate"
+      ],
+      "suggested_remediation": "Use public-only lexical arbitration when enriched title/identifier/alias confidence is high."
+    },
+    {
+      "id": "pub_bm25_12",
+      "query": "TfidfVectorizer raw documents matrix TF-IDF features",
+      "route_family": "bm25",
+      "source_dataset_style": "official docs",
+      "source_types": "official_docs",
+      "identifier_heavy": true,
+      "predicted_backend": "dense",
+      "route_correct": false,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": true,
+      "arbitrated_backend": "bm25",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "route_error",
+        "lexical_confusion",
+        "public_identifier_arbitration_candidate"
+      ],
+      "suggested_remediation": "Use public-only lexical arbitration when enriched title/identifier/alias confidence is high."
+    },
+    {
+      "id": "pub_dense_07",
+      "query": "What learning setup lets an agent improve using rewards and penalties?",
+      "route_family": "dense",
+      "source_dataset_style": "Natural Questions-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_dense_08",
+      "query": "What economic model keeps materials in use instead of treating them as waste?",
+      "route_family": "dense",
+      "source_dataset_style": "Natural Questions-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_dense_09",
+      "query": "What cycle moves water through evaporation, rain, and runoff?",
+      "route_family": "dense",
+      "source_dataset_style": "TriviaQA-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_dense_10",
+      "query": "What immune response mistakes harmless substances for threats?",
+      "route_family": "dense",
+      "source_dataset_style": "Natural Questions-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_dense_11",
+      "query": "What theory explains how new ideas spread through a social system?",
+      "route_family": "dense",
+      "source_dataset_style": "MS MARCO-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_dense_12",
+      "query": "What view of word meaning uses neighboring contexts?",
+      "route_family": "dense",
+      "source_dataset_style": "MS MARCO-style semantic",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "dense",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "dense",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_07",
+      "query": "Is a whale a mammal?",
+      "route_family": "kg",
+      "source_dataset_style": "WebQSP-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_08",
+      "query": "Is salmon a fish?",
+      "route_family": "kg",
+      "source_dataset_style": "WebQSP-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_09",
+      "query": "Is a mosquito an insect?",
+      "route_family": "kg",
+      "source_dataset_style": "WebQSP-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_10",
+      "query": "Can an ostrich fly?",
+      "route_family": "kg",
+      "source_dataset_style": "GrailQA-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_11",
+      "query": "Is a bird a vertebrate?",
+      "route_family": "kg",
+      "source_dataset_style": "WebQSP-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_kg_12",
+      "query": "What property allows a bat to fly?",
+      "route_family": "kg",
+      "source_dataset_style": "GrailQA-style structured",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "kg",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": false,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "kg",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_07",
+      "query": "What bridge connects eagle and vertebrate?",
+      "route_family": "hybrid",
+      "source_dataset_style": "HotpotQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_08",
+      "query": "What bridge connects whale and vertebrate?",
+      "route_family": "hybrid",
+      "source_dataset_style": "2WikiMultihopQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_09",
+      "query": "What bridge connects frog and animal?",
+      "route_family": "hybrid",
+      "source_dataset_style": "2WikiMultihopQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_10",
+      "query": "What bridge connects duck and vertebrate?",
+      "route_family": "hybrid",
+      "source_dataset_style": "HotpotQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_11",
+      "query": "What bridge connects cat and vertebrate?",
+      "route_family": "hybrid",
+      "source_dataset_style": "HotpotQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    },
+    {
+      "id": "pub_hybrid_12",
+      "query": "What bridge connects owl and vertebrate?",
+      "route_family": "hybrid",
+      "source_dataset_style": "2WikiMultihopQA-style bridge",
+      "source_types": "wikipedia",
+      "identifier_heavy": false,
+      "predicted_backend": "hybrid",
+      "route_correct": true,
+      "answer_correct": true,
+      "evidence_hit": true,
+      "always_bm25_answer_correct": true,
+      "bm25_gets_right_when_computed_wrong": false,
+      "arbitrated_backend": "hybrid",
+      "arbitrated_route_correct": true,
+      "arbitrated_answer_correct": true,
+      "buckets": [
+        "correct"
+      ],
+      "suggested_remediation": "No change needed for this current run."
+    }
+  ],
+  "tradeoffs": [
+    "Public test answer accuracy improved from the Prompt 17 reference 0.917 to current computed RAS 1.000.",
+    "Public lexical arbitration improves test route accuracy from 0.917 to 1.000.",
+    "The main production-safe change is fixing substring marker false positives in feature parsing.",
+    "The public lexical retriever and arbitration mode remain analysis-only and do not change the demo path by default."
+  ]
+}

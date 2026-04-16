@@ -1,0 +1,68 @@
+{
+  "local_normalized_source": "data/eval/generalization_v2.json",
+  "public_raw_source": "data/eval/public_corpus_eval.json",
+  "local_normalized_test_answer_accuracy": 1.0,
+  "public_raw_test_answer_accuracy": 1.0,
+  "overall_answer_accuracy_delta": 0.0,
+  "local_normalized_test_route_accuracy": 0.95,
+  "public_raw_test_route_accuracy": 0.9166666666666666,
+  "overall_route_accuracy_delta": -0.033333333333333326,
+  "per_family_delta": {
+    "bm25": {
+      "local_answer_accuracy": 1.0,
+      "public_answer_accuracy": 1.0,
+      "answer_delta": 0.0,
+      "local_route_accuracy": 0.8,
+      "public_route_accuracy": 0.6666666666666666,
+      "route_delta": -0.13333333333333341,
+      "local_evidence_hit_at_k": 1.0,
+      "public_evidence_hit_at_k": 1.0,
+      "evidence_delta": 0.0
+    },
+    "dense": {
+      "local_answer_accuracy": 1.0,
+      "public_answer_accuracy": 1.0,
+      "answer_delta": 0.0,
+      "local_route_accuracy": 1.0,
+      "public_route_accuracy": 1.0,
+      "route_delta": 0.0,
+      "local_evidence_hit_at_k": 1.0,
+      "public_evidence_hit_at_k": 1.0,
+      "evidence_delta": 0.0
+    },
+    "hybrid": {
+      "local_answer_accuracy": 1.0,
+      "public_answer_accuracy": 1.0,
+      "answer_delta": 0.0,
+      "local_route_accuracy": 1.0,
+      "public_route_accuracy": 1.0,
+      "route_delta": 0.0,
+      "local_evidence_hit_at_k": 1.0,
+      "public_evidence_hit_at_k": 1.0,
+      "evidence_delta": 0.0
+    },
+    "kg": {
+      "local_answer_accuracy": 1.0,
+      "public_answer_accuracy": 1.0,
+      "answer_delta": 0.0,
+      "local_route_accuracy": 1.0,
+      "public_route_accuracy": 1.0,
+      "route_delta": 0.0,
+      "local_evidence_hit_at_k": 1.0,
+      "public_evidence_hit_at_k": 1.0,
+      "evidence_delta": 0.0
+    }
+  },
+  "diagnosis": [
+    "Overall answer accuracy delta public-minus-local is 0.000.",
+    "Overall route accuracy delta public-minus-local is -0.033.",
+    "Most degraded family is bm25: answer delta 0.000, route delta -0.133, evidence delta 0.000.",
+    "Routing appears to explain more degradation than retrieval for the weakest family."
+  ],
+  "threats_to_validity": [
+    "The local-normalized benchmark and public raw benchmark are different suites, so deltas are directional rather than paired-example effects.",
+    "Public raw documents can be fetched, cached, or fallback snapshots depending on network availability.",
+    "The public benchmark remains small and source-selected.",
+    "Deductive and relational public results still use the compact demo KG for structured evidence."
+  ]
+}

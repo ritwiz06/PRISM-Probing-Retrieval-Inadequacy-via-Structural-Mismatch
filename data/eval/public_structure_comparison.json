@@ -1,0 +1,99 @@
+{
+  "source": "data/eval/public_graph_eval.json",
+  "structure_modes": [
+    "demo_kg",
+    "public_graph",
+    "mixed_public_demo"
+  ],
+  "benchmark_total": 32,
+  "public_graph_triples": 49,
+  "comparison": {
+    "dev": {
+      "demo_kg_answer_accuracy": 1.0,
+      "public_graph_answer_accuracy": 1.0,
+      "mixed_public_demo_answer_accuracy": 1.0,
+      "public_graph_delta_vs_demo": 0.0,
+      "mixed_public_demo_delta_vs_demo": 0.0,
+      "mixed_public_demo_delta_vs_public_graph": 0.0,
+      "demo_kg_evidence_hit_at_k": 1.0,
+      "public_graph_evidence_hit_at_k": 1.0,
+      "mixed_public_demo_evidence_hit_at_k": 1.0,
+      "public_graph_evidence_delta_vs_demo": 0.0,
+      "mixed_evidence_delta_vs_public_graph": 0.0,
+      "per_family": {
+        "hybrid": {
+          "demo_answer_accuracy": 1.0,
+          "public_graph_answer_accuracy": 1.0,
+          "mixed_public_demo_answer_accuracy": 1.0,
+          "public_graph_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_public_graph": 0.0,
+          "demo_evidence_hit_at_k": 1.0,
+          "public_graph_evidence_hit_at_k": 1.0,
+          "mixed_public_demo_evidence_hit_at_k": 1.0
+        },
+        "kg": {
+          "demo_answer_accuracy": 1.0,
+          "public_graph_answer_accuracy": 1.0,
+          "mixed_public_demo_answer_accuracy": 1.0,
+          "public_graph_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_public_graph": 0.0,
+          "demo_evidence_hit_at_k": 1.0,
+          "public_graph_evidence_hit_at_k": 1.0,
+          "mixed_public_demo_evidence_hit_at_k": 1.0
+        }
+      }
+    },
+    "test": {
+      "demo_kg_answer_accuracy": 1.0,
+      "public_graph_answer_accuracy": 1.0,
+      "mixed_public_demo_answer_accuracy": 1.0,
+      "public_graph_delta_vs_demo": 0.0,
+      "mixed_public_demo_delta_vs_demo": 0.0,
+      "mixed_public_demo_delta_vs_public_graph": 0.0,
+      "demo_kg_evidence_hit_at_k": 1.0,
+      "public_graph_evidence_hit_at_k": 1.0,
+      "mixed_public_demo_evidence_hit_at_k": 1.0,
+      "public_graph_evidence_delta_vs_demo": 0.0,
+      "mixed_evidence_delta_vs_public_graph": 0.0,
+      "per_family": {
+        "hybrid": {
+          "demo_answer_accuracy": 1.0,
+          "public_graph_answer_accuracy": 1.0,
+          "mixed_public_demo_answer_accuracy": 1.0,
+          "public_graph_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_public_graph": 0.0,
+          "demo_evidence_hit_at_k": 1.0,
+          "public_graph_evidence_hit_at_k": 1.0,
+          "mixed_public_demo_evidence_hit_at_k": 1.0
+        },
+        "kg": {
+          "demo_answer_accuracy": 1.0,
+          "public_graph_answer_accuracy": 1.0,
+          "mixed_public_demo_answer_accuracy": 1.0,
+          "public_graph_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_demo": 0.0,
+          "mixed_answer_delta_vs_public_graph": 0.0,
+          "demo_evidence_hit_at_k": 1.0,
+          "public_graph_evidence_hit_at_k": 1.0,
+          "mixed_public_demo_evidence_hit_at_k": 1.0
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "dev: public_graph-only matches demo_kg answer accuracy; mixed_public_demo matches public_graph-only.",
+    "test: public_graph-only matches demo_kg answer accuracy; mixed_public_demo matches public_graph-only.",
+    "These deltas compare structure modes on a public-graph-grounded suite; they are not a claim that rule-based extraction solves arbitrary public KG construction."
+  ],
+  "threats_to_validity": [
+    "The public graph is produced by lightweight rule/profile extraction, not a full information-extraction system.",
+    "The public graph is small and source-selected, so it tests structure shift but not web-scale graph construction.",
+    "Entity and relation normalization use controlled aliases and predicates that can miss public-text paraphrases.",
+    "Public raw text is noisier than compact benchmark facts, and some facts may be absent after cleaning.",
+    "Mixed public+demo performance should be interpreted as robustness with curated support still present, not solved public graph extraction.",
+    "Answer matching is normalized string matching rather than human grading."
+  ]
+}
