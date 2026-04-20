@@ -1,0 +1,148 @@
+{
+  "scope": "adversarial_test",
+  "before_system": "computed_ras",
+  "after_system": "computed_ras_calibrated_topk_rescue",
+  "before_answer_accuracy": 0.9166666666666666,
+  "after_answer_accuracy": 0.9583333333333334,
+  "before_route_accuracy": 0.75,
+  "after_route_accuracy": 0.875,
+  "fixed_failures": 1,
+  "regressed_failures": 0,
+  "bucket_delta": {
+    "answer synthesis miss": {
+      "before": 1,
+      "after": 1,
+      "delta": 0
+    },
+    "evidence present in top-k but not top-1": {
+      "before": 2,
+      "after": 2,
+      "delta": 0
+    },
+    "lexical over-trigger": {
+      "before": 5,
+      "after": 4,
+      "delta": -1
+    },
+    "public-document noise": {
+      "before": 3,
+      "after": 2,
+      "delta": -1
+    },
+    "retrieval miss": {
+      "before": 1,
+      "after": 0,
+      "delta": -1
+    },
+    "route boundary confusion": {
+      "before": 6,
+      "after": 4,
+      "delta": -2
+    }
+  },
+  "examples": [
+    {
+      "id": "adv_bm25_test_06",
+      "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+      "before_answer_correct": false,
+      "after_answer_correct": true,
+      "before_route_correct": false,
+      "after_route_correct": true,
+      "before_top1_evidence_hit": false,
+      "after_top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "public-document noise",
+        "retrieval miss"
+      ]
+    },
+    {
+      "id": "adv_dense_test_01",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "before_answer_correct": true,
+      "after_answer_correct": true,
+      "before_route_correct": false,
+      "after_route_correct": false,
+      "before_top1_evidence_hit": true,
+      "after_top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise"
+      ]
+    },
+    {
+      "id": "adv_dense_test_02",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "before_answer_correct": true,
+      "after_answer_correct": true,
+      "before_route_correct": false,
+      "after_route_correct": true,
+      "before_top1_evidence_hit": true,
+      "after_top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger"
+      ]
+    },
+    {
+      "id": "adv_dense_test_03",
+      "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+      "before_answer_correct": true,
+      "after_answer_correct": true,
+      "before_route_correct": false,
+      "after_route_correct": false,
+      "before_top1_evidence_hit": true,
+      "after_top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise"
+      ]
+    },
+    {
+      "id": "adv_dense_test_04",
+      "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+      "before_answer_correct": true,
+      "after_answer_correct": true,
+      "before_route_correct": false,
+      "after_route_correct": false,
+      "before_top1_evidence_hit": true,
+      "after_top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger"
+      ]
+    },
+    {
+      "id": "adv_dense_test_06",
+      "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+      "before_answer_correct": false,
+      "after_answer_correct": false,
+      "before_route_correct": false,
+      "after_route_correct": true,
+      "before_top1_evidence_hit": false,
+      "after_top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ]
+    },
+    {
+      "id": "adv_hybrid_test_06",
+      "query": "What relation connects bat and fly, not the exact torch.nn.CrossEntropyLoss API?",
+      "before_answer_correct": true,
+      "after_answer_correct": true,
+      "before_route_correct": true,
+      "after_route_correct": true,
+      "before_top1_evidence_hit": false,
+      "after_top1_evidence_hit": false,
+      "buckets": [
+        "evidence present in top-k but not top-1"
+      ]
+    }
+  ],
+  "note": "Before buckets come from adversarial failure-analysis rules; after counts reuse those bucket labels for still-unfixed examples."
+}

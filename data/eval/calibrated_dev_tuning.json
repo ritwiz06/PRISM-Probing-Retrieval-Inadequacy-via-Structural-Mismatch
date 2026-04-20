@@ -1,0 +1,79 @@
+{
+  "protocol": "Config selected using adversarial dev split route accuracy only; adversarial test is held out.",
+  "selected_config": {
+    "name": "classifier_heavier",
+    "classifier_probability_threshold": 0.35,
+    "classifier_margin_threshold": 0.04,
+    "allow_classifier_override": true,
+    "allow_semantic_bait_override": true,
+    "allow_structural_override": true,
+    "allow_identifier_kg_suppression": true
+  },
+  "selected_name": "classifier_heavier",
+  "candidates": [
+    {
+      "name": "conservative",
+      "config": {
+        "name": "conservative",
+        "classifier_probability_threshold": 0.42,
+        "classifier_margin_threshold": 0.08,
+        "allow_classifier_override": false,
+        "allow_semantic_bait_override": true,
+        "allow_structural_override": true,
+        "allow_identifier_kg_suppression": true
+      },
+      "dev_total": 24,
+      "dev_route_accuracy": 0.7916666666666666,
+      "dev_route_correct": 19,
+      "override_count": 4
+    },
+    {
+      "name": "dev_balanced",
+      "config": {
+        "name": "dev_balanced",
+        "classifier_probability_threshold": 0.42,
+        "classifier_margin_threshold": 0.08,
+        "allow_classifier_override": true,
+        "allow_semantic_bait_override": true,
+        "allow_structural_override": true,
+        "allow_identifier_kg_suppression": true
+      },
+      "dev_total": 24,
+      "dev_route_accuracy": 0.7916666666666666,
+      "dev_route_correct": 19,
+      "override_count": 5
+    },
+    {
+      "name": "classifier_heavier",
+      "config": {
+        "name": "classifier_heavier",
+        "classifier_probability_threshold": 0.35,
+        "classifier_margin_threshold": 0.04,
+        "allow_classifier_override": true,
+        "allow_semantic_bait_override": true,
+        "allow_structural_override": true,
+        "allow_identifier_kg_suppression": true
+      },
+      "dev_total": 24,
+      "dev_route_accuracy": 0.8333333333333334,
+      "dev_route_correct": 20,
+      "override_count": 6
+    },
+    {
+      "name": "rules_only",
+      "config": {
+        "name": "rules_only",
+        "classifier_probability_threshold": 0.42,
+        "classifier_margin_threshold": 0.08,
+        "allow_classifier_override": false,
+        "allow_semantic_bait_override": true,
+        "allow_structural_override": true,
+        "allow_identifier_kg_suppression": true
+      },
+      "dev_total": 24,
+      "dev_route_accuracy": 0.7916666666666666,
+      "dev_route_correct": 19,
+      "override_count": 4
+    }
+  ]
+}

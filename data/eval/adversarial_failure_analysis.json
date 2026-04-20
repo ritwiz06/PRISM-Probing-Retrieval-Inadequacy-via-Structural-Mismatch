@@ -1,0 +1,1229 @@
+{
+  "source": "data/eval/adversarial_eval.json",
+  "computed_ras": {
+    "total": 48,
+    "route_accuracy": 0.7291666666666666,
+    "answer_accuracy": 0.7291666666666666,
+    "evidence_hit_at_k": 0.8958333333333334,
+    "top1_evidence_hit": 0.6875
+  },
+  "bucket_counts": {
+    "KG incompleteness": 2,
+    "answer synthesis miss": 8,
+    "evidence present in top-k but not top-1": 10,
+    "identifier ambiguity": 1,
+    "lexical over-trigger": 11,
+    "public-document noise": 5,
+    "relational bridge confusion": 2,
+    "retrieval miss": 5,
+    "route boundary confusion": 13
+  },
+  "failure_rows": [
+    {
+      "id": "adv_bm25_dev_01",
+      "query": "In plain language, what is RFC-7231 really about, not RFC-7230 routing?",
+      "split": "dev",
+      "intended_route_family": "bm25",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "identifier ambiguity",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "noise_lex_rfc_7231_errata",
+        "lex_rfc_7230",
+        "lex_rfc_7231"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_bm25_dev_06",
+      "query": "Which sklearn class makes raw documents into TF-IDF features even though the query says topic meaning and semantic search?",
+      "split": "dev",
+      "intended_route_family": "bm25",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "kg_semantic_question_routes_dense",
+        "pg_mosquito_has_property_wings_dc97f0f8cd",
+        "pg_mosquito_capable_of_fly_f01abbb3ef"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_bm25_test_06",
+      "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+      "split": "test",
+      "intended_route_family": "bm25",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "public-document noise",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "kg_property_question_routes_kg",
+        "kg_whale_not_fly",
+        "kg_semantic_question_routes_dense"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_01",
+      "query": "Which concept feels like RFC-7231 for emotions: worry or grief about climate futures?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 5,
+      "top_evidence_ids": [
+        "lex_rfc_7231",
+        "noise_lex_rfc_7231_errata",
+        "noise_lex_rfc_7321"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_02",
+      "query": "What process turns daylight into stored chemical energy even if PostgreSQL JSONB also stores values?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "pub_postgres_jsonb",
+        "sem_photosynthesis",
+        "lex_postgres_jsonb_insert"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_03",
+      "query": "What concept explains city neighborhoods acting like a heat section 164.512 trap?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "public_document_noise"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 7,
+      "top_evidence_ids": [
+        "lex_hipaa_164_512",
+        "noise_lex_hipaa_164_512_notes",
+        "sem_urban_heat_island"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_05",
+      "query": "Which condition is an immune false alarm for harmless pollen, not ICD-10 J18.9 pneumonia?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "random_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "pub_icd_j18_9",
+        "sem_allergy",
+        "lex_icd_j18_9"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_06",
+      "query": "Which concept captures unfair automated outputs even when civil rights \u00a71983 appears in the wording?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 5,
+      "top_evidence_ids": [
+        "noise_lex_section_198x",
+        "lex_section_1983",
+        "sem_algorithmic_bias"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_01",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "public_document_noise"
+      ],
+      "answer_correct": true,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 5,
+      "top_evidence_ids": [
+        "sem_reinforcement_learning",
+        "pub_reinforcement_learning",
+        "noise_sem_015"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_02",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": true,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "sem_circular_economy",
+        "pub_circular_economy",
+        "noise_lex_jsonb_functions"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_03",
+      "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "public_document_noise"
+      ],
+      "answer_correct": true,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 5,
+      "top_evidence_ids": [
+        "sem_water_cycle",
+        "noise_sem_014",
+        "pub_water_cycle"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_04",
+      "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": true,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "random_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 5,
+      "top_evidence_ids": [
+        "sem_distributional_semantics",
+        "pub_distributional_semantics",
+        "doc_exact"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_06",
+      "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "lex_numpy_linalg_svd",
+        "noise_lex_numpy_linalg",
+        "sem_butterfly_effect"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_kg_dev_01",
+      "query": "Under the closed-world demo structure, can a mammal fly despite RFC-7231 also mentioning methods?",
+      "split": "dev",
+      "intended_route_family": "kg",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "noisy_structure"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "KG incompleteness",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "lex_rfc_7231",
+        "noise_lex_rfc_7231_errata",
+        "noise_lex_rfc_7321"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_kg_dev_04",
+      "query": "Can a penguin fly if the public page says bird and wings nearby?",
+      "split": "dev",
+      "intended_route_family": "kg",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "noisy_structure"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "KG incompleteness",
+        "relational bridge confusion",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "path:kg_sparrow_is_bird->kg_sparrow_capable_fly",
+        "path:kg_owl_is_bird->kg_owl_capable_fly",
+        "path:kg_eagle_is_bird->kg_eagle_capable_fly"
+      ],
+      "remediation_note": "Inspect Hybrid fusion contribution order and KG path evidence."
+    },
+    {
+      "id": "adv_hybrid_dev_03",
+      "query": "What relation connects bat and mosquito when public text also mentions disease?",
+      "split": "dev",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "public-document noise",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "hybrid:text:pub_mosquito",
+        "hybrid:text:pub_mosquito_insect_flight",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_mosquito",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_fly",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_mosquito_animal"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_hybrid_dev_04",
+      "query": "What bridge connects salmon and vertebrate, not the semantic concept water cycle?",
+      "split": "dev",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "wrong_bridge_distractor"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "relational bridge confusion",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "hybrid:text:pub_water_cycle",
+        "hybrid:text:pub_salmon_fish_migration",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_whale_vertebrate"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_hybrid_dev_06",
+      "query": "What bridge connects mosquito and animal when fly capability is a tempting relation?",
+      "split": "dev",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "answer_correct": true,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "evidence present in top-k but not top-1"
+      ],
+      "systems_failed": [
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg"
+      ],
+      "failure_count_across_systems": 4,
+      "top_evidence_ids": [
+        "hybrid:text:pub_mosquito_insect_flight",
+        "hybrid:bundle:pg_mosquito_capable_of_fly_f01abbb3ef+rel_mosquito_animal",
+        "hybrid:bundle:pg_mosquito_capable_of_fly_f01abbb3ef+doc_mammal",
+        "hybrid:text:pub_mosquito",
+        "hybrid:text:rel_mosquito_animal"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_hybrid_test_06",
+      "query": "What relation connects bat and fly, not the exact torch.nn.CrossEntropyLoss API?",
+      "split": "test",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": true,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "evidence present in top-k but not top-1"
+      ],
+      "systems_failed": [
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "hybrid:text:pub_bat",
+        "hybrid:bundle:path:kg_bat_eats_mosquito->pg_mosquito_capable_of_fly_f01abbb3ef+rel_bat_fly",
+        "hybrid:bundle:path:kg_bat_eats_mosquito->pg_mosquito_capable_of_fly_f01abbb3ef+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_bat_eats_mosquito->pg_mosquito_capable_of_fly_f01abbb3ef+rel_bat_mosquito",
+        "hybrid:text:pub_torch_cross_entropy"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    }
+  ],
+  "hardest_examples": [
+    {
+      "id": "adv_bm25_dev_01",
+      "query": "In plain language, what is RFC-7231 really about, not RFC-7230 routing?",
+      "split": "dev",
+      "intended_route_family": "bm25",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "identifier ambiguity",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "noise_lex_rfc_7231_errata",
+        "lex_rfc_7230",
+        "lex_rfc_7231"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_dense_dev_02",
+      "query": "What process turns daylight into stored chemical energy even if PostgreSQL JSONB also stores values?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "pub_postgres_jsonb",
+        "sem_photosynthesis",
+        "lex_postgres_jsonb_insert"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_06",
+      "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "lex_numpy_linalg_svd",
+        "noise_lex_numpy_linalg",
+        "sem_butterfly_effect"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_kg_dev_01",
+      "query": "Under the closed-world demo structure, can a mammal fly despite RFC-7231 also mentioning methods?",
+      "split": "dev",
+      "intended_route_family": "kg",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "noisy_structure"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "KG incompleteness",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "lex_rfc_7231",
+        "noise_lex_rfc_7231_errata",
+        "noise_lex_rfc_7321"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_kg_dev_04",
+      "query": "Can a penguin fly if the public page says bird and wings nearby?",
+      "split": "dev",
+      "intended_route_family": "kg",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "noisy_structure"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "KG incompleteness",
+        "relational bridge confusion",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "path:kg_sparrow_is_bird->kg_sparrow_capable_fly",
+        "path:kg_owl_is_bird->kg_owl_capable_fly",
+        "path:kg_eagle_is_bird->kg_eagle_capable_fly"
+      ],
+      "remediation_note": "Inspect Hybrid fusion contribution order and KG path evidence."
+    },
+    {
+      "id": "adv_hybrid_dev_03",
+      "query": "What relation connects bat and mosquito when public text also mentions disease?",
+      "split": "dev",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "public-document noise",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "hybrid:text:pub_mosquito",
+        "hybrid:text:pub_mosquito_insect_flight",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_mosquito",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_bat_fly",
+        "hybrid:bundle:kg_bat_eats_mosquito+rel_mosquito_animal"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_hybrid_dev_04",
+      "query": "What bridge connects salmon and vertebrate, not the semantic concept water cycle?",
+      "split": "dev",
+      "intended_route_family": "hybrid",
+      "predicted_backend": "hybrid",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "wrong_bridge_distractor"
+      ],
+      "answer_correct": false,
+      "route_correct": true,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "relational bridge confusion",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 8,
+      "top_evidence_ids": [
+        "hybrid:text:pub_water_cycle",
+        "hybrid:text:pub_salmon_fish_migration",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_salmon_is_fish->kg_fish_is_vertebrate+rel_whale_vertebrate"
+      ],
+      "remediation_note": "Reranking or metadata-aware tie-breaking may help without changing benchmark labels."
+    },
+    {
+      "id": "adv_dense_dev_03",
+      "query": "What concept explains city neighborhoods acting like a heat section 164.512 trap?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "public_document_noise"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "public-document noise",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "random_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 7,
+      "top_evidence_ids": [
+        "lex_hipaa_164_512",
+        "noise_lex_hipaa_164_512_notes",
+        "sem_urban_heat_island"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_bm25_dev_06",
+      "query": "Which sklearn class makes raw documents into TF-IDF features even though the query says topic meaning and semantic search?",
+      "split": "dev",
+      "intended_route_family": "bm25",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "kg_semantic_question_routes_dense",
+        "pg_mosquito_has_property_wings_dc97f0f8cd",
+        "pg_mosquito_capable_of_fly_f01abbb3ef"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_bm25_test_06",
+      "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+      "split": "test",
+      "intended_route_family": "bm25",
+      "predicted_backend": "kg",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity",
+        "misleading_exact_term"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": false,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "public-document noise",
+        "retrieval miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_dense",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "kg_property_question_routes_kg",
+        "kg_whale_not_fly",
+        "kg_semantic_question_routes_dense"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_dev_05",
+      "query": "Which condition is an immune false alarm for harmless pollen, not ICD-10 J18.9 pneumonia?",
+      "split": "dev",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "route_boundary_ambiguity"
+      ],
+      "answer_correct": false,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": false,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger",
+        "evidence present in top-k but not top-1",
+        "answer synthesis miss"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "random_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "pub_icd_j18_9",
+        "sem_allergy",
+        "lex_icd_j18_9"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    },
+    {
+      "id": "adv_dense_test_02",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "split": "test",
+      "intended_route_family": "dense",
+      "predicted_backend": "bm25",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "answer_correct": true,
+      "route_correct": false,
+      "evidence_hit": true,
+      "top1_evidence_hit": true,
+      "buckets": [
+        "route boundary confusion",
+        "lexical over-trigger"
+      ],
+      "systems_failed": [
+        "computed_ras",
+        "keyword_rule_router",
+        "classifier_router",
+        "always_bm25",
+        "always_kg",
+        "always_hybrid"
+      ],
+      "failure_count_across_systems": 6,
+      "top_evidence_ids": [
+        "sem_circular_economy",
+        "pub_circular_economy",
+        "noise_lex_jsonb_functions"
+      ],
+      "remediation_note": "Inspect feature parser/RAS margin and consider an analysis-only arbitration rule before changing production routing."
+    }
+  ],
+  "tag_summary": {
+    "identifier_ambiguity": {
+      "total": 8,
+      "route_miss_rate": 0.0,
+      "answer_miss_rate": 0.125,
+      "evidence_miss_rate": 0.0,
+      "top1_topk_gap_rate": 0.125
+    },
+    "identifier_with_distractor_language": {
+      "total": 3,
+      "route_miss_rate": 0.0,
+      "answer_miss_rate": 0.0,
+      "evidence_miss_rate": 0.0,
+      "top1_topk_gap_rate": 0.0
+    },
+    "lexical_semantic_overlap": {
+      "total": 15,
+      "route_miss_rate": 0.4666666666666667,
+      "answer_miss_rate": 0.4,
+      "evidence_miss_rate": 0.13333333333333333,
+      "top1_topk_gap_rate": 0.26666666666666666
+    },
+    "misleading_exact_term": {
+      "total": 16,
+      "route_miss_rate": 0.625,
+      "answer_miss_rate": 0.5625,
+      "evidence_miss_rate": 0.1875,
+      "top1_topk_gap_rate": 0.4375
+    },
+    "noisy_structure": {
+      "total": 11,
+      "route_miss_rate": 0.09090909090909091,
+      "answer_miss_rate": 0.18181818181818182,
+      "evidence_miss_rate": 0.18181818181818182,
+      "top1_topk_gap_rate": 0.0
+    },
+    "public_document_noise": {
+      "total": 10,
+      "route_miss_rate": 0.4,
+      "answer_miss_rate": 0.3,
+      "evidence_miss_rate": 0.1,
+      "top1_topk_gap_rate": 0.2
+    },
+    "route_boundary_ambiguity": {
+      "total": 10,
+      "route_miss_rate": 0.5,
+      "answer_miss_rate": 0.4,
+      "evidence_miss_rate": 0.2,
+      "top1_topk_gap_rate": 0.3
+    },
+    "top1_topk_gap_risk": {
+      "total": 11,
+      "route_miss_rate": 0.0,
+      "answer_miss_rate": 0.09090909090909091,
+      "evidence_miss_rate": 0.0,
+      "top1_topk_gap_rate": 0.18181818181818182
+    },
+    "wrong_bridge_distractor": {
+      "total": 14,
+      "route_miss_rate": 0.0,
+      "answer_miss_rate": 0.14285714285714285,
+      "evidence_miss_rate": 0.07142857142857142,
+      "top1_topk_gap_rate": 0.14285714285714285
+    }
+  },
+  "baseline_subtype_wins": [
+    "classifier_router beats computed_ras on lexical_semantic_overlap: 0.800 vs 0.600.",
+    "always_dense beats computed_ras on misleading_exact_term: 0.812 vs 0.438.",
+    "classifier_router beats computed_ras on public_document_noise: 0.800 vs 0.700.",
+    "random_router beats computed_ras on route_boundary_ambiguity: 0.800 vs 0.600."
+  ],
+  "known_limitations": [
+    "Hard cases are hand-constructed and intentionally route-boundary-heavy.",
+    "Failure buckets are rule-assisted and inspectable, not learned labels.",
+    "Answer correctness still uses normalized exact/soft string matching."
+  ]
+}
