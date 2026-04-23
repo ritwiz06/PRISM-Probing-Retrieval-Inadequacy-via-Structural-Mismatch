@@ -1,0 +1,1 @@
+A bat is a mammal. A mammal is a vertebrate. A bat uses wings and echolocation. Bat connects to vertebrate through mammal.

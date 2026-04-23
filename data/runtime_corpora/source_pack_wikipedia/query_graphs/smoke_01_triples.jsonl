@@ -1,0 +1,4 @@
+{"triple_id": "qlg_0000_pack_wikipedia_bat", "subject": "bat", "predicate": "is_a", "object": "mammal.", "source_doc_id": "pack_wikipedia_bat"}
+{"triple_id": "qlg_0001_pack_wikipedia_bat", "subject": "bat", "predicate": "uses", "object": "wing", "source_doc_id": "pack_wikipedia_bat"}
+{"triple_id": "qlg_0002_pack_wikipedia_bridge_bat_vertebrate", "subject": "bat", "predicate": "is_a", "object": "mammal", "source_doc_id": "pack_wikipedia_bridge_bat_vertebrate"}
+{"triple_id": "qlg_0003_pack_wikipedia_bridge_bat_vertebrate", "subject": "mammal", "predicate": "is_a", "object": "class", "source_doc_id": "pack_wikipedia_bridge_bat_vertebrate"}

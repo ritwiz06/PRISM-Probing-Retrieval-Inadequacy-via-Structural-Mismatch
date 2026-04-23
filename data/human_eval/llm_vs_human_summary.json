@@ -1,0 +1,15 @@
+{
+  "status": "llm_unavailable",
+  "llm_runtime": {
+    "provider": "ollama",
+    "model": "llama3.1:8b",
+    "endpoint": "http://127.0.0.1:11434/api/generate",
+    "available": false,
+    "error": "<urlopen error [Errno 1] Operation not permitted>"
+  },
+  "packet_size": 28,
+  "annotation_count": 112,
+  "alignment": {},
+  "interpretation": "No local LLM route choices were available, so human alignment is reported as pending.",
+  "setup_note": "Local LLM runtime was unavailable. Start Ollama locally and set PRISM_LLM_MODEL if needed, then rerun `python -m prism.llm_experiments.verify_llm_router`. Error: <urlopen error [Errno 1] Operation not permitted>"
+}

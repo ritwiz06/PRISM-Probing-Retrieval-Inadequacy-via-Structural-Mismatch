@@ -1,0 +1,198 @@
+{
+  "model_version": "ras_v4_joint_linear_2026_04_22",
+  "training_protocol": {
+    "model_type": "binary sparse linear logistic adequacy model over candidate backend/query/evidence pairs",
+    "seed": 79,
+    "c_value": 0.7,
+    "training_pairs": 672,
+    "positive_pairs": 168,
+    "negative_pairs": 504,
+    "feature_count": 54,
+    "fit_scope": "curated benchmark plus selected dev layers and adversarial dev; held-out test layers are not used for fitting.",
+    "training_source_summary": {
+      "candidate_pairs": 672,
+      "positive_pairs": 168,
+      "negative_pairs": 504,
+      "source_counts": {
+        "adversarial_dev_train": 96,
+        "curated_train": 320,
+        "generalization_v2_dev": 160,
+        "public_raw_dev": 96
+      },
+      "label_definition": "positive iff candidate backend equals the benchmark route family; no held-out test labels are used for fitting."
+    }
+  },
+  "training_summary": {
+    "candidate_pairs": 672,
+    "positive_pairs": 168,
+    "negative_pairs": 504,
+    "source_counts": {
+      "adversarial_dev_train": 96,
+      "curated_train": 320,
+      "generalization_v2_dev": 160,
+      "public_raw_dev": 96
+    },
+    "label_definition": "positive iff candidate backend equals the benchmark route family; no held-out test labels are used for fitting."
+  },
+  "feature_weight_summary": {
+    "route_weights": [
+      {
+        "feature": "route__semantic_abstraction",
+        "weight": 0.5412987342113529
+      },
+      {
+        "feature": "route__deductive_cue",
+        "weight": 0.5251743710766579
+      },
+      {
+        "feature": "route__low_ras_margin",
+        "weight": 0.43905968050080435
+      },
+      {
+        "feature": "route__computed_route_kg",
+        "weight": -0.4377057063532458
+      },
+      {
+        "feature": "route__identifier_heavy",
+        "weight": 0.40066088912918973
+      },
+      {
+        "feature": "route__route_ambiguity",
+        "weight": 0.3797993112108156
+      },
+      {
+        "feature": "route__lexical_exactness",
+        "weight": 0.3778999740211936
+      },
+      {
+        "feature": "route__keyword_route_bm25",
+        "weight": 0.3778999740211936
+      },
+      {
+        "feature": "route__public_document_noise",
+        "weight": -0.3703415098445715
+      },
+      {
+        "feature": "route__source_adversarial",
+        "weight": 0.3581879107598017
+      },
+      {
+        "feature": "route__keyword_route_kg",
+        "weight": -0.26190665284809994
+      },
+      {
+        "feature": "route__computed_route_bm25",
+        "weight": 0.23454325638663273
+      }
+    ],
+    "evidence_weights": [
+      {
+        "feature": "evidence__candidate_matches_computed_ras",
+        "weight": 4.300327362681654
+      },
+      {
+        "feature": "evidence__candidate_matches_keyword",
+        "weight": 1.9998869104642643
+      },
+      {
+        "feature": "evidence__semantic_snippet_consistency",
+        "weight": 1.1064035230615652
+      },
+      {
+        "feature": "evidence__candidate_dense",
+        "weight": 1.0696778871050416
+      },
+      {
+        "feature": "evidence__top1_score",
+        "weight": 1.012566465399137
+      },
+      {
+        "feature": "evidence__identifier_exact_match",
+        "weight": -0.9245963740327151
+      },
+      {
+        "feature": "evidence__source_diversity",
+        "weight": -0.827739462107193
+      },
+      {
+        "feature": "evidence__title_or_id_match",
+        "weight": -0.7969811302278265
+      },
+      {
+        "feature": "evidence__candidate_kg",
+        "weight": -0.7120570368095835
+      },
+      {
+        "feature": "evidence__redundancy",
+        "weight": 0.6080626799596158
+      },
+      {
+        "feature": "evidence__public_noise_indicator",
+        "weight": 0.5858048535157114
+      },
+      {
+        "feature": "evidence__top1_top2_gap",
+        "weight": 0.5727447905616414
+      }
+    ]
+  },
+  "weights": {
+    "route__bias": 0.0011980362338722835,
+    "route__query_length_log": -0.02075888605072235,
+    "route__token_count_log": -0.013329124580301407,
+    "route__identifier_heavy": 0.40066088912918973,
+    "route__identifier_count_log": -0.03403902608083436,
+    "route__lexical_exactness": 0.3778999740211936,
+    "route__semantic_abstraction": 0.5412987342113529,
+    "route__deductive_cue": 0.5251743710766579,
+    "route__relational_bridge": -0.049290200462050536,
+    "route__multi_hop_cue": -0.031336410841097215,
+    "route__negation_or_contrast": -0.08579654343133451,
+    "route__route_ambiguity": 0.3797993112108156,
+    "route__low_ras_margin": 0.43905968050080435,
+    "route__computed_route_bm25": 0.23454325638663273,
+    "route__computed_route_dense": 0.15957781405981528,
+    "route__computed_route_kg": -0.4377057063532458,
+    "route__computed_route_hybrid": 0.0447826721406696,
+    "route__keyword_route_bm25": 0.3778999740211936,
+    "route__keyword_route_dense": 0.07785163315738966,
+    "route__keyword_route_kg": -0.26190665284809994,
+    "route__keyword_route_hybrid": -0.19264691809661236,
+    "route__source_curated": -0.17577126020743375,
+    "route__source_external": 0.0,
+    "route__source_generalization": -0.14373956190719728,
+    "route__source_public_raw": -0.03747905241129816,
+    "route__source_adversarial": 0.3581879107598017,
+    "route__source_open_corpus": 0.0,
+    "route__source_formal_spec": 0.0,
+    "route__query_local_graph_available": 0.0,
+    "route__public_document_noise": -0.3703415098445715,
+    "route__topk_rescue_opportunity": 0.0,
+    "evidence__candidate_bm25": -0.2143255714546706,
+    "evidence__candidate_dense": 1.0696778871050416,
+    "evidence__candidate_kg": -0.7120570368095835,
+    "evidence__candidate_hybrid": -0.14209724260691514,
+    "evidence__candidate_matches_computed_ras": 4.300327362681654,
+    "evidence__candidate_matches_keyword": 1.9998869104642643,
+    "evidence__top1_score": 1.012566465399137,
+    "evidence__topk_score_mean": 0.30173106721327536,
+    "evidence__top1_top2_gap": 0.5727447905616414,
+    "evidence__evidence_count_log": -0.10526372183951312,
+    "evidence__query_overlap_top1": 0.10646195754194401,
+    "evidence__query_overlap_topk": 0.24274210598161305,
+    "evidence__identifier_exact_match": -0.9245963740327151,
+    "evidence__title_or_id_match": -0.7969811302278265,
+    "evidence__source_diversity": -0.827739462107193,
+    "evidence__redundancy": 0.6080626799596158,
+    "evidence__kg_fact_or_path_present": 0.38029042251069567,
+    "evidence__kg_path_completeness": 0.3530492486980704,
+    "evidence__hybrid_component_agreement": -0.04736574753563836,
+    "evidence__semantic_snippet_consistency": 1.1064035230615652,
+    "evidence__negation_or_distractor_contamination": -0.3491208050604086,
+    "evidence__public_noise_indicator": 0.5858048535157114,
+    "evidence__answerability_marker": -0.17807400985732727
+  },
+  "intercept": -3.821335944253504,
+  "route_weight_sum": 5.772075110024188,
+  "evidence_weight_sum": 16.93737037622602
+}

@@ -4,8 +4,8 @@ Policy: Analysis-only override to BM25 only when the query is identifier-heavy a
 
 - Normal computed RAS test route accuracy: 0.917.
 - Public-arbitrated test route accuracy: 1.000.
-- Normal computed RAS test answer accuracy: 1.000.
-- Public-arbitrated test answer accuracy: 1.000.
+- Normal computed RAS test answer accuracy: 0.875.
+- Public-arbitrated test answer accuracy: 0.875.
 
 ## Overrides
 

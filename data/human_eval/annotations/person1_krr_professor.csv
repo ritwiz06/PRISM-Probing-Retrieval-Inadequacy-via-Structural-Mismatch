@@ -1,0 +1,37 @@
+evaluator_id,item_id,route_appropriateness,evidence_sufficiency,answer_faithfulness,trace_faithfulness,trace_clarity,overall_usefulness,major_error_type,is_usable,notes
+person1_krr_professor,he_001_curated_000_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_002_curated_001_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_003_curated_020_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_004_curated_021_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_005_curated_040_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_006_curated_041_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_007_curated_060_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_008_curated_061_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_009_gen_lex_test_001_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_010_gen_lex_test_002_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_011_gen_sem_test_001_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_012_gen_sem_test_002_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_013_gen_kg_test_001_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_014_gen_kg_test_002_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_015_gen_rel_test_001_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_016_gen_rel_test_002_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_017_pub_bm25_07_computed_ras,3,1,1,3,3,1,insufficient_evidence,no,"Correct lexical route family, but retrieval misses the RFC target and returns unrelated semantic evidence."
+person1_krr_professor,he_018_pub_bm25_08_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_019_pub_dense_07_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_020_pub_dense_08_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_021_pub_kg_07_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_022_pub_kg_08_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_023_pub_hybrid_07_computed_ras,3,2,2,1,2,2,wrong_bridge,no,"KG path gives the right bridge (bird), but the fused text evidence is off-target (whale→vertebrate), so the hybrid synthesis is not faithful."
+person1_krr_professor,he_024_pub_hybrid_08_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_025_adv_bm25_test_01_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_026_adv_bm25_test_02_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_027_adv_dense_test_01_computed_ras,1,3,3,3,3,3,wrong_route,yes,"Answer is well supported, but lexical routing is not ideal for this semantic query under legal-text distractor noise."
+person1_krr_professor,he_028_adv_dense_test_02_computed_ras,1,3,3,3,3,3,wrong_route,yes,"Answer is well supported, but lexical routing is not ideal for this semantic query under identifier distractor noise."
+person1_krr_professor,he_029_adv_kg_test_01_computed_ras,3,3,3,3,3,3,none,yes,Uses penguin as the existential witness rather than duck; this is still valid for the quantified query.
+person1_krr_professor,he_030_adv_kg_test_02_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_031_adv_hybrid_test_01_computed_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_032_adv_hybrid_test_02_computed_ras,3,2,2,1,2,2,wrong_bridge,no,"Text evidence supports eagle→fish, but the KG path is the wrong bridge (eagle→bird→vertebrate), so the fused explanation is structurally mismatched."
+person1_krr_professor,he_033_adv_bm25_test_01_calibrated_ras,3,3,3,3,3,3,none,yes,
+person1_krr_professor,he_034_adv_dense_test_01_calibrated_ras,1,3,3,3,2,3,wrong_route,yes,"Calibration stays on bm25 despite a semantic query; the answer remains supported, but the routing decision is still suboptimal."
+person1_krr_professor,he_035_adv_kg_test_01_calibrated_ras,3,3,3,3,3,3,none,yes,Uses penguin as the existential witness rather than duck; this is still valid for the quantified query.
+person1_krr_professor,he_036_adv_hybrid_test_01_calibrated_ras,3,3,3,3,3,3,none,yes,

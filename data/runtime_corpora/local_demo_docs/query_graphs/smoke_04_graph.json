@@ -1,0 +1,47 @@
+{
+  "query": "Is a bat a mammal?",
+  "triple_count": 5,
+  "triples": [
+    {
+      "triple_id": "qlg_0000_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+      "subject": "bat",
+      "predicate": "is_a",
+      "object": "mammal.",
+      "source_doc_id": "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+    },
+    {
+      "triple_id": "qlg_0001_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+      "subject": "mammal",
+      "predicate": "is_a",
+      "object": "vertebrate.",
+      "source_doc_id": "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+    },
+    {
+      "triple_id": "qlg_0002_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+      "subject": "bat",
+      "predicate": "uses",
+      "object": "wing",
+      "source_doc_id": "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+    },
+    {
+      "triple_id": "qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+      "subject": "bat",
+      "predicate": "connects_to",
+      "object": "vertebrate",
+      "source_doc_id": "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+    },
+    {
+      "triple_id": "qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+      "subject": "routing",
+      "predicate": "connects_to",
+      "object": "query",
+      "source_doc_id": "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8"
+    }
+  ],
+  "metadata": {
+    "backend_type": "query_local_graph",
+    "document_count": 3,
+    "triple_count": 5,
+    "extraction": "lightweight regex patterns with source document provenance"
+  }
+}

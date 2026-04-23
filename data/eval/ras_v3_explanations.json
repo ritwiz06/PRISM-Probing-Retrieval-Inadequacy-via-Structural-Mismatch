@@ -1,0 +1,502 @@
+{
+  "model_version": "ras_v3_linear_2026_04_21",
+  "case_selection": "adversarial-test examples where RAS_V3 changed computed RAS, falling back to representative RAS_V3 cases.",
+  "case_count": 4,
+  "cases": [
+    {
+      "query": "HTML aria-labelledby looks like accessibility semantics; what does that exact attribute identify?",
+      "selected_backend": "dense",
+      "route_scores": {
+        "bm25": 0.003182086666840278,
+        "dense": 1.6000911095869956,
+        "kg": -0.6989837140881049,
+        "hybrid": -0.904289482165739
+      },
+      "margin": 1.5969090229201552,
+      "rationale": "RAS_V3 selected dense with highest linear adequacy score 1.600. Largest active contributions: token_count_log=+0.528, keyword_route_dense=+0.434, source_adversarial=+0.351, query_length_log=+0.313. Runner-up was bm25 at 0.003.",
+      "active_features": {
+        "bias": 1.0,
+        "query_length_log": 0.7641612464450954,
+        "token_count_log": 0.8549831191538456,
+        "lexical_exactness": 1.0,
+        "computed_route_bm25": 1.0,
+        "keyword_route_dense": 1.0,
+        "source_adversarial": 1.0
+      },
+      "top_selected_route_contributions": [
+        {
+          "feature": "token_count_log",
+          "contribution": 0.5284083773723214
+        },
+        {
+          "feature": "keyword_route_dense",
+          "contribution": 0.4336702211956205
+        },
+        {
+          "feature": "source_adversarial",
+          "contribution": 0.35139001490657157
+        },
+        {
+          "feature": "query_length_log",
+          "contribution": 0.31346095842409916
+        },
+        {
+          "feature": "intercept",
+          "contribution": -0.242636699216742
+        },
+        {
+          "feature": "computed_route_bm25",
+          "contribution": 0.14258664785107747
+        },
+        {
+          "feature": "lexical_exactness",
+          "contribution": 0.0791942952902665
+        },
+        {
+          "feature": "bias",
+          "contribution": -0.0059827062362188335
+        }
+      ],
+      "all_route_contributions": {
+        "bm25": {
+          "bias": 0.004589653579251632,
+          "query_length_log": -0.26686266427205724,
+          "token_count_log": -0.5408180851351747,
+          "lexical_exactness": 0.5454714837130163,
+          "computed_route_bm25": 0.5752450060369244,
+          "keyword_route_dense": 0.27228553640451497,
+          "source_adversarial": -0.8615864615754859,
+          "intercept": 0.27485761791585084
+        },
+        "dense": {
+          "bias": -0.0059827062362188335,
+          "query_length_log": 0.31346095842409916,
+          "token_count_log": 0.5284083773723214,
+          "lexical_exactness": 0.0791942952902665,
+          "computed_route_bm25": 0.14258664785107747,
+          "keyword_route_dense": 0.4336702211956205,
+          "source_adversarial": 0.35139001490657157,
+          "intercept": -0.242636699216742
+        },
+        "kg": {
+          "bias": 0.004472709126043526,
+          "query_length_log": -0.1020992241600185,
+          "token_count_log": -0.08344639255517539,
+          "lexical_exactness": -0.2773109359224654,
+          "computed_route_bm25": -0.2042630882975818,
+          "keyword_route_dense": -0.37454119645849887,
+          "source_adversarial": 0.1676452911315404,
+          "intercept": 0.17055912304805124
+        },
+        "hybrid": {
+          "bias": -0.003079656469077178,
+          "query_length_log": 0.055500930007976366,
+          "token_count_log": 0.0958561003180277,
+          "lexical_exactness": -0.3473548430808181,
+          "computed_route_bm25": -0.5135685655904203,
+          "keyword_route_dense": -0.3314145611416378,
+          "source_adversarial": 0.34255115553737275,
+          "intercept": -0.20278004174716246
+        }
+      },
+      "computed_ras_context": {
+        "computed_route": "bm25",
+        "computed_ras_scores": {
+          "bm25": 0.4,
+          "dense": 1.2,
+          "kg": 1.0,
+          "hybrid": 1.0
+        },
+        "keyword_route": "dense"
+      },
+      "id": "adv_bm25_test_05",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": false,
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "lexical_semantic_overlap"
+      ]
+    },
+    {
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "selected_backend": "dense",
+      "route_scores": {
+        "bm25": 0.1594703273221797,
+        "dense": 1.1579215985088496,
+        "kg": -0.3350263538364202,
+        "hybrid": -0.9823655719946165
+      },
+      "margin": 0.9984512711866699,
+      "rationale": "RAS_V3 selected dense with highest linear adequacy score 1.158. Largest active contributions: token_count_log=+0.607, source_adversarial=+0.351, query_length_log=+0.323, negation_or_contrast=-0.175. Runner-up was bm25 at 0.159.",
+      "active_features": {
+        "bias": 1.0,
+        "query_length_log": 0.7864164785491824,
+        "token_count_log": 0.9814796597221468,
+        "lexical_exactness": 1.0,
+        "negation_or_contrast": 1.0,
+        "computed_route_bm25": 1.0,
+        "keyword_route_bm25": 1.0,
+        "source_adversarial": 1.0
+      },
+      "top_selected_route_contributions": [
+        {
+          "feature": "token_count_log",
+          "contribution": 0.6065875019041129
+        },
+        {
+          "feature": "source_adversarial",
+          "contribution": 0.35139001490657157
+        },
+        {
+          "feature": "query_length_log",
+          "contribution": 0.3225901133213818
+        },
+        {
+          "feature": "intercept",
+          "contribution": -0.242636699216742
+        },
+        {
+          "feature": "negation_or_contrast",
+          "contribution": -0.17500186460186645
+        },
+        {
+          "feature": "computed_route_bm25",
+          "contribution": 0.14258664785107747
+        },
+        {
+          "feature": "lexical_exactness",
+          "contribution": 0.0791942952902665
+        },
+        {
+          "feature": "keyword_route_bm25",
+          "contribution": 0.0791942952902665
+        }
+      ],
+      "all_route_contributions": {
+        "bm25": {
+          "bias": 0.004589653579251632,
+          "query_length_log": -0.2746347026486676,
+          "token_count_log": -0.6208332518838209,
+          "lexical_exactness": 0.5454714837130163,
+          "negation_or_contrast": -0.029110501527905442,
+          "computed_route_bm25": 0.5752450060369244,
+          "keyword_route_bm25": 0.5454714837130163,
+          "source_adversarial": -0.8615864615754859,
+          "intercept": 0.27485761791585084
+        },
+        "dense": {
+          "bias": -0.0059827062362188335,
+          "query_length_log": 0.3225901133213818,
+          "token_count_log": 0.6065875019041129,
+          "lexical_exactness": 0.0791942952902665,
+          "negation_or_contrast": -0.17500186460186645,
+          "computed_route_bm25": 0.14258664785107747,
+          "keyword_route_bm25": 0.0791942952902665,
+          "source_adversarial": 0.35139001490657157,
+          "intercept": -0.242636699216742
+        },
+        "kg": {
+          "bias": 0.004472709126043526,
+          "query_length_log": -0.10507273523755477,
+          "token_count_log": -0.09579246085133171,
+          "lexical_exactness": -0.2773109359224654,
+          "negation_or_contrast": 0.2820466790893438,
+          "computed_route_bm25": -0.2042630882975818,
+          "keyword_route_bm25": -0.2773109359224654,
+          "source_adversarial": 0.1676452911315404,
+          "intercept": 0.17055912304805124
+        },
+        "hybrid": {
+          "bias": -0.003079656469077178,
+          "query_length_log": 0.05711732456484028,
+          "token_count_log": 0.11003821083103853,
+          "lexical_exactness": -0.3473548430808181,
+          "negation_or_contrast": -0.07793431295957189,
+          "computed_route_bm25": -0.5135685655904203,
+          "keyword_route_bm25": -0.3473548430808181,
+          "source_adversarial": 0.34255115553737275,
+          "intercept": -0.20278004174716246
+        }
+      },
+      "computed_ras_context": {
+        "computed_route": "bm25",
+        "computed_ras_scores": {
+          "bm25": 0.4,
+          "dense": 1.2,
+          "kg": 1.0,
+          "hybrid": 1.0
+        },
+        "keyword_route": "bm25"
+      },
+      "id": "adv_dense_test_01",
+      "gold_route": "dense",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "public_document_noise"
+      ]
+    },
+    {
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "selected_backend": "dense",
+      "route_scores": {
+        "bm25": 0.5267020569707082,
+        "dense": 2.3557003439818307,
+        "kg": -1.67294460248045,
+        "hybrid": -1.2094577984720984
+      },
+      "margin": 1.8289982870111225,
+      "rationale": "RAS_V3 selected dense with highest linear adequacy score 2.356. Largest active contributions: semantic_abstraction=+1.432, token_count_log=+0.595, source_adversarial=+0.351, query_length_log=+0.319. Runner-up was bm25 at 0.527.",
+      "active_features": {
+        "bias": 1.0,
+        "query_length_log": 0.778804805743651,
+        "token_count_log": 0.9634572526320548,
+        "lexical_exactness": 1.0,
+        "semantic_abstraction": 1.0,
+        "negation_or_contrast": 1.0,
+        "computed_route_bm25": 1.0,
+        "keyword_route_bm25": 1.0,
+        "source_adversarial": 1.0,
+        "public_document_noise": 1.0
+      },
+      "top_selected_route_contributions": [
+        {
+          "feature": "semantic_abstraction",
+          "contribution": 1.4318566451793147
+        },
+        {
+          "feature": "token_count_log",
+          "contribution": 0.5954490470346837
+        },
+        {
+          "feature": "source_adversarial",
+          "contribution": 0.35139001490657157
+        },
+        {
+          "feature": "query_length_log",
+          "contribution": 0.31946778506418205
+        },
+        {
+          "feature": "intercept",
+          "contribution": -0.242636699216742
+        },
+        {
+          "feature": "public_document_noise",
+          "contribution": -0.21981711657970404
+        },
+        {
+          "feature": "negation_or_contrast",
+          "contribution": -0.17500186460186645
+        },
+        {
+          "feature": "computed_route_bm25",
+          "contribution": 0.14258664785107747
+        }
+      ],
+      "all_route_contributions": {
+        "bm25": {
+          "bias": 0.004589653579251632,
+          "query_length_log": -0.27197653162272134,
+          "token_count_log": -0.6094332096214236,
+          "lexical_exactness": 0.5454714837130163,
+          "semantic_abstraction": 0.08772505169180046,
+          "negation_or_contrast": -0.029110501527905442,
+          "computed_route_bm25": 0.5752450060369244,
+          "keyword_route_bm25": 0.5454714837130163,
+          "source_adversarial": -0.8615864615754859,
+          "public_document_noise": 0.2654484646683842,
+          "intercept": 0.27485761791585084
+        },
+        "dense": {
+          "bias": -0.0059827062362188335,
+          "query_length_log": 0.31946778506418205,
+          "token_count_log": 0.5954490470346837,
+          "lexical_exactness": 0.0791942952902665,
+          "semantic_abstraction": 1.4318566451793147,
+          "negation_or_contrast": -0.17500186460186645,
+          "computed_route_bm25": 0.14258664785107747,
+          "keyword_route_bm25": 0.0791942952902665,
+          "source_adversarial": 0.35139001490657157,
+          "public_document_noise": -0.21981711657970404,
+          "intercept": -0.242636699216742
+        },
+        "kg": {
+          "bias": 0.004472709126043526,
+          "query_length_log": -0.10405574321967899,
+          "token_count_log": -0.0940334730735176,
+          "lexical_exactness": -0.2773109359224654,
+          "semantic_abstraction": -1.146108579721647,
+          "negation_or_contrast": 0.2820466790893438,
+          "computed_route_bm25": -0.2042630882975818,
+          "keyword_route_bm25": -0.2773109359224654,
+          "source_adversarial": 0.1676452911315404,
+          "public_document_noise": -0.19458564871807263,
+          "intercept": 0.17055912304805124
+        },
+        "hybrid": {
+          "bias": -0.003079656469077178,
+          "query_length_log": 0.0565644897782181,
+          "token_count_log": 0.10801763566025631,
+          "lexical_exactness": -0.3473548430808181,
+          "semantic_abstraction": -0.3734731171494697,
+          "negation_or_contrast": -0.07793431295957189,
+          "computed_route_bm25": -0.5135685655904203,
+          "keyword_route_bm25": -0.3473548430808181,
+          "source_adversarial": 0.34255115553737275,
+          "public_document_noise": 0.14895430062939224,
+          "intercept": -0.20278004174716246
+        }
+      },
+      "computed_ras_context": {
+        "computed_route": "bm25",
+        "computed_ras_scores": {
+          "bm25": 0.4,
+          "dense": 1.2,
+          "kg": 1.0,
+          "hybrid": 1.0
+        },
+        "keyword_route": "bm25"
+      },
+      "id": "adv_dense_test_02",
+      "gold_route": "dense",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ]
+    },
+    {
+      "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+      "selected_backend": "dense",
+      "route_scores": {
+        "bm25": 0.2662227746827985,
+        "dense": 2.8892890329674596,
+        "kg": -2.0088794981733993,
+        "hybrid": -1.1466323094768682
+      },
+      "margin": 2.6230662582846613,
+      "rationale": "RAS_V3 selected dense with highest linear adequacy score 2.889. Largest active contributions: semantic_abstraction=+1.432, token_count_log=+0.571, keyword_route_dense=+0.434, source_adversarial=+0.351. Runner-up was bm25 at 0.266.",
+      "active_features": {
+        "bias": 1.0,
+        "query_length_log": 0.7572157970450006,
+        "token_count_log": 0.9241962407465937,
+        "lexical_exactness": 1.0,
+        "semantic_abstraction": 1.0,
+        "route_ambiguity": 0.3333333333333333,
+        "computed_route_bm25": 1.0,
+        "keyword_route_dense": 1.0,
+        "source_adversarial": 1.0,
+        "public_document_noise": 1.0
+      },
+      "top_selected_route_contributions": [
+        {
+          "feature": "semantic_abstraction",
+          "contribution": 1.4318566451793147
+        },
+        {
+          "feature": "token_count_log",
+          "contribution": 0.5711844187401233
+        },
+        {
+          "feature": "keyword_route_dense",
+          "contribution": 0.4336702211956205
+        },
+        {
+          "feature": "source_adversarial",
+          "contribution": 0.35139001490657157
+        },
+        {
+          "feature": "query_length_log",
+          "contribution": 0.3106119167646747
+        },
+        {
+          "feature": "intercept",
+          "contribution": -0.242636699216742
+        },
+        {
+          "feature": "public_document_noise",
+          "contribution": -0.21981711657970404
+        },
+        {
+          "feature": "computed_route_bm25",
+          "contribution": 0.14258664785107747
+        }
+      ],
+      "all_route_contributions": {
+        "bm25": {
+          "bias": 0.004589653579251632,
+          "query_length_log": -0.26443715376612864,
+          "token_count_log": -0.5845987248313868,
+          "lexical_exactness": 0.5454714837130163,
+          "semantic_abstraction": 0.08772505169180046,
+          "route_ambiguity": -0.04877769915394292,
+          "computed_route_bm25": 0.5752450060369244,
+          "keyword_route_dense": 0.27228553640451497,
+          "source_adversarial": -0.8615864615754859,
+          "public_document_noise": 0.2654484646683842,
+          "intercept": 0.27485761791585084
+        },
+        "dense": {
+          "bias": -0.0059827062362188335,
+          "query_length_log": 0.3106119167646747,
+          "token_count_log": 0.5711844187401233,
+          "lexical_exactness": 0.0791942952902665,
+          "semantic_abstraction": 1.4318566451793147,
+          "route_ambiguity": 0.03723139507247601,
+          "computed_route_bm25": 0.14258664785107747,
+          "keyword_route_dense": 0.4336702211956205,
+          "source_adversarial": 0.35139001490657157,
+          "public_document_noise": -0.21981711657970404,
+          "intercept": -0.242636699216742
+        },
+        "kg": {
+          "bias": 0.004472709126043526,
+          "query_length_log": -0.1011712459375017,
+          "token_count_log": -0.09020159647091291,
+          "lexical_exactness": -0.2773109359224654,
+          "semantic_abstraction": -1.146108579721647,
+          "route_ambiguity": 0.03662567004764568,
+          "computed_route_bm25": -0.2042630882975818,
+          "keyword_route_dense": -0.37454119645849887,
+          "source_adversarial": 0.1676452911315404,
+          "public_document_noise": -0.19458564871807263,
+          "intercept": 0.17055912304805124
+        },
+        "hybrid": {
+          "bias": -0.003079656469077178,
+          "query_length_log": 0.05499648293895544,
+          "token_count_log": 0.10361590256217527,
+          "lexical_exactness": -0.3473548430808181,
+          "semantic_abstraction": -0.3734731171494697,
+          "route_ambiguity": -0.025079365966178692,
+          "computed_route_bm25": -0.5135685655904203,
+          "keyword_route_dense": -0.3314145611416378,
+          "source_adversarial": 0.34255115553737275,
+          "public_document_noise": 0.14895430062939224,
+          "intercept": -0.20278004174716246
+        }
+      },
+      "computed_ras_context": {
+        "computed_route": "bm25",
+        "computed_ras_scores": {
+          "bm25": 0.4,
+          "dense": 0.7,
+          "kg": 1.0,
+          "hybrid": 1.0
+        },
+        "keyword_route": "dense"
+      },
+      "id": "adv_dense_test_04",
+      "gold_route": "dense",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "route_boundary_ambiguity"
+      ]
+    }
+  ]
+}

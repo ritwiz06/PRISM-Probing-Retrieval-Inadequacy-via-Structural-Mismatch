@@ -1,0 +1,45 @@
+{
+  "name": "local_demo_docs",
+  "document_count": 3,
+  "documents": [
+    {
+      "doc_id": "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+      "title": "Demo Animals",
+      "source_type": "file:txt",
+      "provenance": "data/runtime_corpora/local_demo_docs/raw/demo_animals.txt",
+      "text_length": 122,
+      "sections": [],
+      "file_suffix": ".txt"
+    },
+    {
+      "doc_id": "oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681",
+      "title": "Semantic Notes",
+      "source_type": "file:json",
+      "provenance": "data/runtime_corpora/local_demo_docs/raw/dense_notes.json",
+      "text_length": 104,
+      "sections": [],
+      "file_suffix": ".json"
+    },
+    {
+      "doc_id": "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+      "title": "Prism Workspace",
+      "source_type": "file:md",
+      "provenance": "data/runtime_corpora/local_demo_docs/raw/prism_workspace.md",
+      "text_length": 181,
+      "sections": [
+        "PRISM Workspace"
+      ],
+      "file_suffix": ".md"
+    }
+  ],
+  "schema": {
+    "doc_id": "stable id",
+    "title": "document title",
+    "source_type": "file/url/source_pack/local_demo",
+    "provenance": "path or URL/source registry id",
+    "text_length": "cleaned text length"
+  },
+  "output_dir": "data/runtime_corpora/local_demo_docs",
+  "documents_path": "data/runtime_corpora/local_demo_docs/documents.jsonl",
+  "mode": "local_folder"
+}

@@ -1,0 +1,29 @@
+evaluator_id,comparative_item_id,better_supported_answer,more_faithful_trace,clearer_trace,more_appropriate_route,overall_preference,judgment_confidence,major_difference_type,needs_adjudication,notes
+person1_krr_professor,che_001_adv_bm25_test_01_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_002_adv_dense_test_01_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_003_adv_kg_test_01_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_004_adv_hybrid_test_01_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_005_adv_bm25_test_02_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_006_adv_dense_test_02_calibrated_rescue,Tie,Tie,Tie,B,B,2,route_choice,no,"Both answers are supported, but System B’s dense override better matches the semantic query under jsonb_set distractor noise."
+person1_krr_professor,che_007_adv_kg_test_02_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_008_adv_hybrid_test_02_calibrated_rescue,Tie,Tie,Tie,Tie,Tie,2,none,yes,"Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (bird→vertebrate path fused with eagle→fish text evidence)."
+person1_krr_professor,che_009_adv_bm25_test_03_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_010_adv_dense_test_03_classifier_router,Tie,Tie,Tie,B,B,2,route_choice,no,"Both answers are supported, but System B’s dense route better matches a paraphrastic water-cycle query with RFC distractor language."
+person1_krr_professor,che_011_adv_kg_test_03_classifier_router,A,Tie,Tie,A,A,3,route_choice,no,"System A uses the direct KG composition mosquito→insect→animal, which is the cleaner structural fit for this membership query."
+person1_krr_professor,che_012_adv_hybrid_test_03_classifier_router,Tie,Tie,Tie,Tie,Tie,2,none,yes,"Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (frog→amphibian→vertebrate fused with mosquito→animal text evidence)."
+person1_krr_professor,che_013_adv_bm25_test_01_always_dense,Tie,Tie,Tie,A,A,3,route_choice,no,"For an exact RFC identifier query, bm25 is the more appropriate representation family even though both systems answer correctly."
+person1_krr_professor,che_014_adv_dense_test_01_always_dense,Tie,Tie,Tie,B,B,2,route_choice,no,"This is fundamentally a semantic query with legal-text distractor noise, so the dense backend is the better route."
+person1_krr_professor,che_015_adv_kg_test_01_always_dense,Tie,Tie,Tie,A,A,2,route_choice,no,"System A’s KG route is the more principled fit for an existential property query over class membership, even though System B recovers duck-specific text evidence."
+person1_krr_professor,che_016_adv_hybrid_test_01_always_dense,A,Tie,Tie,A,A,2,evidence_support,no,System A provides the stronger structured-plus-text bridge for whale→mammal→vertebrate; System B is correct but text-only.
+person1_krr_professor,che_017_pub_bm25_07_always_bm25,Tie,Tie,Tie,Tie,Tie,3,none,yes,Both systems fail on RFC-9110 and retrieve the same unrelated water-cycle evidence.
+person1_krr_professor,che_018_pub_dense_07_always_bm25,Tie,Tie,Tie,A,A,3,route_choice,no,"The public paraphrase query is better handled by dense retrieval, even though both systems return the correct answer."
+person1_krr_professor,che_019_pub_kg_07_always_bm25,A,Tie,Tie,A,A,3,evidence_support,no,System A gives the direct fact whale is_a mammal; System B answers indirectly via a vertebrate bridge and is less well matched to the query.
+person1_krr_professor,che_020_pub_hybrid_07_always_bm25,A,Tie,Tie,A,A,3,evidence_support,no,"System A is still imperfect, but it contains the relevant eagle→bird→vertebrate KG path; System B misses the query entirely and answers about whales."
+person1_krr_professor,che_021_gen_lex_test_001_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_022_gen_sem_test_001_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_023_gen_kg_test_001_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_024_gen_rel_test_001_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_025_curated_000_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_026_curated_020_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_027_curated_040_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,
+person1_krr_professor,che_028_curated_060_classifier_router,Tie,Tie,Tie,Tie,Tie,3,none,no,

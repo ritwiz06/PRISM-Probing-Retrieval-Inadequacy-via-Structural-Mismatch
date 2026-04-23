@@ -1,0 +1,822 @@
+{
+  "status": "annotations_loaded",
+  "packet_size": 36,
+  "annotation_count": 144,
+  "evaluator_count": 4,
+  "packet_counts": {
+    "benchmark_source": {
+      "adversarial": 12,
+      "curated": 8,
+      "generalization_v2": 8,
+      "public_raw": 8
+    },
+    "route_family": {
+      "bm25": 9,
+      "dense": 9,
+      "hybrid": 9,
+      "kg": 9
+    },
+    "difficulty": {
+      "adversarial": 12,
+      "easy_curated": 8,
+      "held_out": 8,
+      "public_raw": 8
+    },
+    "system_variant": {
+      "calibrated_ras": 4,
+      "computed_ras": 32
+    },
+    "automatic_correct": {
+      "False": 1,
+      "True": 35
+    }
+  },
+  "dimension_means": {
+    "route_appropriateness": 2.8958333333333335,
+    "evidence_sufficiency": 2.9166666666666665,
+    "answer_faithfulness": 2.9166666666666665,
+    "trace_faithfulness": 2.9305555555555554,
+    "trace_clarity": 2.9444444444444446,
+    "overall_usefulness": 2.875
+  },
+  "dimension_medians": {
+    "route_appropriateness": 3.0,
+    "evidence_sufficiency": 3.0,
+    "answer_faithfulness": 3.0,
+    "trace_faithfulness": 3.0,
+    "trace_clarity": 3.0,
+    "overall_usefulness": 3.0
+  },
+  "score_distributions": {
+    "route_appropriateness": {
+      "3": 132,
+      "2": 9,
+      "1": 3
+    },
+    "evidence_sufficiency": {
+      "3": 136,
+      "1": 4,
+      "2": 4
+    },
+    "answer_faithfulness": {
+      "3": 136,
+      "1": 4,
+      "2": 4
+    },
+    "trace_faithfulness": {
+      "3": 138,
+      "2": 2,
+      "1": 4
+    },
+    "trace_clarity": {
+      "3": 136,
+      "2": 8
+    },
+    "overall_usefulness": {
+      "3": 131,
+      "1": 5,
+      "2": 8
+    }
+  },
+  "by_benchmark_source": {
+    "adversarial": {
+      "route_appropriateness": 2.6875,
+      "evidence_sufficiency": 2.9583333333333335,
+      "answer_faithfulness": 2.9583333333333335,
+      "trace_faithfulness": 2.9166666666666665,
+      "trace_clarity": 2.875,
+      "overall_usefulness": 2.8333333333333335
+    },
+    "curated": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 3.0,
+      "answer_faithfulness": 3.0,
+      "trace_faithfulness": 3.0,
+      "trace_clarity": 3.0,
+      "overall_usefulness": 3.0
+    },
+    "generalization_v2": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 3.0,
+      "answer_faithfulness": 3.0,
+      "trace_faithfulness": 3.0,
+      "trace_clarity": 3.0,
+      "overall_usefulness": 3.0
+    },
+    "public_raw": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 2.6875,
+      "answer_faithfulness": 2.6875,
+      "trace_faithfulness": 2.8125,
+      "trace_clarity": 2.9375,
+      "overall_usefulness": 2.6875
+    }
+  },
+  "by_route_family": {
+    "bm25": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 2.7777777777777777,
+      "answer_faithfulness": 2.7777777777777777,
+      "trace_faithfulness": 2.9444444444444446,
+      "trace_clarity": 3.0,
+      "overall_usefulness": 2.7777777777777777
+    },
+    "dense": {
+      "route_appropriateness": 2.5833333333333335,
+      "evidence_sufficiency": 3.0,
+      "answer_faithfulness": 3.0,
+      "trace_faithfulness": 3.0,
+      "trace_clarity": 2.9444444444444446,
+      "overall_usefulness": 2.9166666666666665
+    },
+    "hybrid": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 2.888888888888889,
+      "answer_faithfulness": 2.888888888888889,
+      "trace_faithfulness": 2.7777777777777777,
+      "trace_clarity": 2.888888888888889,
+      "overall_usefulness": 2.861111111111111
+    },
+    "kg": {
+      "route_appropriateness": 3.0,
+      "evidence_sufficiency": 3.0,
+      "answer_faithfulness": 3.0,
+      "trace_faithfulness": 3.0,
+      "trace_clarity": 2.9444444444444446,
+      "overall_usefulness": 2.9444444444444446
+    }
+  },
+  "by_system_variant": {
+    "calibrated_ras": {
+      "route_appropriateness": 2.6875,
+      "evidence_sufficiency": 3.0,
+      "answer_faithfulness": 3.0,
+      "trace_faithfulness": 3.0,
+      "trace_clarity": 2.8125,
+      "overall_usefulness": 2.875
+    },
+    "computed_ras": {
+      "route_appropriateness": 2.921875,
+      "evidence_sufficiency": 2.90625,
+      "answer_faithfulness": 2.90625,
+      "trace_faithfulness": 2.921875,
+      "trace_clarity": 2.9609375,
+      "overall_usefulness": 2.875
+    }
+  },
+  "agreement": {
+    "items_with_multiple_annotations": 36,
+    "percent_agreement": {
+      "route_appropriateness": 1.0,
+      "evidence_sufficiency": 1.0,
+      "answer_faithfulness": 1.0,
+      "trace_faithfulness": 1.0,
+      "trace_clarity": 1.0,
+      "overall_usefulness": 1.0
+    },
+    "cohen_kappa": {
+      "route_appropriateness": 1.0,
+      "evidence_sufficiency": 1.0,
+      "answer_faithfulness": 1.0,
+      "trace_faithfulness": 1.0,
+      "trace_clarity": 1.0,
+      "overall_usefulness": 1.0
+    },
+    "weighted_kappa": {
+      "route_appropriateness": 1.0,
+      "evidence_sufficiency": 1.0,
+      "answer_faithfulness": 1.0,
+      "trace_faithfulness": 1.0,
+      "trace_clarity": 1.0,
+      "overall_usefulness": 1.0
+    },
+    "major_error_type_percent_agreement": 1.0,
+    "major_error_type_kappa": 1.0,
+    "protocol": "Agreement uses the first two annotators per item; additional annotators are included in means but not pairwise kappa."
+  },
+  "trace_validity": {
+    "trace_faithfulness_mean": 2.9305555555555554,
+    "trace_clarity_mean": 2.9444444444444446,
+    "trace_faithfulness_ge_2_rate": 0.9722222222222222,
+    "trace_clarity_ge_2_rate": 1.0,
+    "supported_answer_when_route_imperfect": 1.0,
+    "automatic_correct_but_human_support_weak": [
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "automatic_correct": true,
+        "answer_faithfulness": 2,
+        "trace_faithfulness": 1
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "automatic_correct": true,
+        "answer_faithfulness": 2,
+        "trace_faithfulness": 1
+      },
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "automatic_correct": true,
+        "answer_faithfulness": 2,
+        "trace_faithfulness": 1
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "automatic_correct": true,
+        "answer_faithfulness": 2,
+        "trace_faithfulness": 1
+      }
+    ],
+    "weak_trace_support_cases": [
+      {
+        "item_id": "he_017_pub_bm25_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "bm25",
+        "trace_faithfulness": 2,
+        "trace_clarity": 3,
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Wrong retrieval \u2014 answered with unrelated water-cycle evidence for RFC-9110 query; complete mismatch"
+      },
+      {
+        "item_id": "he_017_pub_bm25_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "bm25",
+        "trace_faithfulness": 2,
+        "trace_clarity": 3,
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Complete evidence mismatch \u2014 water-cycle evidence for RFC query; trace correctly reports what was retrieved but answer is unsupported"
+      },
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "hybrid",
+        "trace_faithfulness": 1,
+        "trace_clarity": 2,
+        "evaluator_id": "person1_krr_professor",
+        "notes": "KG path gives the right bridge (bird), but the fused text evidence is off-target (whale\u2192vertebrate), so the hybrid synthesis is not faithful."
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "hybrid",
+        "trace_faithfulness": 1,
+        "trace_clarity": 2,
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Text evidence supports eagle\u2192fish, but the KG path is the wrong bridge (eagle\u2192bird\u2192vertebrate), so the fused explanation is structurally mismatched."
+      },
+      {
+        "item_id": "he_034_adv_dense_test_01_calibrated_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "dense",
+        "trace_faithfulness": 3,
+        "trace_clarity": 2,
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Calibration stays on bm25 despite a semantic query; the answer remains supported, but the routing decision is still suboptimal."
+      },
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "hybrid",
+        "trace_faithfulness": 1,
+        "trace_clarity": 2,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "KG path gives the right bridge (bird), but the fused text evidence is off-target (whale\u2192vertebrate), so the hybrid synthesis is not faithful."
+      },
+      {
+        "item_id": "he_029_adv_kg_test_01_computed_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "kg",
+        "trace_faithfulness": 3,
+        "trace_clarity": 2,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "The existential answer is valid, but using penguin instead of the query-salient duck makes the response slightly less aligned for user-facing behavior."
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "hybrid",
+        "trace_faithfulness": 1,
+        "trace_clarity": 2,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "The textual relation eagle\u2192fish is relevant, but the fused KG path is about eagle\u2192bird\u2192vertebrate; this mismatch would be hard to trust in a debugging or demo setting."
+      },
+      {
+        "item_id": "he_034_adv_dense_test_01_calibrated_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "dense",
+        "trace_faithfulness": 3,
+        "trace_clarity": 2,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "The answer is still supported, but a calibrated rescue path that stays on bm25 here suggests the safeguard is not fixing a semantic distractor case it should probably catch."
+      },
+      {
+        "item_id": "he_035_adv_kg_test_01_calibrated_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "kg",
+        "trace_faithfulness": 3,
+        "trace_clarity": 2,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Still a valid existential answer, though using penguin rather than the query-salient duck makes the output slightly less natural from a product-response perspective."
+      }
+    ]
+  },
+  "human_vs_automatic": {
+    "automatic_correct_but_human_support_weak_count": 4,
+    "automatic_incorrect_but_human_support_strong_count": 0,
+    "automatic_correct_but_human_support_weak": [
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "hybrid",
+        "system_variant": "computed_ras",
+        "answer_faithfulness": 2,
+        "evidence_sufficiency": 2,
+        "trace_faithfulness": 1,
+        "evaluator_id": "person1_krr_professor",
+        "notes": "KG path gives the right bridge (bird), but the fused text evidence is off-target (whale\u2192vertebrate), so the hybrid synthesis is not faithful."
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "hybrid",
+        "system_variant": "computed_ras",
+        "answer_faithfulness": 2,
+        "evidence_sufficiency": 2,
+        "trace_faithfulness": 1,
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Text evidence supports eagle\u2192fish, but the KG path is the wrong bridge (eagle\u2192bird\u2192vertebrate), so the fused explanation is structurally mismatched."
+      },
+      {
+        "item_id": "he_023_pub_hybrid_07_computed_ras",
+        "benchmark_source": "public_raw",
+        "route_family": "hybrid",
+        "system_variant": "computed_ras",
+        "answer_faithfulness": 2,
+        "evidence_sufficiency": 2,
+        "trace_faithfulness": 1,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "KG path gives the right bridge (bird), but the fused text evidence is off-target (whale\u2192vertebrate), so the hybrid synthesis is not faithful."
+      },
+      {
+        "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+        "benchmark_source": "adversarial",
+        "route_family": "hybrid",
+        "system_variant": "computed_ras",
+        "answer_faithfulness": 2,
+        "evidence_sufficiency": 2,
+        "trace_faithfulness": 1,
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "The textual relation eagle\u2192fish is relevant, but the fused KG path is about eagle\u2192bird\u2192vertebrate; this mismatch would be hard to trust in a debugging or demo setting."
+      }
+    ],
+    "automatic_incorrect_but_human_support_strong": []
+  },
+  "disagreement_cases": [
+    {
+      "item_id": "he_023_pub_hybrid_07_computed_ras",
+      "query": "What bridge connects eagle and vertebrate?",
+      "benchmark_source": "public_raw",
+      "route_family": "hybrid",
+      "max_score_gap": 2,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 2,
+          "answer_faithfulness": 2,
+          "trace_faithfulness": 1,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_bridge"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 2,
+          "answer_faithfulness": 2,
+          "trace_faithfulness": 1,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_bridge"
+        }
+      ]
+    },
+    {
+      "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+      "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+      "benchmark_source": "adversarial",
+      "route_family": "hybrid",
+      "max_score_gap": 2,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 2,
+          "answer_faithfulness": 2,
+          "trace_faithfulness": 1,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_bridge"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 2,
+          "answer_faithfulness": 2,
+          "trace_faithfulness": 1,
+          "trace_clarity": 2,
+          "overall_usefulness": 1,
+          "major_error_type": "wrong_bridge"
+        }
+      ]
+    },
+    {
+      "item_id": "he_017_pub_bm25_07_computed_ras",
+      "query": "RFC-9110",
+      "benchmark_source": "public_raw",
+      "route_family": "bm25",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 1,
+          "answer_faithfulness": 1,
+          "trace_faithfulness": 2,
+          "trace_clarity": 3,
+          "overall_usefulness": 1,
+          "major_error_type": "unsupported_answer"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 1,
+          "answer_faithfulness": 1,
+          "trace_faithfulness": 2,
+          "trace_clarity": 3,
+          "overall_usefulness": 1,
+          "major_error_type": "unsupported_answer"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 1,
+          "answer_faithfulness": 1,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 1,
+          "major_error_type": "insufficient_evidence"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 1,
+          "answer_faithfulness": 1,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 1,
+          "major_error_type": "unsupported_answer"
+        }
+      ]
+    },
+    {
+      "item_id": "he_027_adv_dense_test_01_computed_ras",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "benchmark_source": "adversarial",
+      "route_family": "dense",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 1,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "wrong_route"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_route"
+        }
+      ]
+    },
+    {
+      "item_id": "he_028_adv_dense_test_02_computed_ras",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "benchmark_source": "adversarial",
+      "route_family": "dense",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 1,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "wrong_route"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_route"
+        }
+      ]
+    },
+    {
+      "item_id": "he_029_adv_kg_test_01_computed_ras",
+      "query": "Can a bird swim when duck swims but eagle does not?",
+      "benchmark_source": "adversarial",
+      "route_family": "kg",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "none"
+        }
+      ]
+    },
+    {
+      "item_id": "he_034_adv_dense_test_01_calibrated_ras",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "benchmark_source": "adversarial",
+      "route_family": "dense",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 1,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 2,
+          "overall_usefulness": 3,
+          "major_error_type": "wrong_route"
+        },
+        {
+          "route_appropriateness": 2,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "wrong_route"
+        }
+      ]
+    },
+    {
+      "item_id": "he_035_adv_kg_test_01_calibrated_ras",
+      "query": "Can a bird swim when duck swims but eagle does not?",
+      "benchmark_source": "adversarial",
+      "route_family": "kg",
+      "max_score_gap": 1,
+      "annotators": [
+        "P2_GenAI_LLM_Instructor",
+        "P4_Claude_Anthropic_Code",
+        "person1_krr_professor",
+        "person3_openai_llm_engineer"
+      ],
+      "scores": [
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 3,
+          "overall_usefulness": 3,
+          "major_error_type": "none"
+        },
+        {
+          "route_appropriateness": 3,
+          "evidence_sufficiency": 3,
+          "answer_faithfulness": 3,
+          "trace_faithfulness": 3,
+          "trace_clarity": 2,
+          "overall_usefulness": 2,
+          "major_error_type": "none"
+        }
+      ]
+    }
+  ],
+  "major_error_type_counts": {
+    "none": 130,
+    "unsupported_answer": 3,
+    "insufficient_evidence": 1,
+    "wrong_bridge": 4,
+    "wrong_route": 6
+  },
+  "threats_to_validity": [
+    "Small evaluator pool can produce unstable agreement estimates.",
+    "Ordinal rubric scores are subjective even with written guidance.",
+    "Packet size is intentionally small for practicality.",
+    "Evaluators may share expectations with benchmark designers.",
+    "Human support judgments may disagree with automatic normalized string matching."
+  ],
+  "validation": {
+    "annotation_dir": "data/human_eval/annotations",
+    "file_count": 4,
+    "files": [
+      "data/human_eval/annotations/P2_GenAI_LLM_Instructor.csv",
+      "data/human_eval/annotations/P4_Claude_Anthropic_Code.csv",
+      "data/human_eval/annotations/person1_krr_professor.csv",
+      "data/human_eval/annotations/person3_openai_llm_engineer.csv"
+    ],
+    "total_rows": 144,
+    "valid_rows": 144,
+    "evaluator_count": 4,
+    "evaluators": [
+      "P2_GenAI_LLM_Instructor",
+      "P4_Claude_Anthropic_Code",
+      "person1_krr_professor",
+      "person3_openai_llm_engineer"
+    ],
+    "recognized_item_count": 36,
+    "packet_item_count": 36
+  }
+}

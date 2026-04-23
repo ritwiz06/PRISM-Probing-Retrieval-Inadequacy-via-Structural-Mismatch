@@ -1,0 +1,628 @@
+{
+  "production_router": "computed_ras",
+  "research_overlays": [
+    "computed_ras_v2",
+    "ras_v3",
+    "ras_v4",
+    "calibrated_rescue"
+  ],
+  "math_payload": {
+    "production_router": "computed_ras",
+    "research_overlays": [
+      "computed_ras_v2",
+      "ras_v3",
+      "ras_v4",
+      "calibrated_rescue"
+    ],
+    "notation": {
+      "R": [
+        "bm25",
+        "dense",
+        "kg",
+        "hybrid"
+      ],
+      "x": "query text",
+      "f(x)": "interpretable query feature vector",
+      "E_r(x)": "top-k evidence retrieved by candidate route r",
+      "score_r": "route score for candidate route r",
+      "margin": "gap between the best route score and runner-up score; direction depends on score convention"
+    },
+    "computed_ras": {
+      "status": "production",
+      "score_convention": "lower is better",
+      "inputs": [
+        "query text"
+      ],
+      "feature_parser": {
+        "lexical": [
+          "section",
+          "identifier",
+          "code",
+          "exact",
+          "bm25",
+          "rfc",
+          "jsonb",
+          "torch.nn",
+          "sklearn.",
+          "identifier regex: (?:\u00a7\\s*\\d+|\\b\\d+\\.\\d+\\b|\\brfc[- ]?\\d+\\b|\\bjsonb_[a-z0-9_]+\\b|\\b[a-z]+-\\d+\\b|\\b[a-z]+(?:\\.[a-z0-9_]+){2,}\\b)"
+        ],
+        "semantic": [
+          "similar",
+          "feels like",
+          "concept",
+          "meaning",
+          "about"
+        ],
+        "deductive": [
+          "can",
+          "are all",
+          "every",
+          "property",
+          "membership",
+          "class",
+          "able to",
+          "produce",
+          "two-hop",
+          "eats"
+        ],
+        "relational": [
+          "relation",
+          "path",
+          "between",
+          "multi-hop",
+          "chain",
+          "connect",
+          "connects",
+          "bridge"
+        ],
+        "fallback": "If no feature fires, semantic=True."
+      },
+      "formula": "Initialize p_r=1.0 for r in {bm25,dense,kg,hybrid}. If lexical: p_bm25 -= 0.6 and p_dense += 0.2. If semantic: p_dense -= 0.5. If deductive: p_kg -= 0.6. If relational: p_hybrid -= 0.7 and p_kg -= 0.2. Select argmin_r p_r.",
+      "outputs": [
+        "selected_backend",
+        "ras_scores",
+        "parsed QueryFeatures"
+      ],
+      "interpretability": "Direct weighted heuristic penalty table."
+    },
+    "computed_ras_v2": {
+      "status": "analysis-only",
+      "score_convention": "starts from computed_ras scores; final route may be overridden by narrow rules",
+      "inputs": [
+        "query text",
+        "optional source_type_hint",
+        "computed_ras route and margin"
+      ],
+      "signals": [
+        "identifier_heavy",
+        "semantic_ambiguity",
+        "relational",
+        "deductive",
+        "strong_identifier",
+        "source_type_hint",
+        "ras_margin"
+      ],
+      "rule_recipe": [
+        "Start with computed_ras selected backend.",
+        "If relational marker appears, select hybrid.",
+        "Else if deductive marker appears and no strong identifier appears, select kg.",
+        "Else if identifier-heavy plus semantic ambiguity and no strong identifier, select dense.",
+        "Else if identifier-heavy plus strong identifier, select bm25.",
+        "Else if formal source-pack prior plus identifier-heavy, select bm25.",
+        "Else if margin < 0.15 and semantic-only, select dense."
+      ],
+      "outputs": [
+        "selected_backend",
+        "original_backend",
+        "ras_scores",
+        "margin",
+        "signals",
+        "rationale"
+      ],
+      "interpretability": "Rule-overlay correction layer; not a learned model and not production."
+    },
+    "ras_v3": {
+      "status": "analysis-only",
+      "score_convention": "higher linear adequacy score is better",
+      "inputs": [
+        "query text",
+        "source_type",
+        "query_local_graph_available",
+        "topk_rescue_opportunity"
+      ],
+      "feature_count": 31,
+      "feature_names": [
+        "bias",
+        "query_length_log",
+        "token_count_log",
+        "identifier_heavy",
+        "identifier_count_log",
+        "lexical_exactness",
+        "semantic_abstraction",
+        "deductive_cue",
+        "relational_bridge",
+        "multi_hop_cue",
+        "negation_or_contrast",
+        "route_ambiguity",
+        "low_ras_margin",
+        "computed_route_bm25",
+        "computed_route_dense",
+        "computed_route_kg",
+        "computed_route_hybrid",
+        "keyword_route_bm25",
+        "keyword_route_dense",
+        "keyword_route_kg",
+        "keyword_route_hybrid",
+        "source_curated",
+        "source_external",
+        "source_generalization",
+        "source_public_raw",
+        "source_adversarial",
+        "source_open_corpus",
+        "source_formal_spec",
+        "query_local_graph_available",
+        "public_document_noise",
+        "topk_rescue_opportunity"
+      ],
+      "formula": "For each route r, compute s_r = b_r + sum_j w_{r,j} f_j(x). The implementation uses multinomial logistic regression weights but routes by max linear score. Select argmax_r s_r.",
+      "training_protocol": "Curated benchmark plus selected dev layers and adversarial dev; held-out tests are not used for fitting.",
+      "outputs": [
+        "selected_backend",
+        "route_scores",
+        "margin",
+        "active_features",
+        "per-route feature contributions"
+      ],
+      "interpretability": "Sparse linear per-feature route contributions."
+    },
+    "ras_v4": {
+      "status": "analysis-only",
+      "score_convention": "higher joint adequacy score is better",
+      "inputs": [
+        "query text",
+        "candidate backend",
+        "candidate backend top-k evidence",
+        "source_type"
+      ],
+      "route_feature_count": 31,
+      "evidence_feature_count": 23,
+      "evidence_feature_names": [
+        "candidate_bm25",
+        "candidate_dense",
+        "candidate_kg",
+        "candidate_hybrid",
+        "candidate_matches_computed_ras",
+        "candidate_matches_keyword",
+        "top1_score",
+        "topk_score_mean",
+        "top1_top2_gap",
+        "evidence_count_log",
+        "query_overlap_top1",
+        "query_overlap_topk",
+        "identifier_exact_match",
+        "title_or_id_match",
+        "source_diversity",
+        "redundancy",
+        "kg_fact_or_path_present",
+        "kg_path_completeness",
+        "hybrid_component_agreement",
+        "semantic_snippet_consistency",
+        "negation_or_distractor_contamination",
+        "public_noise_indicator",
+        "answerability_marker"
+      ],
+      "formula": "For each candidate backend r, compute z_r = b + sum_j alpha_j route_j(x) + sum_k beta_k evidence_k(E_r(x), x). Select argmax_r z_r. The score decomposes into route contribution, evidence contribution, and intercept.",
+      "training_protocol": "Binary logistic adequacy model over candidate backend/query/evidence pairs; adversarial test and held-out layers are not used for fitting.",
+      "outputs": [
+        "selected_backend",
+        "combined_score_by_backend",
+        "route_contribution",
+        "evidence_contribution",
+        "top feature contributions",
+        "evidence diagnostics"
+      ],
+      "interpretability": "Joint route-and-evidence linear adequacy decomposition."
+    },
+    "calibrated_rescue": {
+      "status": "research overlay, not a core RAS version",
+      "role": "Hard-case rescue and top-k evidence-use comparison.",
+      "reason_included": "Recorded adversarial answer accuracy is stronger with rescue, showing route choice alone is not the whole target.",
+      "outputs": [
+        "calibrated route",
+        "top-k rescue metadata",
+        "failure-delta artifacts"
+      ]
+    },
+    "scientific_position": {
+      "route_only_adequacy": "Helpful and interpretable, but insufficient on adversarial hard cases where evidence use matters.",
+      "evidence_adequacy": "RAS_V4 models answerability signals from candidate evidence, but recorded results still keep it analysis-only.",
+      "production_decision": "computed_ras remains production default; rescue and learned RAS variants remain overlays."
+    }
+  },
+  "version_comparison": {
+    "production_router": "computed_ras",
+    "versions": [
+      {
+        "name": "computed_ras",
+        "status": "production",
+        "model_type": "heuristic penalty table",
+        "selection_rule": "argmin penalty",
+        "uses_evidence": false,
+        "learned": false,
+        "interpretability": "direct feature penalties",
+        "strength": "stable on curated/external/generalization/public benchmarks",
+        "weakness": "route-boundary hard cases and top-k evidence rescue failures"
+      },
+      {
+        "name": "computed_ras_v2",
+        "status": "analysis-only",
+        "model_type": "rule overlay on computed_ras",
+        "selection_rule": "computed_ras plus narrow overrides",
+        "uses_evidence": false,
+        "learned": false,
+        "interpretability": "explicit correction rules",
+        "strength": "surfaces hard-case route heuristics",
+        "weakness": "not strong enough to replace production computed_ras"
+      },
+      {
+        "name": "ras_v3",
+        "status": "analysis-only",
+        "model_type": "multiclass sparse linear route model",
+        "selection_rule": "argmax linear route adequacy score",
+        "uses_evidence": false,
+        "learned": true,
+        "interpretability": "per-feature per-route contributions",
+        "strength": "formalizes route adequacy",
+        "weakness": "route-only improvements do not close answer-accuracy gap on adversarial hard cases"
+      },
+      {
+        "name": "ras_v4",
+        "status": "analysis-only",
+        "model_type": "binary linear joint route/evidence adequacy model",
+        "selection_rule": "argmax combined route + evidence adequacy score",
+        "uses_evidence": true,
+        "learned": true,
+        "interpretability": "route contribution plus evidence contribution",
+        "strength": "makes evidence adequacy explicit and publication-friendly",
+        "weakness": "recorded results still keep it analysis-only; rescue overlay remains complementary"
+      },
+      {
+        "name": "calibrated_rescue",
+        "status": "research overlay",
+        "model_type": "calibrated hard-case router plus top-k rescue",
+        "selection_rule": "optional overlay, not a core RAS version",
+        "uses_evidence": true,
+        "learned": false,
+        "interpretability": "failure-bucket and rescue metadata",
+        "strength": "stronger adversarial answer accuracy in recorded artifacts",
+        "weakness": "overlay behavior, not the production route selection mechanism"
+      }
+    ],
+    "empirical_snapshot": {
+      "ras_v3": {
+        "path": "data/eval/ras_v3_eval.json",
+        "status": "keep_analysis_only",
+        "computed_ras": {
+          "route_accuracy": 0.75,
+          "answer_accuracy": 0.9166666666666666
+        },
+        "ras_v3": {
+          "route_accuracy": 0.8333333333333334,
+          "answer_accuracy": 0.9166666666666666
+        },
+        "calibrated_rescue": {
+          "route_accuracy": 0.875,
+          "answer_accuracy": 0.9583333333333334
+        }
+      },
+      "ras_v4": {
+        "path": "data/eval/ras_v4_eval.json",
+        "status": "keep_analysis_only",
+        "computed_ras": {
+          "route_accuracy": 0.75,
+          "answer_accuracy": 0.9166666666666666
+        },
+        "ras_v4": {
+          "route_accuracy": 0.75,
+          "answer_accuracy": 0.9166666666666666
+        },
+        "calibrated_rescue": {
+          "route_accuracy": 0.875,
+          "answer_accuracy": 0.9583333333333334
+        },
+        "ras_v4_rescue": {
+          "route_accuracy": 0.75,
+          "answer_accuracy": 0.9583333333333334
+        }
+      },
+      "calibrated": {
+        "path": "data/eval/calibrated_router.json",
+        "computed_ras_calibrated_topk_rescue": {
+          "route_accuracy": 0.875,
+          "answer_accuracy": 0.9583333333333334
+        }
+      }
+    },
+    "promotion_decision": "computed_ras remains production; RAS_V3/RAS_V4/rescue remain research overlays."
+  },
+  "example_query_explanation": {
+    "query": "Which concept feels like RFC-7231 but is about worry?",
+    "computed_ras": {
+      "query": "Which concept feels like RFC-7231 but is about worry?",
+      "features": {
+        "query": "Which concept feels like RFC-7231 but is about worry?",
+        "lexical": true,
+        "semantic": true,
+        "deductive": false,
+        "relational": false
+      },
+      "scores": {
+        "bm25": 0.4,
+        "dense": 0.7,
+        "kg": 1.0,
+        "hybrid": 1.0
+      },
+      "selected_backend": "bm25",
+      "margin": 0.29999999999999993,
+      "score_convention": "lower is better",
+      "feature_effects": [
+        {
+          "feature": "lexical",
+          "backend": "bm25",
+          "delta": -0.6,
+          "meaning": "exact identifiers favor BM25"
+        },
+        {
+          "feature": "lexical",
+          "backend": "dense",
+          "delta": 0.2,
+          "meaning": "lexical exactness slightly penalizes Dense"
+        },
+        {
+          "feature": "semantic",
+          "backend": "dense",
+          "delta": -0.5,
+          "meaning": "conceptual wording favors Dense"
+        }
+      ]
+    },
+    "computed_ras_v2": {
+      "selected_backend": "bm25",
+      "original_backend": "bm25",
+      "margin": 0.29999999999999993,
+      "signals": {
+        "identifier_heavy": true,
+        "semantic_ambiguity": true,
+        "relational": false,
+        "deductive": true,
+        "strong_identifier": true,
+        "source_type_hint": "adversarial",
+        "ras_margin": 0.29999999999999993
+      },
+      "rationale": "started from computed RAS=bm25; strong formal identifier keeps BM25",
+      "ras_scores": {
+        "bm25": 0.4,
+        "dense": 0.7,
+        "kg": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    "ras_v3": {
+      "query": "Which concept feels like RFC-7231 but is about worry?",
+      "selected_backend": "dense",
+      "route_scores": {
+        "bm25": 1.246896024703823,
+        "dense": 1.8742691091020445,
+        "kg": -1.0026375535181384,
+        "hybrid": -2.1185275802877412
+      },
+      "margin": 0.6273730843982215,
+      "rationale": "RAS_V3 selected dense with highest linear adequacy score 1.874. Largest active contributions: semantic_abstraction=+1.432, identifier_count_log=-0.500, token_count_log=+0.474, identifier_heavy=-0.434. Runner-up was bm25 at 1.247.",
+      "active_features": {
+        "bias": 1.0,
+        "query_length_log": 0.6648306744273791,
+        "token_count_log": 0.7675283643313486,
+        "identifier_heavy": 1.0,
+        "identifier_count_log": 1.0986122886681098,
+        "lexical_exactness": 1.0,
+        "semantic_abstraction": 1.0,
+        "deductive_cue": 1.0,
+        "route_ambiguity": 0.3333333333333333,
+        "computed_route_bm25": 1.0,
+        "keyword_route_bm25": 1.0,
+        "source_adversarial": 1.0
+      },
+      "top_selected_route_contributions": [
+        {
+          "feature": "semantic_abstraction",
+          "contribution": 1.4318566451793147
+        },
+        {
+          "feature": "identifier_count_log",
+          "contribution": -0.499908721815256
+        },
+        {
+          "feature": "token_count_log",
+          "contribution": 0.47435839199368085
+        },
+        {
+          "feature": "identifier_heavy",
+          "contribution": -0.4340179372944026
+        },
+        {
+          "feature": "source_adversarial",
+          "contribution": 0.35139001490657157
+        },
+        {
+          "feature": "query_length_log",
+          "contribution": 0.2727152958426292
+        },
+        {
+          "feature": "intercept",
+          "contribution": -0.242636699216742
+        },
+        {
+          "feature": "deductive_cue",
+          "contribution": 0.18828819223838103
+        }
+      ],
+      "all_route_contributions": {
+        "bm25": {
+          "bias": 0.004589653579251632,
+          "query_length_log": -0.23217414635044106,
+          "token_count_log": -0.48549873206317756,
+          "identifier_heavy": 1.1401028971391007,
+          "identifier_count_log": 0.49470923957788765,
+          "lexical_exactness": 0.5454714837130163,
+          "semantic_abstraction": 0.08772505169180046,
+          "deductive_cue": -0.7932393695199781,
+          "route_ambiguity": -0.04877769915394292,
+          "computed_route_bm25": 0.5752450060369244,
+          "keyword_route_bm25": 0.5454714837130163,
+          "source_adversarial": -0.8615864615754859,
+          "intercept": 0.27485761791585084
+        },
+        "dense": {
+          "bias": -0.0059827062362188335,
+          "query_length_log": 0.2727152958426292,
+          "token_count_log": 0.47435839199368085,
+          "identifier_heavy": -0.4340179372944026,
+          "identifier_count_log": -0.499908721815256,
+          "lexical_exactness": 0.0791942952902665,
+          "semantic_abstraction": 1.4318566451793147,
+          "deductive_cue": 0.18828819223838103,
+          "route_ambiguity": 0.03723139507247601,
+          "computed_route_bm25": 0.14258664785107747,
+          "keyword_route_bm25": 0.0791942952902665,
+          "source_adversarial": 0.35139001490657157,
+          "intercept": -0.242636699216742
+        },
+        "kg": {
+          "bias": 0.004472709126043526,
+          "query_length_log": -0.08882771322491333,
+          "token_count_log": -0.0749108043801046,
+          "identifier_heavy": -0.4306349046733248,
+          "identifier_count_log": -0.11065110580797918,
+          "lexical_exactness": -0.2773109359224654,
+          "semantic_abstraction": -1.146108579721647,
+          "deductive_cue": 1.2280777210790623,
+          "route_ambiguity": 0.03662567004764568,
+          "computed_route_bm25": -0.2042630882975818,
+          "keyword_route_bm25": -0.2773109359224654,
+          "source_adversarial": 0.1676452911315404,
+          "intercept": 0.17055912304805124
+        },
+        "hybrid": {
+          "bias": -0.003079656469077178,
+          "query_length_log": 0.04828656373272502,
+          "token_count_log": 0.0860511444496004,
+          "identifier_heavy": -0.2754500551713747,
+          "identifier_count_log": 0.11585058804534606,
+          "lexical_exactness": -0.3473548430808181,
+          "semantic_abstraction": -0.3734731171494697,
+          "deductive_cue": -0.6231265437974656,
+          "route_ambiguity": -0.025079365966178692,
+          "computed_route_bm25": -0.5135685655904203,
+          "keyword_route_bm25": -0.3473548430808181,
+          "source_adversarial": 0.34255115553737275,
+          "intercept": -0.20278004174716246
+        }
+      },
+      "computed_ras_context": {
+        "computed_route": "bm25",
+        "computed_ras_scores": {
+          "bm25": 0.4,
+          "dense": 0.7,
+          "kg": 1.0,
+          "hybrid": 1.0
+        },
+        "keyword_route": "bm25"
+      }
+    },
+    "ras_v4": {
+      "status": "available_for_evidence_aware_evaluation",
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "route_weight_sum": 5.772075110024188,
+      "evidence_weight_sum": 16.93737037622602,
+      "note": "Per-query RAS_V4 requires candidate evidence for each backend; see RAS_V4 verifier artifacts."
+    },
+    "route_votes": {
+      "computed_ras": "bm25",
+      "computed_ras_v2": "bm25",
+      "ras_v3": "dense"
+    },
+    "ambiguity_flag": {
+      "status": "advisory_only",
+      "is_ambiguous": true,
+      "low_margin": false,
+      "version_disagreement": true,
+      "computed_ras_margin": 0.29999999999999993,
+      "message": "RAS variants disagree: useful for research comparison, not production override."
+    }
+  },
+  "sensitivity": {
+    "benchmark": "adversarial",
+    "item_count": 48,
+    "production_router": "computed_ras",
+    "advisory_feature": "route_ambiguity_flag",
+    "route_ambiguity_definition": "low computed-RAS margin (<0.25) or disagreement among RAS variants",
+    "margin_summary": {
+      "count": 48,
+      "min": 0.0,
+      "max": 0.6,
+      "mean": 0.4749999999999999,
+      "low_margin_count": 7
+    },
+    "version_disagreement_summary": {
+      "total": 48,
+      "version_disagreement_count": 5,
+      "low_margin_count": 7,
+      "advisory_ambiguity_count": 11,
+      "route_confusion_computed_ras": {
+        "bm25->bm25": 10,
+        "bm25->kg": 2,
+        "dense->bm25": 10,
+        "dense->dense": 2,
+        "hybrid->hybrid": 12,
+        "kg->bm25": 1,
+        "kg->kg": 11
+      },
+      "route_confusion_ras_v3": {},
+      "route_confusion_ras_v4": {
+        "bm25->bm25": 5
+      }
+    },
+    "feature_ablation_summary": {
+      "lexical": {
+        "tested": 24,
+        "route_changed": 6
+      },
+      "semantic": {
+        "tested": 10,
+        "route_changed": 2
+      },
+      "deductive": {
+        "tested": 14,
+        "route_changed": 13
+      },
+      "relational": {
+        "tested": 12,
+        "route_changed": 12
+      }
+    },
+    "artifacts": {
+      "ras_sensitivity": "data/eval/ras_sensitivity.json",
+      "ras_version_disagreement": "data/eval/ras_version_disagreement.json",
+      "ras_feature_ablation": "data/eval/ras_feature_ablation.csv",
+      "ras_margin_distribution": "data/eval/ras_margin_distribution.png",
+      "ras_confusion_summary": "data/eval/ras_confusion_summary.md"
+    }
+  },
+  "release_docs": {
+    "ras_overview": "data/final_release/ras_overview.md",
+    "ras_math_guide": "data/final_release/ras_math_guide.md",
+    "ras_version_comparison": "data/final_release/ras_version_comparison.md",
+    "ras_visual_explanation": "data/final_release/ras_visual_explanation.md",
+    "ras_quick_reference": "data/final_release/ras_quick_reference.md"
+  }
+}

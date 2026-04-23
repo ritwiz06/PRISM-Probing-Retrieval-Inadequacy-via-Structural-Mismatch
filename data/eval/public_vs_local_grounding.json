@@ -2,8 +2,8 @@
   "local_normalized_source": "data/eval/generalization_v2.json",
   "public_raw_source": "data/eval/public_corpus_eval.json",
   "local_normalized_test_answer_accuracy": 1.0,
-  "public_raw_test_answer_accuracy": 1.0,
-  "overall_answer_accuracy_delta": 0.0,
+  "public_raw_test_answer_accuracy": 0.875,
+  "overall_answer_accuracy_delta": -0.125,
   "local_normalized_test_route_accuracy": 0.95,
   "public_raw_test_route_accuracy": 0.9166666666666666,
   "overall_route_accuracy_delta": -0.033333333333333326,
@@ -21,14 +21,14 @@
     },
     "dense": {
       "local_answer_accuracy": 1.0,
-      "public_answer_accuracy": 1.0,
-      "answer_delta": 0.0,
+      "public_answer_accuracy": 0.5,
+      "answer_delta": -0.5,
       "local_route_accuracy": 1.0,
       "public_route_accuracy": 1.0,
       "route_delta": 0.0,
       "local_evidence_hit_at_k": 1.0,
-      "public_evidence_hit_at_k": 1.0,
-      "evidence_delta": 0.0
+      "public_evidence_hit_at_k": 0.6666666666666666,
+      "evidence_delta": -0.33333333333333337
     },
     "hybrid": {
       "local_answer_accuracy": 1.0,
@@ -54,10 +54,10 @@
     }
   },
   "diagnosis": [
-    "Overall answer accuracy delta public-minus-local is 0.000.",
+    "Overall answer accuracy delta public-minus-local is -0.125.",
     "Overall route accuracy delta public-minus-local is -0.033.",
-    "Most degraded family is bm25: answer delta 0.000, route delta -0.133, evidence delta 0.000.",
-    "Routing appears to explain more degradation than retrieval for the weakest family."
+    "Most degraded family is dense: answer delta -0.500, route delta 0.000, evidence delta -0.333.",
+    "Retrieval/evidence grounding appears to explain more degradation than routing for the weakest family."
   ],
   "threats_to_validity": [
     "The local-normalized benchmark and public raw benchmark are different suites, so deltas are directional rather than paired-example effects.",

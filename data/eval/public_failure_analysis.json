@@ -50,23 +50,23 @@
     }
   ],
   "current_test_metrics": {
-    "answer_accuracy": 1.0,
+    "answer_accuracy": 0.875,
     "route_accuracy": 0.9166666666666666,
-    "evidence_hit_at_k": 1.0,
-    "answer_correct": 24,
+    "evidence_hit_at_k": 0.9166666666666666,
+    "answer_correct": 21,
     "total": 24
   },
   "public_arbitrated_test_metrics": {
-    "answer_accuracy": 1.0,
+    "answer_accuracy": 0.875,
     "route_accuracy": 1.0,
-    "evidence_hit_at_k": 1.0,
-    "answer_correct": 24,
+    "evidence_hit_at_k": 0.9166666666666666,
+    "answer_correct": 21,
     "total": 24
   },
   "before_after": {
-    "baseline_answer_accuracy": 1.0,
-    "public_lexical_answer_accuracy": 1.0,
-    "public_arbitrated_answer_accuracy": 1.0,
+    "baseline_answer_accuracy": 0.875,
+    "public_lexical_answer_accuracy": 0.875,
+    "public_arbitrated_answer_accuracy": 0.875,
     "public_lexical_delta": 0.0,
     "public_arbitrated_delta": 0.0,
     "baseline_route_accuracy": 0.9166666666666666,
@@ -74,7 +74,7 @@
     "public_arbitrated_route_delta": 0.08333333333333337,
     "strongest_fixed_backend": "always_bm25",
     "strongest_fixed_answer_accuracy": 0.9583333333333334,
-    "fixed_gap_after_arbitration": 0.04166666666666663,
+    "fixed_gap_after_arbitration": -0.08333333333333337,
     "per_family": {
       "bm25": {
         "baseline_answer_accuracy": 1.0,
@@ -82,8 +82,8 @@
         "answer_delta": 0.0
       },
       "dense": {
-        "baseline_answer_accuracy": 1.0,
-        "public_arbitrated_answer_accuracy": 1.0,
+        "baseline_answer_accuracy": 0.5,
+        "public_arbitrated_answer_accuracy": 0.5,
         "answer_delta": 0.0
       },
       "hybrid": {
@@ -99,10 +99,14 @@
     }
   },
   "bucket_counts": {
-    "correct": 22,
+    "answer_synthesis_miss": 1,
+    "correct": 19,
     "lexical_confusion": 2,
     "public_identifier_arbitration_candidate": 2,
-    "route_error": 2
+    "ranking_error": 1,
+    "retrieval_miss": 2,
+    "route_error": 2,
+    "semantic_drift": 2
   },
   "identifier_subgroups": {
     "identifier_heavy": {
@@ -113,7 +117,7 @@
     },
     "non_identifier": {
       "total": 18,
-      "answer_accuracy": 1.0,
+      "answer_accuracy": 0.8333333333333334,
       "route_accuracy": 1.0,
       "arbitrated_route_accuracy": 1.0
     }
@@ -136,6 +140,33 @@
       "bm25_answer_correct": true,
       "computed_answer_correct": true,
       "computed_route_correct": false
+    },
+    {
+      "id": "pub_dense_08",
+      "query": "What economic model keeps materials in use instead of treating them as waste?",
+      "route_family": "dense",
+      "computed_predicted_backend": "dense",
+      "bm25_answer_correct": true,
+      "computed_answer_correct": false,
+      "computed_route_correct": true
+    },
+    {
+      "id": "pub_dense_10",
+      "query": "What immune response mistakes harmless substances for threats?",
+      "route_family": "dense",
+      "computed_predicted_backend": "dense",
+      "bm25_answer_correct": true,
+      "computed_answer_correct": false,
+      "computed_route_correct": true
+    },
+    {
+      "id": "pub_dense_12",
+      "query": "What view of word meaning uses neighboring contexts?",
+      "route_family": "dense",
+      "computed_predicted_backend": "dense",
+      "bm25_answer_correct": true,
+      "computed_answer_correct": false,
+      "computed_route_correct": true
     }
   ],
   "rows": [
@@ -299,17 +330,18 @@
       "identifier_heavy": false,
       "predicted_backend": "dense",
       "route_correct": true,
-      "answer_correct": true,
+      "answer_correct": false,
       "evidence_hit": true,
       "always_bm25_answer_correct": true,
-      "bm25_gets_right_when_computed_wrong": false,
+      "bm25_gets_right_when_computed_wrong": true,
       "arbitrated_backend": "dense",
       "arbitrated_route_correct": true,
-      "arbitrated_answer_correct": true,
+      "arbitrated_answer_correct": false,
       "buckets": [
-        "correct"
+        "answer_synthesis_miss",
+        "ranking_error"
       ],
-      "suggested_remediation": "No change needed for this current run."
+      "suggested_remediation": "Inspect answer template extraction from the retrieved evidence."
     },
     {
       "id": "pub_dense_09",
@@ -341,17 +373,18 @@
       "identifier_heavy": false,
       "predicted_backend": "dense",
       "route_correct": true,
-      "answer_correct": true,
-      "evidence_hit": true,
+      "answer_correct": false,
+      "evidence_hit": false,
       "always_bm25_answer_correct": true,
-      "bm25_gets_right_when_computed_wrong": false,
+      "bm25_gets_right_when_computed_wrong": true,
       "arbitrated_backend": "dense",
       "arbitrated_route_correct": true,
-      "arbitrated_answer_correct": true,
+      "arbitrated_answer_correct": false,
       "buckets": [
-        "correct"
+        "retrieval_miss",
+        "semantic_drift"
       ],
-      "suggested_remediation": "No change needed for this current run."
+      "suggested_remediation": "Inspect public-page cleaning and field-aware lexical metadata for this source."
     },
     {
       "id": "pub_dense_11",
@@ -383,17 +416,18 @@
       "identifier_heavy": false,
       "predicted_backend": "dense",
       "route_correct": true,
-      "answer_correct": true,
-      "evidence_hit": true,
+      "answer_correct": false,
+      "evidence_hit": false,
       "always_bm25_answer_correct": true,
-      "bm25_gets_right_when_computed_wrong": false,
+      "bm25_gets_right_when_computed_wrong": true,
       "arbitrated_backend": "dense",
       "arbitrated_route_correct": true,
-      "arbitrated_answer_correct": true,
+      "arbitrated_answer_correct": false,
       "buckets": [
-        "correct"
+        "retrieval_miss",
+        "semantic_drift"
       ],
-      "suggested_remediation": "No change needed for this current run."
+      "suggested_remediation": "Inspect public-page cleaning and field-aware lexical metadata for this source."
     },
     {
       "id": "pub_kg_07",
@@ -649,7 +683,7 @@
     }
   ],
   "tradeoffs": [
-    "Public test answer accuracy improved from the Prompt 17 reference 0.917 to current computed RAS 1.000.",
+    "Public test answer accuracy improved from the Prompt 17 reference 0.917 to current computed RAS 0.875.",
     "Public lexical arbitration improves test route accuracy from 0.917 to 1.000.",
     "The main production-safe change is fixing substring marker false positives in feature parsing.",
     "The public lexical retriever and arbitration mode remain analysis-only and do not change the demo path by default."

@@ -1,12 +1,12 @@
 {
   "dense_backend_status": {
-    "active_backend": "sentence_transformers+faiss",
-    "embedding_backend": "sentence_transformers",
-    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
-    "index_backend": "faiss",
-    "faiss_active": true,
+    "active_backend": "numpy_fallback",
+    "embedding_backend": "numpy_fallback",
+    "model_name": "hashing-semantic-fallback",
+    "index_backend": "numpy",
+    "faiss_active": false,
     "chunk_count": 148,
-    "fallback_reason": "",
+    "fallback_reason": "Could not load sentence-transformers model sentence-transformers/all-MiniLM-L6-v2: RuntimeError: Cannot send a request, as the client has been closed.",
     "semantic_rerank": true
   },
   "sample_queries": [
@@ -14,12 +14,12 @@
       "query": "What concept turns daylight into carbohydrates?",
       "top_hits": [
         {
-          "item_id": "sem_photosynthesis::chunk_0",
-          "parent_doc_id": "sem_photosynthesis",
-          "title": "Photosynthesis",
-          "score": 0.46774813532829285,
-          "active_dense_backend": "sentence_transformers+faiss",
-          "snippet": "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+          "item_id": "lex_postgres_jsonb_insert::chunk_0",
+          "parent_doc_id": "lex_postgres_jsonb_insert",
+          "title": "PostgreSQL jsonb_insert",
+          "score": 0.09128709137439728,
+          "active_dense_backend": "numpy_fallback",
+          "snippet": "PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path."
         }
       ]
     },
@@ -30,8 +30,8 @@
           "item_id": "sem_climate_anxiety::chunk_0",
           "parent_doc_id": "sem_climate_anxiety",
           "title": "Climate anxiety",
-          "score": 1.053665041923523,
-          "active_dense_backend": "sentence_transformers+faiss",
+          "score": 1.2932578325271606,
+          "active_dense_backend": "numpy_fallback",
           "snippet": "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures."
         }
       ]
@@ -43,8 +43,8 @@
           "item_id": "sem_algorithmic_bias::chunk_0",
           "parent_doc_id": "sem_algorithmic_bias",
           "title": "Algorithmic bias",
-          "score": 0.8425406217575073,
-          "active_dense_backend": "sentence_transformers+faiss",
+          "score": 1.2523528337478638,
+          "active_dense_backend": "numpy_fallback",
           "snippet": "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs."
         }
       ]
@@ -56,8 +56,8 @@
           "item_id": "sem_reinforcement_learning::chunk_0",
           "parent_doc_id": "sem_reinforcement_learning",
           "title": "Reinforcement learning",
-          "score": 0.9878422021865845,
-          "active_dense_backend": "sentence_transformers+faiss",
+          "score": 1.30329167842865,
+          "active_dense_backend": "numpy_fallback",
           "snippet": "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
         }
       ]

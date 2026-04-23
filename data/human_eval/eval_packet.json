@@ -1,0 +1,3269 @@
+{
+  "packet_version": "2026-04-20",
+  "packet_size": 36,
+  "sampling_protocol": "Deterministic balanced packet: curated, generalization_v2, public_raw, and adversarial examples, with calibrated adversarial variants included for rescue-path auditing.",
+  "counts": {
+    "benchmark_source": {
+      "adversarial": 12,
+      "curated": 8,
+      "generalization_v2": 8,
+      "public_raw": 8
+    },
+    "route_family": {
+      "bm25": 9,
+      "dense": 9,
+      "hybrid": 9,
+      "kg": 9
+    },
+    "difficulty": {
+      "adversarial": 12,
+      "easy_curated": 8,
+      "held_out": 8,
+      "public_raw": 8
+    },
+    "system_variant": {
+      "calibrated_ras": 4,
+      "computed_ras": 32
+    },
+    "automatic_correct": {
+      "False": 1,
+      "True": 35
+    }
+  },
+  "items": [
+    {
+      "item_id": "he_001_curated_000_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "What does HIPAA 164.512 cover?",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "HIPAA 45 CFR 164.512: HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required. [evidence: lex_hipaa_164_512]",
+      "automatic_correct": true,
+      "gold_answer": "Uses and disclosures without authorization or opportunity to agree/object.",
+      "evidence_ids": [
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_510",
+        "sem_situated_knowledge",
+        "sem_water_cycle"
+      ],
+      "evidence_snippets": [
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.",
+        "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object.",
+        "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "What does HIPAA 164.512 cover?",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_hipaa_164_512",
+            "lex_hipaa_164_514",
+            "lex_hipaa_164_510",
+            "sem_situated_knowledge",
+            "sem_water_cycle"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_hipaa_164_512",
+            "lex_hipaa_164_514",
+            "lex_hipaa_164_510",
+            "sem_situated_knowledge",
+            "sem_water_cycle"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=lexical."
+    },
+    {
+      "item_id": "he_002_curated_001_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "Find HIPAA section 164.510.",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "HIPAA 45 CFR 164.510: HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object. [evidence: lex_hipaa_164_510]",
+      "automatic_correct": true,
+      "gold_answer": "Uses and disclosures requiring an opportunity to agree or object.",
+      "evidence_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_512",
+        "doc_exact",
+        "sem_water_cycle"
+      ],
+      "evidence_snippets": [
+        "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object.",
+        "HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "Exact identifiers, codes, and section references are best handled by sparse lexical retrieval.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "Find HIPAA section 164.510.",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_hipaa_164_510",
+            "lex_hipaa_164_514",
+            "lex_hipaa_164_512",
+            "doc_exact",
+            "sem_water_cycle"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_hipaa_164_510",
+            "lex_hipaa_164_514",
+            "lex_hipaa_164_512",
+            "doc_exact",
+            "sem_water_cycle"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=lexical."
+    },
+    {
+      "item_id": "he_003_curated_020_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "Which idea is solastalgia homesick planet?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Climate anxiety. Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures. [evidence: sem_climate_anxiety::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "Climate anxiety.",
+      "evidence_ids": [
+        "sem_climate_anxiety::chunk_0",
+        "sem_background_003::chunk_0",
+        "sem_background_023::chunk_0",
+        "sem_background_063::chunk_0",
+        "sem_background_043::chunk_0"
+      ],
+      "evidence_snippets": [
+        "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.",
+        "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus witho...",
+        "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus witho...",
+        "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus witho...",
+        "This concise background note discusses solar eclipses with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus witho..."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "Which idea is solastalgia homesick planet?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_climate_anxiety::chunk_0",
+            "sem_background_003::chunk_0",
+            "sem_background_023::chunk_0",
+            "sem_background_063::chunk_0",
+            "sem_background_043::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_climate_anxiety::chunk_0",
+            "sem_background_003::chunk_0",
+            "sem_background_023::chunk_0",
+            "sem_background_063::chunk_0",
+            "sem_background_043::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=semantic."
+    },
+    {
+      "item_id": "he_004_curated_021_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "Which pattern is the charlatan feeling after success?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Impostor syndrome. Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence. [evidence: sem_impostor_syndrome::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "Impostor syndrome.",
+      "evidence_ids": [
+        "sem_impostor_syndrome::chunk_0",
+        "sem_narrative_identity::chunk_0",
+        "sem_attention_fragmentation::chunk_0",
+        "sem_butterfly_effect::chunk_0",
+        "sem_distributional_semantics::chunk_0"
+      ],
+      "evidence_snippets": [
+        "Impostor syndrome is persistent self-doubt where capable people feel like frauds despite evidence of competence.",
+        "Narrative identity is the way people form a sense of self by organizing memories and events into a life story.",
+        "Attention fragmentation describes reduced sustained focus when notifications, context switching, and interruptions divide cognitive effort.",
+        "The butterfly effect names sensitive dependence where tiny changes in initial conditions can produce large later differences.",
+        "Distributional semantics represents word meaning through patterns of nearby context and usage across language data."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "Which pattern is the charlatan feeling after success?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_impostor_syndrome::chunk_0",
+            "sem_narrative_identity::chunk_0",
+            "sem_attention_fragmentation::chunk_0",
+            "sem_butterfly_effect::chunk_0",
+            "sem_distributional_semantics::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_impostor_syndrome::chunk_0",
+            "sem_narrative_identity::chunk_0",
+            "sem_attention_fragmentation::chunk_0",
+            "sem_butterfly_effect::chunk_0",
+            "sem_distributional_semantics::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=semantic."
+    },
+    {
+      "item_id": "he_005_curated_040_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "Is a bat a mammal?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. bat is_a mammal. [evidence: kg_bat_is_mammal]",
+      "automatic_correct": true,
+      "gold_answer": "Yes. bat is_a mammal.",
+      "evidence_ids": [
+        "kg_bat_is_mammal"
+      ],
+      "evidence_snippets": [
+        "bat is_a mammal"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Is a bat a mammal?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "kg_bat_is_mammal"
+          ],
+          "evidence_modes": [
+            "membership"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "kg_bat_is_mammal"
+          ],
+          "synthesis_note": "Used KG membership evidence."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=deductive."
+    },
+    {
+      "item_id": "he_006_curated_041_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "Can a mammal fly?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. Existential support in the demo KG: bat is_a mammal ; bat capable_of fly. [evidence: path:kg_bat_is_mammal->kg_bat_capable_fly]",
+      "automatic_correct": true,
+      "gold_answer": "Yes, under the demo KG there exists a mammal, bat, that can fly.",
+      "evidence_ids": [
+        "path:kg_bat_is_mammal->kg_bat_capable_fly"
+      ],
+      "evidence_snippets": [
+        "bat is_a mammal ; bat capable_of fly"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Can a mammal fly?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_bat_is_mammal->kg_bat_capable_fly"
+          ],
+          "evidence_modes": [
+            "existential"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_bat_is_mammal->kg_bat_capable_fly"
+          ],
+          "synthesis_note": "Used KG membership plus property support."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=deductive."
+    },
+    {
+      "item_id": "he_007_curated_060_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "What bridge connects bat and vertebrate?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate\n[bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_bat_is_mammal->kg_mammal_is_vertebrate,rel_bat_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "bat -> mammal -> vertebrate plus text bridge evidence.",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate [bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_bat_is_mammal->kg_mammal_is_vertebrate] bat is_a mammal ; mammal is_a vertebrate [bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects bat and vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_bat_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=relational."
+    },
+    {
+      "item_id": "he_008_curated_061_computed_ras",
+      "benchmark_source": "curated",
+      "system_variant": "computed_ras",
+      "query": "What bridge connects penguin and vertebrate?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate\n[bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_penguin_is_bird->kg_bird_is_vertebrate,rel_penguin_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "penguin -> bird -> vertebrate plus text bridge evidence.",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_mosquito_animal"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate [bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_penguin_is_bird->kg_bird_is_vertebrate] penguin is_a bird ; bird is_a vertebrate [bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects penguin and vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_mosquito_animal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_penguin_is_bird->kg_bird_is_vertebrate+rel_mosquito_animal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "easy_curated",
+      "packet_notes": "Curated slice=relational."
+    },
+    {
+      "item_id": "he_009_gen_lex_test_001_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "42 U.S.C. \u00a71983 civil action",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "42 U.S.C. \u00a71983: 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law. [evidence: lex_section_1983]",
+      "automatic_correct": true,
+      "gold_answer": "civil action for deprivation of rights",
+      "evidence_ids": [
+        "lex_section_1983",
+        "lex_section_1985",
+        "lex_section_1981",
+        "sem_water_cycle",
+        "sem_urban_heat_island"
+      ],
+      "evidence_snippets": [
+        "42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.",
+        "42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.",
+        "42 U.S.C. \u00a71981 protects equal rights under the law to make and enforce contracts.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+        "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "42 U.S.C. \u00a71983 civil action",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_section_1983",
+            "lex_section_1985",
+            "lex_section_1981",
+            "sem_water_cycle",
+            "sem_urban_heat_island"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_section_1983",
+            "lex_section_1985",
+            "lex_section_1981",
+            "sem_water_cycle",
+            "sem_urban_heat_island"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "held_out",
+      "packet_notes": "source=BEIR-Robust; tag=legal_section; Public lexical-retrieval style exact or near-exact lookup."
+    },
+    {
+      "item_id": "he_010_gen_lex_test_002_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "42 U.S.C. \u00a71981 contracts",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "42 U.S.C. \u00a71981: 42 U.S.C. \u00a71981 protects equal rights under the law to make and enforce contracts. [evidence: lex_section_1981]",
+      "automatic_correct": true,
+      "gold_answer": "make and enforce contracts",
+      "evidence_ids": [
+        "lex_section_1981",
+        "lex_section_1985",
+        "lex_section_1983",
+        "sem_water_cycle",
+        "sem_urban_heat_island"
+      ],
+      "evidence_snippets": [
+        "42 U.S.C. \u00a71981 protects equal rights under the law to make and enforce contracts.",
+        "42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.",
+        "42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+        "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "42 U.S.C. \u00a71981 contracts",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_section_1981",
+            "lex_section_1985",
+            "lex_section_1983",
+            "sem_water_cycle",
+            "sem_urban_heat_island"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_section_1981",
+            "lex_section_1985",
+            "lex_section_1983",
+            "sem_water_cycle",
+            "sem_urban_heat_island"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "held_out",
+      "packet_notes": "source=BEIR-Robust; tag=legal_section; Public lexical-retrieval style exact or near-exact lookup."
+    },
+    {
+      "item_id": "he_011_gen_sem_test_001_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "Which concept puts a price on greenhouse gas emissions?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Carbon pricing. Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices. [evidence: sem_carbon_pricing::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "Carbon pricing",
+      "evidence_ids": [
+        "sem_carbon_pricing::chunk_0",
+        "sem_climate_anxiety::chunk_0",
+        "sem_photosynthesis::chunk_0",
+        "sem_background_047::chunk_0",
+        "sem_background_007::chunk_0"
+      ],
+      "evidence_snippets": [
+        "Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices.",
+        "Climate anxiety describes distress and worry about climate change, ecological loss, and uncertain planetary futures.",
+        "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.",
+        "This concise background note discusses renewable energy storage with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic co...",
+        "This concise background note discusses renewable energy storage with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic co..."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "Which concept puts a price on greenhouse gas emissions?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_carbon_pricing::chunk_0",
+            "sem_climate_anxiety::chunk_0",
+            "sem_photosynthesis::chunk_0",
+            "sem_background_047::chunk_0",
+            "sem_background_007::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_carbon_pricing::chunk_0",
+            "sem_climate_anxiety::chunk_0",
+            "sem_photosynthesis::chunk_0",
+            "sem_background_047::chunk_0",
+            "sem_background_007::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "held_out",
+      "packet_notes": "source=NaturalQuestions-style; tag=paraphrase; Public semantic-QA style paraphrase grounded in local semantic corpus."
+    },
+    {
+      "item_id": "he_012_gen_sem_test_002_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "Which concept organizes memories into a life story?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Narrative identity. Narrative identity is the way people form a sense of self by organizing memories and events into a life story. [evidence: sem_narrative_identity::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "Narrative identity",
+      "evidence_ids": [
+        "sem_narrative_identity::chunk_0",
+        "sem_memory_consolidation::chunk_0",
+        "sem_situated_knowledge::chunk_0",
+        "sem_collective_intelligence::chunk_0",
+        "sem_distributional_semantics::chunk_0"
+      ],
+      "evidence_snippets": [
+        "Narrative identity is the way people form a sense of self by organizing memories and events into a life story.",
+        "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.",
+        "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+        "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems.",
+        "Distributional semantics represents word meaning through patterns of nearby context and usage across language data."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "Which concept organizes memories into a life story?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_narrative_identity::chunk_0",
+            "sem_memory_consolidation::chunk_0",
+            "sem_situated_knowledge::chunk_0",
+            "sem_collective_intelligence::chunk_0",
+            "sem_distributional_semantics::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_narrative_identity::chunk_0",
+            "sem_memory_consolidation::chunk_0",
+            "sem_situated_knowledge::chunk_0",
+            "sem_collective_intelligence::chunk_0",
+            "sem_distributional_semantics::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "held_out",
+      "packet_notes": "source=NaturalQuestions-style; tag=paraphrase; Public semantic-QA style paraphrase grounded in local semantic corpus."
+    },
+    {
+      "item_id": "he_013_gen_kg_test_001_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "Is a duck a bird?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. duck is_a bird. [evidence: kg_duck_is_bird]",
+      "automatic_correct": true,
+      "gold_answer": "duck is_a bird",
+      "evidence_ids": [
+        "kg_duck_is_bird"
+      ],
+      "evidence_snippets": [
+        "duck is_a bird"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Is a duck a bird?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "kg_duck_is_bird"
+          ],
+          "evidence_modes": [
+            "membership"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "kg_duck_is_bird"
+          ],
+          "synthesis_note": "Used KG membership evidence."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "held_out",
+      "packet_notes": "source=WebQSP-style; tag=membership; Public structured-QA style query grounded in the local demo KG."
+    },
+    {
+      "item_id": "he_014_gen_kg_test_002_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "Is a frog a vertebrate?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes, indirectly: frog is_a amphibian ; amphibian is_a vertebrate. [evidence: path:kg_frog_is_amphibian->kg_amphibian_is_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "frog is_a amphibian ; amphibian is_a vertebrate",
+      "evidence_ids": [
+        "path:kg_frog_is_amphibian->kg_amphibian_is_vertebrate"
+      ],
+      "evidence_snippets": [
+        "frog is_a amphibian ; amphibian is_a vertebrate"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Is a frog a vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_frog_is_amphibian->kg_amphibian_is_vertebrate"
+          ],
+          "evidence_modes": [
+            "two_hop"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_frog_is_amphibian->kg_amphibian_is_vertebrate"
+          ],
+          "synthesis_note": "Used KG inheritance path evidence."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "held_out",
+      "packet_notes": "source=GrailQA-style; tag=two_hop; Public structured-QA style query grounded in the local demo KG."
+    },
+    {
+      "item_id": "he_015_gen_rel_test_001_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "What relation connects duck and swim?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:kg_duck_capable_swim] duck capable_of swim\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: kg_duck_capable_swim,rel_duck_swim]",
+      "automatic_correct": true,
+      "gold_answer": "duck capable_of swim",
+      "evidence_ids": [
+        "hybrid:bundle:kg_duck_capable_swim+rel_duck_swim",
+        "hybrid:bundle:kg_duck_capable_swim+rel_whale_swim",
+        "hybrid:bundle:kg_duck_capable_swim+rel_penguin_swim",
+        "hybrid:text:rel_duck_swim",
+        "hybrid:text:rel_whale_swim"
+      ],
+      "evidence_snippets": [
+        "[kg:kg_duck_capable_swim] duck capable_of swim [bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.",
+        "[kg:kg_duck_capable_swim] duck capable_of swim [bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim.",
+        "[kg:kg_duck_capable_swim] duck capable_of swim [bm25:rel_penguin_swim] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.",
+        "[dense:rel_duck_swim::chunk_0] The duck to swim relation is capability based: duck is capable of swim. [bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.",
+        "[dense:rel_whale_swim::chunk_0] The whale to swim relation is capability based: whale is capable of swim. [bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What relation connects duck and swim?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:kg_duck_capable_swim+rel_duck_swim",
+            "hybrid:bundle:kg_duck_capable_swim+rel_whale_swim",
+            "hybrid:bundle:kg_duck_capable_swim+rel_penguin_swim",
+            "hybrid:text:rel_duck_swim",
+            "hybrid:text:rel_whale_swim"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf",
+            "rrf"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:kg_duck_capable_swim+rel_duck_swim",
+            "hybrid:bundle:kg_duck_capable_swim+rel_whale_swim",
+            "hybrid:bundle:kg_duck_capable_swim+rel_penguin_swim",
+            "hybrid:text:rel_duck_swim",
+            "hybrid:text:rel_whale_swim"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "held_out",
+      "packet_notes": "source=HotpotQA-style; tag=relation; Public multi-hop or bridge-QA style query grounded in local text plus KG."
+    },
+    {
+      "item_id": "he_016_gen_rel_test_002_computed_ras",
+      "benchmark_source": "generalization_v2",
+      "system_variant": "computed_ras",
+      "query": "What relation connects whale and swim?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:kg_whale_capable_swim] whale capable_of swim\n[bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: kg_whale_capable_swim,rel_whale_swim]",
+      "automatic_correct": true,
+      "gold_answer": "whale capable_of swim",
+      "evidence_ids": [
+        "hybrid:bundle:kg_whale_capable_swim+rel_whale_swim",
+        "hybrid:bundle:kg_whale_capable_swim+rel_whale_vertebrate",
+        "hybrid:bundle:kg_whale_capable_swim+rel_duck_swim",
+        "hybrid:bundle:kg_whale_capable_swim+rel_penguin_swim",
+        "hybrid:text:rel_whale_swim"
+      ],
+      "evidence_snippets": [
+        "[kg:kg_whale_capable_swim] whale capable_of swim [bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim.",
+        "[kg:kg_whale_capable_swim] whale capable_of swim [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:kg_whale_capable_swim] whale capable_of swim [bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.",
+        "[kg:kg_whale_capable_swim] whale capable_of swim [bm25:rel_penguin_swim] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.",
+        "[dense:rel_whale_swim::chunk_0] The whale to swim relation is capability based: whale is capable of swim. [bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What relation connects whale and swim?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:kg_whale_capable_swim+rel_whale_swim",
+            "hybrid:bundle:kg_whale_capable_swim+rel_whale_vertebrate",
+            "hybrid:bundle:kg_whale_capable_swim+rel_duck_swim",
+            "hybrid:bundle:kg_whale_capable_swim+rel_penguin_swim",
+            "hybrid:text:rel_whale_swim"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:kg_whale_capable_swim+rel_whale_swim",
+            "hybrid:bundle:kg_whale_capable_swim+rel_whale_vertebrate",
+            "hybrid:bundle:kg_whale_capable_swim+rel_duck_swim",
+            "hybrid:bundle:kg_whale_capable_swim+rel_penguin_swim",
+            "hybrid:text:rel_whale_swim"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "held_out",
+      "packet_notes": "source=HotpotQA-style; tag=relation; Public multi-hop or bridge-QA style query grounded in local text plus KG."
+    },
+    {
+      "item_id": "he_017_pub_bm25_07_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "RFC-9110",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "Water cycle: The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems. [evidence: sem_water_cycle]",
+      "automatic_correct": false,
+      "gold_answer": "HTTP Semantics",
+      "evidence_ids": [
+        "sem_water_cycle",
+        "sem_urban_heat_island",
+        "sem_situated_knowledge",
+        "sem_reinforcement_learning",
+        "sem_photosynthesis"
+      ],
+      "evidence_snippets": [
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+        "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+        "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+        "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.",
+        "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "RFC-9110",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning",
+            "sem_photosynthesis"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning",
+            "sem_photosynthesis"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=BEIR-style lexical; "
+    },
+    {
+      "item_id": "he_018_pub_bm25_08_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "RFC-7235 authentication",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "RFC-7235 HTTP/1.1 Authentication: RFC-7235 defines the HTTP/1.1 authentication framework and related status codes. [evidence: lex_rfc_7235]",
+      "automatic_correct": true,
+      "gold_answer": "HTTP/1.1 Authentication",
+      "evidence_ids": [
+        "lex_rfc_7235",
+        "sem_water_cycle",
+        "sem_urban_heat_island",
+        "sem_situated_knowledge",
+        "sem_reinforcement_learning"
+      ],
+      "evidence_snippets": [
+        "RFC-7235 defines the HTTP/1.1 authentication framework and related status codes.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems.",
+        "An urban heat island occurs when built surfaces make a city warmer than surrounding rural areas.",
+        "Situated knowledge emphasizes that perspective, social position, and lived context shape what people observe and know.",
+        "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "RFC-7235 authentication",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_rfc_7235",
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_rfc_7235",
+            "sem_water_cycle",
+            "sem_urban_heat_island",
+            "sem_situated_knowledge",
+            "sem_reinforcement_learning"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=BEIR-style lexical; "
+    },
+    {
+      "item_id": "he_019_pub_dense_07_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "What learning setup lets an agent improve using rewards and penalties?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Reinforcement learning. Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "reinforcement learning",
+      "evidence_ids": [
+        "sem_reinforcement_learning::chunk_0",
+        "sem_memory_consolidation::chunk_0",
+        "sem_collective_intelligence::chunk_0",
+        "sem_algorithmic_bias::chunk_0",
+        "sem_background_048::chunk_0"
+      ],
+      "evidence_snippets": [
+        "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.",
+        "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.",
+        "Collective intelligence emerges when groups combine diverse information, coordination, and feedback to solve problems.",
+        "Algorithmic bias occurs when data, model design, or deployment context produces unfair or systematically skewed outputs.",
+        "This concise background note discusses language acquisition with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus..."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "What learning setup lets an agent improve using rewards and penalties?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_reinforcement_learning::chunk_0",
+            "sem_memory_consolidation::chunk_0",
+            "sem_collective_intelligence::chunk_0",
+            "sem_algorithmic_bias::chunk_0",
+            "sem_background_048::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_reinforcement_learning::chunk_0",
+            "sem_memory_consolidation::chunk_0",
+            "sem_collective_intelligence::chunk_0",
+            "sem_algorithmic_bias::chunk_0",
+            "sem_background_048::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=Natural Questions-style semantic; "
+    },
+    {
+      "item_id": "he_020_pub_dense_08_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "What economic model keeps materials in use instead of treating them as waste?",
+      "gold_route": "dense",
+      "predicted_route": "dense",
+      "selected_backend": "dense",
+      "final_answer": "Circular economy. A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling. [evidence: sem_circular_economy::chunk_0]",
+      "automatic_correct": true,
+      "gold_answer": "circular economy",
+      "evidence_ids": [
+        "sem_circular_economy::chunk_0",
+        "sem_carbon_pricing::chunk_0",
+        "sem_photosynthesis::chunk_0",
+        "sem_diffusion_innovations::chunk_0",
+        "sem_water_cycle::chunk_0"
+      ],
+      "evidence_snippets": [
+        "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling.",
+        "Carbon pricing uses taxes or markets to attach a cost to greenhouse gas emissions and encourage lower-carbon choices.",
+        "Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.",
+        "Diffusion of innovations explains how new ideas, practices, and technologies spread through communities and social systems.",
+        "The water cycle describes evaporation, condensation, precipitation, runoff, and storage as water moves through Earth systems."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "semantic"
+          ],
+          "features": {
+            "query": "What economic model keeps materials in use instead of treating them as waste?",
+            "lexical": false,
+            "semantic": true,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 0.5,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "dense",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "dense",
+          "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected dense RAS=0.500",
+            "kg RAS=1.000 vs selected dense RAS=0.500",
+            "hybrid RAS=1.000 vs selected dense RAS=0.500"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_circular_economy::chunk_0",
+            "sem_carbon_pricing::chunk_0",
+            "sem_photosynthesis::chunk_0",
+            "sem_diffusion_innovations::chunk_0",
+            "sem_water_cycle::chunk_0"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_circular_economy::chunk_0",
+            "sem_carbon_pricing::chunk_0",
+            "sem_photosynthesis::chunk_0",
+            "sem_diffusion_innovations::chunk_0",
+            "sem_water_cycle::chunk_0"
+          ],
+          "synthesis_note": "Summarized the top semantic chunk."
+        }
+      ],
+      "route_rationale": "Selected dense for semantic/paraphrase signals with minimum RAS=0.500.",
+      "route_family": "dense",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=Natural Questions-style semantic; "
+    },
+    {
+      "item_id": "he_021_pub_kg_07_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "Is a whale a mammal?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. whale is_a mammal. [evidence: kg_whale_is_mammal]",
+      "automatic_correct": true,
+      "gold_answer": "Yes. whale is_a mammal",
+      "evidence_ids": [
+        "kg_whale_is_mammal"
+      ],
+      "evidence_snippets": [
+        "whale is_a mammal"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Is a whale a mammal?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "kg_whale_is_mammal"
+          ],
+          "evidence_modes": [
+            "membership"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "kg_whale_is_mammal"
+          ],
+          "synthesis_note": "Used KG membership evidence."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=WebQSP-style structured; "
+    },
+    {
+      "item_id": "he_022_pub_kg_08_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "Is salmon a fish?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. salmon is_a fish. [evidence: kg_salmon_is_fish]",
+      "automatic_correct": true,
+      "gold_answer": "Yes. salmon is_a fish",
+      "evidence_ids": [
+        "kg_salmon_is_fish"
+      ],
+      "evidence_snippets": [
+        "salmon is_a fish"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Is salmon a fish?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "kg_salmon_is_fish"
+          ],
+          "evidence_modes": [
+            "membership"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "kg_salmon_is_fish"
+          ],
+          "synthesis_note": "Used KG membership evidence."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=WebQSP-style structured; "
+    },
+    {
+      "item_id": "he_023_pub_hybrid_07_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "What bridge connects eagle and vertebrate?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_eagle_is_bird->kg_bird_is_vertebrate,rel_whale_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "bird",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_eagle_eats_fish->kg_fish_is_vertebrate] eagle eats fish ; fish is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_eagle_eats_fish->kg_fish_is_vertebrate] eagle eats fish ; fish is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects eagle and vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=HotpotQA-style bridge; "
+    },
+    {
+      "item_id": "he_024_pub_hybrid_08_computed_ras",
+      "benchmark_source": "public_raw",
+      "system_variant": "computed_ras",
+      "query": "What bridge connects whale and vertebrate?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "mammal",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a verteb...",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects whale and vertebrate?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_mosquito_animal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "public_raw",
+      "packet_notes": "source_style=2WikiMultihopQA-style bridge; "
+    },
+    {
+      "item_id": "he_025_adv_bm25_test_01_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "RFC-7235 HTTP/1.1 Authentication: RFC-7235 defines the HTTP/1.1 authentication framework and related status codes. [evidence: lex_rfc_7235]",
+      "automatic_correct": true,
+      "gold_answer": "HTTP/1.1 authentication framework",
+      "evidence_ids": [
+        "lex_rfc_7235",
+        "sem_distributional_semantics",
+        "lex_rfc_7231",
+        "lex_hipaa_164_512",
+        "lex_torch_bce_loss"
+      ],
+      "evidence_snippets": [
+        "RFC-7235 defines the HTTP/1.1 authentication framework and related status codes.",
+        "Distributional semantics represents word meaning through patterns of nearby context and usage across language data.",
+        "RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "torch.nn.BCELoss measures binary cross entropy between target and input probabilities."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_rfc_7235",
+            "sem_distributional_semantics",
+            "lex_rfc_7231",
+            "lex_hipaa_164_512",
+            "lex_torch_bce_loss"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_rfc_7235",
+            "sem_distributional_semantics",
+            "lex_rfc_7231",
+            "lex_hipaa_164_512",
+            "lex_torch_bce_loss"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=identifier_ambiguity,route_boundary_ambiguity; Identifier-heavy query includes semantic wording."
+    },
+    {
+      "item_id": "he_026_adv_bm25_test_02_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "HIPAA 45 CFR 164.510: HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object. [evidence: lex_hipaa_164_510]",
+      "automatic_correct": true,
+      "gold_answer": "uses and disclosures requiring an opportunity to agree or object",
+      "evidence_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_512",
+        "sem_allergy",
+        "lex_hipaa_164_514",
+        "rel_owl_mouse"
+      ],
+      "evidence_snippets": [
+        "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.",
+        "HIPAA section 164.514 covers other requirements relating to uses and disclosures of protected health information.",
+        "The owl to mouse relation is dietary: owl eats mouse in the demo KG."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_hipaa_164_510",
+            "lex_hipaa_164_512",
+            "sem_allergy",
+            "lex_hipaa_164_514",
+            "rel_owl_mouse"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_hipaa_164_510",
+            "lex_hipaa_164_512",
+            "sem_allergy",
+            "lex_hipaa_164_514",
+            "rel_owl_mouse"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=identifier_ambiguity,public_document_noise; Near-match public regulation identifiers."
+    },
+    {
+      "item_id": "he_027_adv_dense_test_01_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "gold_route": "dense",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "Reinforcement learning: Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning]",
+      "automatic_correct": true,
+      "gold_answer": "reinforcement learning",
+      "evidence_ids": [
+        "sem_reinforcement_learning",
+        "lex_hipaa_164_512",
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_510"
+      ],
+      "evidence_snippets": [
+        "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.",
+        "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.",
+        "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_reinforcement_learning",
+            "lex_hipaa_164_512",
+            "sem_memory_consolidation",
+            "sem_allergy",
+            "lex_hipaa_164_510"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_reinforcement_learning",
+            "lex_hipaa_164_512",
+            "sem_memory_consolidation",
+            "sem_allergy",
+            "lex_hipaa_164_510"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "dense",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=route_boundary_ambiguity,public_document_noise; Policy wording can look formal or legal."
+    },
+    {
+      "item_id": "he_028_adv_dense_test_02_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "gold_route": "dense",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "Circular economy: A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling. [evidence: sem_circular_economy]",
+      "automatic_correct": true,
+      "gold_answer": "circular economy",
+      "evidence_ids": [
+        "sem_circular_economy",
+        "lex_postgres_jsonb_set",
+        "rel_owl_mouse",
+        "rel_mammal_milk",
+        "rel_frog_mosquito"
+      ],
+      "evidence_snippets": [
+        "A circular economy designs products and systems to keep materials in use and reduce waste through repair, reuse, and recycling.",
+        "PostgreSQL jsonb_set updates or inserts a value at a specified JSONB path.",
+        "The owl to mouse relation is dietary: owl eats mouse in the demo KG.",
+        "The mammal to milk relation is production: mammal produces milk in the demo KG.",
+        "The frog to mosquito relation is dietary: frog eats mosquito in the demo KG."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_circular_economy",
+            "lex_postgres_jsonb_set",
+            "rel_owl_mouse",
+            "rel_mammal_milk",
+            "rel_frog_mosquito"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_circular_economy",
+            "lex_postgres_jsonb_set",
+            "rel_owl_mouse",
+            "rel_mammal_milk",
+            "rel_frog_mosquito"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "dense",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=misleading_exact_term,lexical_semantic_overlap; Exact API term is irrelevant."
+    },
+    {
+      "item_id": "he_029_adv_kg_test_01_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "Can a bird swim when duck swims but eagle does not?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. Existential support in the demo KG: penguin is_a bird ; penguin capable_of swim. [evidence: path:kg_penguin_is_bird->kg_penguin_capable_swim]",
+      "automatic_correct": true,
+      "gold_answer": "Yes. duck capable_of swim",
+      "evidence_ids": [
+        "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+        "path:kg_duck_is_bird->kg_duck_capable_swim"
+      ],
+      "evidence_snippets": [
+        "penguin is_a bird ; penguin capable_of swim",
+        "duck is_a bird ; duck capable_of swim"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Can a bird swim when duck swims but eagle does not?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "evidence_modes": [
+            "existential",
+            "existential"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "synthesis_note": "Used KG membership plus property support."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=noisy_structure,wrong_bridge_distractor; Existential class query with counterexample-like distractor."
+    },
+    {
+      "item_id": "he_030_adv_kg_test_02_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "Are all birds able to swim when duck is a positive distractor?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "No. Counterexample evidence: owl is_a bird ; owl not_capable_of swim; eagle is_a bird ; eagle not_capable_of swim; chicken is_a bird ; chicken not_capable_of swim. [evidence: path:kg_owl_is_bird->kg_owl_not_swim, path:kg_eagle_is_bird->kg_eagle_not_swim, path:kg_chicken_is_bird->kg_chicken_not_swim]",
+      "automatic_correct": true,
+      "gold_answer": "No. Counterexample evidence",
+      "evidence_ids": [
+        "path:kg_owl_is_bird->kg_owl_not_swim",
+        "path:kg_eagle_is_bird->kg_eagle_not_swim",
+        "path:kg_chicken_is_bird->kg_chicken_not_swim",
+        "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+        "path:kg_duck_is_bird->kg_duck_capable_swim"
+      ],
+      "evidence_snippets": [
+        "owl is_a bird ; owl not_capable_of swim",
+        "eagle is_a bird ; eagle not_capable_of swim",
+        "chicken is_a bird ; chicken not_capable_of swim",
+        "penguin is_a bird ; penguin capable_of swim",
+        "duck is_a bird ; duck capable_of swim"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Are all birds able to swim when duck is a positive distractor?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_owl_is_bird->kg_owl_not_swim",
+            "path:kg_eagle_is_bird->kg_eagle_not_swim",
+            "path:kg_chicken_is_bird->kg_chicken_not_swim",
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "evidence_modes": [
+            "universal_counterexample",
+            "universal_counterexample",
+            "universal_counterexample",
+            "universal_support",
+            "universal_support"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_owl_is_bird->kg_owl_not_swim",
+            "path:kg_eagle_is_bird->kg_eagle_not_swim",
+            "path:kg_chicken_is_bird->kg_chicken_not_swim",
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "synthesis_note": "Used KG counterexample evidence for a universal claim."
+        }
+      ],
+      "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=noisy_structure,wrong_bridge_distractor; Universal query must not stop at duck."
+    },
+    {
+      "item_id": "he_031_adv_hybrid_test_01_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "mammal",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a verteb...",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:doc_mammal] A mammal is a vertebrate animal. Bats are mammals and can fly."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=lexical_semantic_overlap,wrong_bridge_distractor; Semantic whale/ocean text is a distractor."
+    },
+    {
+      "item_id": "he_032_adv_hybrid_test_02_computed_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "computed_ras",
+      "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate\n[bm25:rel_eagle_fish] The eagle to fish relation is dietary: eagle eats fish in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_eagle_is_bird->kg_bird_is_vertebrate,rel_eagle_fish]",
+      "automatic_correct": true,
+      "gold_answer": "eagle eats fish",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_eagle_fish",
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_eagle_fish",
+        "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_eagle_fish] The eagle to fish relation is dietary: eagle eats fish in the demo KG.",
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_eagle_eats_fish->kg_fish_is_vertebrate] eagle eats fish ; fish is_a vertebrate [bm25:rel_eagle_fish] The eagle to fish relation is dietary: eagle eats fish in the demo KG.",
+        "[kg:path:kg_eagle_eats_fish->kg_fish_is_vertebrate] eagle eats fish ; fish is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_eagle_is_bird->kg_bird_is_vertebrate] eagle is_a bird ; bird is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_eagle_fish",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_eagle_fish",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_eagle_fish",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_eagle_fish",
+            "hybrid:bundle:path:kg_eagle_eats_fish->kg_fish_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_eagle_is_bird->kg_bird_is_vertebrate+rel_whale_vertebrate"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "adversarial",
+      "packet_notes": "tags=wrong_bridge_distractor,top1_topk_gap_risk; Nearby class bridge competes with dietary relation."
+    },
+    {
+      "item_id": "he_033_adv_bm25_test_01_calibrated_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "calibrated_ras",
+      "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+      "gold_route": "bm25",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "RFC-7235 HTTP/1.1 Authentication: RFC-7235 defines the HTTP/1.1 authentication framework and related status codes. [evidence: lex_rfc_7235]",
+      "automatic_correct": true,
+      "gold_answer": "HTTP/1.1 authentication framework",
+      "evidence_ids": [
+        "lex_rfc_7235",
+        "sem_distributional_semantics",
+        "lex_rfc_7231",
+        "lex_hipaa_164_512",
+        "lex_torch_bce_loss"
+      ],
+      "evidence_snippets": [
+        "RFC-7235 defines the HTTP/1.1 authentication framework and related status codes.",
+        "Distributional semantics represents word meaning through patterns of nearby context and usage across language data.",
+        "RFC-7231 defines HTTP/1.1 semantics and content, including methods, status codes, and content negotiation.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "torch.nn.BCELoss measures binary cross entropy between target and input probabilities."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "lex_rfc_7235",
+            "sem_distributional_semantics",
+            "lex_rfc_7231",
+            "lex_hipaa_164_512",
+            "lex_torch_bce_loss"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "lex_rfc_7235",
+            "sem_distributional_semantics",
+            "lex_rfc_7231",
+            "lex_hipaa_164_512",
+            "lex_torch_bce_loss"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Calibrated route from bm25 to bm25; Started from computed RAS=bm25. No calibration override fired. Production answer rationale: Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "bm25",
+      "difficulty": "adversarial",
+      "packet_notes": "Calibrated duplicate for comparison. tags=identifier_ambiguity,route_boundary_ambiguity; Identifier-heavy query includes semantic wording.; Calibrated route from bm25 to bm25; Started from computed RAS=bm25. No calibration override fired."
+    },
+    {
+      "item_id": "he_034_adv_dense_test_01_calibrated_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "calibrated_ras",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "gold_route": "dense",
+      "predicted_route": "bm25",
+      "selected_backend": "bm25",
+      "final_answer": "Reinforcement learning: Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment. [evidence: sem_reinforcement_learning]",
+      "automatic_correct": true,
+      "gold_answer": "reinforcement learning",
+      "evidence_ids": [
+        "sem_reinforcement_learning",
+        "lex_hipaa_164_512",
+        "sem_memory_consolidation",
+        "sem_allergy",
+        "lex_hipaa_164_510"
+      ],
+      "evidence_snippets": [
+        "Reinforcement learning studies agents that learn actions through rewards, penalties, exploration, and feedback from an environment.",
+        "HIPAA section 164.512 covers uses and disclosures for which an authorization or opportunity to agree or object is not required.",
+        "Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.",
+        "An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.",
+        "HIPAA section 164.510 covers uses and disclosures requiring an opportunity for the individual to agree or object."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "lexical"
+          ],
+          "features": {
+            "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+            "lexical": true,
+            "semantic": false,
+            "deductive": false,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 0.4,
+            "dense": 1.2,
+            "kg": 1.0,
+            "hybrid": 1.0
+          },
+          "best_backend": "bm25",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "bm25",
+          "route_rationale": "Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "kg RAS=1.000 vs selected bm25 RAS=0.400",
+            "hybrid RAS=1.000 vs selected bm25 RAS=0.400",
+            "dense RAS=1.200 vs selected bm25 RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "sem_reinforcement_learning",
+            "lex_hipaa_164_512",
+            "sem_memory_consolidation",
+            "sem_allergy",
+            "lex_hipaa_164_510"
+          ],
+          "evidence_modes": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "sem_reinforcement_learning",
+            "lex_hipaa_164_512",
+            "sem_memory_consolidation",
+            "sem_allergy",
+            "lex_hipaa_164_510"
+          ],
+          "synthesis_note": "Returned the highest-ranked exact-match lexical evidence."
+        }
+      ],
+      "route_rationale": "Calibrated route from bm25 to bm25; Started from computed RAS=bm25. No calibration override fired. Production answer rationale: Selected bm25 for lexical/exact-match signals with minimum RAS=0.400.",
+      "route_family": "dense",
+      "difficulty": "adversarial",
+      "packet_notes": "Calibrated duplicate for comparison. tags=route_boundary_ambiguity,public_document_noise; Policy wording can look formal or legal.; Calibrated route from bm25 to bm25; Started from computed RAS=bm25. No calibration override fired."
+    },
+    {
+      "item_id": "he_035_adv_kg_test_01_calibrated_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "calibrated_ras",
+      "query": "Can a bird swim when duck swims but eagle does not?",
+      "gold_route": "kg",
+      "predicted_route": "kg",
+      "selected_backend": "kg",
+      "final_answer": "Yes. Existential support in the demo KG: penguin is_a bird ; penguin capable_of swim. [evidence: path:kg_penguin_is_bird->kg_penguin_capable_swim]",
+      "automatic_correct": true,
+      "gold_answer": "Yes. duck capable_of swim",
+      "evidence_ids": [
+        "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+        "path:kg_duck_is_bird->kg_duck_capable_swim"
+      ],
+      "evidence_snippets": [
+        "penguin is_a bird ; penguin capable_of swim",
+        "duck is_a bird ; duck capable_of swim"
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "deductive"
+          ],
+          "features": {
+            "query": "Can a bird swim when duck swims but eagle does not?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": true,
+            "relational": false
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.4,
+            "hybrid": 1.0
+          },
+          "best_backend": "kg",
+          "runner_up_backend": "bm25"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "kg",
+          "route_rationale": "Selected kg for deductive/structured signals with minimum RAS=0.400.",
+          "why_others_not_preferred": [
+            "bm25 RAS=1.000 vs selected kg RAS=0.400",
+            "dense RAS=1.000 vs selected kg RAS=0.400",
+            "hybrid RAS=1.000 vs selected kg RAS=0.400"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "evidence_modes": [
+            "existential",
+            "existential"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "path:kg_penguin_is_bird->kg_penguin_capable_swim",
+            "path:kg_duck_is_bird->kg_duck_capable_swim"
+          ],
+          "synthesis_note": "Used KG membership plus property support."
+        }
+      ],
+      "route_rationale": "Calibrated route from kg to kg; Started from computed RAS=kg. No calibration override fired. Production answer rationale: Selected kg for deductive/structured signals with minimum RAS=0.400.",
+      "route_family": "kg",
+      "difficulty": "adversarial",
+      "packet_notes": "Calibrated duplicate for comparison. tags=noisy_structure,wrong_bridge_distractor; Existential class query with counterexample-like distractor.; Calibrated route from kg to kg; Started from computed RAS=kg. No calibration override fired."
+    },
+    {
+      "item_id": "he_036_adv_hybrid_test_01_calibrated_ras",
+      "benchmark_source": "adversarial",
+      "system_variant": "calibrated_ras",
+      "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+      "gold_route": "hybrid",
+      "predicted_route": "hybrid",
+      "selected_backend": "hybrid",
+      "final_answer": "Hybrid connection: [kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: path:kg_whale_is_mammal->kg_mammal_is_vertebrate,rel_whale_vertebrate]",
+      "automatic_correct": true,
+      "gold_answer": "mammal",
+      "evidence_ids": [
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+        "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+      ],
+      "evidence_snippets": [
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_salmon_vertebrate] A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_penguin_vertebrate] A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate.",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:rel_bat_vertebrate] A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a verteb...",
+        "[kg:path:kg_whale_is_mammal->kg_mammal_is_vertebrate] whale is_a mammal ; mammal is_a vertebrate [bm25:doc_mammal] A mammal is a vertebrate animal. Bats are mammals and can fly."
+      ],
+      "reasoning_trace": [
+        {
+          "step": "parse_query_features",
+          "query_family_signals": [
+            "relational"
+          ],
+          "features": {
+            "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+            "lexical": false,
+            "semantic": false,
+            "deductive": false,
+            "relational": true
+          }
+        },
+        {
+          "step": "score_ras",
+          "ras_scores": {
+            "bm25": 1.0,
+            "dense": 1.0,
+            "kg": 0.8,
+            "hybrid": 0.30000000000000004
+          },
+          "best_backend": "hybrid",
+          "runner_up_backend": "kg"
+        },
+        {
+          "step": "select_backend",
+          "selected_backend": "hybrid",
+          "route_rationale": "Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+          "why_others_not_preferred": [
+            "kg RAS=0.800 vs selected hybrid RAS=0.300",
+            "bm25 RAS=1.000 vs selected hybrid RAS=0.300",
+            "dense RAS=1.000 vs selected hybrid RAS=0.300"
+          ]
+        },
+        {
+          "step": "retrieve_evidence",
+          "evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+          ],
+          "evidence_modes": [
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle",
+            "rrf+relational_bundle"
+          ]
+        },
+        {
+          "step": "synthesize_answer",
+          "used_evidence_ids": [
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_whale_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_salmon_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_penguin_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+rel_bat_vertebrate",
+            "hybrid:bundle:path:kg_whale_is_mammal->kg_mammal_is_vertebrate+doc_mammal"
+          ],
+          "synthesis_note": "Combined structured KG evidence with text evidence using fused Hybrid retrieval."
+        }
+      ],
+      "route_rationale": "Calibrated route from hybrid to hybrid; Started from computed RAS=hybrid. No calibration override fired. Production answer rationale: Selected hybrid for relational/fused-evidence signals with minimum RAS=0.300.",
+      "route_family": "hybrid",
+      "difficulty": "adversarial",
+      "packet_notes": "Calibrated duplicate for comparison. tags=lexical_semantic_overlap,wrong_bridge_distractor; Semantic whale/ocean text is a distractor.; Calibrated route from hybrid to hybrid; Started from computed RAS=hybrid. No calibration override fired."
+    }
+  ]
+}

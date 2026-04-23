@@ -1,0 +1,140 @@
+{
+  "output_dir": "data/final_release",
+  "production_router": "computed_ras",
+  "critical_artifacts": [
+    {
+      "name": "curated_end_to_end",
+      "path": "data/eval/end_to_end_verification.json",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "external_mini",
+      "path": "data/eval/external_generalization_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "generalization_v2",
+      "path": "data/eval/generalization_v2_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "structure_shift",
+      "path": "data/eval/structure_shift_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "public_raw",
+      "path": "data/eval/public_corpus_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "public_graph",
+      "path": "data/eval/public_graph_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "adversarial",
+      "path": "data/eval/adversarial_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "calibration",
+      "path": "data/eval/calibrated_router_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_v3",
+      "path": "data/eval/ras_v3_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_v4",
+      "path": "data/eval/ras_v4_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "human_eval",
+      "path": "data/human_eval/human_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "comparative_human_eval",
+      "path": "data/human_eval/comparative_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "open_corpus",
+      "path": "data/eval/open_workspace_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "report_artifacts",
+      "path": "data/eval/report/prism_report_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "demo_app",
+      "path": "prism/demo/app.py",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "optional_artifacts": [
+    {
+      "name": "llm_experiments",
+      "path": "data/eval/llm_router_eval_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "ras_v4_vs_human",
+      "path": "data/human_eval/ras_v4_vs_human_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "ras_v4_vs_rescue",
+      "path": "data/eval/ras_v4_vs_rescue_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "release_plots_ras_v4",
+      "path": "data/eval/ras_v4_router_comparison.png",
+      "exists": true,
+      "required": false
+    }
+  ],
+  "generated_release_artifacts": [
+    "final_project_overview.md",
+    "paper_ready_summary.md",
+    "demo_runbook.md",
+    "demo_walkthrough_quick_reference.md",
+    "ui_tour.md",
+    "ras_overview.md",
+    "ras_math_guide.md",
+    "ras_version_comparison.md",
+    "ras_visual_explanation.md",
+    "ras_quick_reference.md",
+    "reproducibility_runbook.md",
+    "central_claim_summary.md",
+    "artifact_manifest.json",
+    "known_results_summary.json",
+    "release_checklist.md",
+    "release_status.json"
+  ]
+}

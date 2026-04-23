@@ -1,0 +1,479 @@
+[
+  {
+    "comparative_item_id": "che_006_adv_dense_test_02_calibrated_rescue",
+    "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+    "compared_systems": [
+      "computed_ras",
+      "calibrated_rescue"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "dense",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "B": 2
+    },
+    "confidence_pattern": {
+      "2": 3,
+      "3": 1
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Dense route clearly more appropriate for semantic circular-economy query; both answers fully supported"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Dense route is clearly more appropriate for semantic query; both answers fully supported"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Both answers are supported, but System B\u2019s dense override better matches the semantic query under jsonb_set distractor noise."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Both answers are supported, but System B\u2019s dense override is the more production-robust routing choice for a semantic query polluted by an exact jsonb_set distractor."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_008_adv_hybrid_test_02_calibrated_rescue",
+    "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+    "compared_systems": [
+      "computed_ras",
+      "calibrated_rescue"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "hybrid",
+    "disagreement_pattern": {
+      "Tie": 4
+    },
+    "confidence_pattern": {
+      "3": 2,
+      "2": 2
+    },
+    "major_difference_types": {
+      "none": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Identical outputs & evidence \u2014 pure trace audit"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Identical outputs & evidence \u2014 pure trace audit"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (bird\u2192vertebrate path fused with eagle\u2192fish text evidence)."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (bird\u2192vertebrate path fused with eagle\u2192fish text evidence)."
+      }
+    ],
+    "suggested_reason": "at least one evaluator requested adjudication"
+  },
+  {
+    "comparative_item_id": "che_010_adv_dense_test_03_classifier_router",
+    "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+    "compared_systems": [
+      "computed_ras",
+      "classifier_router"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "dense",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "B": 2
+    },
+    "confidence_pattern": {
+      "2": 3,
+      "3": 1
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Dense route more appropriate for semantic water-cycle query; both answers supported"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Dense route more appropriate for semantic water-cycle query"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Both answers are supported, but System B\u2019s dense route better matches a paraphrastic water-cycle query with RFC distractor language."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Both systems answer correctly, but System B\u2019s dense route is a better production fit for a paraphrastic water-cycle query with RFC-style distractor language."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_011_adv_kg_test_03_classifier_router",
+    "query": "Is mosquito an animal through insect, even though the query sounds like a public health document?",
+    "compared_systems": [
+      "computed_ras",
+      "classifier_router"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "kg",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "A": 2
+    },
+    "confidence_pattern": {
+      "2": 2,
+      "3": 2
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "KG route clearly better fits structural 'is-animal-through-insect' query; both answers correct"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "KG route is the clearly better structural fit"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "System A uses the direct KG composition mosquito\u2192insect\u2192animal, which is the cleaner structural fit for this membership query."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "System A uses the direct KG composition mosquito\u2192insect\u2192animal, which is the cleaner structural fit for this membership query."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_012_adv_hybrid_test_03_classifier_router",
+    "query": "What bridge connects frog and animal when amphibian and vertebrate both appear?",
+    "compared_systems": [
+      "computed_ras",
+      "classifier_router"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "hybrid",
+    "disagreement_pattern": {
+      "Tie": 4
+    },
+    "confidence_pattern": {
+      "3": 2,
+      "2": 2
+    },
+    "major_difference_types": {
+      "none": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Identical outputs & evidence \u2014 pure trace audit"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Identical outputs & evidence \u2014 pure trace audit"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (frog\u2192amphibian\u2192vertebrate fused with mosquito\u2192animal text evidence)."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Outputs are effectively identical, and both inherit the same wrong-bridge hybrid issue (frog\u2192amphibian\u2192vertebrate fused with mosquito\u2192animal text evidence)."
+      }
+    ],
+    "suggested_reason": "at least one evaluator requested adjudication"
+  },
+  {
+    "comparative_item_id": "che_013_adv_bm25_test_01_always_dense",
+    "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+    "compared_systems": [
+      "computed_ras",
+      "always_dense"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "bm25",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "A": 2
+    },
+    "confidence_pattern": {
+      "2": 2,
+      "3": 2
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "BM25 route far more appropriate for exact lexical RFC identifier"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "BM25 route far more appropriate for exact lexical identifier"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "For an exact RFC identifier query, bm25 is the more appropriate representation family even though both systems answer correctly."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "For an exact RFC identifier query, bm25 is the more appropriate representation family even though both systems answer correctly."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_014_adv_dense_test_01_always_dense",
+    "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+    "compared_systems": [
+      "computed_ras",
+      "always_dense"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "dense",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "B": 2
+    },
+    "confidence_pattern": {
+      "2": 3,
+      "3": 1
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Dense route more appropriate for semantic rewards/policy query"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Dense route more appropriate for semantic rewards/policy query"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "This is fundamentally a semantic query with legal-text distractor noise, so the dense backend is the better route."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "This is fundamentally a semantic rewards query with legal-text noise, so the dense backend is the more reliable production route even though both answers are correct."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_015_adv_kg_test_01_always_dense",
+    "query": "Can a bird swim when duck swims but eagle does not?",
+    "compared_systems": [
+      "computed_ras",
+      "always_dense"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "kg",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "A": 2
+    },
+    "confidence_pattern": {
+      "2": 3,
+      "3": 1
+    },
+    "major_difference_types": {
+      "route_choice": 3,
+      "evidence_support": 1
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "KG route far more appropriate for structural bird-swim existential query"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "KG route far more appropriate for structural existential query"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "System A\u2019s KG route is the more principled fit for an existential property query over class membership, even though System B recovers duck-specific text evidence."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "System A better supports the existential claim because it shows bird membership plus swim capability, while System B only shows duck\u2192swim text and leaves the class step implicit."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_016_adv_hybrid_test_01_always_dense",
+    "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+    "compared_systems": [
+      "computed_ras",
+      "always_dense"
+    ],
+    "source_benchmark": "adversarial",
+    "route_family": "hybrid",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "A": 2
+    },
+    "confidence_pattern": {
+      "2": 3,
+      "3": 1
+    },
+    "major_difference_types": {
+      "route_choice": 2,
+      "evidence_support": 2
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Hybrid route clearly better for bridge/relation query"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Hybrid route clearly better for bridge/relation query"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "System A provides the stronger structured-plus-text bridge for whale\u2192mammal\u2192vertebrate; System B is correct but text-only."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "System A is preferable for production/demo use because it provides both the structured bridge and matching text evidence for whale\u2192mammal\u2192vertebrate, not just a text-only shortcut."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_017_pub_bm25_07_always_bm25",
+    "query": "RFC-9110",
+    "compared_systems": [
+      "computed_ras",
+      "always_bm25"
+    ],
+    "source_benchmark": "public_raw",
+    "route_family": "bm25",
+    "disagreement_pattern": {
+      "Tie": 4
+    },
+    "confidence_pattern": {
+      "3": 4
+    },
+    "major_difference_types": {
+      "none": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Both outputs identical and completely wrong (water-cycle for RFC-9110)"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Both outputs identical and completely wrong"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "Both systems fail on RFC-9110 and retrieve the same unrelated water-cycle evidence."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Both systems fail the exact RFC-9110 lookup in the same way and return unrelated water-cycle evidence, so this pair is only useful as a negative-case audit."
+      }
+    ],
+    "suggested_reason": "at least one evaluator requested adjudication"
+  },
+  {
+    "comparative_item_id": "che_018_pub_dense_07_always_bm25",
+    "query": "What learning setup lets an agent improve using rewards and penalties?",
+    "compared_systems": [
+      "computed_ras",
+      "always_bm25"
+    ],
+    "source_benchmark": "public_raw",
+    "route_family": "dense",
+    "disagreement_pattern": {
+      "Tie": 2,
+      "A": 2
+    },
+    "confidence_pattern": {
+      "2": 2,
+      "3": 2
+    },
+    "major_difference_types": {
+      "route_choice": 4
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Dense route more appropriate for semantic learning-setup query"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Dense route more appropriate for semantic learning-setup query"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "The public paraphrase query is better handled by dense retrieval, even though both systems return the correct answer."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "Both answers are correct, but System A\u2019s dense retrieval is the more appropriate public-web paraphrase route and gives the cleaner production behavior."
+      }
+    ],
+    "suggested_reason": "overall preference votes are split"
+  },
+  {
+    "comparative_item_id": "che_020_pub_hybrid_07_always_bm25",
+    "query": "What bridge connects eagle and vertebrate?",
+    "compared_systems": [
+      "computed_ras",
+      "always_bm25"
+    ],
+    "source_benchmark": "public_raw",
+    "route_family": "hybrid",
+    "disagreement_pattern": {
+      "A": 4
+    },
+    "confidence_pattern": {
+      "3": 4
+    },
+    "major_difference_types": {
+      "answer_faithfulness": 2,
+      "evidence_support": 2
+    },
+    "evaluator_notes": [
+      {
+        "evaluator_id": "P2_GenAI_LLM_Instructor",
+        "notes": "Hybrid gives correct eagle-bridge; bm25 gives wrong whale-bridge (automatic correctness disagreement)"
+      },
+      {
+        "evaluator_id": "P4_Claude_Anthropic_Code",
+        "notes": "Hybrid gives correct eagle-bridge; bm25 gives wrong whale-bridge (clear correctness disagreement)"
+      },
+      {
+        "evaluator_id": "person1_krr_professor",
+        "notes": "System A is still imperfect, but it contains the relevant eagle\u2192bird\u2192vertebrate KG path; System B misses the query entirely and answers about whales."
+      },
+      {
+        "evaluator_id": "person3_openai_llm_engineer",
+        "notes": "System A at least contains the relevant eagle\u2192bird\u2192vertebrate path, but its hybrid trace is structurally mismatched; System B is wrong on the query yet more internally faithful to the evidence it actually retrieved."
+      }
+    ],
+    "suggested_reason": "at least one evaluator requested adjudication"
+  }
+]

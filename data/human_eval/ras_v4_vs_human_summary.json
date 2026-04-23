@@ -1,0 +1,41 @@
+{
+  "status": "evaluated",
+  "packet_size": 28,
+  "majority_preference_items_evaluated": 2,
+  "computed_ras_human_preferred_route_alignment": 1.0,
+  "ras_v4_human_preferred_route_alignment": 1.0,
+  "alignment_delta_ras_v4_minus_computed": 0.0,
+  "adversarial_items_evaluated": 0,
+  "adversarial_ras_v4_alignment": 0.0,
+  "scope_note": "RAS_V4 outputs were not newly annotated; this compares route choices to existing comparative preferences.",
+  "rows": [
+    {
+      "comparative_item_id": "che_019_pub_kg_07_always_bm25",
+      "query": "Is a whale a mammal?",
+      "source_benchmark": "public_raw",
+      "route_family": "kg",
+      "preferred_route": "kg",
+      "computed_ras_route": "kg",
+      "ras_v4_route": "kg",
+      "computed_matches_human_preferred_route": true,
+      "ras_v4_matches_human_preferred_route": true,
+      "vote_counts": {
+        "A": 4
+      }
+    },
+    {
+      "comparative_item_id": "che_020_pub_hybrid_07_always_bm25",
+      "query": "What bridge connects eagle and vertebrate?",
+      "source_benchmark": "public_raw",
+      "route_family": "hybrid",
+      "preferred_route": "hybrid",
+      "computed_ras_route": "hybrid",
+      "ras_v4_route": "hybrid",
+      "computed_matches_human_preferred_route": true,
+      "ras_v4_matches_human_preferred_route": true,
+      "vote_counts": {
+        "A": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,894 @@
+{
+  "summary": {
+    "total": 48,
+    "version_disagreement_count": 5,
+    "low_margin_count": 7,
+    "advisory_ambiguity_count": 11,
+    "route_confusion_computed_ras": {
+      "bm25->bm25": 10,
+      "bm25->kg": 2,
+      "dense->bm25": 10,
+      "dense->dense": 2,
+      "hybrid->hybrid": 12,
+      "kg->bm25": 1,
+      "kg->kg": 11
+    },
+    "route_confusion_ras_v3": {},
+    "route_confusion_ras_v4": {
+      "bm25->bm25": 5
+    }
+  },
+  "items": [
+    {
+      "id": "adv_bm25_dev_01",
+      "split": "dev",
+      "query": "In plain language, what is RFC-7231 really about, not RFC-7230 routing?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.29999999999999993,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_dev_02",
+      "split": "dev",
+      "query": "Which HIPAA provision, 164.512 rather than 164.510, covers disclosures when authorization is not required?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "identifier_with_distractor_language"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_dev_03",
+      "split": "dev",
+      "query": "For unspecified pneumonia, should the exact ICD-10 code be J18.9 or the nearby J18.1?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_dev_04",
+      "split": "dev",
+      "query": "The API that computes cross entropy loss from logits is torch.nn.CrossEntropyLoss, not BCELoss; what does it compute?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_with_distractor_language",
+        "lexical_semantic_overlap"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_dev_05",
+      "split": "dev",
+      "query": "Civil rights question with contracts nearby: what does 42 U.S.C. \u00a71983 provide?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "public_document_noise"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_dev_06",
+      "split": "dev",
+      "query": "Which sklearn class makes raw documents into TF-IDF features even though the query says topic meaning and semantic search?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.09999999999999998,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "dense"
+      },
+      "version_disagreement": true,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_bm25_test_01",
+      "split": "test",
+      "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25",
+        "ras_v4": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_test_02",
+      "split": "test",
+      "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "public_document_noise"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25",
+        "ras_v4": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_test_03",
+      "split": "test",
+      "query": "numpy.linalg.norm describes geometry and magnitude, but the exact function is the answer source.",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "identifier_with_distractor_language"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "dense",
+        "ras_v4": "bm25"
+      },
+      "version_disagreement": true,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_bm25_test_04",
+      "split": "test",
+      "query": "PostgreSQL jsonb_insert, not jsonb_set, inserts what into a JSONB document?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25",
+        "ras_v4": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_test_05",
+      "split": "test",
+      "query": "HTML aria-labelledby looks like accessibility semantics; what does that exact attribute identify?",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "lexical_semantic_overlap"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25",
+        "ras_v4": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_bm25_test_06",
+      "split": "test",
+      "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+      "gold_route": "bm25",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_dev_01",
+      "split": "dev",
+      "query": "Which concept feels like RFC-7231 for emotions: worry or grief about climate futures?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.29999999999999993,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_dev_02",
+      "split": "dev",
+      "query": "What process turns daylight into stored chemical energy even if PostgreSQL JSONB also stores values?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_dev_03",
+      "split": "dev",
+      "query": "What concept explains city neighborhoods acting like a heat section 164.512 trap?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "public_document_noise"
+      ],
+      "computed_ras_margin": 0.29999999999999993,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "dense"
+      },
+      "version_disagreement": true,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_dense_dev_04",
+      "split": "dev",
+      "query": "What process makes learning stable overnight, not CountVectorizer token counts?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "dense",
+        "computed_ras_v2": "dense"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_dev_05",
+      "split": "dev",
+      "query": "Which condition is an immune false alarm for harmless pollen, not ICD-10 J18.9 pneumonia?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_dev_06",
+      "split": "dev",
+      "query": "Which concept captures unfair automated outputs even when civil rights \u00a71983 appears in the wording?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.29999999999999993,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_01",
+      "split": "test",
+      "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "public_document_noise"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_02",
+      "split": "test",
+      "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_03",
+      "split": "test",
+      "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "public_document_noise"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_04",
+      "split": "test",
+      "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.29999999999999993,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_05",
+      "split": "test",
+      "query": "Which concept describes focus divided by notifications while aria-label appears in the browser chrome?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "dense",
+        "computed_ras_v2": "dense"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_dense_test_06",
+      "split": "test",
+      "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+      "gold_route": "dense",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "lexical_semantic_overlap"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "dense"
+      },
+      "version_disagreement": true,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_kg_dev_01",
+      "split": "dev",
+      "query": "Under the closed-world demo structure, can a mammal fly despite RFC-7231 also mentioning methods?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "route_boundary_ambiguity",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.0,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "bm25",
+        "computed_ras_v2": "bm25"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_kg_dev_02",
+      "split": "dev",
+      "query": "Are all mammals able to fly when bat is the tempting positive example?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "noisy_structure",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_dev_03",
+      "split": "dev",
+      "query": "Is a bat a mammal or just a semantic article about flight?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.09999999999999998,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_kg_dev_04",
+      "split": "dev",
+      "query": "Can a penguin fly if the public page says bird and wings nearby?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_dev_05",
+      "split": "dev",
+      "query": "What property allows a bat to fly when echolocation is also a bat property?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_dev_06",
+      "split": "dev",
+      "query": "Is salmon a vertebrate if the text only says fish first?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "noisy_structure",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_01",
+      "split": "test",
+      "query": "Can a bird swim when duck swims but eagle does not?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "noisy_structure",
+        "wrong_bridge_distractor"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_02",
+      "split": "test",
+      "query": "Are all birds able to swim when duck is a positive distractor?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "noisy_structure",
+        "wrong_bridge_distractor"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_03",
+      "split": "test",
+      "query": "Is mosquito an animal through insect, even though the query sounds like a public health document?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_04",
+      "split": "test",
+      "query": "What property does dolphin have: swim capability or echolocation property?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_05",
+      "split": "test",
+      "query": "Does a whale produce milk under KG scope, not under semantic ocean text?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "kg"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_kg_test_06",
+      "split": "test",
+      "query": "What eats mouse: owl or cat, if both relations are present?",
+      "gold_route": "kg",
+      "ambiguity_tags": [
+        "top1_topk_gap_risk",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.6,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "kg",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": true,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_hybrid_dev_01",
+      "split": "dev",
+      "query": "What bridge connects bat and vertebrate when RFC-7231 also says routing?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.09999999999999998,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_hybrid_dev_02",
+      "split": "dev",
+      "query": "What bridge connects penguin and vertebrate if wings are a misleading clue?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_dev_03",
+      "split": "dev",
+      "query": "What relation connects bat and mosquito when public text also mentions disease?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_dev_04",
+      "split": "dev",
+      "query": "What bridge connects salmon and vertebrate, not the semantic concept water cycle?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "wrong_bridge_distractor"
+      ],
+      "computed_ras_margin": 0.19999999999999996,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_hybrid_dev_05",
+      "split": "dev",
+      "query": "What relation connects mammal and milk while HIPAA 164.512 appears as irrelevant boilerplate?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "public_document_noise",
+        "misleading_exact_term"
+      ],
+      "computed_ras_margin": 0.09999999999999998,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    },
+    {
+      "id": "adv_hybrid_dev_06",
+      "split": "dev",
+      "query": "What bridge connects mosquito and animal when fly capability is a tempting relation?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_01",
+      "split": "test",
+      "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "wrong_bridge_distractor"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_02",
+      "split": "test",
+      "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_03",
+      "split": "test",
+      "query": "What bridge connects frog and animal when amphibian and vertebrate both appear?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "noisy_structure"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_04",
+      "split": "test",
+      "query": "What relation connects owl and mouse while wings and flight are strong distractors?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "top1_topk_gap_risk"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_05",
+      "split": "test",
+      "query": "What bridge connects cat and vertebrate even though mouse relation is nearby?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "wrong_bridge_distractor",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.5,
+      "low_margin": false,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": false
+    },
+    {
+      "id": "adv_hybrid_test_06",
+      "split": "test",
+      "query": "What relation connects bat and fly, not the exact torch.nn.CrossEntropyLoss API?",
+      "gold_route": "hybrid",
+      "ambiguity_tags": [
+        "misleading_exact_term",
+        "route_boundary_ambiguity"
+      ],
+      "computed_ras_margin": 0.09999999999999998,
+      "low_margin": true,
+      "routes": {
+        "computed_ras": "hybrid",
+        "computed_ras_v2": "hybrid"
+      },
+      "version_disagreement": false,
+      "advisory_ambiguity_flag": true
+    }
+  ]
+}

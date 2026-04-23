@@ -1,0 +1,19 @@
+{
+  "query": "RFC-7231",
+  "triple_count": 1,
+  "triples": [
+    {
+      "triple_id": "qlg_0000_pack_rfc_7230",
+      "subject": "it",
+      "predicate": "is_a",
+      "object": "near-match",
+      "source_doc_id": "pack_rfc_7230"
+    }
+  ],
+  "metadata": {
+    "backend_type": "query_local_graph",
+    "document_count": 3,
+    "triple_count": 1,
+    "extraction": "lightweight regex patterns with source document provenance"
+  }
+}

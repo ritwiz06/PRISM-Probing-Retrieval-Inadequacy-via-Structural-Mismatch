@@ -1,0 +1,1442 @@
+{
+  "model_version": "ras_v4_joint_linear_2026_04_22",
+  "case_selection": "adversarial-test examples where RAS_V4 changed computed RAS, falling back to representative cases.",
+  "case_count": 5,
+  "cases": [
+    {
+      "selected_backend": "bm25",
+      "margin": 5.62049353320026,
+      "rationale": "RAS_V4 selected bm25 with combined adequacy score 3.284 (route=+1.600, evidence=+5.505, margin=5.620). Top contributions: evidence__candidate_matches_computed_ras=+4.300, intercept=-3.821, evidence__candidate_matches_keyword=+2.000, evidence__top1_score=+0.991, evidence__identifier_exact_match=-0.925.",
+      "candidate_scores": {
+        "bm25": {
+          "combined_score": 3.2838997150980873,
+          "route_contribution": 1.5999038574341298,
+          "evidence_contribution": 5.505331801917461,
+          "margin_from_best": 0.0,
+          "evidence_ids": [
+            "lex_rfc_7235",
+            "noise_lex_rfc_7231_errata",
+            "pub_rfc_7235"
+          ],
+          "top_contributions": [
+            {
+              "feature": "evidence__candidate_matches_computed_ras",
+              "contribution": 4.300327362681654
+            },
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_matches_keyword",
+              "contribution": 1.9998869104642643
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.9909577109913448
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "bm25",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_rfc_7235",
+              "noise_lex_rfc_7231_errata",
+              "pub_rfc_7235"
+            ],
+            "top1_source_type": "document",
+            "top1_metadata": {
+              "title": "RFC-7235 HTTP/1.1 Authentication",
+              "source": "lexical:rfc",
+              "bm25_score": "35.609085"
+            },
+            "diagnostic_summary": "candidate_bm25=1.00, candidate_matches_computed_ras=1.00, candidate_matches_keyword=1.00, identifier_exact_match=1.00, source_diversity=1.00"
+          }
+        },
+        "dense": {
+          "combined_score": -2.3365938181021724,
+          "route_contribution": 1.5999038574341298,
+          "evidence_contribution": -0.11516173128279779,
+          "margin_from_best": 5.62049353320026,
+          "evidence_ids": [
+            "lex_rfc_7235::chunk_0",
+            "pub_rfc_7235::chunk_0",
+            "pub_rfc_7235::chunk_9"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_dense",
+              "contribution": 1.0696778871050416
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.5518263080714619
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.40606730608587127
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "dense",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_rfc_7235::chunk_0",
+              "pub_rfc_7235::chunk_0",
+              "pub_rfc_7235::chunk_9"
+            ],
+            "top1_source_type": "chunk",
+            "top1_metadata": {
+              "parent_doc_id": "lex_rfc_7235",
+              "title": "RFC-7235 HTTP/1.1 Authentication",
+              "source": "lexical:rfc",
+              "chunk_id": "lex_rfc_7235::chunk_0",
+              "chunk_ordinal": "0",
+              "embedding_backend": "sentence_transformers",
+              "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+              "index_backend": "faiss",
+              "active_dense_backend": "sentence_transformers+faiss",
+              "dense_backend_type": "sentence_transformers",
+              "fallback_reason": "",
+              "semantic_rerank": "True",
+              "score": "0.669527"
+            },
+            "diagnostic_summary": "candidate_dense=1.00, identifier_exact_match=1.00, evidence_count_log=0.69, source_diversity=0.67, negation_or_distractor_contamination=0.67"
+          }
+        },
+        "kg": {
+          "combined_score": -3.124366998409878,
+          "route_contribution": 1.5999038574341298,
+          "evidence_contribution": -0.9029349115905037,
+          "margin_from_best": 6.408266713507965,
+          "evidence_ids": [
+            "pg_mammal_is_a_animal_db51e5b66f",
+            "pg_frog_is_a_vertebrate_0e03c62861",
+            "kg_wings_is_body_part"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__candidate_kg",
+              "contribution": -0.7120570368095835
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "evidence__kg_fact_or_path_present",
+              "contribution": 0.38029042251069567
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "kg",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "pg_mammal_is_a_animal_db51e5b66f",
+              "pg_frog_is_a_vertebrate_0e03c62861",
+              "kg_wings_is_body_part"
+            ],
+            "top1_source_type": "triple",
+            "top1_metadata": {
+              "triple_id": "pg_mammal_is_a_animal_db51e5b66f",
+              "source_doc_id": "pub_mammal",
+              "subject": "mammal",
+              "predicate": "is_a",
+              "object": "animal",
+              "hop_count": "1",
+              "backend_type": "kg",
+              "kg_mode": "adversarial_mixed_public_demo",
+              "triple_provenance": "curated",
+              "query_mode": "fallback"
+            },
+            "diagnostic_summary": "candidate_kg=1.00, source_diversity=1.00, kg_fact_or_path_present=1.00, kg_path_completeness=1.00, evidence_count_log=0.69"
+          }
+        },
+        "hybrid": {
+          "combined_score": -3.9714501559547575,
+          "route_contribution": 1.5999038574341298,
+          "evidence_contribution": -1.750018069135383,
+          "margin_from_best": 7.255349871052845,
+          "evidence_ids": [
+            "hybrid:text:pub_rfc_7235",
+            "hybrid:text:pub_rfc_9110",
+            "hybrid:text:pub_rfc_7231",
+            "hybrid:text:lex_rfc_7235",
+            "hybrid:text:noise_lex_rfc_7231_errata"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.28162998768839836
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "hybrid",
+            "evidence_count": 5,
+            "top_evidence_ids": [
+              "hybrid:text:pub_rfc_7235",
+              "hybrid:text:pub_rfc_9110",
+              "hybrid:text:pub_rfc_7231",
+              "hybrid:text:lex_rfc_7235",
+              "hybrid:text:noise_lex_rfc_7231_errata"
+            ],
+            "top1_source_type": "hybrid",
+            "top1_metadata": {
+              "contributing_backends": "bm25,dense",
+              "component_ids": "pub_rfc_7235::chunk_0,pub_rfc_7235::chunk_9,pub_rfc_7235::chunk_6,pub_rfc_7235::chunk_5,pub_rfc_7235::chunk_4,pub_rfc_7235::chunk_7,pub_rfc_7235::chunk_1,pub_rfc_7235",
+              "raw_ranks": "{\"bm25\": 3, \"dense\": 25}",
+              "raw_scores": "{\"bm25\": 27.736282558671363, \"dense\": 0.36081576347351074}",
+              "fusion_method": "rrf",
+              "evidence_type": "text_chunk",
+              "parent_doc_id": "pub_rfc_7235",
+              "chunk_id": "pub_rfc_7235::chunk_0"
+            },
+            "diagnostic_summary": "candidate_hybrid=1.00, identifier_exact_match=1.00, source_diversity=1.00, answerability_marker=1.00, evidence_count_log=0.90"
+          }
+        }
+      },
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "id": "adv_bm25_test_01",
+      "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "route_boundary_ambiguity"
+      ]
+    },
+    {
+      "selected_backend": "bm25",
+      "margin": 5.76334509042175,
+      "rationale": "RAS_V4 selected bm25 with combined adequacy score 4.278 (route=+1.305, evidence=+6.794, margin=5.763). Top contributions: evidence__candidate_matches_computed_ras=+4.300, intercept=-3.821, evidence__candidate_matches_keyword=+2.000, evidence__top1_score=+0.992, evidence__source_diversity=-0.828.",
+      "candidate_scores": {
+        "bm25": {
+          "combined_score": 4.277787550887079,
+          "route_contribution": 1.3054576927606079,
+          "evidence_contribution": 6.793665802379976,
+          "margin_from_best": 0.0,
+          "evidence_ids": [
+            "lex_hipaa_164_510",
+            "lex_hipaa_164_512",
+            "pub_hipaa_164_512"
+          ],
+          "top_contributions": [
+            {
+              "feature": "evidence__candidate_matches_computed_ras",
+              "contribution": 4.300327362681654
+            },
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_matches_keyword",
+              "contribution": 1.9998869104642643
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.9915235219976143
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.5900818789661681
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "bm25",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_hipaa_164_510",
+              "lex_hipaa_164_512",
+              "pub_hipaa_164_512"
+            ],
+            "top1_source_type": "document",
+            "top1_metadata": {
+              "title": "HIPAA 45 CFR 164.510",
+              "source": "lexical:hipaa",
+              "bm25_score": "41.719051"
+            },
+            "diagnostic_summary": "candidate_bm25=1.00, candidate_matches_computed_ras=1.00, candidate_matches_keyword=1.00, source_diversity=1.00, negation_or_distractor_contamination=1.00"
+          }
+        },
+        "dense": {
+          "combined_score": -1.4855575395346712,
+          "route_contribution": 1.3054576927606079,
+          "evidence_contribution": 1.0303207119582252,
+          "margin_from_best": 5.76334509042175,
+          "evidence_ids": [
+            "noise_lex_hipaa_164_512_notes::chunk_0",
+            "lex_hipaa_164_510::chunk_0",
+            "lex_hipaa_164_512::chunk_0"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_dense",
+              "contribution": 1.0696778871050416
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.44256140922462606
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.4305738826545175
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "dense",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "noise_lex_hipaa_164_512_notes::chunk_0",
+              "lex_hipaa_164_510::chunk_0",
+              "lex_hipaa_164_512::chunk_0"
+            ],
+            "top1_source_type": "chunk",
+            "top1_metadata": {
+              "parent_doc_id": "noise_lex_hipaa_164_512_notes",
+              "title": "HIPAA 164.512 meeting notes",
+              "source": "noise:lexical",
+              "chunk_id": "noise_lex_hipaa_164_512_notes::chunk_0",
+              "chunk_ordinal": "0",
+              "embedding_backend": "sentence_transformers",
+              "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+              "index_backend": "faiss",
+              "active_dense_backend": "sentence_transformers+faiss",
+              "dense_backend_type": "sentence_transformers",
+              "fallback_reason": "",
+              "semantic_rerank": "True",
+              "score": "0.739827"
+            },
+            "diagnostic_summary": "candidate_dense=1.00, source_diversity=1.00, evidence_count_log=0.69, negation_or_distractor_contamination=0.67, query_overlap_topk=0.60"
+          }
+        },
+        "kg": {
+          "combined_score": -3.09136065036586,
+          "route_contribution": 1.3054576927606079,
+          "evidence_contribution": -0.5754823988729639,
+          "margin_from_best": 7.369148201252939,
+          "evidence_ids": [
+            "kg_semantic_question_routes_dense",
+            "kg_relation_question_routes_hybrid",
+            "kg_property_question_routes_kg"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_kg",
+              "contribution": -0.7120570368095835
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.5518263080714619
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "evidence__kg_fact_or_path_present",
+              "contribution": 0.38029042251069567
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__public_document_noise",
+              "contribution": -0.3703415098445715
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "kg",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "kg_semantic_question_routes_dense",
+              "kg_relation_question_routes_hybrid",
+              "kg_property_question_routes_kg"
+            ],
+            "top1_source_type": "triple",
+            "top1_metadata": {
+              "triple_id": "kg_semantic_question_routes_dense",
+              "source_doc_id": "doc_bm25",
+              "subject": "semantic_question",
+              "predicate": "routes_to",
+              "object": "dense",
+              "hop_count": "1",
+              "backend_type": "kg",
+              "kg_mode": "adversarial_mixed_public_demo",
+              "triple_provenance": "curated",
+              "query_mode": "fallback"
+            },
+            "diagnostic_summary": "candidate_kg=1.00, kg_fact_or_path_present=1.00, kg_path_completeness=1.00, evidence_count_log=0.69, source_diversity=0.67"
+          }
+        },
+        "hybrid": {
+          "combined_score": -3.3695911298193413,
+          "route_contribution": 1.3054576927606079,
+          "evidence_contribution": -0.853712878326445,
+          "margin_from_best": 7.647378680706421,
+          "evidence_ids": [
+            "hybrid:text:pub_rfc_3986",
+            "hybrid:text:pub_rfc_7235",
+            "hybrid:text:lex_hipaa_164_510",
+            "hybrid:text:lex_hipaa_164_512",
+            "hybrid:text:noise_lex_hipaa_164_512_notes"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__public_document_noise",
+              "contribution": -0.3703415098445715
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.33192105691846957
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "hybrid",
+            "evidence_count": 5,
+            "top_evidence_ids": [
+              "hybrid:text:pub_rfc_3986",
+              "hybrid:text:pub_rfc_7235",
+              "hybrid:text:lex_hipaa_164_510",
+              "hybrid:text:lex_hipaa_164_512",
+              "hybrid:text:noise_lex_hipaa_164_512_notes"
+            ],
+            "top1_source_type": "hybrid",
+            "top1_metadata": {
+              "contributing_backends": "dense",
+              "component_ids": "pub_rfc_3986::chunk_20,pub_rfc_3986::chunk_14,pub_rfc_3986::chunk_1,pub_rfc_3986::chunk_21",
+              "raw_ranks": "{\"dense\": 24}",
+              "raw_scores": "{\"dense\": 0.24826186895370483}",
+              "fusion_method": "rrf",
+              "evidence_type": "text_chunk",
+              "parent_doc_id": "pub_rfc_3986",
+              "chunk_id": "pub_rfc_3986::chunk_20"
+            },
+            "diagnostic_summary": "candidate_hybrid=1.00, source_diversity=1.00, answerability_marker=1.00, evidence_count_log=0.90, query_overlap_topk=0.80"
+          }
+        }
+      },
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "id": "adv_bm25_test_02",
+      "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "public_document_noise"
+      ]
+    },
+    {
+      "selected_backend": "bm25",
+      "margin": 6.252450655734513,
+      "rationale": "RAS_V4 selected bm25 with combined adequacy score 4.389 (route=+2.227, evidence=+5.983, margin=6.252). Top contributions: evidence__candidate_matches_computed_ras=+4.300, intercept=-3.821, evidence__candidate_matches_keyword=+2.000, evidence__top1_score=+0.979, evidence__identifier_exact_match=-0.925.",
+      "candidate_scores": {
+        "bm25": {
+          "combined_score": 4.38857047033961,
+          "route_contribution": 2.226739990456581,
+          "evidence_contribution": 5.983166424136533,
+          "margin_from_best": 0.0,
+          "evidence_ids": [
+            "lex_numpy_linalg_norm",
+            "noise_lex_numpy_linalg",
+            "pub_numpy_svd"
+          ],
+          "top_contributions": [
+            {
+              "feature": "evidence__candidate_matches_computed_ras",
+              "contribution": 4.300327362681654
+            },
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_matches_keyword",
+              "contribution": 1.9998869104642643
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.9789922586392737
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__public_noise_indicator",
+              "contribution": 0.5858048535157114
+            },
+            {
+              "feature": "route__semantic_abstraction",
+              "contribution": 0.5412987342113529
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "bm25",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_numpy_linalg_norm",
+              "noise_lex_numpy_linalg",
+              "pub_numpy_svd"
+            ],
+            "top1_source_type": "document",
+            "top1_metadata": {
+              "title": "numpy.linalg.norm",
+              "source": "lexical:numpy",
+              "bm25_score": "19.009058"
+            },
+            "diagnostic_summary": "candidate_bm25=1.00, candidate_matches_computed_ras=1.00, candidate_matches_keyword=1.00, identifier_exact_match=1.00, source_diversity=1.00"
+          }
+        },
+        "dense": {
+          "combined_score": -1.8638801853949039,
+          "route_contribution": 2.226739990456581,
+          "evidence_contribution": -0.2692842315979808,
+          "margin_from_best": 6.252450655734513,
+          "evidence_ids": [
+            "lex_numpy_linalg_norm::chunk_0",
+            "noise_lex_numpy_linalg::chunk_0",
+            "pub_numpy_svd::chunk_9"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_dense",
+              "contribution": 1.0696778871050416
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__semantic_abstraction",
+              "contribution": 0.5412987342113529
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.4595516605951922
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "dense",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_numpy_linalg_norm::chunk_0",
+              "noise_lex_numpy_linalg::chunk_0",
+              "pub_numpy_svd::chunk_9"
+            ],
+            "top1_source_type": "chunk",
+            "top1_metadata": {
+              "parent_doc_id": "lex_numpy_linalg_norm",
+              "title": "numpy.linalg.norm",
+              "source": "lexical:numpy",
+              "chunk_id": "lex_numpy_linalg_norm::chunk_0",
+              "chunk_ordinal": "0",
+              "embedding_backend": "sentence_transformers",
+              "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+              "index_backend": "faiss",
+              "active_dense_backend": "sentence_transformers+faiss",
+              "dense_backend_type": "sentence_transformers",
+              "fallback_reason": "",
+              "semantic_rerank": "True",
+              "score": "0.830993"
+            },
+            "diagnostic_summary": "candidate_dense=1.00, identifier_exact_match=1.00, source_diversity=1.00, evidence_count_log=0.69, answerability_marker=0.67"
+          }
+        },
+        "kg": {
+          "combined_score": -2.264783662013821,
+          "route_contribution": 2.226739990456581,
+          "evidence_contribution": -0.6701877082168979,
+          "margin_from_best": 6.653354132353431,
+          "evidence_ids": [
+            "pg_mammal_is_a_animal_db51e5b66f",
+            "pg_frog_is_a_vertebrate_0e03c62861",
+            "kg_wings_is_body_part"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__candidate_kg",
+              "contribution": -0.7120570368095835
+            },
+            {
+              "feature": "route__semantic_abstraction",
+              "contribution": 0.5412987342113529
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "evidence__kg_fact_or_path_present",
+              "contribution": 0.38029042251069567
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "kg",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "pg_mammal_is_a_animal_db51e5b66f",
+              "pg_frog_is_a_vertebrate_0e03c62861",
+              "kg_wings_is_body_part"
+            ],
+            "top1_source_type": "triple",
+            "top1_metadata": {
+              "triple_id": "pg_mammal_is_a_animal_db51e5b66f",
+              "source_doc_id": "pub_mammal",
+              "subject": "mammal",
+              "predicate": "is_a",
+              "object": "animal",
+              "hop_count": "1",
+              "backend_type": "kg",
+              "kg_mode": "adversarial_mixed_public_demo",
+              "triple_provenance": "curated",
+              "query_mode": "fallback"
+            },
+            "diagnostic_summary": "candidate_kg=1.00, source_diversity=1.00, kg_fact_or_path_present=1.00, kg_path_completeness=1.00, evidence_count_log=0.69"
+          }
+        },
+        "hybrid": {
+          "combined_score": -2.8599544959087333,
+          "route_contribution": 2.226739990456581,
+          "evidence_contribution": -1.2653585421118103,
+          "margin_from_best": 7.248524966248343,
+          "evidence_ids": [
+            "hybrid:text:pub_numpy_svd",
+            "hybrid:text:pub_python_dataclass",
+            "hybrid:text:pub_sklearn_tfidf",
+            "hybrid:text:pub_torch_cross_entropy",
+            "hybrid:text:lex_numpy_linalg_norm"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__public_noise_indicator",
+              "contribution": 0.5858048535157114
+            },
+            {
+              "feature": "route__semantic_abstraction",
+              "contribution": 0.5412987342113529
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "hybrid",
+            "evidence_count": 5,
+            "top_evidence_ids": [
+              "hybrid:text:pub_numpy_svd",
+              "hybrid:text:pub_python_dataclass",
+              "hybrid:text:pub_sklearn_tfidf",
+              "hybrid:text:pub_torch_cross_entropy",
+              "hybrid:text:lex_numpy_linalg_norm"
+            ],
+            "top1_source_type": "hybrid",
+            "top1_metadata": {
+              "contributing_backends": "bm25,dense",
+              "component_ids": "pub_numpy_svd::chunk_9,pub_numpy_svd::chunk_3,pub_numpy_svd::chunk_8,pub_numpy_svd::chunk_2,pub_numpy_svd::chunk_0,pub_numpy_svd::chunk_1,pub_numpy_svd::chunk_6,pub_numpy_svd::chunk_7,pub_numpy_svd::chunk_5,pub_numpy_svd::chunk_10,pub_numpy_svd::chunk_4,pub_numpy_svd::chunk_12,pub_numpy_svd::chunk_11,pub_numpy_svd",
+              "raw_ranks": "{\"bm25\": 3, \"dense\": 25}",
+              "raw_scores": "{\"bm25\": 25.308142384523048, \"dense\": 0.20100338757038116}",
+              "fusion_method": "rrf",
+              "evidence_type": "text_chunk",
+              "parent_doc_id": "pub_numpy_svd",
+              "chunk_id": "pub_numpy_svd::chunk_9"
+            },
+            "diagnostic_summary": "candidate_hybrid=1.00, identifier_exact_match=1.00, source_diversity=1.00, public_noise_indicator=1.00, answerability_marker=1.00"
+          }
+        }
+      },
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "id": "adv_bm25_test_03",
+      "query": "numpy.linalg.norm describes geometry and magnitude, but the exact function is the answer source.",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "lexical_semantic_overlap",
+        "identifier_with_distractor_language"
+      ]
+    },
+    {
+      "selected_backend": "bm25",
+      "margin": 5.7011752432239895,
+      "rationale": "RAS_V4 selected bm25 with combined adequacy score 3.991 (route=+1.639, evidence=+6.173, margin=5.701). Top contributions: evidence__candidate_matches_computed_ras=+4.300, intercept=-3.821, evidence__candidate_matches_keyword=+2.000, evidence__top1_score=+0.993, evidence__identifier_exact_match=-0.925.",
+      "candidate_scores": {
+        "bm25": {
+          "combined_score": 3.990869549071654,
+          "route_contribution": 1.6389560155254894,
+          "evidence_contribution": 6.173249477799669,
+          "margin_from_best": 0.0,
+          "evidence_ids": [
+            "lex_postgres_jsonb_insert",
+            "noise_lex_jsonb_functions",
+            "lex_postgres_jsonb_set"
+          ],
+          "top_contributions": [
+            {
+              "feature": "evidence__candidate_matches_computed_ras",
+              "contribution": 4.300327362681654
+            },
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_matches_keyword",
+              "contribution": 1.9998869104642643
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.9925754466662176
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.6454020551192464
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "bm25",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_postgres_jsonb_insert",
+              "noise_lex_jsonb_functions",
+              "lex_postgres_jsonb_set"
+            ],
+            "top1_source_type": "document",
+            "top1_metadata": {
+              "title": "PostgreSQL jsonb_insert",
+              "source": "lexical:postgres",
+              "bm25_score": "44.301069"
+            },
+            "diagnostic_summary": "candidate_bm25=1.00, candidate_matches_computed_ras=1.00, candidate_matches_keyword=1.00, identifier_exact_match=1.00, source_diversity=1.00"
+          }
+        },
+        "dense": {
+          "combined_score": -1.7103056941523356,
+          "route_contribution": 1.6389560155254894,
+          "evidence_contribution": 0.47207423457567926,
+          "margin_from_best": 5.7011752432239895,
+          "evidence_ids": [
+            "lex_postgres_jsonb_insert::chunk_0",
+            "lex_postgres_jsonb_set::chunk_0",
+            "noise_lex_jsonb_functions::chunk_0"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_dense",
+              "contribution": 1.0696778871050416
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.6454020551192464
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.4641010761454571
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "dense",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_postgres_jsonb_insert::chunk_0",
+              "lex_postgres_jsonb_set::chunk_0",
+              "noise_lex_jsonb_functions::chunk_0"
+            ],
+            "top1_source_type": "chunk",
+            "top1_metadata": {
+              "parent_doc_id": "lex_postgres_jsonb_insert",
+              "title": "PostgreSQL jsonb_insert",
+              "source": "lexical:postgres",
+              "chunk_id": "lex_postgres_jsonb_insert::chunk_0",
+              "chunk_ordinal": "0",
+              "embedding_backend": "sentence_transformers",
+              "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+              "index_backend": "faiss",
+              "active_dense_backend": "sentence_transformers+faiss",
+              "dense_backend_type": "sentence_transformers",
+              "fallback_reason": "",
+              "semantic_rerank": "True",
+              "score": "0.846181"
+            },
+            "diagnostic_summary": "candidate_dense=1.00, identifier_exact_match=1.00, source_diversity=1.00, query_overlap_topk=0.88, query_overlap_top1=0.75"
+          }
+        },
+        "kg": {
+          "combined_score": -2.9370794802653544,
+          "route_contribution": 1.6389560155254894,
+          "evidence_contribution": -0.7546995515373393,
+          "margin_from_best": 6.927949029337008,
+          "evidence_ids": [
+            "pg_mammal_is_a_animal_db51e5b66f",
+            "pg_frog_is_a_vertebrate_0e03c62861",
+            "kg_wings_is_body_part"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__candidate_kg",
+              "contribution": -0.7120570368095835
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "evidence__kg_fact_or_path_present",
+              "contribution": 0.38029042251069567
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "kg",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "pg_mammal_is_a_animal_db51e5b66f",
+              "pg_frog_is_a_vertebrate_0e03c62861",
+              "kg_wings_is_body_part"
+            ],
+            "top1_source_type": "triple",
+            "top1_metadata": {
+              "triple_id": "pg_mammal_is_a_animal_db51e5b66f",
+              "source_doc_id": "pub_mammal",
+              "subject": "mammal",
+              "predicate": "is_a",
+              "object": "animal",
+              "hop_count": "1",
+              "backend_type": "kg",
+              "kg_mode": "adversarial_mixed_public_demo",
+              "triple_provenance": "curated",
+              "query_mode": "fallback"
+            },
+            "diagnostic_summary": "candidate_kg=1.00, source_diversity=1.00, kg_fact_or_path_present=1.00, kg_path_completeness=1.00, evidence_count_log=0.69"
+          }
+        },
+        "hybrid": {
+          "combined_score": -2.9334107751092944,
+          "route_contribution": 1.6389560155254894,
+          "evidence_contribution": -0.7510308463812795,
+          "margin_from_best": 6.924280324180948,
+          "evidence_ids": [
+            "hybrid:text:pub_postgres_jsonb",
+            "hybrid:text:pub_python_dataclass",
+            "hybrid:text:pub_rfc_3986",
+            "hybrid:text:lex_postgres_jsonb_insert",
+            "hybrid:text:lex_postgres_jsonb_set"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__identifier_exact_match",
+              "contribution": -0.9245963740327151
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__public_noise_indicator",
+              "contribution": 0.5858048535157114
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.4702214973011652
+            },
+            {
+              "feature": "route__identifier_heavy",
+              "contribution": 0.40066088912918973
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__keyword_route_bm25",
+              "contribution": 0.3778999740211936
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "hybrid",
+            "evidence_count": 5,
+            "top_evidence_ids": [
+              "hybrid:text:pub_postgres_jsonb",
+              "hybrid:text:pub_python_dataclass",
+              "hybrid:text:pub_rfc_3986",
+              "hybrid:text:lex_postgres_jsonb_insert",
+              "hybrid:text:lex_postgres_jsonb_set"
+            ],
+            "top1_source_type": "hybrid",
+            "top1_metadata": {
+              "contributing_backends": "bm25,dense",
+              "component_ids": "pub_postgres_jsonb::chunk_0,pub_postgres_jsonb::chunk_12,pub_postgres_jsonb::chunk_3,pub_postgres_jsonb::chunk_11,pub_postgres_jsonb::chunk_2,pub_postgres_jsonb::chunk_13,pub_postgres_jsonb::chunk_7,pub_postgres_jsonb::chunk_9,pub_postgres_jsonb::chunk_6,pub_postgres_jsonb::chunk_5,pub_postgres_jsonb::chunk_4,pub_postgres_jsonb::chunk_8,pub_postgres_jsonb::chunk_10,pub_postgres_jsonb::chunk_1,pub_postgres_jsonb",
+              "raw_ranks": "{\"bm25\": 4, \"dense\": 17}",
+              "raw_scores": "{\"bm25\": 20.4044820132913, \"dense\": 0.38348859548568726}",
+              "fusion_method": "rrf",
+              "evidence_type": "text_chunk",
+              "parent_doc_id": "pub_postgres_jsonb",
+              "chunk_id": "pub_postgres_jsonb::chunk_0"
+            },
+            "diagnostic_summary": "candidate_hybrid=1.00, query_overlap_topk=1.00, identifier_exact_match=1.00, source_diversity=1.00, public_noise_indicator=1.00"
+          }
+        }
+      },
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "id": "adv_bm25_test_04",
+      "query": "PostgreSQL jsonb_insert, not jsonb_set, inserts what into a JSONB document?",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "top1_topk_gap_risk"
+      ]
+    },
+    {
+      "selected_backend": "bm25",
+      "margin": 1.7062164156303439,
+      "rationale": "RAS_V4 selected bm25 with combined adequacy score 1.799 (route=+1.022, evidence=+4.598, margin=1.706). Top contributions: evidence__candidate_matches_computed_ras=+4.300, intercept=-3.821, evidence__top1_score=+0.989, evidence__source_diversity=-0.828, route__lexical_exactness=+0.378.",
+      "candidate_scores": {
+        "bm25": {
+          "combined_score": 1.7993318118703083,
+          "route_contribution": 1.022421497810302,
+          "evidence_contribution": 4.598246258313511,
+          "margin_from_best": 0.0,
+          "evidence_ids": [
+            "lex_html_aria_labelledby",
+            "noise_lex_html_aria",
+            "lex_html_aria_label"
+          ],
+          "top_contributions": [
+            {
+              "feature": "evidence__candidate_matches_computed_ras",
+              "contribution": 4.300327362681654
+            },
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.988955081716165
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "evidence__topk_score_mean",
+              "contribution": 0.28963595201598136
+            },
+            {
+              "feature": "route__computed_route_bm25",
+              "contribution": 0.23454325638663273
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "bm25",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_html_aria_labelledby",
+              "noise_lex_html_aria",
+              "lex_html_aria_label"
+            ],
+            "top1_source_type": "document",
+            "top1_metadata": {
+              "title": "HTML aria-labelledby",
+              "source": "lexical:html",
+              "bm25_score": "36.634673"
+            },
+            "diagnostic_summary": "candidate_bm25=1.00, candidate_matches_computed_ras=1.00, source_diversity=1.00, top1_score=0.98, topk_score_mean=0.96"
+          }
+        },
+        "dense": {
+          "combined_score": 0.09311539623996445,
+          "route_contribution": 1.022421497810302,
+          "evidence_contribution": 2.8920298426831668,
+          "margin_from_best": 1.7062164156303439,
+          "evidence_ids": [
+            "lex_html_aria_labelledby::chunk_0",
+            "noise_lex_html_aria::chunk_0",
+            "lex_html_aria_label::chunk_0"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_matches_keyword",
+              "contribution": 1.9998869104642643
+            },
+            {
+              "feature": "evidence__candidate_dense",
+              "contribution": 1.0696778871050416
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "evidence__top1_score",
+              "contribution": 0.45744628964735784
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "route__computed_route_bm25",
+              "contribution": 0.23454325638663273
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "dense",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "lex_html_aria_labelledby::chunk_0",
+              "noise_lex_html_aria::chunk_0",
+              "lex_html_aria_label::chunk_0"
+            ],
+            "top1_source_type": "chunk",
+            "top1_metadata": {
+              "parent_doc_id": "lex_html_aria_labelledby",
+              "title": "HTML aria-labelledby",
+              "source": "lexical:html",
+              "chunk_id": "lex_html_aria_labelledby::chunk_0",
+              "chunk_ordinal": "0",
+              "embedding_backend": "sentence_transformers",
+              "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+              "index_backend": "faiss",
+              "active_dense_backend": "sentence_transformers+faiss",
+              "dense_backend_type": "sentence_transformers",
+              "fallback_reason": "",
+              "semantic_rerank": "True",
+              "score": "0.824049"
+            },
+            "diagnostic_summary": "candidate_dense=1.00, candidate_matches_keyword=1.00, source_diversity=1.00, evidence_count_log=0.69, answerability_marker=0.67"
+          }
+        },
+        "kg": {
+          "combined_score": -3.4212418634122543,
+          "route_contribution": 1.022421497810302,
+          "evidence_contribution": -0.6223274169690522,
+          "margin_from_best": 5.220573675282562,
+          "evidence_ids": [
+            "pg_mosquito_has_property_wings_dc97f0f8cd",
+            "pg_mosquito_capable_of_fly_f01abbb3ef",
+            "pg_mammal_is_a_animal_db51e5b66f"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__candidate_kg",
+              "contribution": -0.7120570368095835
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.5518263080714619
+            },
+            {
+              "feature": "evidence__kg_fact_or_path_present",
+              "contribution": 0.38029042251069567
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "evidence__kg_path_completeness",
+              "contribution": 0.3530492486980704
+            },
+            {
+              "feature": "route__computed_route_bm25",
+              "contribution": 0.23454325638663273
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "kg",
+            "evidence_count": 3,
+            "top_evidence_ids": [
+              "pg_mosquito_has_property_wings_dc97f0f8cd",
+              "pg_mosquito_capable_of_fly_f01abbb3ef",
+              "pg_mammal_is_a_animal_db51e5b66f"
+            ],
+            "top1_source_type": "triple",
+            "top1_metadata": {
+              "triple_id": "pg_mosquito_has_property_wings_dc97f0f8cd",
+              "source_doc_id": "pub_mosquito",
+              "subject": "mosquito",
+              "predicate": "has_property",
+              "object": "wings",
+              "hop_count": "1",
+              "backend_type": "kg",
+              "kg_mode": "adversarial_mixed_public_demo",
+              "triple_provenance": "curated",
+              "query_mode": "fallback"
+            },
+            "diagnostic_summary": "candidate_kg=1.00, kg_fact_or_path_present=1.00, kg_path_completeness=1.00, evidence_count_log=0.69, source_diversity=0.67"
+          }
+        },
+        "hybrid": {
+          "combined_score": -3.652132112267738,
+          "route_contribution": 1.022421497810302,
+          "evidence_contribution": -0.8532176658245358,
+          "margin_from_best": 5.4514639241380465,
+          "evidence_ids": [
+            "hybrid:text:pub_rfc_7231",
+            "hybrid:text:pub_rfc_9110",
+            "hybrid:text:pub_rfc_7235",
+            "hybrid:text:lex_html_aria_labelledby",
+            "hybrid:text:noise_lex_html_aria"
+          ],
+          "top_contributions": [
+            {
+              "feature": "intercept",
+              "contribution": -3.821335944253504
+            },
+            {
+              "feature": "evidence__source_diversity",
+              "contribution": -0.827739462107193
+            },
+            {
+              "feature": "route__lexical_exactness",
+              "contribution": 0.3778999740211936
+            },
+            {
+              "feature": "route__source_adversarial",
+              "contribution": 0.3581879107598017
+            },
+            {
+              "feature": "route__computed_route_bm25",
+              "contribution": 0.23454325638663273
+            },
+            {
+              "feature": "evidence__answerability_marker",
+              "contribution": -0.17807400985732727
+            },
+            {
+              "feature": "evidence__semantic_snippet_consistency",
+              "contribution": 0.17702456368985042
+            },
+            {
+              "feature": "evidence__candidate_hybrid",
+              "contribution": -0.14209724260691514
+            }
+          ],
+          "evidence_diagnostics": {
+            "backend": "hybrid",
+            "evidence_count": 5,
+            "top_evidence_ids": [
+              "hybrid:text:pub_rfc_7231",
+              "hybrid:text:pub_rfc_9110",
+              "hybrid:text:pub_rfc_7235",
+              "hybrid:text:lex_html_aria_labelledby",
+              "hybrid:text:noise_lex_html_aria"
+            ],
+            "top1_source_type": "hybrid",
+            "top1_metadata": {
+              "contributing_backends": "bm25,dense",
+              "component_ids": "pub_rfc_7231::chunk_3,pub_rfc_7231::chunk_5,pub_rfc_7231::chunk_1,pub_rfc_7231::chunk_6,pub_rfc_7231::chunk_2,pub_rfc_7231::chunk_4,pub_rfc_7231::chunk_0,pub_rfc_7231::chunk_7,pub_rfc_7231",
+              "raw_ranks": "{\"bm25\": 16, \"dense\": 24}",
+              "raw_scores": "{\"bm25\": 4.792569866567299, \"dense\": 0.26487910747528076}",
+              "fusion_method": "rrf",
+              "evidence_type": "text_chunk",
+              "parent_doc_id": "pub_rfc_7231",
+              "chunk_id": "pub_rfc_7231::chunk_3"
+            },
+            "diagnostic_summary": "candidate_hybrid=1.00, source_diversity=1.00, answerability_marker=1.00, evidence_count_log=0.90, query_overlap_topk=0.50"
+          }
+        }
+      },
+      "model_version": "ras_v4_joint_linear_2026_04_22",
+      "id": "adv_bm25_test_05",
+      "query": "HTML aria-labelledby looks like accessibility semantics; what does that exact attribute identify?",
+      "gold_route": "bm25",
+      "answer_correct": true,
+      "route_correct": true,
+      "ambiguity_tags": [
+        "identifier_ambiguity",
+        "lexical_semantic_overlap"
+      ]
+    }
+  ]
+}

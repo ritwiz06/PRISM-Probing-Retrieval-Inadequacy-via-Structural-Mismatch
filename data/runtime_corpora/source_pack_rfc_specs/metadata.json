@@ -1,0 +1,73 @@
+{
+  "name": "source_pack:rfc_specs",
+  "document_count": 3,
+  "documents": [
+    {
+      "doc_id": "pack_rfc_7231",
+      "title": "RFC-7231",
+      "source_type": "source_pack:rfc_specs",
+      "provenance": "https://www.rfc-editor.org/rfc/rfc7231",
+      "text_length": 127,
+      "sections": [],
+      "route_family_hint": "bm25",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc7231"
+    },
+    {
+      "doc_id": "pack_rfc_7230",
+      "title": "RFC-7230",
+      "source_type": "source_pack:rfc_specs",
+      "provenance": "https://www.rfc-editor.org/rfc/rfc7230",
+      "text_length": 97,
+      "sections": [],
+      "route_family_hint": "bm25",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc7230"
+    },
+    {
+      "doc_id": "pack_rfc_9110",
+      "title": "RFC-9110",
+      "source_type": "source_pack:rfc_specs",
+      "provenance": "https://www.rfc-editor.org/rfc/rfc9110",
+      "text_length": 88,
+      "sections": [],
+      "route_family_hint": "bm25",
+      "source_url": "https://www.rfc-editor.org/rfc/rfc9110"
+    }
+  ],
+  "schema": {
+    "doc_id": "stable id",
+    "title": "document title",
+    "source_type": "file/url/source_pack/local_demo",
+    "provenance": "path or URL/source registry id",
+    "text_length": "cleaned text length"
+  },
+  "pack": {
+    "name": "rfc_specs",
+    "description": "Small RFC/specification pack with exact identifier-heavy snippets.",
+    "documents": [
+      {
+        "doc_id": "pack_rfc_7231",
+        "title": "RFC-7231",
+        "text": "RFC-7231 defines HTTP/1.1 semantics and content, including request methods, response status codes, and representation metadata.",
+        "source_url": "https://www.rfc-editor.org/rfc/rfc7231",
+        "route_family_hint": "bm25"
+      },
+      {
+        "doc_id": "pack_rfc_7230",
+        "title": "RFC-7230",
+        "text": "RFC-7230 defines HTTP/1.1 message syntax and routing. It is a near-match distractor for RFC-7231.",
+        "source_url": "https://www.rfc-editor.org/rfc/rfc7230",
+        "route_family_hint": "bm25"
+      },
+      {
+        "doc_id": "pack_rfc_9110",
+        "title": "RFC-9110",
+        "text": "RFC-9110 updates HTTP semantics and consolidates parts of the HTTP specification family.",
+        "source_url": "https://www.rfc-editor.org/rfc/rfc9110",
+        "route_family_hint": "bm25"
+      }
+    ]
+  },
+  "documents_path": "data/runtime_corpora/source_pack_rfc_specs/documents.jsonl",
+  "output_dir": "data/runtime_corpora/source_pack_rfc_specs",
+  "cache_policy": "Embedded source-list fallback; URL fetching can be layered separately without changing this artifact."
+}

@@ -1,11 +1,11 @@
 # Dense Upgrade Summary
 
 Previous Dense backend: numpy_fallback.
-Current Dense backend: sentence_transformers+faiss.
-Model name: sentence-transformers/all-MiniLM-L6-v2.
-FAISS active: True.
+Current Dense backend: numpy_fallback.
+Model name: hashing-semantic-fallback.
+FAISS active: False.
 Chunk count: 148.
-Fallback reason: none.
+Fallback reason: Could not load sentence-transformers model sentence-transformers/all-MiniLM-L6-v2: RuntimeError: Cannot send a request, as the client has been closed..
 
 ## External Semantic Result
 
@@ -15,8 +15,8 @@ External semantic correct: 8/8.
 ## Photosynthesis Paraphrase Check
 
 Query: What concept turns daylight into carbohydrates?
-Top hit: sem_photosynthesis (Photosynthesis).
-Top hit score: 0.46774813532829285.
+Top hit: lex_postgres_jsonb_insert (PostgreSQL jsonb_insert).
+Top hit score: 0.09128709137439728.
 
 ## Limitations
 

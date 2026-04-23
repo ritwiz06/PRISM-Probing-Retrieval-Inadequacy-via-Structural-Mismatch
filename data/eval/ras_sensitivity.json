@@ -1,0 +1,58 @@
+{
+  "benchmark": "adversarial",
+  "item_count": 48,
+  "production_router": "computed_ras",
+  "advisory_feature": "route_ambiguity_flag",
+  "route_ambiguity_definition": "low computed-RAS margin (<0.25) or disagreement among RAS variants",
+  "margin_summary": {
+    "count": 48,
+    "min": 0.0,
+    "max": 0.6,
+    "mean": 0.4749999999999999,
+    "low_margin_count": 7
+  },
+  "version_disagreement_summary": {
+    "total": 48,
+    "version_disagreement_count": 5,
+    "low_margin_count": 7,
+    "advisory_ambiguity_count": 11,
+    "route_confusion_computed_ras": {
+      "bm25->bm25": 10,
+      "bm25->kg": 2,
+      "dense->bm25": 10,
+      "dense->dense": 2,
+      "hybrid->hybrid": 12,
+      "kg->bm25": 1,
+      "kg->kg": 11
+    },
+    "route_confusion_ras_v3": {},
+    "route_confusion_ras_v4": {
+      "bm25->bm25": 5
+    }
+  },
+  "feature_ablation_summary": {
+    "lexical": {
+      "tested": 24,
+      "route_changed": 6
+    },
+    "semantic": {
+      "tested": 10,
+      "route_changed": 2
+    },
+    "deductive": {
+      "tested": 14,
+      "route_changed": 13
+    },
+    "relational": {
+      "tested": 12,
+      "route_changed": 12
+    }
+  },
+  "artifacts": {
+    "ras_sensitivity": "data/eval/ras_sensitivity.json",
+    "ras_version_disagreement": "data/eval/ras_version_disagreement.json",
+    "ras_feature_ablation": "data/eval/ras_feature_ablation.csv",
+    "ras_margin_distribution": "data/eval/ras_margin_distribution.png",
+    "ras_confusion_summary": "data/eval/ras_confusion_summary.md"
+  }
+}

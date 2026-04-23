@@ -1,0 +1,6 @@
+id,source_mode,query,gold_route,computed_ras_route,computed_ras_v2_route,route_correct,answer_correct,evidence_hit_at_k,query_local_graph_triples
+open_smoke_01,source_pack:wikipedia,What feels like climate anxiety?,dense,dense,dense,True,True,True,4
+open_smoke_02,source_pack:wikipedia,What bridge connects bat and vertebrate?,hybrid,hybrid,hybrid,True,True,True,4
+open_smoke_03,source_pack:rfc_specs,RFC-7231,bm25,bm25,bm25,True,True,True,1
+open_smoke_04,local_folder:demo,Is a bat a mammal?,kg,kg,kg,True,True,True,5
+open_smoke_05,local_folder:demo,What connects PRISM routing and evidence traces?,hybrid,hybrid,hybrid,True,True,True,5

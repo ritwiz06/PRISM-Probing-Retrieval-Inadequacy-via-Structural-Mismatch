@@ -9,19 +9,11 @@ from prism.eval.deductive_slice import load_deductive_queries
 from prism.eval.lexical_slice import load_lexical_queries
 from prism.eval.relational_slice import load_relational_queries
 from prism.eval.semantic_slice import load_semantic_queries
+from prism.demo.presets import FINAL_DEMO_PRESETS
 from prism.utils import write_json
 
 
-DEMO_PRESETS: tuple[tuple[str, str], ...] = (
-    ("Lexical: RFC-7231", "RFC-7231"),
-    ("Lexical: ICD-10 J18.9", "What is ICD-10 J18.9?"),
-    ("Semantic: climate anxiety", "What feels like climate anxiety?"),
-    ("Semantic: asphalt warmth pocket", "What is an asphalt warmth pocket?"),
-    ("Deductive: mammal fly", "Can a mammal fly?"),
-    ("Deductive: all mammals fly", "Are all mammals able to fly?"),
-    ("Relational: bat to vertebrate", "What bridge connects bat and vertebrate?"),
-    ("Relational: dolphin to echolocation", "What relation connects dolphin and echolocation?"),
-)
+DEMO_PRESETS: tuple[tuple[str, str], ...] = tuple((preset.title, preset.query) for preset in FINAL_DEMO_PRESETS)
 
 
 def load_benchmark_queries() -> dict[str, list[dict[str, object]]]:
@@ -37,9 +29,16 @@ def curated_demo_queries() -> list[dict[str, object]]:
     benchmarks = load_benchmark_queries()
     by_query = {row["query"]: row for rows in benchmarks.values() for row in rows}
     rows: list[dict[str, object]] = []
+    preset_by_query = {preset.query: preset for preset in FINAL_DEMO_PRESETS}
     for label, query in DEMO_PRESETS:
         gold = dict(by_query.get(query, {"query": query}))
         gold["label"] = label
+        if query in preset_by_query:
+            preset = preset_by_query[query]
+            gold["expected_route"] = preset.expected_route
+            gold["expected_evidence_source"] = preset.expected_evidence_source
+            gold["presenter_note"] = preset.presenter_note
+            gold["demo_mode"] = preset.demo_mode
         rows.append(gold)
     return rows
 

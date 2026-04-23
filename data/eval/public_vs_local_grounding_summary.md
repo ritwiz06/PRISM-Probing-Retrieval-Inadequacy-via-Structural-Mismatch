@@ -6,8 +6,8 @@ Public raw source: `data/eval/public_corpus_eval.json`.
 ## Overall Delta
 
 - Local normalized test answer accuracy: 1.000.
-- Public raw test answer accuracy: 1.000.
-- Public-minus-local answer delta: 0.000.
+- Public raw test answer accuracy: 0.875.
+- Public-minus-local answer delta: -0.125.
 - Local normalized test route accuracy: 0.950.
 - Public raw test route accuracy: 0.917.
 - Public-minus-local route delta: -0.033.
@@ -15,16 +15,16 @@ Public raw source: `data/eval/public_corpus_eval.json`.
 ## Per-Family Delta
 
 - bm25: answer delta 0.000, route delta -0.133, evidence delta 0.000.
-- dense: answer delta 0.000, route delta 0.000, evidence delta 0.000.
+- dense: answer delta -0.500, route delta 0.000, evidence delta -0.333.
 - hybrid: answer delta 0.000, route delta 0.000, evidence delta 0.000.
 - kg: answer delta 0.000, route delta 0.000, evidence delta 0.000.
 
 ## Diagnosis
 
-- Overall answer accuracy delta public-minus-local is 0.000.
+- Overall answer accuracy delta public-minus-local is -0.125.
 - Overall route accuracy delta public-minus-local is -0.033.
-- Most degraded family is bm25: answer delta 0.000, route delta -0.133, evidence delta 0.000.
-- Routing appears to explain more degradation than retrieval for the weakest family.
+- Most degraded family is dense: answer delta -0.500, route delta 0.000, evidence delta -0.333.
+- Retrieval/evidence grounding appears to explain more degradation than routing for the weakest family.
 
 ## Threats To Validity
 

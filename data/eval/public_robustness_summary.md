@@ -1,9 +1,9 @@
 # Public Robustness Summary
 
 - Previous public raw test answer accuracy: 0.917.
-- Current computed RAS public raw test answer accuracy: 1.000.
-- Public-arbitrated public raw test answer accuracy: 1.000.
-- Before/after answer result: improved.
+- Current computed RAS public raw test answer accuracy: 0.875.
+- Public-arbitrated public raw test answer accuracy: 0.875.
+- Before/after answer result: stayed flat or worsened.
 - Previous public raw test route accuracy: 0.875.
 - Current computed RAS public raw test route accuracy: 0.917.
 - Public-arbitrated route accuracy: 1.000.
@@ -17,7 +17,7 @@
 
 ## Tradeoffs
 
-- Public test answer accuracy improved from the Prompt 17 reference 0.917 to current computed RAS 1.000.
+- Public test answer accuracy improved from the Prompt 17 reference 0.917 to current computed RAS 0.875.
 - Public lexical arbitration improves test route accuracy from 0.917 to 1.000.
 - The main production-safe change is fixing substring marker false positives in feature parsing.
 - The public lexical retriever and arbitration mode remain analysis-only and do not change the demo path by default.

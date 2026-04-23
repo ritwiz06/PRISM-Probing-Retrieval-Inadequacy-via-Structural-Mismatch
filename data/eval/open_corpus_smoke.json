@@ -1,0 +1,1684 @@
+{
+  "status": "passed",
+  "source_packs": {
+    "wikipedia": {
+      "pack": "wikipedia",
+      "document_count": 4,
+      "output_dir": "data/runtime_corpora/source_pack_wikipedia",
+      "documents_path": "data/runtime_corpora/source_pack_wikipedia/documents.jsonl",
+      "metadata_path": "data/runtime_corpora/source_pack_wikipedia/metadata.json"
+    },
+    "rfc_specs": {
+      "pack": "rfc_specs",
+      "document_count": 3,
+      "output_dir": "data/runtime_corpora/source_pack_rfc_specs",
+      "documents_path": "data/runtime_corpora/source_pack_rfc_specs/documents.jsonl",
+      "metadata_path": "data/runtime_corpora/source_pack_rfc_specs/metadata.json"
+    }
+  },
+  "local_demo": {
+    "name": "local_demo_docs",
+    "document_count": 3,
+    "output_dir": "data/runtime_corpora/local_demo_docs",
+    "documents_path": "data/runtime_corpora/local_demo_docs/documents.jsonl",
+    "metadata_path": "data/runtime_corpora/local_demo_docs/metadata.json"
+  },
+  "smoke": {
+    "total": 5,
+    "route_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "evidence_hit_at_k": 1.0,
+    "source_modes": {
+      "source_pack:wikipedia": 2,
+      "source_pack:rfc_specs": 1,
+      "local_folder:demo": 2
+    },
+    "route_distribution": {
+      "dense": 1,
+      "hybrid": 2,
+      "bm25": 1,
+      "kg": 1
+    }
+  },
+  "smoke_rows": [
+    {
+      "id": "open_smoke_01",
+      "source_mode": "source_pack:wikipedia",
+      "query": "What feels like climate anxiety?",
+      "gold_route": "dense",
+      "computed_ras_route": "dense",
+      "computed_ras_v2_route": "dense",
+      "route_correct": true,
+      "answer": "Climate Anxiety. Climate anxiety is distress, worry, or unease about climate change and ecological loss. It can feel like dread about a warming future. [evidence: pack_wikipedia_climate_anxiety::chunk_0]",
+      "gold_answer": "climate anxiety",
+      "answer_correct": true,
+      "evidence_hit_at_k": true,
+      "evidence_ids": [
+        "pack_wikipedia_climate_anxiety::chunk_0",
+        "pack_wikipedia_photosynthesis::chunk_0",
+        "pack_wikipedia_bridge_bat_vertebrate::chunk_0"
+      ],
+      "query_local_graph_triples": 4,
+      "query_local_graph_artifact": "data/runtime_corpora/source_pack_wikipedia/query_graphs/smoke_01_graph.json",
+      "route_comparison": {
+        "bm25": {
+          "top_evidence_ids": [
+            "pack_wikipedia_climate_anxiety",
+            "pack_wikipedia_photosynthesis",
+            "pack_wikipedia_bridge_bat_vertebrate"
+          ],
+          "evidence_contains_gold": true
+        },
+        "dense": {
+          "top_evidence_ids": [
+            "pack_wikipedia_climate_anxiety::chunk_0",
+            "pack_wikipedia_photosynthesis::chunk_0",
+            "pack_wikipedia_bridge_bat_vertebrate::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        },
+        "kg": {
+          "top_evidence_ids": [
+            "qlg_0003_pack_wikipedia_bridge_bat_vertebrate",
+            "qlg_0002_pack_wikipedia_bridge_bat_vertebrate",
+            "qlg_0001_pack_wikipedia_bat"
+          ],
+          "evidence_contains_gold": false
+        },
+        "hybrid": {
+          "top_evidence_ids": [
+            "hybrid:text:pack_wikipedia_climate_anxiety",
+            "hybrid:text:pack_wikipedia_photosynthesis",
+            "hybrid:text:pack_wikipedia_bridge_bat_vertebrate",
+            "hybrid:text:pack_wikipedia_bat",
+            "hybrid:kg:qlg_0003_pack_wikipedia_bridge_bat_vertebrate"
+          ],
+          "evidence_contains_gold": true
+        }
+      },
+      "ras_v2_rationale": "started from computed RAS=dense"
+    },
+    {
+      "id": "open_smoke_02",
+      "source_mode": "source_pack:wikipedia",
+      "query": "What bridge connects bat and vertebrate?",
+      "gold_route": "hybrid",
+      "computed_ras_route": "hybrid",
+      "computed_ras_v2_route": "hybrid",
+      "route_correct": true,
+      "answer": "Hybrid connection: [kg:qlg_0002_pack_wikipedia_bridge_bat_vertebrate] bat is_a mammal\n[dense:pack_wikipedia_bridge_bat_vertebrate::chunk_0] The bridge connecting bat and vertebrate is mammal: bat is a mammal, and mammal is a class of vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: qlg_0002_pack_wikipedia_bridge_bat_vertebrate,pack_wikipedia_bridge_bat_vertebrate::chunk_0]",
+      "gold_answer": "mammal",
+      "answer_correct": true,
+      "evidence_hit_at_k": true,
+      "evidence_ids": [
+        "hybrid:bundle:qlg_0002_pack_wikipedia_bridge_bat_vertebrate+pack_wikipedia_bridge_bat_vertebrate::chunk_0",
+        "hybrid:bundle:qlg_0002_pack_wikipedia_bridge_bat_vertebrate+pack_wikipedia_bat::chunk_0",
+        "hybrid:bundle:qlg_0001_pack_wikipedia_bat+pack_wikipedia_bridge_bat_vertebrate::chunk_0",
+        "hybrid:bundle:qlg_0001_pack_wikipedia_bat+pack_wikipedia_bat::chunk_0",
+        "hybrid:bundle:qlg_0000_pack_wikipedia_bat+pack_wikipedia_bridge_bat_vertebrate::chunk_0"
+      ],
+      "query_local_graph_triples": 4,
+      "query_local_graph_artifact": "data/runtime_corpora/source_pack_wikipedia/query_graphs/smoke_02_graph.json",
+      "route_comparison": {
+        "bm25": {
+          "top_evidence_ids": [
+            "pack_wikipedia_bridge_bat_vertebrate",
+            "pack_wikipedia_bat",
+            "pack_wikipedia_photosynthesis"
+          ],
+          "evidence_contains_gold": true
+        },
+        "dense": {
+          "top_evidence_ids": [
+            "pack_wikipedia_bridge_bat_vertebrate::chunk_0",
+            "pack_wikipedia_bat::chunk_0",
+            "pack_wikipedia_photosynthesis::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        },
+        "kg": {
+          "top_evidence_ids": [
+            "qlg_0002_pack_wikipedia_bridge_bat_vertebrate",
+            "qlg_0001_pack_wikipedia_bat",
+            "qlg_0000_pack_wikipedia_bat"
+          ],
+          "evidence_contains_gold": true
+        },
+        "hybrid": {
+          "top_evidence_ids": [
+            "hybrid:bundle:qlg_0002_pack_wikipedia_bridge_bat_vertebrate+pack_wikipedia_bridge_bat_vertebrate::chunk_0",
+            "hybrid:bundle:qlg_0002_pack_wikipedia_bridge_bat_vertebrate+pack_wikipedia_bat::chunk_0",
+            "hybrid:bundle:qlg_0001_pack_wikipedia_bat+pack_wikipedia_bridge_bat_vertebrate::chunk_0",
+            "hybrid:bundle:qlg_0001_pack_wikipedia_bat+pack_wikipedia_bat::chunk_0",
+            "hybrid:bundle:qlg_0000_pack_wikipedia_bat+pack_wikipedia_bridge_bat_vertebrate::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        }
+      },
+      "ras_v2_rationale": "started from computed RAS=hybrid; relational bridge/path marker forces Hybrid"
+    },
+    {
+      "id": "open_smoke_03",
+      "source_mode": "source_pack:rfc_specs",
+      "query": "RFC-7231",
+      "gold_route": "bm25",
+      "computed_ras_route": "bm25",
+      "computed_ras_v2_route": "bm25",
+      "route_correct": true,
+      "answer": "RFC-7231: RFC-7231 defines HTTP/1.1 semantics and content, including request methods, response status codes, and representation metadata. [evidence: pack_rfc_7231]",
+      "gold_answer": "HTTP/1.1 semantics",
+      "answer_correct": true,
+      "evidence_hit_at_k": true,
+      "evidence_ids": [
+        "pack_rfc_7231",
+        "pack_rfc_7230",
+        "pack_rfc_9110"
+      ],
+      "query_local_graph_triples": 1,
+      "query_local_graph_artifact": "data/runtime_corpora/source_pack_rfc_specs/query_graphs/smoke_03_graph.json",
+      "route_comparison": {
+        "bm25": {
+          "top_evidence_ids": [
+            "pack_rfc_7231",
+            "pack_rfc_7230",
+            "pack_rfc_9110"
+          ],
+          "evidence_contains_gold": true
+        },
+        "dense": {
+          "top_evidence_ids": [
+            "pack_rfc_7230::chunk_0",
+            "pack_rfc_9110::chunk_0",
+            "pack_rfc_7231::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        },
+        "kg": {
+          "top_evidence_ids": [
+            "qlg_0000_pack_rfc_7230"
+          ],
+          "evidence_contains_gold": false
+        },
+        "hybrid": {
+          "top_evidence_ids": [
+            "hybrid:text:pack_rfc_7230",
+            "hybrid:text:pack_rfc_7231",
+            "hybrid:text:pack_rfc_9110",
+            "hybrid:kg:qlg_0000_pack_rfc_7230"
+          ],
+          "evidence_contains_gold": true
+        }
+      },
+      "ras_v2_rationale": "started from computed RAS=bm25; strong formal identifier keeps BM25"
+    },
+    {
+      "id": "open_smoke_04",
+      "source_mode": "local_folder:demo",
+      "query": "Is a bat a mammal?",
+      "gold_route": "kg",
+      "computed_ras_route": "kg",
+      "computed_ras_v2_route": "kg",
+      "route_correct": true,
+      "answer": "Yes. bat is_a mammal.. [evidence: qlg_0000_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470]",
+      "gold_answer": "bat is a mammal",
+      "answer_correct": true,
+      "evidence_hit_at_k": true,
+      "evidence_ids": [
+        "qlg_0000_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+        "qlg_0001_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+        "qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+      ],
+      "query_local_graph_triples": 5,
+      "query_local_graph_artifact": "data/runtime_corpora/local_demo_docs/query_graphs/smoke_04_graph.json",
+      "route_comparison": {
+        "bm25": {
+          "top_evidence_ids": [
+            "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681",
+            "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8"
+          ],
+          "evidence_contains_gold": true
+        },
+        "dense": {
+          "top_evidence_ids": [
+            "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0",
+            "oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681::chunk_0",
+            "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        },
+        "kg": {
+          "top_evidence_ids": [
+            "qlg_0000_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "qlg_0001_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+          ],
+          "evidence_contains_gold": true
+        },
+        "hybrid": {
+          "top_evidence_ids": [
+            "hybrid:text:oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "hybrid:text:oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681",
+            "hybrid:text:oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+            "hybrid:kg:qlg_0000_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "hybrid:kg:qlg_0001_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+          ],
+          "evidence_contains_gold": true
+        }
+      },
+      "ras_v2_rationale": "started from computed RAS=kg; deductive membership/property marker favors KG"
+    },
+    {
+      "id": "open_smoke_05",
+      "source_mode": "local_folder:demo",
+      "query": "What connects PRISM routing and evidence traces?",
+      "gold_route": "hybrid",
+      "computed_ras_route": "hybrid",
+      "computed_ras_v2_route": "hybrid",
+      "route_correct": true,
+      "answer": "Hybrid connection: [kg:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8] routing connects_to query\n[dense:oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0] # PRISM Workspace PRISM routing connects query features to evidence traces through selected backends. The workspace compares BM25, Dense, KG, and Hybrid evidence for the same query.. This combines structured evidence plus text relation evidence. [fused evidence: qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8,oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0]",
+      "gold_answer": "query features",
+      "answer_correct": true,
+      "evidence_hit_at_k": true,
+      "evidence_ids": [
+        "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0",
+        "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0",
+        "hybrid:bundle:qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0",
+        "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+        "hybrid:bundle:qlg_0002_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0"
+      ],
+      "query_local_graph_triples": 5,
+      "query_local_graph_artifact": "data/runtime_corpora/local_demo_docs/query_graphs/smoke_05_graph.json",
+      "route_comparison": {
+        "bm25": {
+          "top_evidence_ids": [
+            "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+            "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681"
+          ],
+          "evidence_contains_gold": true
+        },
+        "dense": {
+          "top_evidence_ids": [
+            "oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0",
+            "oc_ora_local_demo_docs_raw_dense_notes_json_ed2052caf681::chunk_0",
+            "oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        },
+        "kg": {
+          "top_evidence_ids": [
+            "qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+            "qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470",
+            "qlg_0002_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470"
+          ],
+          "evidence_contains_gold": true
+        },
+        "hybrid": {
+          "top_evidence_ids": [
+            "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8::chunk_0",
+            "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0",
+            "hybrid:bundle:qlg_0003_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0",
+            "hybrid:bundle:qlg_0004_oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8+oc_a_local_demo_docs_raw_prism_workspace_md_a8fe561c5bc8",
+            "hybrid:bundle:qlg_0002_oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470+oc_ora_local_demo_docs_raw_demo_animals_txt_71ba9ebde470::chunk_0"
+          ],
+          "evidence_contains_gold": true
+        }
+      },
+      "ras_v2_rationale": "started from computed RAS=hybrid; relational bridge/path marker forces Hybrid"
+    }
+  ],
+  "ras_v2": {
+    "protocol": "RAS v2 is analysis-only and evaluated on the adversarial benchmark after dev-informed heuristic design.",
+    "production_default": "computed_ras",
+    "systems": {
+      "computed_ras": {
+        "system": "computed_ras",
+        "total": 48,
+        "route_accuracy": 0.7291666666666666,
+        "answer_accuracy": 0.7291666666666666,
+        "evidence_hit_at_k": 0.8958333333333334,
+        "per_family": {
+          "bm25": {
+            "total": 12,
+            "route_accuracy": 0.8333333333333334,
+            "answer_accuracy": 0.75,
+            "evidence_hit_at_k": 0.8333333333333334
+          },
+          "dense": {
+            "total": 12,
+            "route_accuracy": 0.16666666666666666,
+            "answer_accuracy": 0.5,
+            "evidence_hit_at_k": 0.9166666666666666
+          },
+          "hybrid": {
+            "total": 12,
+            "route_accuracy": 1.0,
+            "answer_accuracy": 0.8333333333333334,
+            "evidence_hit_at_k": 1.0
+          },
+          "kg": {
+            "total": 12,
+            "route_accuracy": 0.9166666666666666,
+            "answer_accuracy": 0.8333333333333334,
+            "evidence_hit_at_k": 0.8333333333333334
+          }
+        },
+        "results": [
+          {
+            "id": "adv_bm25_dev_01",
+            "query": "In plain language, what is RFC-7231 really about, not RFC-7230 routing?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_02",
+            "query": "Which HIPAA provision, 164.512 rather than 164.510, covers disclosures when authorization is not required?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "identifier_with_distractor_language"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_03",
+            "query": "For unspecified pneumonia, should the exact ICD-10 code be J18.9 or the nearby J18.1?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_04",
+            "query": "The API that computes cross entropy loss from logits is torch.nn.CrossEntropyLoss, not BCELoss; what does it compute?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_with_distractor_language",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_05",
+            "query": "Civil rights question with contracts nearby: what does 42 U.S.C. \u00a71983 provide?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_06",
+            "query": "Which sklearn class makes raw documents into TF-IDF features even though the query says topic meaning and semantic search?",
+            "gold_route": "bm25",
+            "predicted_backend": "kg",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_01",
+            "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_02",
+            "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_03",
+            "query": "numpy.linalg.norm describes geometry and magnitude, but the exact function is the answer source.",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "identifier_with_distractor_language"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_04",
+            "query": "PostgreSQL jsonb_insert, not jsonb_set, inserts what into a JSONB document?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_05",
+            "query": "HTML aria-labelledby looks like accessibility semantics; what does that exact attribute identify?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_06",
+            "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+            "gold_route": "bm25",
+            "predicted_backend": "kg",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "route_boundary_ambiguity",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_01",
+            "query": "Which concept feels like RFC-7231 for emotions: worry or grief about climate futures?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_02",
+            "query": "What process turns daylight into stored chemical energy even if PostgreSQL JSONB also stores values?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_03",
+            "query": "What concept explains city neighborhoods acting like a heat section 164.512 trap?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_04",
+            "query": "What process makes learning stable overnight, not CountVectorizer token counts?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_05",
+            "query": "Which condition is an immune false alarm for harmless pollen, not ICD-10 J18.9 pneumonia?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_06",
+            "query": "Which concept captures unfair automated outputs even when civil rights \u00a71983 appears in the wording?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_test_01",
+            "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "route_boundary_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_test_02",
+            "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_dense_test_03",
+            "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_test_04",
+            "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_dense_test_05",
+            "query": "Which concept describes focus divided by notifications while aria-label appears in the browser chrome?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_test_06",
+            "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_01",
+            "query": "Under the closed-world demo structure, can a mammal fly despite RFC-7231 also mentioning methods?",
+            "gold_route": "kg",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "route_boundary_ambiguity",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_02",
+            "query": "Are all mammals able to fly when bat is the tempting positive example?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_03",
+            "query": "Is a bat a mammal or just a semantic article about flight?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_04",
+            "query": "Can a penguin fly if the public page says bird and wings nearby?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_05",
+            "query": "What property allows a bat to fly when echolocation is also a bat property?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_06",
+            "query": "Is salmon a vertebrate if the text only says fish first?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_test_01",
+            "query": "Can a bird swim when duck swims but eagle does not?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_kg_test_02",
+            "query": "Are all birds able to swim when duck is a positive distractor?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_kg_test_03",
+            "query": "Is mosquito an animal through insect, even though the query sounds like a public health document?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_test_04",
+            "query": "What property does dolphin have: swim capability or echolocation property?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_test_05",
+            "query": "Does a whale produce milk under KG scope, not under semantic ocean text?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_test_06",
+            "query": "What eats mouse: owl or cat, if both relations are present?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "top1_topk_gap_risk",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_01",
+            "query": "What bridge connects bat and vertebrate when RFC-7231 also says routing?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_02",
+            "query": "What bridge connects penguin and vertebrate if wings are a misleading clue?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_03",
+            "query": "What relation connects bat and mosquito when public text also mentions disease?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_04",
+            "query": "What bridge connects salmon and vertebrate, not the semantic concept water cycle?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_05",
+            "query": "What relation connects mammal and milk while HIPAA 164.512 appears as irrelevant boilerplate?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_06",
+            "query": "What bridge connects mosquito and animal when fly capability is a tempting relation?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_01",
+            "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_02",
+            "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_03",
+            "query": "What bridge connects frog and animal when amphibian and vertebrate both appear?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_04",
+            "query": "What relation connects owl and mouse while wings and flight are strong distractors?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_05",
+            "query": "What bridge connects cat and vertebrate even though mouse relation is nearby?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_06",
+            "query": "What relation connects bat and fly, not the exact torch.nn.CrossEntropyLoss API?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "route_boundary_ambiguity"
+            ]
+          }
+        ]
+      },
+      "computed_ras_v2": {
+        "system": "computed_ras_v2",
+        "total": 48,
+        "route_accuracy": 0.7291666666666666,
+        "answer_accuracy": 0.75,
+        "evidence_hit_at_k": 0.8958333333333334,
+        "per_family": {
+          "bm25": {
+            "total": 12,
+            "route_accuracy": 0.75,
+            "answer_accuracy": 0.8333333333333334,
+            "evidence_hit_at_k": 0.9166666666666666
+          },
+          "dense": {
+            "total": 12,
+            "route_accuracy": 0.3333333333333333,
+            "answer_accuracy": 0.5833333333333334,
+            "evidence_hit_at_k": 0.8333333333333334
+          },
+          "hybrid": {
+            "total": 12,
+            "route_accuracy": 1.0,
+            "answer_accuracy": 0.8333333333333334,
+            "evidence_hit_at_k": 1.0
+          },
+          "kg": {
+            "total": 12,
+            "route_accuracy": 0.8333333333333334,
+            "answer_accuracy": 0.75,
+            "evidence_hit_at_k": 0.8333333333333334
+          }
+        },
+        "results": [
+          {
+            "id": "adv_bm25_dev_01",
+            "query": "In plain language, what is RFC-7231 really about, not RFC-7230 routing?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_02",
+            "query": "Which HIPAA provision, 164.512 rather than 164.510, covers disclosures when authorization is not required?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "identifier_with_distractor_language"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_03",
+            "query": "For unspecified pneumonia, should the exact ICD-10 code be J18.9 or the nearby J18.1?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_04",
+            "query": "The API that computes cross entropy loss from logits is torch.nn.CrossEntropyLoss, not BCELoss; what does it compute?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_with_distractor_language",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_05",
+            "query": "Civil rights question with contracts nearby: what does 42 U.S.C. \u00a71983 provide?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_bm25_dev_06",
+            "query": "Which sklearn class makes raw documents into TF-IDF features even though the query says topic meaning and semantic search?",
+            "gold_route": "bm25",
+            "predicted_backend": "dense",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_01",
+            "query": "Authentication framework, but do not answer with semantics: RFC-7235 is the exact target.",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_02",
+            "query": "HIPAA 164.510 opportunity to agree or object, with 164.512 nearby in the page noise.",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_03",
+            "query": "numpy.linalg.norm describes geometry and magnitude, but the exact function is the answer source.",
+            "gold_route": "bm25",
+            "predicted_backend": "dense",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "identifier_with_distractor_language"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_04",
+            "query": "PostgreSQL jsonb_insert, not jsonb_set, inserts what into a JSONB document?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_05",
+            "query": "HTML aria-labelledby looks like accessibility semantics; what does that exact attribute identify?",
+            "gold_route": "bm25",
+            "predicted_backend": "bm25",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "identifier_ambiguity",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_bm25_test_06",
+            "query": "Python dataclasses generated special methods, but do not route class substring to KG.",
+            "gold_route": "bm25",
+            "predicted_backend": "kg",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "route_boundary_ambiguity",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_01",
+            "query": "Which concept feels like RFC-7231 for emotions: worry or grief about climate futures?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_02",
+            "query": "What process turns daylight into stored chemical energy even if PostgreSQL JSONB also stores values?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_03",
+            "query": "What concept explains city neighborhoods acting like a heat section 164.512 trap?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_04",
+            "query": "What process makes learning stable overnight, not CountVectorizer token counts?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_05",
+            "query": "Which condition is an immune false alarm for harmless pollen, not ICD-10 J18.9 pneumonia?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_dense_dev_06",
+            "query": "Which concept captures unfair automated outputs even when civil rights \u00a71983 appears in the wording?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_test_01",
+            "query": "Which learning setup lets an agent improve from rewards, although the word policy appears like a legal section?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "route_boundary_ambiguity",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_test_02",
+            "query": "What model keeps materials in use rather than waste, despite the exact phrase jsonb_set in the distractor?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_dense_test_03",
+            "query": "Which cycle moves water through evaporation and rain, not RFC routing?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "public_document_noise"
+            ]
+          },
+          {
+            "id": "adv_dense_test_04",
+            "query": "What view of word meaning uses nearby contexts even though the query says lexical identifier?",
+            "gold_route": "dense",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_dense_test_05",
+            "query": "Which concept describes focus divided by notifications while aria-label appears in the browser chrome?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_dense_test_06",
+            "query": "Which idea says tiny starting changes cause large later effects, not numpy.linalg.svd decomposition?",
+            "gold_route": "dense",
+            "predicted_backend": "dense",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "lexical_semantic_overlap"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_01",
+            "query": "Under the closed-world demo structure, can a mammal fly despite RFC-7231 also mentioning methods?",
+            "gold_route": "kg",
+            "predicted_backend": "bm25",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "route_boundary_ambiguity",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_02",
+            "query": "Are all mammals able to fly when bat is the tempting positive example?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_03",
+            "query": "Is a bat a mammal or just a semantic article about flight?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_04",
+            "query": "Can a penguin fly if the public page says bird and wings nearby?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": false,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_05",
+            "query": "What property allows a bat to fly when echolocation is also a bat property?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_dev_06",
+            "query": "Is salmon a vertebrate if the text only says fish first?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_test_01",
+            "query": "Can a bird swim when duck swims but eagle does not?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_kg_test_02",
+            "query": "Are all birds able to swim when duck is a positive distractor?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "noisy_structure",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_kg_test_03",
+            "query": "Is mosquito an animal through insect, even though the query sounds like a public health document?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_test_04",
+            "query": "What property does dolphin have: swim capability or echolocation property?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_kg_test_05",
+            "query": "Does a whale produce milk under KG scope, not under semantic ocean text?",
+            "gold_route": "kg",
+            "predicted_backend": "kg",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_kg_test_06",
+            "query": "What eats mouse: owl or cat, if both relations are present?",
+            "gold_route": "kg",
+            "predicted_backend": "hybrid",
+            "route_correct": false,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "top1_topk_gap_risk",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_01",
+            "query": "What bridge connects bat and vertebrate when RFC-7231 also says routing?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_02",
+            "query": "What bridge connects penguin and vertebrate if wings are a misleading clue?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_03",
+            "query": "What relation connects bat and mosquito when public text also mentions disease?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_04",
+            "query": "What bridge connects salmon and vertebrate, not the semantic concept water cycle?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": false,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_05",
+            "query": "What relation connects mammal and milk while HIPAA 164.512 appears as irrelevant boilerplate?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "public_document_noise",
+              "misleading_exact_term"
+            ]
+          },
+          {
+            "id": "adv_hybrid_dev_06",
+            "query": "What bridge connects mosquito and animal when fly capability is a tempting relation?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_01",
+            "query": "What bridge connects whale and vertebrate when ocean semantics are more salient?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "lexical_semantic_overlap",
+              "wrong_bridge_distractor"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_02",
+            "query": "What relation connects eagle and fish if bird-to-vertebrate is nearby?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_03",
+            "query": "What bridge connects frog and animal when amphibian and vertebrate both appear?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "noisy_structure"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_04",
+            "query": "What relation connects owl and mouse while wings and flight are strong distractors?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "top1_topk_gap_risk"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_05",
+            "query": "What bridge connects cat and vertebrate even though mouse relation is nearby?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "wrong_bridge_distractor",
+              "route_boundary_ambiguity"
+            ]
+          },
+          {
+            "id": "adv_hybrid_test_06",
+            "query": "What relation connects bat and fly, not the exact torch.nn.CrossEntropyLoss API?",
+            "gold_route": "hybrid",
+            "predicted_backend": "hybrid",
+            "route_correct": true,
+            "answer_correct": true,
+            "evidence_hit": true,
+            "ambiguity_tags": [
+              "misleading_exact_term",
+              "route_boundary_ambiguity"
+            ]
+          }
+        ]
+      },
+      "computed_ras_calibrated_topk_rescue_test_reference": {
+        "total": 24,
+        "route_accuracy": 0.875,
+        "answer_accuracy": 0.9583333333333334,
+        "evidence_hit_at_k": 0.9583333333333334
+      },
+      "classifier_router_test_reference": {
+        "total": 24,
+        "route_accuracy": 0.7916666666666666,
+        "answer_accuracy": 0.875,
+        "evidence_hit_at_k": 0.9583333333333334
+      }
+    },
+    "answer_accuracy_delta_v2_minus_ras": 0.02083333333333337,
+    "recommendation": "keep_analysis_only"
+  },
+  "artifacts": {
+    "json": "data/eval/open_corpus_smoke.json",
+    "csv": "data/eval/open_corpus_smoke.csv",
+    "markdown": "data/eval/open_corpus_smoke.md",
+    "workspace_json": "data/eval/open_workspace_vs_baselines.json",
+    "workspace_markdown": "data/eval/open_workspace_summary.md",
+    "ras_v2_markdown": "data/eval/ras_v2_summary.md",
+    "paper_markdown": "data/eval/open_domain_extension_for_paper.md",
+    "route_plot": "data/eval/ras_v2_adversarial_route_comparison.png",
+    "open_route_plot": "data/eval/open_corpus_route_usage.png"
+  }
+}
