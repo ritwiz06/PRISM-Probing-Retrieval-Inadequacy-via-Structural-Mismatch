@@ -5,17 +5,17 @@ Issue count: 0.
 
 ## Standard Annotations
 
-- Files: 4
-- Rows: 144 valid / 144 total
-- Evaluators: 4 (P2_GenAI_LLM_Instructor, P4_Claude_Anthropic_Code, person1_krr_professor, person3_openai_llm_engineer)
-- Recognized packet items: 36 / 36
+- Files: 1
+- Rows: 1 valid / 1 total
+- Evaluators: 1 (ann)
+- Recognized packet items: 1 / 1
 
 ## Comparative Annotations
 
-- Files: 4
-- Rows: 112 valid / 112 total
-- Evaluators: 4 (P2_GenAI_LLM_Instructor, P4_Claude_Anthropic_Code, person1_krr_professor, person3_openai_llm_engineer)
-- Recognized packet items: 28 / 28
+- Files: 1
+- Rows: 1 valid / 1 total
+- Evaluators: 1 (ann)
+- Recognized packet items: 1 / 1
 
 ## Issues
 

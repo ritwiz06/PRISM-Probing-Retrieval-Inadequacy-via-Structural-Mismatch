@@ -22,7 +22,7 @@ PRISM asks a simple question: if different questions require different evidence 
   {
     "benchmark": "External Mini",
     "route_accuracy": 1.0,
-    "answer_accuracy": 1.0
+    "answer_accuracy": 0.96875
   },
   {
     "benchmark": "GenV2 Clean",
@@ -37,7 +37,7 @@ PRISM asks a simple question: if different questions require different evidence 
   {
     "benchmark": "Public Raw",
     "route_accuracy": 0.9166666666666666,
-    "answer_accuracy": 1.0
+    "answer_accuracy": 0.875
   },
   {
     "benchmark": "Public Graph",

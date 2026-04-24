@@ -1,0 +1,140 @@
+\documentclass{article}
+
+% -------------------------------------------------
+% CSE 579: Knowledge Representation and Reasoning
+% Course Project Report Template (NeurIPS style)
+% -------------------------------------------------
+% Main report length: 2--3 pages
+% Contribution table: required at the end, NOT included in page limit
+% Use this template with the provided neurips_2026.sty file.
+%
+% Note to students:
+% - Keep the report concise and focused.
+% - Your report should clearly show:
+%   (1) the problem,
+%   (2) the technical system design,
+%   (3) the empirical evaluation and analysis.
+% - The contribution table should appear after the main report.
+
+\usepackage[main,final]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{array}
+
+\setlist[itemize]{leftmargin=1.3em, topsep=2pt, itemsep=1pt, parsep=0pt}
+\setlist[enumerate]{leftmargin=1.5em, topsep=2pt, itemsep=1pt, parsep=0pt}
+
+\title{CSE 579 Course Project Report\\[0.2em]
+\large Project Title}
+
+% Replace names as needed.
+% Keeping all students in a single centered block avoids affiliation alignment issues.
+\author{%
+Student Name 1 \quad Student Name 2 \quad Student Name 3 \\
+Arizona State University \\
+CSE 579: Knowledge Representation and Reasoning
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Briefly summarize the problem, your proposed system, how you evaluated it, and the
+main takeaway in 4--6 sentences.
+\end{abstract}
+
+\section{Problem and Motivation}
+State the problem clearly and explain why it matters. Mention which course project
+direction this report relates to, or note that it is an approved custom project.
+Define the task, inputs/outputs, and the main challenge.
+
+\textbf{Suggested content.}
+\begin{itemize}
+    \item Problem statement
+    \item Why the problem matters
+    \item Relation to knowledge representation, reasoning, or multimodal understanding
+    \item Main research question or hypothesis
+\end{itemize}
+
+\section{Method / System Design}
+Explain the technical system you built. Focus on the main components, how they
+interact, and what design choices you made. The report should make clear that the
+project goes beyond prompting alone and includes an actual system design.
+
+\textbf{Suggested content.}
+\begin{itemize}
+    \item System overview
+    \item Knowledge representation used (e.g., graph, memory, retrieved text, uncertainty, tools)
+    \item Reasoning, retrieval, verification, or routing mechanism
+    \item Baseline or comparison method(s)
+\end{itemize}
+
+You may include one small figure or pipeline diagram if it helps.
+
+\section{Experimental Setup}
+Describe how you evaluated the system.
+
+\textbf{Suggested content.}
+\begin{itemize}
+    \item Dataset, benchmark, or collected examples
+    \item Evaluation metrics
+    \item Baselines
+    \item Important implementation details
+\end{itemize}
+
+\section{Results and Analysis}
+Present the main findings. A compact table or figure is encouraged if it helps.
+Do not only report numbers---also explain what the results mean.
+
+\textbf{Suggested content.}
+\begin{itemize}
+    \item Main quantitative or qualitative results
+    \item Comparison to baseline(s)
+    \item Failure cases or limitations
+    \item Key insight learned from the experiments
+\end{itemize}
+
+\section{Conclusion}
+Summarize the main takeaway in a short paragraph. Briefly mention one limitation or
+next step if relevant.
+
+\section*{References}
+Use a consistent citation style and cite all datasets, models, baselines, and prior work.
+Keep references concise.
+
+Please note that references are NOT included in the page limit.
+
+% Example reference format:
+% [1] Author names. Paper title. Venue, year.
+
+\newpage
+\section*{Contribution Table}
+This is a mandatory section and not included in page limit.
+\begin{table}[h]
+    \centering
+    \small
+    \begin{tabular}{p{0.18\linewidth} p{0.57\linewidth} p{0.15\linewidth}}
+        \toprule
+        \textbf{Member} & \textbf{Contribution} & \textbf{Share / Role} \\
+        \midrule
+        Student 1 & Example: problem formulation, system design, implementation, writing & 35\% \\
+        Student 2 & Example: data preparation, baseline implementation, experiments & 35\% \\
+        Student 3 & Example: evaluation, analysis, presentation, editing & 30\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\end{document}

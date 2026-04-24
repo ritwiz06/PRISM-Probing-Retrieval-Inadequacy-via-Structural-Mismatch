@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRISM Final Presentation</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --ink: #171717;
+      --muted: #5c5f66;
+      --line: #d9d4c7;
+      --panel: #ffffff;
+      --accent: #0b6f6a;
+      --accent-2: #9b3d12;
+      --accent-3: #345995;
+      --soft: #e9f2ef;
+      --warning: #fff3d8;
+      --shadow: 0 18px 45px rgba(23, 23, 23, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .deck {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 22px;
+      border-color: var(--line);
+    }
+
+    header { border-bottom: 1px solid var(--line); }
+    footer { border-top: 1px solid var(--line); }
+
+    .brand {
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 7px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    button:hover { border-color: var(--accent); }
+    button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      min-height: calc(100vh - 112px);
+      padding: 42px min(6vw, 72px);
+      animation: fade 180ms ease-out;
+    }
+
+    .slide.active { display: grid; align-content: center; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.98;
+      margin: 0 0 20px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 21px;
+      margin: 0 0 8px;
+    }
+
+    p {
+      font-size: clamp(18px, 2.2vw, 25px);
+      color: var(--muted);
+      max-width: 980px;
+      margin: 0 0 18px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .metric {
+      font-size: 36px;
+      font-weight: 850;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tag.prod {
+      background: var(--soft);
+      border-color: #a7cbc3;
+      color: #06534f;
+    }
+
+    .tag.research {
+      background: var(--warning);
+      border-color: #e2c46d;
+      color: #754414;
+    }
+
+    img.figure {
+      width: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .flow-step {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      min-height: 100px;
+      opacity: 0.52;
+      transition: 150ms ease;
+    }
+
+    .flow-step.active {
+      opacity: 1;
+      border-color: var(--accent);
+      background: var(--soft);
+      transform: translateY(-3px);
+    }
+
+    .slide-list {
+      padding-left: 1.1em;
+      max-width: 980px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.1vw, 24px);
+    }
+
+    .slide-list li { margin-bottom: 10px; }
+
+    .notes {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 4px solid var(--accent-3);
+      background: white;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    body.show-notes .notes { display: block; }
+
+    .progress {
+      height: 5px;
+      background: var(--line);
+      width: 190px;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+      transition: width 150ms ease;
+    }
+
+    @media (max-width: 840px) {
+      .split, .grid, .grid.two, .flow { grid-template-columns: 1fr; }
+      .slide { padding: 28px 18px; }
+      header, footer { padding: 12px 14px; }
+      .progress { width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <header>
+      <div class="brand">PRISM Final Presentation</div>
+      <div class="controls">
+        <button id="notesBtn" title="Toggle speaker notes">Notes</button>
+        <button id="prevBtn" title="Previous slide">Prev</button>
+        <button id="nextBtn" class="primary" title="Next slide">Next</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="slide active">
+        <div class="kicker">CSE 579 Knowledge Representation and Reasoning</div>
+        <h1>PRISM</h1>
+        <p>Representation-aware retrieval routing for structural mismatch in question answering.</p>
+        <div class="tag-row">
+          <span class="tag prod">Production: computed_ras</span>
+          <span class="tag research">Research overlays: rescue, RAS_V3, RAS_V4</span>
+          <span class="tag">BM25 + Dense + KG + Hybrid</span>
+        </div>
+        <p style="font-size:15px;margin-top:18px;">Contributions: Ritik - production integration, demo, report, release package. Omkar, Vaishnavi, and Moin - TBD by teammates.</p>
+        <div class="notes">Timing: 30 seconds. State the thesis directly: retrieval can fail because the representation is wrong, not only because the ranker is weak.</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">Problem</div>
+        <h2>One retriever cannot preserve every kind of structure.</h2>
+        <div class="grid">
+          <div class="card"><h3>Lexical</h3><p>Exact identifiers such as RFC numbers and codes need sparse matching.</p></div>
+          <div class="card"><h3>Semantic</h3><p>Conceptual paraphrases need dense similarity.</p></div>
+          <div class="card"><h3>Deductive</h3><p>Class, property, and membership questions need graph structure.</p></div>
+        </div>
+        <p style="margin-top:22px;">PRISM turns representation choice into an explicit reasoning step.</p>
+        <p style="font-size:17px;">Motivating example: RFC identifiers, climate-anxiety paraphrases, and mammal capability questions require different representations.</p>
+        <div class="notes">Timing: 40 seconds. Use one example: "RFC-7231" should not be treated like "climate anxiety" or "Can a mammal fly?"</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">KRR insight</div>
+        <h2>Structural mismatch is a representation adequacy problem.</h2>
+        <div class="flow" id="routeFlow">
+          <div class="flow-step active"><h3>1. Query</h3><p>Feature signals identify lexical, semantic, deductive, or relational needs.</p></div>
+          <div class="flow-step"><h3>2. Route</h3><p>RAS scores BM25, Dense, KG, and Hybrid.</p></div>
+          <div class="flow-step"><h3>3. Evidence</h3><p>The selected backend retrieves provenance-bearing support.</p></div>
+          <div class="flow-step"><h3>4. Answer</h3><p>The final response cites evidence and exposes a reasoning trace.</p></div>
+        </div>
+        <p style="font-size:17px;margin-top:18px;">Reasoning process: represent the query need, choose the adequate representation, retrieve evidence, and justify the answer with a trace.</p>
+        <div class="controls" style="margin-top:18px;">
+          <button id="flowPrev">Back</button>
+          <button id="flowNext" class="primary">Advance route flow</button>
+        </div>
+        <div class="notes">Timing: 45 seconds. Advance the route flow once or twice to show the reasoning process without getting stuck in mechanics.</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">System</div>
+        <h2>Architecture and RAS family</h2>
+        <div class="split">
+          <img class="figure" src="assets/architecture_diagram.png" alt="PRISM architecture diagram">
+          <div>
+            <p>computed_ras is the production router. RAS_V3 and RAS_V4 formalize route adequacy and route-plus-evidence adequacy as research models.</p>
+            <img class="figure" src="assets/ras_family_overview.png" alt="RAS family overview">
+          </div>
+        </div>
+        <div class="notes">Timing: 55 seconds. Make the production/research distinction explicit. Do not imply RAS_V3 or RAS_V4 replaced computed_ras.</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">Evaluation</div>
+        <h2>Strong on stable layers, honest on hard cases.</h2>
+        <div class="grid two">
+          <img class="figure" src="assets/benchmark_overview.png" alt="Benchmark overview chart">
+          <img class="figure" src="assets/adversarial_router_comparison.png" alt="Adversarial router comparison chart">
+        </div>
+        <div class="grid">
+          <div class="card"><div class="metric">80/80</div><p>Curated end-to-end benchmark</p></div>
+          <div class="card"><div class="metric">0.917</div><p>computed_ras adversarial test answer accuracy</p></div>
+          <div class="card"><div class="metric">0.958</div><p>calibrated rescue adversarial test answer accuracy</p></div>
+        </div>
+        <p style="font-size:17px;margin-top:16px;">Finding: representation-aware routing is stable on standard layers; adversarial ambiguity shows evidence rescue is complementary.</p>
+        <div class="notes">Timing: 70 seconds. Say that calibrated rescue is strongest on hard-case answer accuracy but remains an overlay.</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">Demo evidence</div>
+        <h2>Every answer is tied to route scores, evidence, and trace.</h2>
+        <div class="split">
+          <div>
+            <ul class="slide-list">
+              <li>Demo path: `Executive Summary` -> `Guided Demo` -> `Demo / Query`.</li>
+              <li>Canonical queries cover lexical, semantic, deductive, and relational retrieval.</li>
+              <li>The UI exposes parsed features, route scores, selected backend, evidence ids, and answer trace.</li>
+            </ul>
+          </div>
+          <img class="figure" src="assets/human_eval_overview.png" alt="Human evaluation overview">
+        </div>
+        <div class="notes">Timing: 45 seconds. If doing a live demo, use RFC-7231, climate anxiety, mammal fly, and bridge path as the fast sequence.</div>
+      </section>
+
+      <section class="slide">
+        <div class="kicker">Takeaways</div>
+        <h2>Takeaways, contributions, and limitations</h2>
+        <div class="grid">
+          <div class="card"><h3>Main contribution</h3><p>Explicit routing across BM25, Dense, KG, and Hybrid based on representation adequacy.</p></div>
+          <div class="card"><h3>Main result</h3><p>Stable performance on curated, external, generalization, public raw, and public graph layers.</p></div>
+          <div class="card"><h3>Main limitation</h3><p>Adversarial boundary cases still need evidence rescue and better uncertainty handling.</p></div>
+        </div>
+        <div class="grid" style="margin-top:18px;">
+          <div class="card"><h3>Ritik</h3><p>Production integration, routing/demo stability, final report, release package, presentation deliverables.</p></div>
+          <div class="card"><h3>Omkar</h3><p>TBD by teammate.</p></div>
+          <div class="card"><h3>Vaishnavi</h3><p>TBD by teammate.</p></div>
+        </div>
+        <div class="grid two" style="margin-top:18px;">
+          <div class="card"><h3>Moin</h3><p>TBD by teammate.</p></div>
+          <div class="card"><h3>Rubric alignment</h3><p>Problem, KRR approach, reasoning process, results, contribution, and timing are mapped to the slide flow.</p></div>
+        </div>
+        <p style="margin-top:24px;">Production remains computed_ras. PRISM is bounded source-pack/local/open-corpus QA, not web-scale search.</p>
+        <div class="notes">Timing: 35 seconds. Close with the scientific story: structural mismatch matters, evidence adequacy matters too, and the release is honest about both.</div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div id="counter">1 / 7</div>
+    </footer>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const progress = document.getElementById('progressBar');
+    const counter = document.getElementById('counter');
+    let index = 0;
+
+    function showSlide(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      counter.textContent = `${index + 1} / ${slides.length}`;
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => showSlide(index + 1));
+    document.getElementById('prevBtn').addEventListener('click', () => showSlide(index - 1));
+    document.getElementById('notesBtn').addEventListener('click', () => document.body.classList.toggle('show-notes'));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === ' ') showSlide(index + 1);
+      if (event.key === 'ArrowLeft') showSlide(index - 1);
+      if (event.key.toLowerCase() === 'n') document.body.classList.toggle('show-notes');
+    });
+
+    const flowSteps = Array.from(document.querySelectorAll('.flow-step'));
+    let flowIndex = 0;
+    function showFlow(next) {
+      flowIndex = Math.max(0, Math.min(flowSteps.length - 1, next));
+      flowSteps.forEach((step, i) => step.classList.toggle('active', i <= flowIndex));
+    }
+    document.getElementById('flowNext').addEventListener('click', () => showFlow(flowIndex + 1));
+    document.getElementById('flowPrev').addEventListener('click', () => showFlow(flowIndex - 1));
+    showSlide(0);
+  </script>
+</body>
+</html>

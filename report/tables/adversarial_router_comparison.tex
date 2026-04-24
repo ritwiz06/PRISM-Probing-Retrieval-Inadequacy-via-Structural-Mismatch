@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{System} & \textbf{Status} & \textbf{Route acc.} & \textbf{Answer acc.} \\
+\midrule
+computed\_ras & Production & 0.750 & 0.917 \\
+calibrated\_rescue & Research overlay & 0.875 & 0.958 \\
+classifier\_router & Research baseline & 0.792 & 0.875 \\
+ras\_v3 & Analysis-only & 0.833 & 0.917 \\
+ras\_v4 & Analysis-only & 0.750 & 0.917 \\
+ras\_v4 + rescue & Research overlay & 0.750 & 0.958 \\
+\bottomrule
+\end{tabular}
+\caption{Adversarial test comparison. Calibrated rescue is strongest on hard-case answer accuracy, but it is retained as a research/demo overlay rather than replacing the production router.}
+\label{tab:adversarial}
+\end{table}

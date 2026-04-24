@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.24\linewidth}p{0.20\linewidth}p{0.43\linewidth}}
+\toprule
+\textbf{Component} & \textbf{Role} & \textbf{Interpretation} \\
+\midrule
+computed\_ras & Production router & Stable deterministic router used by default across the demo and benchmark-safe path. \\
+calibrated\_rescue & Research/demo overlay & Improves adversarial answer accuracy by using calibration and top-k evidence rescue. \\
+classifier\_router & Baseline & Learned comparison router for measuring route-boundary behavior. \\
+ras\_v3 & Analysis-only model & Formalizes route adequacy with interpretable feature contributions. \\
+ras\_v4 & Analysis-only model & Adds evidence adequacy to explain why route choice alone is insufficient on hard cases. \\
+optional LLM & Experimental layer & Local-only optional comparison path; not part of the core production runtime. \\
+\bottomrule
+\end{tabular}
+\caption{Production versus research distinction used throughout PRISM.}
+\label{tab:prodresearch}
+\end{table}

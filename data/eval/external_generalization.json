@@ -19,13 +19,13 @@
     "note": "Small normalized public-source-style mini-benchmark kept separate from the curated 80-query benchmark."
   },
   "dense_backend_status": {
-    "active_backend": "sentence_transformers+faiss",
-    "embedding_backend": "sentence_transformers",
-    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
-    "index_backend": "faiss",
-    "faiss_active": true,
+    "active_backend": "numpy_fallback",
+    "embedding_backend": "numpy_fallback",
+    "model_name": "hashing-semantic-fallback",
+    "index_backend": "numpy",
+    "faiss_active": false,
     "chunk_count": 148,
-    "fallback_reason": "",
+    "fallback_reason": "Could not load sentence-transformers model sentence-transformers/all-MiniLM-L6-v2: RuntimeError: Cannot send a request, as the client has been closed.",
     "semantic_rerank": true
   },
   "seed": 11,
@@ -34,9 +34,9 @@
       "system": "computed_ras",
       "total": 32,
       "route_accuracy": 1.0,
-      "answer_accuracy": 1.0,
+      "answer_accuracy": 0.96875,
       "route_correct": 32,
-      "answer_correct": 32,
+      "answer_correct": 31,
       "predicted_backend_distribution": {
         "bm25": 8,
         "dense": 8,
@@ -54,9 +54,9 @@
         "dense": {
           "total": 8,
           "route_accuracy": 1.0,
-          "answer_accuracy": 1.0,
+          "answer_accuracy": 0.875,
           "route_correct": 8,
-          "answer_correct": 8
+          "answer_correct": 7
         },
         "hybrid": {
           "total": 8,
@@ -91,9 +91,9 @@
         "Natural Questions": {
           "total": 8,
           "route_accuracy": 1.0,
-          "answer_accuracy": 1.0,
+          "answer_accuracy": 0.875,
           "route_correct": 8,
-          "answer_correct": 8
+          "answer_correct": 7
         },
         "WebQSP": {
           "total": 8,
@@ -232,8 +232,8 @@
           "predicted_backend": "dense",
           "route_correct": true,
           "gold_answer": "Photosynthesis.",
-          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
-          "answer_correct": true,
+          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -951,9 +951,9 @@
       "system": "always_dense",
       "total": 32,
       "route_accuracy": 0.25,
-      "answer_accuracy": 0.59375,
+      "answer_accuracy": 0.375,
       "route_correct": 8,
-      "answer_correct": 19,
+      "answer_correct": 12,
       "predicted_backend_distribution": {
         "dense": 32
       },
@@ -961,60 +961,60 @@
         "bm25": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.625,
+          "answer_accuracy": 0.125,
           "route_correct": 0,
-          "answer_correct": 5
+          "answer_correct": 1
         },
         "dense": {
           "total": 8,
           "route_accuracy": 1.0,
-          "answer_accuracy": 1.0,
+          "answer_accuracy": 0.875,
           "route_correct": 8,
-          "answer_correct": 8
+          "answer_correct": 7
         },
         "hybrid": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         },
         "kg": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "per_source_dataset": {
         "BEIR": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.625,
+          "answer_accuracy": 0.125,
           "route_correct": 0,
-          "answer_correct": 5
+          "answer_correct": 1
         },
         "HotpotQA": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         },
         "Natural Questions": {
           "total": 8,
           "route_accuracy": 1.0,
-          "answer_accuracy": 1.0,
+          "answer_accuracy": 0.875,
           "route_correct": 8,
-          "answer_correct": 8
+          "answer_correct": 7
         },
         "WebQSP": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "results": [
@@ -1038,8 +1038,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Pneumonia, unspecified organism.",
-          "answer": "ICD-10-CM J18.9. ICD-10-CM code J18.9 identifies pneumonia, unspecified organism. [evidence: lex_icd_j18_9::chunk_0]",
-          "answer_correct": true,
+          "answer": "Mosquito to animal bridge. A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal. [evidence: rel_mosquito_animal::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1062,8 +1062,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Cross entropy loss for logits and targets.",
-          "answer": "torch.nn.CrossEntropyLoss. torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss::chunk_0]",
-          "answer_correct": true,
+          "answer": "Bird vertebrate relation. The bird to vertebrate relation is class inheritance: bird is a vertebrate. [evidence: rel_bird_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1074,8 +1074,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Inserts a new value into a JSONB document.",
-          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
-          "answer_correct": true,
+          "answer": "Frog mosquito relation. The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1086,8 +1086,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Civil action for deprivation of rights under color of state law.",
-          "answer": "42 U.S.C. \u00a71985. 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights. [evidence: lex_section_1985::chunk_0]",
-          "answer_correct": false,
+          "answer": "42 U.S.C. \u00a71983. 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law. [evidence: lex_section_1983::chunk_0]",
+          "answer_correct": true,
           "reasoning_trace_generated": true
         },
         {
@@ -1098,8 +1098,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Singular value decomposition.",
-          "answer": "numpy.linalg.svd. numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd::chunk_0]",
-          "answer_correct": true,
+          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1110,8 +1110,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "A converter from raw documents to TF-IDF features.",
-          "answer": "sklearn.feature_extraction.text.TfidfVectorizer. TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features. [evidence: lex_sklearn_tfidf::chunk_0]",
-          "answer_correct": true,
+          "answer": "Background note 072: Desertification. This concise background note discusses desertification with emphasis on definitions, mechanisms, examples, and practical consequences for general knowledge retrieval. It is included to broaden the semantic corpus without building a full Wikipedia dump. [evidence: sem_background_072::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1146,8 +1146,8 @@
           "predicted_backend": "dense",
           "route_correct": true,
           "gold_answer": "Photosynthesis.",
-          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
-          "answer_correct": true,
+          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1218,7 +1218,7 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Yes. bat is_a mammal.",
-          "answer": "Mammal Facts. A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal::chunk_0]",
+          "answer": "Bat to vertebrate bridge. A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate::chunk_0]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -1242,7 +1242,7 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "No. whale and dolphin are mammal counterexamples.",
-          "answer": "Mammal Facts. A mammal is a vertebrate animal. Bats are mammals and can fly. [evidence: doc_mammal::chunk_0]",
+          "answer": "Bat flight relation. The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight. [evidence: rel_bat_fly::chunk_0]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -1266,8 +1266,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Yes. whale capable_of swim.",
-          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
-          "answer_correct": true,
+          "answer": "Whale to vertebrate bridge. A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate. [evidence: rel_whale_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1290,7 +1290,7 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "bat eats mosquito and frog eats mosquito.",
-          "answer": "Frog mosquito relation. The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito::chunk_0]",
+          "answer": "Bat mosquito relation. The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito::chunk_0]",
           "answer_correct": true,
           "reasoning_trace_generated": true
         },
@@ -1302,7 +1302,7 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "No. eagle and chicken are bird counterexamples.",
-          "answer": "Duck swim relation. The duck to swim relation is capability based: duck is capable of swim. [evidence: rel_duck_swim::chunk_0]",
+          "answer": "Penguin swim relation. The penguin to swim relation is capability: penguin is capable of swim in the demo KG. [evidence: rel_penguin_swim::chunk_0]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -1338,8 +1338,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "bat eats mosquito plus text relation evidence.",
-          "answer": "Bat mosquito relation. The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito::chunk_0]",
-          "answer_correct": true,
+          "answer": "Bat to vertebrate bridge. A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1865,9 +1865,9 @@
       "system": "always_hybrid",
       "total": 32,
       "route_accuracy": 0.25,
-      "answer_accuracy": 0.6875,
+      "answer_accuracy": 0.5625,
       "route_correct": 8,
-      "answer_correct": 22,
+      "answer_correct": 18,
       "predicted_backend_distribution": {
         "hybrid": 32
       },
@@ -1875,9 +1875,9 @@
         "bm25": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.375,
           "route_correct": 0,
-          "answer_correct": 6
+          "answer_correct": 3
         },
         "dense": {
           "total": 8,
@@ -1896,18 +1896,18 @@
         "kg": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "per_source_dataset": {
         "BEIR": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.375,
           "route_correct": 0,
-          "answer_correct": 6
+          "answer_correct": 3
         },
         "HotpotQA": {
           "total": 8,
@@ -1926,9 +1926,9 @@
         "WebQSP": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "results": [
@@ -1952,8 +1952,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Pneumonia, unspecified organism.",
-          "answer": "Hybrid connection: [dense:lex_icd_j18_9::chunk_0] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.\n[bm25:lex_icd_j18_9] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.. This combines structured evidence plus text relation evidence. [fused evidence: lex_icd_j18_9::chunk_0,lex_icd_j18_9]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [dense:rel_mosquito_animal::chunk_0] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.\n[bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.. This combines structured evidence plus text relation evidence. [fused evidence: rel_mosquito_animal::chunk_0,rel_mosquito_animal]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1976,8 +1976,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Cross entropy loss for logits and targets.",
-          "answer": "Hybrid connection: [dense:lex_torch_cross_entropy_loss::chunk_0] torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities.\n[bm25:lex_torch_cross_entropy_loss] torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities.. This combines structured evidence plus text relation evidence. [fused evidence: lex_torch_cross_entropy_loss::chunk_0,lex_torch_cross_entropy_loss]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [dense:rel_bird_vertebrate::chunk_0] The bird to vertebrate relation is class inheritance: bird is a vertebrate.\n[bm25:rel_bird_vertebrate] The bird to vertebrate relation is class inheritance: bird is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: rel_bird_vertebrate::chunk_0,rel_bird_vertebrate]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -1988,7 +1988,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Inserts a new value into a JSONB document.",
-          "answer": "Hybrid connection: [dense:lex_postgres_jsonb_insert::chunk_0] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.\n[bm25:lex_postgres_jsonb_insert] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.. This combines structured evidence plus text relation evidence. [fused evidence: lex_postgres_jsonb_insert::chunk_0,lex_postgres_jsonb_insert]",
+          "answer": "Hybrid connection: [dense:lex_postgres_jsonb_set::chunk_0] PostgreSQL jsonb_set updates or inserts a value at a specified JSONB path.\n[bm25:lex_postgres_jsonb_set] PostgreSQL jsonb_set updates or inserts a value at a specified JSONB path.. This combines structured evidence plus text relation evidence. [fused evidence: lex_postgres_jsonb_set::chunk_0,lex_postgres_jsonb_set]",
           "answer_correct": true,
           "reasoning_trace_generated": true
         },
@@ -2000,8 +2000,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Civil action for deprivation of rights under color of state law.",
-          "answer": "Hybrid connection: [dense:lex_section_1985::chunk_0] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.\n[bm25:lex_section_1985] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1985::chunk_0,lex_section_1985]",
-          "answer_correct": false,
+          "answer": "Hybrid connection: [dense:lex_section_1983::chunk_0] 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.\n[bm25:lex_section_1983] 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1983::chunk_0,lex_section_1983]",
+          "answer_correct": true,
           "reasoning_trace_generated": true
         },
         {
@@ -2012,8 +2012,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Singular value decomposition.",
-          "answer": "Hybrid connection: [dense:lex_numpy_linalg_svd::chunk_0] numpy.linalg.svd performs singular value decomposition on an array.\n[bm25:lex_numpy_linalg_svd] numpy.linalg.svd performs singular value decomposition on an array.. This combines structured evidence plus text relation evidence. [fused evidence: lex_numpy_linalg_svd::chunk_0,lex_numpy_linalg_svd]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [kg:kg_wings_is_body_part] wings is_a body_part. This combines structured evidence plus text relation evidence. [fused evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2024,8 +2024,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "A converter from raw documents to TF-IDF features.",
-          "answer": "Hybrid connection: [dense:lex_sklearn_tfidf::chunk_0] TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features.\n[bm25:lex_sklearn_tfidf] TfidfVectorizer converts a collection of raw documents to a matrix of TF-IDF features.. This combines structured evidence plus text relation evidence. [fused evidence: lex_sklearn_tfidf::chunk_0,lex_sklearn_tfidf]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [kg:kg_wings_is_body_part] wings is_a body_part. This combines structured evidence plus text relation evidence. [fused evidence: kg_wings_is_body_part]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2048,7 +2048,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Impostor syndrome.",
-          "answer": "Hybrid connection: [dense:sem_memory_consolidation::chunk_0] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.\n[bm25:sem_memory_consolidation] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.. This combines structured evidence plus text relation evidence. [fused evidence: sem_memory_consolidation::chunk_0,sem_memory_consolidation]",
+          "answer": "Hybrid connection: [dense:rel_penguin_swim::chunk_0] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.\n[bm25:rel_penguin_swim] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_penguin_swim::chunk_0,rel_penguin_swim]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2060,7 +2060,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Photosynthesis.",
-          "answer": "Hybrid connection: [dense:sem_photosynthesis::chunk_0] Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.\n[bm25:sem_photosynthesis] Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy.. This combines structured evidence plus text relation evidence. [fused evidence: sem_photosynthesis::chunk_0,sem_photosynthesis]",
+          "answer": "Hybrid connection: [dense:lex_postgres_jsonb_insert::chunk_0] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.\n[bm25:lex_postgres_jsonb_insert] PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path.. This combines structured evidence plus text relation evidence. [fused evidence: lex_postgres_jsonb_insert::chunk_0,lex_postgres_jsonb_insert]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2096,7 +2096,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Algorithmic bias.",
-          "answer": "Hybrid connection: [dense:sem_allergy::chunk_0] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.\n[bm25:sem_allergy] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.. This combines structured evidence plus text relation evidence. [fused evidence: sem_allergy::chunk_0,sem_allergy]",
+          "answer": "Hybrid connection: [dense:sem_memory_consolidation::chunk_0] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.\n[bm25:sem_memory_consolidation] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.. This combines structured evidence plus text relation evidence. [fused evidence: sem_memory_consolidation::chunk_0,sem_memory_consolidation]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2156,7 +2156,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "No. whale and dolphin are mammal counterexamples.",
-          "answer": "Hybrid connection: [dense:doc_mammal::chunk_0] A mammal is a vertebrate animal. Bats are mammals and can fly.\n[bm25:doc_mammal] A mammal is a vertebrate animal. Bats are mammals and can fly.. This combines structured evidence plus text relation evidence. [fused evidence: doc_mammal::chunk_0,doc_mammal]",
+          "answer": "Hybrid connection: [dense:rel_bat_fly::chunk_0] The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight.\n[bm25:rel_bat_fly] The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight.. This combines structured evidence plus text relation evidence. [fused evidence: rel_bat_fly::chunk_0,rel_bat_fly]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2180,8 +2180,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Yes. whale capable_of swim.",
-          "answer": "Hybrid connection: [dense:rel_whale_swim::chunk_0] The whale to swim relation is capability based: whale is capable of swim.\n[bm25:rel_whale_swim] The whale to swim relation is capability based: whale is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_whale_swim::chunk_0,rel_whale_swim]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [dense:rel_whale_vertebrate::chunk_0] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.\n[bm25:rel_whale_vertebrate] A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate.. This combines structured evidence plus text relation evidence. [fused evidence: rel_whale_vertebrate::chunk_0,rel_whale_vertebrate]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2204,7 +2204,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "bat eats mosquito and frog eats mosquito.",
-          "answer": "Hybrid connection: [dense:rel_frog_mosquito::chunk_0] The frog to mosquito relation is dietary: frog eats mosquito in the demo KG.\n[bm25:rel_frog_mosquito] The frog to mosquito relation is dietary: frog eats mosquito in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_frog_mosquito::chunk_0,rel_frog_mosquito]",
+          "answer": "Hybrid connection: [dense:rel_bat_mosquito::chunk_0] The bat to mosquito relation is dietary: bat eats mosquito in the demo KG.\n[bm25:rel_bat_mosquito] The bat to mosquito relation is dietary: bat eats mosquito in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_bat_mosquito::chunk_0,rel_bat_mosquito]",
           "answer_correct": true,
           "reasoning_trace_generated": true
         },
@@ -2216,7 +2216,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "No. eagle and chicken are bird counterexamples.",
-          "answer": "Hybrid connection: [dense:rel_duck_swim::chunk_0] The duck to swim relation is capability based: duck is capable of swim.\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_duck_swim::chunk_0,rel_duck_swim]",
+          "answer": "Hybrid connection: [dense:rel_penguin_swim::chunk_0] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.\n[bm25:rel_penguin_swim] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_penguin_swim::chunk_0,rel_penguin_swim]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2322,9 +2322,9 @@
       "system": "random_router",
       "total": 32,
       "route_accuracy": 0.15625,
-      "answer_accuracy": 0.65625,
+      "answer_accuracy": 0.46875,
       "route_correct": 5,
-      "answer_correct": 21,
+      "answer_correct": 15,
       "predicted_backend_distribution": {
         "hybrid": 10,
         "dense": 9,
@@ -2335,60 +2335,60 @@
         "bm25": {
           "total": 8,
           "route_accuracy": 0.125,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.375,
           "route_correct": 1,
-          "answer_correct": 6
+          "answer_correct": 3
         },
         "dense": {
           "total": 8,
           "route_accuracy": 0.25,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.625,
           "route_correct": 2,
-          "answer_correct": 6
+          "answer_correct": 5
         },
         "hybrid": {
           "total": 8,
           "route_accuracy": 0.25,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.625,
           "route_correct": 2,
-          "answer_correct": 6
+          "answer_correct": 5
         },
         "kg": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "per_source_dataset": {
         "BEIR": {
           "total": 8,
           "route_accuracy": 0.125,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.375,
           "route_correct": 1,
-          "answer_correct": 6
+          "answer_correct": 3
         },
         "HotpotQA": {
           "total": 8,
           "route_accuracy": 0.25,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.625,
           "route_correct": 2,
-          "answer_correct": 6
+          "answer_correct": 5
         },
         "Natural Questions": {
           "total": 8,
           "route_accuracy": 0.25,
-          "answer_accuracy": 0.75,
+          "answer_accuracy": 0.625,
           "route_correct": 2,
-          "answer_correct": 6
+          "answer_correct": 5
         },
         "WebQSP": {
           "total": 8,
           "route_accuracy": 0.0,
-          "answer_accuracy": 0.375,
+          "answer_accuracy": 0.25,
           "route_correct": 0,
-          "answer_correct": 3
+          "answer_correct": 2
         }
       },
       "results": [
@@ -2412,8 +2412,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Pneumonia, unspecified organism.",
-          "answer": "Hybrid connection: [dense:lex_icd_j18_9::chunk_0] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.\n[bm25:lex_icd_j18_9] ICD-10-CM code J18.9 identifies pneumonia, unspecified organism.. This combines structured evidence plus text relation evidence. [fused evidence: lex_icd_j18_9::chunk_0,lex_icd_j18_9]",
-          "answer_correct": true,
+          "answer": "Hybrid connection: [dense:rel_mosquito_animal::chunk_0] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.\n[bm25:rel_mosquito_animal] A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal.. This combines structured evidence plus text relation evidence. [fused evidence: rel_mosquito_animal::chunk_0,rel_mosquito_animal]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2436,8 +2436,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Cross entropy loss for logits and targets.",
-          "answer": "torch.nn.CrossEntropyLoss. torch.nn.CrossEntropyLoss computes cross entropy loss between input logits and target class indices or probabilities. [evidence: lex_torch_cross_entropy_loss::chunk_0]",
-          "answer_correct": true,
+          "answer": "Bird vertebrate relation. The bird to vertebrate relation is class inheritance: bird is a vertebrate. [evidence: rel_bird_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2448,8 +2448,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Inserts a new value into a JSONB document.",
-          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
-          "answer_correct": true,
+          "answer": "Frog mosquito relation. The frog to mosquito relation is dietary: frog eats mosquito in the demo KG. [evidence: rel_frog_mosquito::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2460,8 +2460,8 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Civil action for deprivation of rights under color of state law.",
-          "answer": "Hybrid connection: [dense:lex_section_1985::chunk_0] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.\n[bm25:lex_section_1985] 42 U.S.C. \u00a71985 concerns conspiracies to interfere with civil rights.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1985::chunk_0,lex_section_1985]",
-          "answer_correct": false,
+          "answer": "Hybrid connection: [dense:lex_section_1983::chunk_0] 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.\n[bm25:lex_section_1983] 42 U.S.C. \u00a71983 provides a civil action for deprivation of rights under color of state law.. This combines structured evidence plus text relation evidence. [fused evidence: lex_section_1983::chunk_0,lex_section_1983]",
+          "answer_correct": true,
           "reasoning_trace_generated": true
         },
         {
@@ -2472,8 +2472,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Singular value decomposition.",
-          "answer": "numpy.linalg.svd. numpy.linalg.svd performs singular value decomposition on an array. [evidence: lex_numpy_linalg_svd::chunk_0]",
-          "answer_correct": true,
+          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2520,8 +2520,8 @@
           "predicted_backend": "dense",
           "route_correct": true,
           "gold_answer": "Photosynthesis.",
-          "answer": "Photosynthesis. Photosynthesis is the biological process where plants and other organisms convert sunlight, carbon dioxide, and water into stored chemical energy. [evidence: sem_photosynthesis::chunk_0]",
-          "answer_correct": true,
+          "answer": "PostgreSQL jsonb_insert. PostgreSQL jsonb_insert inserts a new value into a JSONB document at a specified path. [evidence: lex_postgres_jsonb_insert::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2556,7 +2556,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "Algorithmic bias.",
-          "answer": "Hybrid connection: [dense:sem_allergy::chunk_0] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.\n[bm25:sem_allergy] An allergy is an immune response in which the body reacts strongly to a usually harmless substance such as pollen or food.. This combines structured evidence plus text relation evidence. [fused evidence: sem_allergy::chunk_0,sem_allergy]",
+          "answer": "Hybrid connection: [dense:sem_memory_consolidation::chunk_0] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.\n[bm25:sem_memory_consolidation] Memory consolidation is the process by which experiences and learning become more stable over time, especially during sleep.. This combines structured evidence plus text relation evidence. [fused evidence: sem_memory_consolidation::chunk_0,sem_memory_consolidation]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2640,8 +2640,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "Yes. whale capable_of swim.",
-          "answer": "Whale swim relation. The whale to swim relation is capability based: whale is capable of swim. [evidence: rel_whale_swim::chunk_0]",
-          "answer_correct": true,
+          "answer": "Whale to vertebrate bridge. A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate. [evidence: rel_whale_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2676,7 +2676,7 @@
           "predicted_backend": "hybrid",
           "route_correct": false,
           "gold_answer": "No. eagle and chicken are bird counterexamples.",
-          "answer": "Hybrid connection: [dense:rel_duck_swim::chunk_0] The duck to swim relation is capability based: duck is capable of swim.\n[bm25:rel_duck_swim] The duck to swim relation is capability based: duck is capable of swim.. This combines structured evidence plus text relation evidence. [fused evidence: rel_duck_swim::chunk_0,rel_duck_swim]",
+          "answer": "Hybrid connection: [dense:rel_penguin_swim::chunk_0] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.\n[bm25:rel_penguin_swim] The penguin to swim relation is capability: penguin is capable of swim in the demo KG.. This combines structured evidence plus text relation evidence. [fused evidence: rel_penguin_swim::chunk_0,rel_penguin_swim]",
           "answer_correct": false,
           "reasoning_trace_generated": true
         },
@@ -2712,8 +2712,8 @@
           "predicted_backend": "dense",
           "route_correct": false,
           "gold_answer": "bat eats mosquito plus text relation evidence.",
-          "answer": "Bat mosquito relation. The bat to mosquito relation is dietary: bat eats mosquito in the demo KG. [evidence: rel_bat_mosquito::chunk_0]",
-          "answer_correct": true,
+          "answer": "Bat to vertebrate bridge. A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate. [evidence: rel_bat_vertebrate::chunk_0]",
+          "answer_correct": false,
           "reasoning_trace_generated": true
         },
         {
@@ -2780,8 +2780,8 @@
     }
   },
   "takeaways": [
-    "Computed RAS answer accuracy is 1.000.",
-    "Strongest fixed-backend baseline is always_hybrid at 0.688.",
+    "Computed RAS answer accuracy is 0.969.",
+    "Strongest fixed-backend baseline is always_bm25 at 0.562.",
     "External mini-benchmark remains separate from the curated 80-query benchmark."
   ]
 }

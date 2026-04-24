@@ -17,41 +17,41 @@ Public-doc grounding coverage: {'total': 48, 'grounded': 48, 'coverage': 1.0, 'b
 ### Dev Split
 
 - Computed RAS route accuracy: 0.917.
-- Computed RAS answer accuracy: 0.958 (23/24).
-- Computed RAS evidence hit@k: 0.875 (21/24).
+- Computed RAS answer accuracy: 0.833 (20/24).
+- Computed RAS evidence hit@k: 0.792 (19/24).
 - Strongest fixed-backend baseline: `always_bm25` at answer accuracy 0.875.
 - Predicted backend distribution: {'bm25': 5, 'dense': 6, 'kg': 7, 'hybrid': 6}.
 - Per-family computed RAS:
   - bm25: answer=1.000, evidence_hit@k=1.000, total=6
-  - dense: answer=0.833, evidence_hit@k=0.833, total=6
+  - dense: answer=0.333, evidence_hit@k=0.500, total=6
   - hybrid: answer=1.000, evidence_hit@k=1.000, total=6
   - kg: answer=1.000, evidence_hit@k=0.667, total=6
 
 ### Test Split
 
 - Computed RAS route accuracy: 0.917.
-- Computed RAS answer accuracy: 1.000 (24/24).
-- Computed RAS evidence hit@k: 1.000 (24/24).
+- Computed RAS answer accuracy: 0.875 (21/24).
+- Computed RAS evidence hit@k: 0.917 (22/24).
 - Strongest fixed-backend baseline: `always_bm25` at answer accuracy 0.958.
 - Predicted backend distribution: {'bm25': 4, 'dense': 8, 'kg': 6, 'hybrid': 6}.
 - Per-family computed RAS:
   - bm25: answer=1.000, evidence_hit@k=1.000, total=6
-  - dense: answer=1.000, evidence_hit@k=1.000, total=6
+  - dense: answer=0.500, evidence_hit@k=0.667, total=6
   - hybrid: answer=1.000, evidence_hit@k=1.000, total=6
   - kg: answer=1.000, evidence_hit@k=1.000, total=6
 
 ## Public Robustness Before/After
 
 - Previous public test reference: computed RAS answer=0.917 (22/24), route=0.875, strongest fixed=always_bm25 at 0.958.
-- dev: baseline answer=0.958; public lexical=0.958; public arbitrated=0.958.
-- dev: public arbitrated route delta=0.042; gap vs strongest fixed backend after arbitration=0.083.
-- test: baseline answer=1.000; public lexical=1.000; public arbitrated=1.000.
-- test: public arbitrated route delta=0.083; gap vs strongest fixed backend after arbitration=0.042.
+- dev: baseline answer=0.833; public lexical=0.833; public arbitrated=0.833.
+- dev: public arbitrated route delta=0.042; gap vs strongest fixed backend after arbitration=-0.042.
+- test: baseline answer=0.875; public lexical=0.875; public arbitrated=0.875.
+- test: public arbitrated route delta=0.083; gap vs strongest fixed backend after arbitration=-0.083.
 
 ## Main Takeaways
 
-- dev: computed RAS answer accuracy 0.958 beats or matches strongest fixed backend always_bm25 at 0.875; weakest family is dense.
-- test: computed RAS answer accuracy 1.000 beats or matches strongest fixed backend always_bm25 at 0.958; weakest family is bm25.
+- dev: computed RAS answer accuracy 0.833 trails strongest fixed backend always_bm25 at 0.875; weakest family is dense.
+- test: computed RAS answer accuracy 0.875 trails strongest fixed backend always_bm25 at 0.958; weakest family is dense.
 
 ## Threats To Validity
 

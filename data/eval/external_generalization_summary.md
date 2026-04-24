@@ -7,22 +7,22 @@ Counts per route family: {'bm25': 8, 'dense': 8, 'hybrid': 8, 'kg': 8}.
 ## PRISM Performance
 
 Computed RAS route accuracy: 1.000.
-Computed RAS answer accuracy: 1.000.
-Strongest fixed-backend baseline: always_hybrid at answer accuracy 0.688.
+Computed RAS answer accuracy: 0.969.
+Strongest fixed-backend baseline: always_bm25 at answer accuracy 0.562.
 Predicted backend distribution: {'bm25': 8, 'dense': 8, 'kg': 8, 'hybrid': 8}.
-Dense backend status: {'active_backend': 'sentence_transformers+faiss', 'embedding_backend': 'sentence_transformers', 'model_name': 'sentence-transformers/all-MiniLM-L6-v2', 'index_backend': 'faiss', 'faiss_active': True, 'chunk_count': 148, 'fallback_reason': '', 'semantic_rerank': True}.
+Dense backend status: {'active_backend': 'numpy_fallback', 'embedding_backend': 'numpy_fallback', 'model_name': 'hashing-semantic-fallback', 'index_backend': 'numpy', 'faiss_active': False, 'chunk_count': 148, 'fallback_reason': 'Could not load sentence-transformers model sentence-transformers/all-MiniLM-L6-v2: RuntimeError: Cannot send a request, as the client has been closed.', 'semantic_rerank': True}.
 
 ## Per-Family Computed RAS Results
 
 - bm25: route_accuracy=1.000, answer_accuracy=1.000, correct=8/8.
-- dense: route_accuracy=1.000, answer_accuracy=1.000, correct=8/8.
+- dense: route_accuracy=1.000, answer_accuracy=0.875, correct=7/8.
 - hybrid: route_accuracy=1.000, answer_accuracy=1.000, correct=8/8.
 - kg: route_accuracy=1.000, answer_accuracy=1.000, correct=8/8.
 
 ## Main Takeaways
 
-- Computed RAS answer accuracy is 1.000.
-- Strongest fixed-backend baseline is always_hybrid at 0.688.
+- Computed RAS answer accuracy is 0.969.
+- Strongest fixed-backend baseline is always_bm25 at 0.562.
 - External mini-benchmark remains separate from the curated 80-query benchmark.
 
 ## Known Caveats

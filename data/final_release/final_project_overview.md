@@ -42,8 +42,8 @@ Known result snapshot:
   "external_mini": {
     "total": 32,
     "route_accuracy": 1.0,
-    "answer_accuracy": 1.0,
-    "dense_backend": "sentence_transformers+faiss",
+    "answer_accuracy": 0.96875,
+    "dense_backend": "numpy_fallback",
     "path": "data/eval/external_generalization.json"
   },
   "generalization_v2": {
@@ -55,8 +55,8 @@ Known result snapshot:
   },
   "public_raw": {
     "route_accuracy": 0.9166666666666666,
-    "answer_accuracy": 1.0,
-    "evidence_hit_at_k": 1.0,
+    "answer_accuracy": 0.875,
+    "evidence_hit_at_k": 0.9166666666666666,
     "top1_evidence_hit": null,
     "path": "data/eval/public_corpus_eval.json"
   },

@@ -4,9 +4,9 @@
       "name": "lexical_queries_favor_bm25_over_dense",
       "statement": "Lexical queries favor BM25 over Dense on evidence hit@k.",
       "primary_metric": 1.0,
-      "baseline_metric": 1.0,
-      "margin": 0.0,
-      "supported": false
+      "baseline_metric": 0.6,
+      "margin": 0.4,
+      "supported": true
     },
     {
       "name": "semantic_queries_favor_dense_over_bm25",
@@ -36,12 +36,12 @@
       "name": "computed_ras_beats_or_matches_fixed_backends_overall",
       "statement": "Computed RAS routing beats or matches the strongest fixed-backend baseline overall on answer accuracy.",
       "primary_metric": 1.0,
-      "baseline_metric": 0.675,
-      "margin": 0.32499999999999996,
+      "baseline_metric": 0.55,
+      "margin": 0.44999999999999996,
       "supported": true
     }
   ],
-  "all_supported": false,
+  "all_supported": true,
   "baseline_summary": {
     "computed_ras": {
       "route_accuracy": 1.0,
@@ -55,8 +55,8 @@
     },
     "always_dense": {
       "route_accuracy": 0.25,
-      "evidence_hit_at_k": 0.5,
-      "answer_accuracy": 0.6625
+      "evidence_hit_at_k": 0.4,
+      "answer_accuracy": 0.4625
     },
     "always_kg": {
       "route_accuracy": 0.25,
@@ -65,13 +65,13 @@
     },
     "always_hybrid": {
       "route_accuracy": 0.25,
-      "evidence_hit_at_k": 0.6625,
-      "answer_accuracy": 0.675
+      "evidence_hit_at_k": 0.5625,
+      "answer_accuracy": 0.55
     },
     "random_router": {
       "route_accuracy": 0.375,
-      "evidence_hit_at_k": 0.5375,
-      "answer_accuracy": 0.6
+      "evidence_hit_at_k": 0.475,
+      "answer_accuracy": 0.5375
     },
     "oracle_route": {
       "route_accuracy": 1.0,

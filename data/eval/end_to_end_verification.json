@@ -1157,10 +1157,10 @@
         "sem_climate_anxiety"
       ],
       "evidence_ids": [
-        "sem_background_003",
-        "sem_background_003::chunk_0",
-        "sem_background_023",
-        "sem_background_023::chunk_0",
+        "rel_bird_vertebrate",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_insect_animal",
+        "rel_insect_animal::chunk_0",
         "sem_climate_anxiety",
         "sem_climate_anxiety::chunk_0"
       ],
@@ -1206,8 +1206,8 @@
         "sem_impostor_syndrome"
       ],
       "evidence_ids": [
-        "sem_attention_fragmentation",
-        "sem_attention_fragmentation::chunk_0",
+        "lex_postgres_jsonb_set",
+        "lex_postgres_jsonb_set::chunk_0",
         "sem_impostor_syndrome",
         "sem_impostor_syndrome::chunk_0",
         "sem_narrative_identity",
@@ -1255,10 +1255,10 @@
         "sem_photosynthesis"
       ],
       "evidence_ids": [
-        "sem_background_043",
-        "sem_background_043::chunk_0",
-        "sem_circadian_rhythm",
-        "sem_circadian_rhythm::chunk_0",
+        "rel_penguin_swim",
+        "rel_penguin_swim::chunk_0",
+        "rel_penguin_vertebrate",
+        "rel_penguin_vertebrate::chunk_0",
         "sem_photosynthesis",
         "sem_photosynthesis::chunk_0"
       ],
@@ -1304,12 +1304,12 @@
         "sem_diffusion_innovations"
       ],
       "evidence_ids": [
+        "rel_bird_vertebrate",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_penguin_swim",
+        "rel_penguin_swim::chunk_0",
         "sem_diffusion_innovations",
-        "sem_diffusion_innovations::chunk_0",
-        "sem_ecological_niche",
-        "sem_ecological_niche::chunk_0",
-        "sem_impostor_syndrome",
-        "sem_impostor_syndrome::chunk_0"
+        "sem_diffusion_innovations::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1353,10 +1353,10 @@
         "sem_urban_heat_island"
       ],
       "evidence_ids": [
-        "sem_background_033",
-        "sem_background_033::chunk_0",
-        "sem_background_073",
-        "sem_background_073::chunk_0",
+        "lex_html_aria_label",
+        "lex_html_aria_label::chunk_0",
+        "rel_mosquito_animal",
+        "rel_mosquito_animal::chunk_0",
         "sem_urban_heat_island",
         "sem_urban_heat_island::chunk_0"
       ],
@@ -1402,10 +1402,10 @@
         "sem_memory_consolidation"
       ],
       "evidence_ids": [
-        "doc_exact",
-        "doc_exact::chunk_0",
-        "sem_circular_economy",
-        "sem_circular_economy::chunk_0",
+        "sem_background_013",
+        "sem_background_013::chunk_0",
+        "sem_background_053",
+        "sem_background_053::chunk_0",
         "sem_memory_consolidation",
         "sem_memory_consolidation::chunk_0"
       ],
@@ -1451,12 +1451,12 @@
         "sem_allergy"
       ],
       "evidence_ids": [
+        "lex_hipaa_164_510",
+        "lex_hipaa_164_510::chunk_0",
+        "lex_hipaa_164_514",
+        "lex_hipaa_164_514::chunk_0",
         "sem_allergy",
-        "sem_allergy::chunk_0",
-        "sem_butterfly_effect",
-        "sem_butterfly_effect::chunk_0",
-        "sem_impostor_syndrome",
-        "sem_impostor_syndrome::chunk_0"
+        "sem_allergy::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1500,10 +1500,10 @@
         "sem_mycorrhizal_network"
       ],
       "evidence_ids": [
-        "sem_background_034",
-        "sem_background_034::chunk_0",
-        "sem_background_054",
-        "sem_background_054::chunk_0",
+        "lex_postgres_jsonb_insert",
+        "lex_postgres_jsonb_insert::chunk_0",
+        "lex_postgres_jsonb_set",
+        "lex_postgres_jsonb_set::chunk_0",
         "sem_mycorrhizal_network",
         "sem_mycorrhizal_network::chunk_0"
       ],
@@ -1551,10 +1551,10 @@
       "evidence_ids": [
         "sem_algorithmic_bias",
         "sem_algorithmic_bias::chunk_0",
-        "sem_collective_intelligence",
-        "sem_collective_intelligence::chunk_0",
-        "sem_impostor_syndrome",
-        "sem_impostor_syndrome::chunk_0"
+        "sem_background_022",
+        "sem_background_022::chunk_0",
+        "sem_background_042",
+        "sem_background_042::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1598,12 +1598,12 @@
         "sem_circadian_rhythm"
       ],
       "evidence_ids": [
+        "rel_insect_animal",
+        "rel_insect_animal::chunk_0",
+        "rel_mosquito_animal",
+        "rel_mosquito_animal::chunk_0",
         "sem_circadian_rhythm",
-        "sem_circadian_rhythm::chunk_0",
-        "sem_circular_economy",
-        "sem_circular_economy::chunk_0",
-        "sem_situated_knowledge",
-        "sem_situated_knowledge::chunk_0"
+        "sem_circadian_rhythm::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1647,12 +1647,12 @@
         "sem_carbon_pricing"
       ],
       "evidence_ids": [
+        "lex_torch_nll_loss",
+        "lex_torch_nll_loss::chunk_0",
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0",
         "sem_carbon_pricing",
-        "sem_carbon_pricing::chunk_0",
-        "sem_circular_economy",
-        "sem_circular_economy::chunk_0",
-        "sem_reinforcement_learning",
-        "sem_reinforcement_learning::chunk_0"
+        "sem_carbon_pricing::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1696,12 +1696,12 @@
         "sem_narrative_identity"
       ],
       "evidence_ids": [
-        "sem_impostor_syndrome",
-        "sem_impostor_syndrome::chunk_0",
+        "lex_html_aria_labelledby",
+        "lex_html_aria_labelledby::chunk_0",
+        "sem_background_072",
+        "sem_background_072::chunk_0",
         "sem_narrative_identity",
-        "sem_narrative_identity::chunk_0",
-        "sem_situated_knowledge",
-        "sem_situated_knowledge::chunk_0"
+        "sem_narrative_identity::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1745,10 +1745,10 @@
         "sem_digital_commons"
       ],
       "evidence_ids": [
-        "sem_background_019",
-        "sem_background_019::chunk_0",
-        "sem_background_039",
-        "sem_background_039::chunk_0",
+        "lex_section_1983",
+        "lex_section_1983::chunk_0",
+        "lex_sklearn_tfidf",
+        "lex_sklearn_tfidf::chunk_0",
         "sem_digital_commons",
         "sem_digital_commons::chunk_0"
       ],
@@ -1794,10 +1794,10 @@
         "sem_water_cycle"
       ],
       "evidence_ids": [
-        "sem_climate_anxiety",
-        "sem_climate_anxiety::chunk_0",
-        "sem_urban_heat_island",
-        "sem_urban_heat_island::chunk_0",
+        "lex_numpy_linalg_svd",
+        "lex_numpy_linalg_svd::chunk_0",
+        "lex_torch_nll_loss",
+        "lex_torch_nll_loss::chunk_0",
         "sem_water_cycle",
         "sem_water_cycle::chunk_0"
       ],
@@ -1843,10 +1843,10 @@
         "sem_reinforcement_learning"
       ],
       "evidence_ids": [
-        "sem_algorithmic_bias",
-        "sem_algorithmic_bias::chunk_0",
-        "sem_collective_intelligence",
-        "sem_collective_intelligence::chunk_0",
+        "rel_bird_vertebrate",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_insect_animal",
+        "rel_insect_animal::chunk_0",
         "sem_reinforcement_learning",
         "sem_reinforcement_learning::chunk_0"
       ],
@@ -1941,12 +1941,12 @@
         "sem_attention_fragmentation"
       ],
       "evidence_ids": [
-        "sem_algorithmic_bias",
-        "sem_algorithmic_bias::chunk_0",
+        "rel_bird_vertebrate",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_insect_animal",
+        "rel_insect_animal::chunk_0",
         "sem_attention_fragmentation",
-        "sem_attention_fragmentation::chunk_0",
-        "sem_butterfly_effect",
-        "sem_butterfly_effect::chunk_0"
+        "sem_attention_fragmentation::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -1990,10 +1990,10 @@
         "sem_ecological_niche"
       ],
       "evidence_ids": [
-        "rel_duck_swim",
-        "rel_duck_swim::chunk_0",
-        "rel_sparrow_wings",
-        "rel_sparrow_wings::chunk_0",
+        "lex_torch_nll_loss",
+        "lex_torch_nll_loss::chunk_0",
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0",
         "sem_ecological_niche",
         "sem_ecological_niche::chunk_0"
       ],
@@ -2039,10 +2039,10 @@
         "sem_situated_knowledge"
       ],
       "evidence_ids": [
-        "doc_prism",
-        "doc_prism::chunk_0",
-        "sem_background_038",
-        "sem_background_038::chunk_0",
+        "lex_hipaa_164_512",
+        "lex_hipaa_164_512::chunk_0",
+        "sem_memory_consolidation",
+        "sem_memory_consolidation::chunk_0",
         "sem_situated_knowledge",
         "sem_situated_knowledge::chunk_0"
       ],
@@ -2088,10 +2088,10 @@
         "sem_butterfly_effect"
       ],
       "evidence_ids": [
-        "lex_torch_nll_loss",
-        "lex_torch_nll_loss::chunk_0",
-        "sem_attention_fragmentation",
-        "sem_attention_fragmentation::chunk_0",
+        "rel_bird_vertebrate",
+        "rel_bird_vertebrate::chunk_0",
+        "rel_insect_animal",
+        "rel_insect_animal::chunk_0",
         "sem_butterfly_effect",
         "sem_butterfly_effect::chunk_0"
       ],
@@ -3360,12 +3360,12 @@
         "hybrid:bundle:kg_bat_capable_fly+rel_bat_fly",
         "hybrid:bundle:kg_bat_capable_fly+rel_bat_mosquito",
         "hybrid:bundle:kg_bat_capable_fly+rel_bat_vertebrate",
-        "hybrid:text:rel_bat_fly",
+        "hybrid:text:rel_bat_vertebrate",
         "kg_bat_capable_fly",
         "rel_bat_fly",
-        "rel_bat_fly::chunk_0",
         "rel_bat_mosquito",
-        "rel_bat_vertebrate"
+        "rel_bat_vertebrate",
+        "rel_bat_vertebrate::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -3468,15 +3468,15 @@
         "hybrid:bundle:kg_eagle_eats_fish+rel_eagle_fish",
         "hybrid:bundle:kg_eagle_eats_fish+rel_salmon_vertebrate",
         "hybrid:text:rel_eagle_fish",
-        "hybrid:text:rel_penguin_vertebrate",
         "hybrid:text:rel_salmon_vertebrate",
+        "hybrid:text:rel_whale_vertebrate",
         "kg_eagle_eats_fish",
         "rel_eagle_fish",
         "rel_eagle_fish::chunk_0",
-        "rel_penguin_vertebrate",
-        "rel_penguin_vertebrate::chunk_0",
         "rel_salmon_vertebrate",
-        "rel_salmon_vertebrate::chunk_0"
+        "rel_salmon_vertebrate::chunk_0",
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -3577,17 +3577,17 @@
       ],
       "evidence_ids": [
         "hybrid:bundle:kg_dolphin_has_property_echolocation+rel_dolphin_echolocation",
+        "hybrid:text:rel_bat_vertebrate",
         "hybrid:text:rel_dolphin_echolocation",
-        "hybrid:text:rel_penguin_vertebrate",
-        "hybrid:text:rel_salmon_vertebrate",
+        "hybrid:text:rel_mammal_vertebrate",
         "hybrid:text:rel_whale_vertebrate",
         "kg_dolphin_has_property_echolocation",
+        "rel_bat_vertebrate",
+        "rel_bat_vertebrate::chunk_0",
         "rel_dolphin_echolocation",
         "rel_dolphin_echolocation::chunk_0",
-        "rel_penguin_vertebrate",
-        "rel_penguin_vertebrate::chunk_0",
-        "rel_salmon_vertebrate",
-        "rel_salmon_vertebrate::chunk_0",
+        "rel_mammal_vertebrate",
+        "rel_mammal_vertebrate::chunk_0",
         "rel_whale_vertebrate",
         "rel_whale_vertebrate::chunk_0"
       ],
@@ -3855,19 +3855,19 @@
       ],
       "evidence_ids": [
         "hybrid:bundle:kg_sparrow_has_wings+rel_sparrow_wings",
-        "hybrid:text:rel_bird_vertebrate",
-        "hybrid:text:rel_mosquito_animal",
-        "hybrid:text:rel_penguin_vertebrate",
+        "hybrid:text:rel_bat_vertebrate",
+        "hybrid:text:rel_mammal_vertebrate",
         "hybrid:text:rel_sparrow_wings",
+        "hybrid:text:rel_whale_vertebrate",
         "kg_sparrow_has_wings",
-        "rel_bird_vertebrate",
-        "rel_bird_vertebrate::chunk_0",
-        "rel_mosquito_animal",
-        "rel_mosquito_animal::chunk_0",
-        "rel_penguin_vertebrate",
-        "rel_penguin_vertebrate::chunk_0",
+        "rel_bat_vertebrate",
+        "rel_bat_vertebrate::chunk_0",
+        "rel_mammal_vertebrate",
+        "rel_mammal_vertebrate::chunk_0",
         "rel_sparrow_wings",
-        "rel_sparrow_wings::chunk_0"
+        "rel_sparrow_wings::chunk_0",
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -3916,13 +3916,14 @@
         "hybrid:bundle:kg_duck_capable_swim+rel_penguin_swim",
         "hybrid:bundle:kg_duck_capable_swim+rel_whale_swim",
         "hybrid:text:rel_duck_swim",
-        "hybrid:text:rel_whale_swim",
+        "hybrid:text:rel_whale_vertebrate",
         "kg_duck_capable_swim",
         "rel_duck_swim",
         "rel_duck_swim::chunk_0",
         "rel_penguin_swim",
         "rel_whale_swim",
-        "rel_whale_swim::chunk_0"
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,
@@ -3971,13 +3972,13 @@
         "hybrid:bundle:kg_whale_capable_swim+rel_penguin_swim",
         "hybrid:bundle:kg_whale_capable_swim+rel_whale_swim",
         "hybrid:bundle:kg_whale_capable_swim+rel_whale_vertebrate",
-        "hybrid:text:rel_whale_swim",
+        "hybrid:text:rel_whale_vertebrate",
         "kg_whale_capable_swim",
         "rel_duck_swim",
         "rel_penguin_swim",
         "rel_whale_swim",
-        "rel_whale_swim::chunk_0",
-        "rel_whale_vertebrate"
+        "rel_whale_vertebrate",
+        "rel_whale_vertebrate::chunk_0"
       ],
       "evidence_hit": true,
       "trace_generated": true,

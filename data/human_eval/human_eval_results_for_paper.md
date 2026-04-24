@@ -2,29 +2,18 @@
 
 ## Study Setup
 
-- Standard packet size: 36.
-- Comparative packet size: 28.
-- Standard evaluator count: 4.
-- Comparative evaluator count: 4.
+- Standard packet size: unknown.
+- Comparative packet size: 1.
+- Standard evaluator count: pending.
+- Comparative evaluator count: pending.
 
 ## Standard Human-Eval Findings
 
-- route_appropriateness: mean 2.896.
-- evidence_sufficiency: mean 2.917.
-- answer_faithfulness: mean 2.917.
-- trace_faithfulness: mean 2.931.
-- trace_clarity: mean 2.944.
-- overall_usefulness: mean 2.875.
-- Trace faithfulness mean: 2.9305555555555554.
-- Trace clarity mean: 2.9444444444444446.
+- Standard annotations are not available yet.
 
 ## Comparative Findings
 
-- computed_ras_vs_always_bm25: A win 0.625, B win 0.000, tie 0.375.
-- computed_ras_vs_always_dense: A win 0.375, B win 0.125, tie 0.500.
-- computed_ras_vs_calibrated_rescue: A win 0.000, B win 0.062, tie 0.938.
-- computed_ras_vs_classifier_router: A win 0.042, B win 0.042, tie 0.917.
-- Adjudication queue size: 12.
+- Comparative annotations are not available yet.
 
 ## Agreement And Caveats
 

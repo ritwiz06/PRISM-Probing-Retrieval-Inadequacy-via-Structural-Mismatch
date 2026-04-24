@@ -1,223 +1,62 @@
 {
-  "total": 21,
+  "total": 5,
   "patterns": {
-    "capable_of": 4,
-    "eats": 5,
-    "has_property": 2,
-    "is_a_singular": 9,
+    "bridge_through": 2,
+    "capable_of": 1,
+    "eats": 1,
     "produces": 1
   },
-  "average_confidence": 0.8514285714285714,
+  "average_confidence": 0.8400000000000001,
   "triples": [
     {
       "triple_id": "xkg_bat_capable_of_fly_d52128170899",
       "subject": "bat",
       "predicate": "capable_of",
       "object": "fly",
-      "source_doc_id": "rel_bat_fly",
+      "source_doc_id": "rel_bat",
       "confidence": 0.86,
       "pattern": "capable_of",
-      "snippet": "The bat to fly relation is supported by the KG fact that bat is capable of fly and text notes about bat flight."
+      "snippet": "bat is capable of fly."
     },
     {
       "triple_id": "xkg_bat_eats_mosquito_308480625cb2",
       "subject": "bat",
       "predicate": "eats",
       "object": "mosquito",
-      "source_doc_id": "rel_bat_mosquito",
+      "source_doc_id": "rel_food",
       "confidence": 0.9,
       "pattern": "eats",
-      "snippet": "The bat to mosquito relation is dietary: bat eats mosquito in the demo KG."
+      "snippet": "bat eats mosquito."
     },
     {
       "triple_id": "xkg_bat_is_a_mammal_430d29d1932a",
       "subject": "bat",
       "predicate": "is_a",
       "object": "mammal",
-      "source_doc_id": "rel_bat_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A bat connects to vertebrate through the mammal class: bat is a mammal, and mammal is a vertebrate."
-    },
-    {
-      "triple_id": "xkg_bird_is_a_vertebrate_bc629271e43b",
-      "subject": "bird",
-      "predicate": "is_a",
-      "object": "vertebrate",
-      "source_doc_id": "rel_bird_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "The bird to vertebrate relation is class inheritance: bird is a vertebrate."
-    },
-    {
-      "triple_id": "xkg_cat_eats_mouse_0ae4b381b5ec",
-      "subject": "cat",
-      "predicate": "eats",
-      "object": "mouse",
-      "source_doc_id": "rel_cat_mouse",
-      "confidence": 0.9,
-      "pattern": "eats",
-      "snippet": "The cat to mouse relation is dietary: cat eats mouse in the demo KG."
-    },
-    {
-      "triple_id": "xkg_dolphin_has_property_echolocation_7440592b4536",
-      "subject": "dolphin",
-      "predicate": "has_property",
-      "object": "echolocation",
-      "source_doc_id": "rel_dolphin_echolocation",
-      "confidence": 0.84,
-      "pattern": "has_property",
-      "snippet": "The dolphin to echolocation relation is a property relation: dolphin has property echolocation."
-    },
-    {
-      "triple_id": "xkg_duck_capable_of_swim_0631b9621b91",
-      "subject": "duck",
-      "predicate": "capable_of",
-      "object": "swim",
-      "source_doc_id": "rel_duck_swim",
-      "confidence": 0.86,
-      "pattern": "capable_of",
-      "snippet": "The duck to swim relation is capability based: duck is capable of swim."
-    },
-    {
-      "triple_id": "xkg_eagle_eats_fish_7ae5cfa0fb39",
-      "subject": "eagle",
-      "predicate": "eats",
-      "object": "fish",
-      "source_doc_id": "rel_eagle_fish",
-      "confidence": 0.9,
-      "pattern": "eats",
-      "snippet": "The eagle to fish relation is dietary: eagle eats fish in the demo KG."
-    },
-    {
-      "triple_id": "xkg_fish_is_a_vertebrate_479e4c350864",
-      "subject": "fish",
-      "predicate": "is_a",
-      "object": "vertebrate",
-      "source_doc_id": "rel_salmon_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate."
-    },
-    {
-      "triple_id": "xkg_frog_eats_mosquito_1c7710c9df66",
-      "subject": "frog",
-      "predicate": "eats",
-      "object": "mosquito",
-      "source_doc_id": "rel_frog_mosquito",
-      "confidence": 0.9,
-      "pattern": "eats",
-      "snippet": "The frog to mosquito relation is dietary: frog eats mosquito in the demo KG."
-    },
-    {
-      "triple_id": "xkg_insect_is_a_animal_6a2bd69fe1a9",
-      "subject": "insect",
-      "predicate": "is_a",
-      "object": "animal",
-      "source_doc_id": "rel_insect_animal",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "The insect to animal relation is class inheritance: insect is an animal."
+      "source_doc_id": "rel_bat",
+      "confidence": 0.78,
+      "pattern": "bridge_through",
+      "snippet": "A bat connects to vertebrate through mammal."
     },
     {
       "triple_id": "xkg_mammal_is_a_vertebrate_7c534cf092c1",
       "subject": "mammal",
       "predicate": "is_a",
       "object": "vertebrate",
-      "source_doc_id": "doc_mammal",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A mammal is a vertebrate animal."
+      "source_doc_id": "rel_bat",
+      "confidence": 0.78,
+      "pattern": "bridge_through",
+      "snippet": "A bat connects to vertebrate through mammal."
     },
     {
       "triple_id": "xkg_mammal_produces_milk_4b3d8fe9ee63",
       "subject": "mammal",
       "predicate": "produces",
       "object": "milk",
-      "source_doc_id": "rel_mammal_milk",
+      "source_doc_id": "rel_food",
       "confidence": 0.88,
       "pattern": "produces",
-      "snippet": "The mammal to milk relation is production: mammal produces milk in the demo KG."
-    },
-    {
-      "triple_id": "xkg_mosquito_is_a_insect_d502028f034a",
-      "subject": "mosquito",
-      "predicate": "is_a",
-      "object": "insect",
-      "source_doc_id": "rel_mosquito_animal",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A mosquito connects to animal through insect: mosquito is an insect, and insect is an animal."
-    },
-    {
-      "triple_id": "xkg_owl_eats_mouse_588e725fc259",
-      "subject": "owl",
-      "predicate": "eats",
-      "object": "mouse",
-      "source_doc_id": "rel_owl_mouse",
-      "confidence": 0.9,
-      "pattern": "eats",
-      "snippet": "The owl to mouse relation is dietary: owl eats mouse in the demo KG."
-    },
-    {
-      "triple_id": "xkg_penguin_capable_of_swim_0e19199d15d1",
-      "subject": "penguin",
-      "predicate": "capable_of",
-      "object": "swim",
-      "source_doc_id": "rel_penguin_swim",
-      "confidence": 0.86,
-      "pattern": "capable_of",
-      "snippet": "The penguin to swim relation is capability: penguin is capable of swim in the demo KG."
-    },
-    {
-      "triple_id": "xkg_penguin_is_a_bird_de70c1676639",
-      "subject": "penguin",
-      "predicate": "is_a",
-      "object": "bird",
-      "source_doc_id": "rel_penguin_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A penguin connects to vertebrate through bird: penguin is a bird, and bird is a vertebrate."
-    },
-    {
-      "triple_id": "xkg_salmon_is_a_fish_7f6985e7e45d",
-      "subject": "salmon",
-      "predicate": "is_a",
-      "object": "fish",
-      "source_doc_id": "rel_salmon_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A salmon connects to vertebrate through fish: salmon is a fish, and fish is a vertebrate."
-    },
-    {
-      "triple_id": "xkg_sparrow_has_property_wings_746122968987",
-      "subject": "sparrow",
-      "predicate": "has_property",
-      "object": "wings",
-      "source_doc_id": "rel_sparrow_wings",
-      "confidence": 0.84,
-      "pattern": "has_property",
-      "snippet": "The sparrow to wings relation is property based: sparrow has property wings."
-    },
-    {
-      "triple_id": "xkg_whale_capable_of_swim_231d374d2b88",
-      "subject": "whale",
-      "predicate": "capable_of",
-      "object": "swim",
-      "source_doc_id": "rel_whale_swim",
-      "confidence": 0.86,
-      "pattern": "capable_of",
-      "snippet": "The whale to swim relation is capability based: whale is capable of swim."
-    },
-    {
-      "triple_id": "xkg_whale_is_a_mammal_e29dae05af74",
-      "subject": "whale",
-      "predicate": "is_a",
-      "object": "mammal",
-      "source_doc_id": "rel_whale_vertebrate",
-      "confidence": 0.82,
-      "pattern": "is_a_singular",
-      "snippet": "A whale connects to vertebrate through mammal: whale is a mammal, and mammal is a vertebrate."
+      "snippet": "mammal produces milk."
     }
   ]
 }

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.17\linewidth}p{0.22\linewidth}p{0.28\linewidth}p{0.18\linewidth}}
+\toprule
+\textbf{Variant} & \textbf{Model type} & \textbf{Main signal} & \textbf{Release status} \\
+\midrule
+computed\_ras & Deterministic heuristic & Query-feature penalties for BM25, Dense, KG, and Hybrid route families & Production default \\
+computed\_ras\_v2 & Heuristic refinement & Narrow hard-case signals and ambiguity heuristics & Analysis-only \\
+ras\_v3 & Interpretable linear route model & Feature contributions for route adequacy & Analysis-only \\
+ras\_v4 & Interpretable joint adequacy model & Route adequacy plus evidence adequacy diagnostics & Analysis-only \\
+calibrated\_rescue & Overlay, not a RAS replacement & Dev-tuned route calibration and top-k evidence rescue & Research/demo overlay \\
+\bottomrule
+\end{tabular}
+\caption{RAS family comparison. The production decision remains explicit: \texttt{computed\_ras} is the default router; later variants are reported as analysis layers.}
+\label{tab:rasversions}
+\end{table}

@@ -20,7 +20,7 @@ The system routes queries to BM25, Dense, KG, or Hybrid evidence. The production
   {
     "benchmark": "External Mini",
     "route_accuracy": 1.0,
-    "answer_accuracy": 1.0
+    "answer_accuracy": 0.96875
   },
   {
     "benchmark": "GenV2 Clean",
@@ -35,7 +35,7 @@ The system routes queries to BM25, Dense, KG, or Hybrid evidence. The production
   {
     "benchmark": "Public Raw",
     "route_accuracy": 0.9166666666666666,
-    "answer_accuracy": 1.0
+    "answer_accuracy": 0.875
   },
   {
     "benchmark": "Public Graph",
@@ -213,8 +213,8 @@ The final project is presentation-ready and submission-ready, but the scientific
   "external_mini": {
     "total": 32,
     "route_accuracy": 1.0,
-    "answer_accuracy": 1.0,
-    "dense_backend": "sentence_transformers+faiss",
+    "answer_accuracy": 0.96875,
+    "dense_backend": "numpy_fallback",
     "path": "data/eval/external_generalization.json"
   },
   "generalization_v2": {
@@ -226,8 +226,8 @@ The final project is presentation-ready and submission-ready, but the scientific
   },
   "public_raw": {
     "route_accuracy": 0.9166666666666666,
-    "answer_accuracy": 1.0,
-    "evidence_hit_at_k": 1.0,
+    "answer_accuracy": 0.875,
+    "evidence_hit_at_k": 0.9166666666666666,
     "top1_evidence_hit": null,
     "path": "data/eval/public_corpus_eval.json"
   },

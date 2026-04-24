@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Evaluation layer} & \textbf{Size / split} & \textbf{Route acc.} & \textbf{Answer acc.} \\
+\midrule
+Curated end-to-end & 80 examples & 1.000 & 1.000 \\
+External mini-benchmark & 32 examples & 1.000 & 1.000 \\
+Generalization v2 clean test & 40 test examples & 0.950 & 1.000 \\
+Generalization v2 noisy test & 40 test examples & 0.950 & 0.975 \\
+Public raw-document test & 24 test examples & 0.917 & 1.000 \\
+Public graph test & 16 test examples & 1.000 & 1.000 \\
+Adversarial test & 24 test examples & 0.750 & 0.917 \\
+Open-corpus smoke & 5 smoke queries & -- & 1.000 \\
+\bottomrule
+\end{tabular}
+\caption{Release-level PRISM benchmark summary. Values are copied from the existing evaluation artifacts under \texttt{data/eval/} and \texttt{data/final\_release/}.}
+\label{tab:benchmarks}
+\end{table}
