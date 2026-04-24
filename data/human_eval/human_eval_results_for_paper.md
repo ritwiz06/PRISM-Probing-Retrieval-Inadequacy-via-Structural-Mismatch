@@ -3,36 +3,39 @@
 ## Study Setup
 
 - Standard packet size: 36.
+- Comparative packet size: 28.
 - Standard evaluator count: 4.
+- Comparative evaluator count: 4.
 
-## Standard Human-Eval Results
+## Standard Human-Eval Findings
 
-- route_appropriateness: mean 2.896, median 3.0.
-- evidence_sufficiency: mean 2.917, median 3.0.
-- answer_faithfulness: mean 2.917, median 3.0.
-- trace_faithfulness: mean 2.931, median 3.0.
-- trace_clarity: mean 2.944, median 3.0.
-- overall_usefulness: mean 2.875, median 3.0.
-
-## Trace Validity
-
+- route_appropriateness: mean 2.896.
+- evidence_sufficiency: mean 2.917.
+- answer_faithfulness: mean 2.917.
+- trace_faithfulness: mean 2.931.
+- trace_clarity: mean 2.944.
+- overall_usefulness: mean 2.875.
 - Trace faithfulness mean: 2.9305555555555554.
 - Trace clarity mean: 2.9444444444444446.
-- Weak trace support annotations: 10.
 
-## Agreement
+## Comparative Findings
 
-- Items with multiple annotations: 36.
-- Major error type percent agreement: 1.0.
+- computed_ras_vs_always_bm25: A win 0.625, B win 0.000, tie 0.375.
+- computed_ras_vs_always_dense: A win 0.375, B win 0.125, tie 0.500.
+- computed_ras_vs_calibrated_rescue: A win 0.000, B win 0.062, tie 0.938.
+- computed_ras_vs_classifier_router: A win 0.042, B win 0.042, tie 0.917.
+- Adjudication queue size: 12.
 
-## Human Vs Automatic
+## Agreement And Caveats
 
-- Automatic-correct but weak support annotations: 4.
+- Agreement should be interpreted cautiously because the evaluator pool and packet sizes are small.
+- Forced-choice comparative judgments can hide nuance.
+- Automatic correctness is normalized string matching, not a substitute for human support judgments.
 
 ## Threats To Validity
 
-- Small evaluator pool can produce unstable agreement estimates.
-- Ordinal rubric scores are subjective even with written guidance.
-- Packet size is intentionally small for practicality.
-- Evaluators may share expectations with benchmark designers.
-- Human support judgments may disagree with automatic normalized string matching.
+- Small annotator pool can make preference estimates unstable.
+- Forced-choice A/B/Tie judgments can hide nuance.
+- Comparative packet size is practical but limited.
+- Evaluator familiarity with PRISM may bias preferences.
+- Hard-case construction overlaps with the systems being compared.

@@ -28,12 +28,14 @@ from prism.demo.ui_components import (
     render_card,
     render_hero,
     render_info_card,
+    render_mini_card,
+    render_section_header,
     render_step,
+    render_status_line,
     route_badge,
 )
 from prism.open_corpus.source_packs import list_source_packs
 from prism.open_corpus.view_model import build_open_workspace_view_model
-from prism.ras_explainer.math_docs import ras_math_payload
 from prism.ras_explainer.version_compare import build_version_comparison, explain_query
 
 
@@ -109,7 +111,7 @@ def main() -> None:
         preset_label = st.selectbox("Preset", labels)
         preset = preset_by_title(preset_label)
         render_badges([badge(preset.badge), route_badge(preset.expected_route), badge(preset.demo_mode)])
-        st.caption(preset.presenter_note)
+        st.caption(f"Scenario: {preset.presenter_note}")
         query = st.text_area("Query", value=preset.query, height=92)
 
         st.markdown("### Benchmark Browser")
@@ -181,7 +183,7 @@ def main() -> None:
         except Exception as exc:  # pragma: no cover - defensive UI guard
             with tab_query:
                 render_info_card(f"Open-corpus workspace could not be built: {exc}", warning=True)
-                render_info_card("Use benchmark mode or the bundled local demo folder as the safe fallback.")
+                render_info_card("Benchmark mode and the bundled local demo folder remain available as reliable fallback paths.")
             return
         payload = open_workspace
         view_model = _open_workspace_view_model(open_workspace)
@@ -449,8 +451,8 @@ def _render_router_comparison(open_workspace: dict[str, object] | None, payload:
 
 
 def _render_demo_overview() -> None:
-    st.markdown("## Presenter-Ready Query Flow")
-    render_info_card("Choose a preset in the sidebar, keep benchmark mode for the safest path, then run PRISM.")
+    st.markdown("## Demo Overview")
+    render_info_card("Select a preset in the sidebar, keep benchmark mode for the most reproducible path, then run PRISM.")
     cols = st.columns(4)
     status = _cached_json("data/final_release/known_results_summary.json")
     card_data = [
@@ -474,29 +476,35 @@ def _render_demo_overview() -> None:
 
 def _render_guided_demo() -> None:
     script = demo_script_payload()
-    st.markdown("## Guided Live Demo")
-    cols = st.columns([2, 1])
+    render_section_header(
+        "Guided demo",
+        "A compact walkthrough of PRISM's core ideas",
+        "The sequence moves from deterministic production routing to evidence inspection, open-corpus scope, and research overlays.",
+    )
+    show_notes = st.checkbox("Presenter view", value=False, help="Show concise narration notes for live delivery.")
+    cols = st.columns(3)
     with cols[0]:
-        render_info_card(
-            "Use this page as the presenter script. It keeps the story focused: route adequacy, auditable evidence, "
-            "open-corpus scope, and honest research overlays."
-        )
+        render_card("Production path", "computed_ras", "Default deterministic router.")
     with cols[1]:
-        render_card("Production mode", "computed_ras", "Do not present RAS_V3/RAS_V4 as production replacements.")
+        render_card("Research overlays", "clearly labeled", "Rescue, classifier, RAS_V3, RAS_V4, and optional LLM.")
+    with cols[2]:
+        render_card("Safe scope", "bounded corpora", "Benchmark, source-pack, or local corpus evidence.")
 
-    st.markdown("### Live Sequence")
+    st.markdown("### Demonstration Scenarios")
     for step in script.get("script_steps", []):
         with st.container(border=True):
             render_badges([badge(f"Step {step['step']}"), badge(step["mode"]), badge(step["preset"])])
             st.markdown(f"#### {step['title']}")
-            st.write(step["talk_track"])
-            st.caption("Show: " + ", ".join(str(item) for item in step.get("show", [])))
+            st.caption("Focus: " + ", ".join(str(item) for item in step.get("show", [])))
+            if show_notes:
+                with st.expander("Presenter notes", expanded=False):
+                    st.write(step["talk_track"])
 
-    st.markdown("### Safe Fallback Flow")
+    st.markdown("### Reliable Benchmark Sequence")
     render_info_card(str(script.get("fallback_note", "")))
-    st.write(" -> ".join(str(item) for item in script.get("safe_fallback_sequence", [])))
+    st.write("  →  ".join(str(item) for item in script.get("safe_fallback_sequence", [])))
 
-    st.markdown("### Tab Map")
+    st.markdown("### Workspace Map")
     tab_rows = [
         {"tab": "Demo / Query", "purpose": "Run the production path and inspect query, route, evidence, answer, trace."},
         {"tab": "RAS Explainer", "purpose": "Explain computed RAS, RAS_V2, RAS_V3, RAS_V4, margins, and ambiguity flags."},
@@ -510,53 +518,61 @@ def _render_guided_demo() -> None:
 
 
 def _render_ras_explainer(query: str) -> None:
-    st.markdown("## How RAS Works")
-    render_info_card(
-        "RAS means Representation Adequacy Score. It asks which evidence representation is structurally adequate "
-        "for the query before answer generation."
+    render_section_header(
+        "RAS explainer",
+        "Representation Adequacy Score",
+        "RAS estimates which representation can best support a query before answer generation: lexical text, dense semantics, graph structure, or a hybrid path.",
     )
     comparison = build_version_comparison()
-    math_payload = ras_math_payload()
     version_rows = comparison["versions"]
 
     cols = st.columns(4)
     with cols[0]:
         render_card("Production", "computed_ras", "Deterministic penalty table.")
     with cols[1]:
-        render_card("Route-only research", "RAS_V3", "Learned linear route adequacy.")
+        render_card("Route adequacy", "RAS_V3", "Learned linear route model.")
     with cols[2]:
-        render_card("Joint research", "RAS_V4", "Route + evidence adequacy.")
+        render_card("Joint adequacy", "RAS_V4", "Route score plus evidence support.")
     with cols[3]:
-        render_card("Rescue overlay", "calibrated", "Complementary top-k rescue.")
+        render_card("Rescue overlay", "calibrated", "Top-k evidence rescue for hard cases.")
 
-    st.markdown("### Beginner Explanation")
-    st.write(
-        "PRISM does not assume one retriever is always best. Exact identifiers should usually use BM25, "
-        "conceptual paraphrases should use Dense retrieval, deductive questions should use KG evidence, "
-        "and bridge/path questions often need Hybrid retrieval."
+    render_section_header(
+        "Why routing matters",
+        "Different questions need different evidence structures",
+        "Exact identifiers favor BM25, conceptual paraphrases favor Dense retrieval, deductive claims favor KG evidence, and bridge/path questions often need Hybrid retrieval.",
     )
+    _render_ras_family_diagram()
 
-    st.markdown("### RAS Version Comparison")
+    render_section_header(
+        "RAS family overview",
+        "Production router and research variants",
+        "The comparison keeps production behavior distinct from analysis-only variants while showing how the modeling assumptions evolve.",
+    )
     st.dataframe(pd.DataFrame(version_rows), hide_index=True, use_container_width=True)
     chart_rows = pd.DataFrame(
         [
-            {"version": row["name"], "uses_evidence": int(bool(row["uses_evidence"])), "learned": int(bool(row["learned"]))}
+            {"version": row["name"], "uses evidence": int(bool(row["uses_evidence"])), "learned/tuned": int(bool(row["learned"]))}
             for row in version_rows
         ]
     ).set_index("version")
     st.bar_chart(chart_rows, use_container_width=True)
+    st.caption("Binary indicators summarize whether a variant uses retrieved evidence diagnostics and whether it has learned or tuned weights.")
 
-    st.markdown("### Math / Scoring Layer")
-    with st.expander("computed_ras formula", expanded=True):
-        st.code(str(math_payload["computed_ras"]["formula"]), language="text")
-    with st.expander("RAS_V3 equation", expanded=False):
-        st.code(str(math_payload["ras_v3"]["formula"]), language="text")
-    with st.expander("RAS_V4 equation", expanded=False):
-        st.code(str(math_payload["ras_v4"]["formula"]), language="text")
+    render_section_header(
+        "Mathematical layer",
+        "Compact equations aligned with implementation",
+        "Heuristic routers are shown as scoring rules; learned variants expose their linear scoring form.",
+    )
+    _render_notation_glossary()
+    _render_ras_formula_panels()
 
-    st.markdown("### Animation-Like Story Mode")
+    render_section_header(
+        "Routing walkthrough",
+        "From query features to evidence-backed answer",
+        "The stepper shows the production routing flow without changing the underlying decision logic.",
+    )
     story = _ras_story_payload(query)
-    step_index = st.slider("Routing walkthrough step", 1, len(story), 1)
+    step_index = st.slider("Walkthrough step", 1, len(story), 1)
     step = story[step_index - 1]
     render_step(step_index, str(step["title"]), str(step["caption"]))
     if step["kind"] == "json":
@@ -566,10 +582,18 @@ def _render_ras_explainer(query: str) -> None:
     else:
         render_info_card(str(step["payload"]))
 
-    st.markdown("### Query-Level Inspection")
+    render_section_header(
+        "Query-level explanation",
+        "Inspect the current sidebar query",
+        "The panel shows the selected route, score margin, feature effects, and advisory ambiguity signal.",
+    )
     _render_query_level_ras_inspection(query)
 
-    st.markdown("### Sensitivity / Ablation Artifacts")
+    render_section_header(
+        "Sensitivity and robustness",
+        "Where RAS variants agree, diverge, or become low margin",
+        "These artifacts are descriptive analysis outputs; they do not alter production routing.",
+    )
     sensitivity = _cached_json("data/eval/ras_sensitivity.json")
     if sensitivity:
         cols = st.columns(3)
@@ -581,8 +605,127 @@ def _render_ras_explainer(query: str) -> None:
         with cols[2]:
             render_card("Ambiguity flags", summary.get("advisory_ambiguity_count", "n/a") if isinstance(summary, dict) else "n/a", "Advisory only.")
     else:
-        render_info_card("Run `.venv/bin/python3 -m prism.ras_explainer.export_explainer_artifacts` to generate sensitivity artifacts.", warning=True)
+        render_info_card("Sensitivity artifacts are unavailable. Rebuild the RAS explainer artifacts to refresh this section.", warning=True)
     _markdown_expander("data/eval/ras_confusion_summary.md", expanded=False)
+
+
+def _render_ras_family_diagram() -> None:
+    rows = [
+        ("BM25", "lexical", "Exact identifiers, codes, and formal names."),
+        ("Dense", "semantic", "Conceptual paraphrases and similarity."),
+        ("KG", "deductive", "Class, property, and membership evidence."),
+        ("Hybrid", "relational", "Bridge/path cases that combine text and structure."),
+    ]
+    cols = st.columns(4)
+    for col, (route, cue, copy) in zip(cols, rows):
+        with col:
+            render_mini_card(route, copy, badge_html=route_badge(route.lower()) + badge(cue))
+
+
+def _render_notation_glossary() -> None:
+    with st.expander("Notation", expanded=False):
+        cols = st.columns(2)
+        left = [
+            ("x", "query text"),
+            ("r", "candidate route/backend in {BM25, Dense, KG, Hybrid}"),
+            ("f_j(x)", "query feature or cue"),
+            ("p_r(x)", "computed-RAS penalty for route r"),
+        ]
+        right = [
+            ("E_r(x)", "top-k evidence retrieved by route r"),
+            ("s_r(x)", "RAS_V3 route adequacy score"),
+            ("z_r(x)", "RAS_V4 joint route/evidence score"),
+            ("m", "margin between winner and runner-up"),
+        ]
+        for col, rows in zip(cols, [left, right]):
+            with col:
+                for symbol, meaning in rows:
+                    render_status_line(f"{symbol}: {meaning}")
+
+
+def _render_formula_panel(title: str, status: str, equations: list[str], where: list[str], interpretation: str) -> None:
+    st.markdown(f"#### {title}")
+    render_badges([badge(status)])
+    for equation in equations:
+        st.latex(equation)
+    with st.expander("Terms", expanded=False):
+        for row in where:
+            st.markdown(f"- {row}")
+    st.caption(interpretation)
+
+
+def _render_ras_formula_panels() -> None:
+    tabs = st.tabs(["computed_ras", "computed_ras_v2", "RAS_V3", "RAS_V4"])
+    with tabs[0]:
+        _render_formula_panel(
+            "computed_ras",
+            "production",
+            [
+                r"p_r(x)=1+\Delta_r^{lex}(x)+\Delta_r^{sem}(x)+\Delta_r^{ded}(x)+\Delta_r^{rel}(x)",
+                r"\hat r=\arg\min_{r\in R}p_r(x)",
+                r"\Delta_{bm25}^{lex}=-0.6,\quad \Delta_{dense}^{lex}=+0.2,\quad \Delta_{dense}^{sem}=-0.5",
+                r"\Delta_{kg}^{ded}=-0.6,\quad \Delta_{hybrid}^{rel}=-0.7,\quad \Delta_{kg}^{rel}=-0.2",
+            ],
+            [
+                "`p_r(x)` is an inadequacy penalty; lower is better.",
+                "`lex`, `sem`, `ded`, and `rel` are parser cues for lexical, semantic, deductive, and relational questions.",
+                "If no cue fires, the parser uses the semantic fallback implemented in `parse_query_features`.",
+            ],
+            "The production router selects the route with the lowest penalty table score.",
+        )
+    with tabs[1]:
+        _render_formula_panel(
+            "computed_ras_v2",
+            "analysis-only",
+            [
+                r"\hat r_{v2}=g(\hat r_{ras},x,m,c)",
+                r"""g(\cdot)=
+\begin{cases}
+hybrid & rel(x)\\
+kg & ded(x)\land \neg strong\_id(x)\\
+dense & id(x)\land sem\_amb(x)\land \neg strong\_id(x)\\
+bm25 & strong\_id(x)\\
+\hat r_{ras} & otherwise
+\end{cases}""",
+            ],
+            [
+                "`g` is a deterministic rule overlay, not a learned model.",
+                "`m` is the computed-RAS margin and `c` is optional source/corpus context.",
+                "The rules are intentionally narrow and remain research-only.",
+            ],
+            "RAS_V2 formalizes hard-case correction rules without replacing production computed RAS.",
+        )
+    with tabs[2]:
+        _render_formula_panel(
+            "RAS_V3",
+            "analysis-only",
+            [
+                r"s_r(x)=b_r+\sum_j w_{rj}f_j(x)",
+                r"\hat r_{v3}=\arg\max_{r\in R}s_r(x)",
+            ],
+            [
+                "`f_j(x)` are interpretable query/source/context features.",
+                "`w_{rj}` is the learned sparse linear weight for feature `j` and route `r`.",
+                "Explanations report per-feature contributions to each route score.",
+            ],
+            "RAS_V3 turns route adequacy into a learned but inspectable linear route-scoring model.",
+        )
+    with tabs[3]:
+        _render_formula_panel(
+            "RAS_V4",
+            "analysis-only",
+            [
+                r"z_r(x)=b+\sum_j\alpha_j q_j(x,r)+\sum_k\beta_k e_k(E_r(x),x)",
+                r"\hat r_{v4}=\arg\max_{r\in R}z_r(x)",
+                r"z_r=\underbrace{b+\sum_j\alpha_jq_j}_{route\ adequacy}+\underbrace{\sum_k\beta_ke_k}_{evidence\ adequacy}",
+            ],
+            [
+                "`q_j` are route adequacy features.",
+                "`e_k` are evidence adequacy diagnostics from the candidate route's top-k evidence.",
+                "The decomposition separates route fit from expected answer support.",
+            ],
+            "RAS_V4 is the joint adequacy research model, but current results still keep it analysis-only.",
+        )
 
 
 def _render_query_level_ras_inspection(query: str) -> None:

@@ -1,6 +1,6 @@
 # RAS Visual Explanation
 
-Use this sequence for slides, posters, or the Streamlit `RAS Explainer` page.
+This sequence gives a compact visual story for slides, posters, and the Streamlit `RAS Explainer` page.
 
 ## Visual Story
 

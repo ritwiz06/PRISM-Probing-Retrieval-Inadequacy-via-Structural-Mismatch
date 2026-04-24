@@ -95,6 +95,65 @@ div[data-testid="stTabs"] button {
   font-size: 0.88rem;
   line-height: 1.45;
 }
+.prism-section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%);
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 1.25rem 1.35rem;
+  margin: 1.0rem 0 1.15rem 0;
+  box-shadow: 0 14px 42px rgba(15, 23, 42, 0.055);
+}
+.prism-eyebrow {
+  color: #0F766E;
+  font-size: 0.78rem;
+  font-weight: 820;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 0.28rem;
+}
+.prism-section-title {
+  color: #0F172A;
+  font-size: 1.55rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.28rem;
+}
+.prism-section-copy {
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 940px;
+}
+.prism-mini-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 0.85rem 0.95rem;
+  min-height: 7.25rem;
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.045);
+}
+.prism-mini-title {
+  color: #0F172A;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+}
+.prism-mini-copy {
+  color: #64748B;
+  line-height: 1.45;
+  font-size: 0.88rem;
+}
+.prism-status-line {
+  color: #475569;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  display: inline-flex;
+  padding: 0.36rem 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0.2rem 0.25rem 0.4rem 0;
+}
 .prism-step {
   display: inline-flex;
   align-items: center;
@@ -227,6 +286,36 @@ def render_badges(items: Iterable[str]) -> None:
 def render_info_card(message: str, *, warning: bool = False) -> None:
     class_name = "prism-warning" if warning else "prism-info"
     st.markdown(f'<div class="{class_name}">{escape(message)}</div>', unsafe_allow_html=True)
+
+
+def render_section_header(eyebrow: str, title: str, subtitle: str = "") -> None:
+    st.markdown(
+        f"""
+<div class="prism-section">
+  <div class="prism-eyebrow">{escape(eyebrow)}</div>
+  <div class="prism-section-title">{escape(title)}</div>
+  <div class="prism-section-copy">{escape(subtitle)}</div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_mini_card(title: str, copy: str, *, badge_html: str = "") -> None:
+    st.markdown(
+        f"""
+<div class="prism-mini-card">
+  <div>{badge_html}</div>
+  <div class="prism-mini-title">{escape(title)}</div>
+  <div class="prism-mini-copy">{escape(copy)}</div>
+</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_status_line(text: str) -> None:
+    st.markdown(f'<span class="prism-status-line">{escape(text)}</span>', unsafe_allow_html=True)
 
 
 def evidence_card(rank: object, item_id: object, score: object, source_type: object, snippet: object, backend: object = "") -> None:

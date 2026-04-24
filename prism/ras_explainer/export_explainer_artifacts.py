@@ -115,9 +115,15 @@ Score convention: `{computed['score_convention']}`.
 
 Formula:
 
-```text
-{computed['formula']}
-```
+$$
+p_r(x)=1+\\Delta_r^{{lex}}(x)+\\Delta_r^{{sem}}(x)+\\Delta_r^{{ded}}(x)+\\Delta_r^{{rel}}(x)
+$$
+
+$$
+\\hat r=\\arg\\min_{{r\\in R}}p_r(x)
+$$
+
+Key penalty terms: $\\Delta_{{bm25}}^{{lex}}=-0.6$, $\\Delta_{{dense}}^{{lex}}=+0.2$, $\\Delta_{{dense}}^{{sem}}=-0.5$, $\\Delta_{{kg}}^{{ded}}=-0.6$, $\\Delta_{{hybrid}}^{{rel}}=-0.7$, and $\\Delta_{{kg}}^{{rel}}=-0.2$.
 
 This is a heuristic penalty table, not a learned model. It is production because it is deterministic, stable, and easy to audit.
 
@@ -139,9 +145,13 @@ Feature count: `{v3['feature_count']}`.
 
 Equation:
 
-```text
-{v3['formula']}
-```
+$$
+s_r(x)=b_r+\\sum_j w_{{rj}}f_j(x)
+$$
+
+$$
+\\hat r_{{v3}}=\\arg\\max_{{r\\in R}}s_r(x)
+$$
 
 Each route receives a linear score. Explanations report active features and their weighted contribution for each route.
 
@@ -155,9 +165,13 @@ Evidence feature count: `{v4['evidence_feature_count']}`.
 
 Equation:
 
-```text
-{v4['formula']}
-```
+$$
+z_r(x)=b+\\sum_j\\alpha_j q_j(x,r)+\\sum_k\\beta_k e_k(E_r(x),x)
+$$
+
+$$
+\\hat r_{{v4}}=\\arg\\max_{{r\\in R}}z_r(x)
+$$
 
 RAS_V4 is the cleanest research framing because it separates route adequacy from evidence adequacy. Recorded results still keep it analysis-only because calibrated rescue remains stronger on adversarial answer accuracy.
 
@@ -199,7 +213,7 @@ def _ras_version_comparison(comparison: dict[str, object]) -> str:
 def _ras_visual_explanation() -> str:
     return """# RAS Visual Explanation
 
-Use this sequence for slides, posters, or the Streamlit `RAS Explainer` page.
+This sequence gives a compact visual story for slides, posters, and the Streamlit `RAS Explainer` page.
 
 ## Visual Story
 

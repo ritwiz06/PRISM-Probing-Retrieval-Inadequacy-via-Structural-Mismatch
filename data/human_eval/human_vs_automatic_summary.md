@@ -1,12 +1,14 @@
 # Human Vs Automatic Summary
 
-Standard human-eval status: `annotations_loaded`.
+Comparative status: `comparative_annotations_loaded`.
 
-## Standard Packet
+## Key Counts
 
-- Automatic-correct but weak human support annotations: 4.
-- Automatic-incorrect but strong human support annotations: 0.
+- System B preferred when both systems were automatically correct: 6.
+- Calibrated rescue preferred while both systems were automatically correct: 2.
+- System B preferred despite computed RAS being automatically correct: 6.
+- Classifier router preferred on adversarial items: 2.
 
 ## Interpretation
 
-These cases identify where normalized answer matching and human support judgments diverge. They are useful for report caveats and adjudication discussion.
+These counts compare human preferences against automatic correctness. A human preference for System B when both outputs are automatically correct usually means trace clarity, route appropriateness, or evidence presentation mattered beyond normalized answer matching.

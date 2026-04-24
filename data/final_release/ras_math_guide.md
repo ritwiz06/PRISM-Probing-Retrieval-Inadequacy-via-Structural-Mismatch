@@ -16,9 +16,15 @@ Score convention: `lower is better`.
 
 Formula:
 
-```text
-Initialize p_r=1.0 for r in {bm25,dense,kg,hybrid}. If lexical: p_bm25 -= 0.6 and p_dense += 0.2. If semantic: p_dense -= 0.5. If deductive: p_kg -= 0.6. If relational: p_hybrid -= 0.7 and p_kg -= 0.2. Select argmin_r p_r.
-```
+$$
+p_r(x)=1+\Delta_r^{lex}(x)+\Delta_r^{sem}(x)+\Delta_r^{ded}(x)+\Delta_r^{rel}(x)
+$$
+
+$$
+\hat r=\arg\min_{r\in R}p_r(x)
+$$
+
+Key penalty terms: $\Delta_{bm25}^{lex}=-0.6$, $\Delta_{dense}^{lex}=+0.2$, $\Delta_{dense}^{sem}=-0.5$, $\Delta_{kg}^{ded}=-0.6$, $\Delta_{hybrid}^{rel}=-0.7$, and $\Delta_{kg}^{rel}=-0.2$.
 
 This is a heuristic penalty table, not a learned model. It is production because it is deterministic, stable, and easy to audit.
 
@@ -46,9 +52,13 @@ Feature count: `31`.
 
 Equation:
 
-```text
-For each route r, compute s_r = b_r + sum_j w_{r,j} f_j(x). The implementation uses multinomial logistic regression weights but routes by max linear score. Select argmax_r s_r.
-```
+$$
+s_r(x)=b_r+\sum_j w_{rj}f_j(x)
+$$
+
+$$
+\hat r_{v3}=\arg\max_{r\in R}s_r(x)
+$$
 
 Each route receives a linear score. Explanations report active features and their weighted contribution for each route.
 
@@ -62,9 +72,13 @@ Evidence feature count: `23`.
 
 Equation:
 
-```text
-For each candidate backend r, compute z_r = b + sum_j alpha_j route_j(x) + sum_k beta_k evidence_k(E_r(x), x). Select argmax_r z_r. The score decomposes into route contribution, evidence contribution, and intercept.
-```
+$$
+z_r(x)=b+\sum_j\alpha_j q_j(x,r)+\sum_k\beta_k e_k(E_r(x),x)
+$$
+
+$$
+\hat r_{v4}=\arg\max_{r\in R}z_r(x)
+$$
 
 RAS_V4 is the cleanest research framing because it separates route adequacy from evidence adequacy. Recorded results still keep it analysis-only because calibrated rescue remains stronger on adversarial answer accuracy.
 

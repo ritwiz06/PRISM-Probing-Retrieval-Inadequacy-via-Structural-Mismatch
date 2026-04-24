@@ -1,10 +1,10 @@
 # PRISM UI Tour
 
-The Streamlit app is organized as a presenter-friendly workspace.
+The Streamlit app is organized as a polished research workspace.
 
 ## Guided Demo
 
-This is the live presentation script. It lists the safest demo sequence, the preset query to run, and the exact concept to show at each step.
+This page presents a clean walkthrough of the main demonstration scenarios, with optional presenter notes hidden behind an explicit toggle.
 
 ## Demo / Query
 

@@ -257,20 +257,20 @@ def _demo_runbook() -> str:
 
 ## Default Demo Rule
 
-Keep the app in `benchmark mode` for the safest path. Production mode is `computed_ras`.
+Benchmark mode is the most reproducible path. Production mode is `computed_ras`.
 
-## Presenter Flow
+## Demonstration Flow
 
 1. Run `Lexical: exact RFC identifier` and show parsed query features, RAS scores, BM25 evidence, answer, and trace.
 2. Run `Semantic: paraphrased feeling` and show Dense evidence.
 3. Run `Deductive: animal capability` and show KG evidence.
 4. Run `Relational: bridge path` and show Hybrid evidence.
 5. Switch to `source-pack mode` with `Open Corpus: source-pack climate anxiety` if source packs are available.
-6. Use `Hard Case: misleading exact term` to explain why calibrated rescue and RAS_V4 are research layers, not production replacements.
+6. Run `Hard Case: misleading exact term` to compare the production router with research overlays.
 
 ## Fallback
 
-If source packs, optional LLM, URL fetching, or graph extraction are unavailable, use this safe sequence: {", ".join(script["safe_fallback_sequence"])}.
+If source packs, optional LLM, URL fetching, or graph extraction are unavailable, the benchmark sequence remains fully reproducible: {", ".join(script["safe_fallback_sequence"])}.
 
 ## Presets
 
@@ -288,13 +288,13 @@ def _demo_walkthrough_quick_reference() -> str:
             f"   - Mode: `{row['mode']}`\n"
             f"   - Preset: `{row['preset']}`\n"
             f"   - Show: {', '.join(str(item) for item in row.get('show', []))}\n"
-            f"   - Say: {row['talk_track']}"
+            f"   - Narrative: {row['talk_track']}"
         )
         for row in script["script_steps"]
     )
     return f"""# Demo Walkthrough Quick Reference
 
-Use this one-page sequence during a live demo. Start in benchmark mode unless you specifically want to show the open-corpus workspace.
+This one-page sequence supports a compact live demonstration. Start in benchmark mode for the most reproducible path; switch to open-corpus mode only when source-pack behavior is part of the story.
 
 Production router: `computed_ras`.
 
@@ -310,7 +310,7 @@ If source packs, optional LLM, URL fetching, or query-local graph extraction are
 
 {", ".join(f"`{item}`" for item in script["safe_fallback_sequence"])}
 
-## Presenter Reminder
+## Presentation Cues
 
 - Show route scores before evidence so the audience understands the routing decision.
 - Show evidence before answer so support and provenance remain visible.
@@ -322,11 +322,11 @@ If source packs, optional LLM, URL fetching, or query-local graph extraction are
 def _ui_tour() -> str:
     return """# PRISM UI Tour
 
-The Streamlit app is organized as a presenter-friendly workspace.
+The Streamlit app is organized as a polished research workspace.
 
 ## Guided Demo
 
-This is the live presentation script. It lists the safest demo sequence, the preset query to run, and the exact concept to show at each step.
+This page presents a clean walkthrough of the main demonstration scenarios, with optional presenter notes hidden behind an explicit toggle.
 
 ## Demo / Query
 

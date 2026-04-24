@@ -1,5 +1,4 @@
 {
-  "output_dir": "data/final_release",
   "production_router": "computed_ras",
   "research_overlays": [
     "calibrated_rescue",
@@ -8,264 +7,228 @@
     "ras_v4",
     "optional_llm"
   ],
-  "generated_files": {
-    "final_project_overview": "data/final_release/final_project_overview.md",
-    "paper_ready_summary": "data/final_release/paper_ready_summary.md",
-    "demo_runbook": "data/final_release/demo_runbook.md",
-    "demo_walkthrough_quick_reference": "data/final_release/demo_walkthrough_quick_reference.md",
-    "ui_tour": "data/final_release/ui_tour.md",
-    "ras_overview": "data/final_release/ras_overview.md",
-    "ras_math_guide": "data/final_release/ras_math_guide.md",
-    "ras_version_comparison": "data/final_release/ras_version_comparison.md",
-    "ras_visual_explanation": "data/final_release/ras_visual_explanation.md",
-    "ras_quick_reference": "data/final_release/ras_quick_reference.md",
-    "reproducibility_runbook": "data/final_release/reproducibility_runbook.md",
-    "central_claim_summary": "data/final_release/central_claim_summary.md",
-    "artifact_manifest": "data/final_release/artifact_manifest.json",
-    "known_results_summary": "data/final_release/known_results_summary.json"
-  },
-  "manifest": {
-    "output_dir": "data/final_release",
-    "production_router": "computed_ras",
-    "critical_artifacts": [
-      {
-        "name": "curated_end_to_end",
-        "path": "data/eval/end_to_end_verification.json",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "external_mini",
-        "path": "data/eval/external_generalization_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "generalization_v2",
-        "path": "data/eval/generalization_v2_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "structure_shift",
-        "path": "data/eval/structure_shift_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "public_raw",
-        "path": "data/eval/public_corpus_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "public_graph",
-        "path": "data/eval/public_graph_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "adversarial",
-        "path": "data/eval/adversarial_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "calibration",
-        "path": "data/eval/calibrated_router_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "ras_v3",
-        "path": "data/eval/ras_v3_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "ras_v4",
-        "path": "data/eval/ras_v4_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "human_eval",
-        "path": "data/human_eval/human_eval_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "comparative_human_eval",
-        "path": "data/human_eval/comparative_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "open_corpus",
-        "path": "data/eval/open_workspace_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "report_artifacts",
-        "path": "data/eval/report/prism_report_summary.md",
-        "exists": true,
-        "required": true
-      },
-      {
-        "name": "demo_app",
-        "path": "prism/demo/app.py",
-        "exists": true,
-        "required": true
-      }
-    ],
-    "optional_artifacts": [
-      {
-        "name": "llm_experiments",
-        "path": "data/eval/llm_router_eval_summary.md",
-        "exists": true,
-        "required": false
-      },
-      {
-        "name": "ras_v4_vs_human",
-        "path": "data/human_eval/ras_v4_vs_human_summary.md",
-        "exists": true,
-        "required": false
-      },
-      {
-        "name": "ras_v4_vs_rescue",
-        "path": "data/eval/ras_v4_vs_rescue_summary.md",
-        "exists": true,
-        "required": false
-      },
-      {
-        "name": "release_plots_ras_v4",
-        "path": "data/eval/ras_v4_router_comparison.png",
-        "exists": true,
-        "required": false
-      }
-    ],
-    "generated_release_artifacts": [
-      "final_project_overview.md",
-      "paper_ready_summary.md",
-      "demo_runbook.md",
-      "demo_walkthrough_quick_reference.md",
-      "ui_tour.md",
-      "ras_overview.md",
-      "ras_math_guide.md",
-      "ras_version_comparison.md",
-      "ras_visual_explanation.md",
-      "ras_quick_reference.md",
-      "reproducibility_runbook.md",
-      "central_claim_summary.md",
-      "artifact_manifest.json",
-      "known_results_summary.json",
-      "release_checklist.md",
-      "release_status.json"
-    ]
-  },
-  "known_results": {
-    "production_router": "computed_ras",
-    "production_decision": "computed_ras remains production default",
-    "research_overlays": [
-      "calibrated_rescue",
-      "ras_v3",
-      "ras_v4",
-      "classifier_router",
-      "optional_llm"
-    ],
-    "source_pack_names": [
-      "cs_api_docs",
-      "medical_codes",
-      "policy_docs",
-      "rfc_specs",
-      "wikipedia"
-    ],
-    "curated": {
-      "total": 80,
-      "route_accuracy": 1.0,
-      "evidence_hit_at_k": 1.0,
-      "passed": true,
-      "path": "data/eval/end_to_end_verification.json"
-    },
-    "external_mini": {
-      "total": 32,
-      "route_accuracy": 1.0,
-      "answer_accuracy": 1.0,
-      "dense_backend": "sentence_transformers+faiss",
-      "path": "data/eval/external_generalization.json"
-    },
-    "generalization_v2": {
-      "route_accuracy": 0.95,
-      "answer_accuracy": 0.975,
-      "evidence_hit_at_k": null,
-      "top1_evidence_hit": null,
-      "path": "data/eval/generalization_v2.json"
-    },
-    "public_raw": {
-      "route_accuracy": 0.9166666666666666,
-      "answer_accuracy": 1.0,
-      "evidence_hit_at_k": 1.0,
-      "top1_evidence_hit": null,
-      "path": "data/eval/public_corpus_eval.json"
-    },
-    "adversarial": {
-      "route_accuracy": 0.7291666666666666,
-      "answer_accuracy": 0.7291666666666666,
-      "evidence_hit_at_k": 0.8958333333333334,
-      "top1_evidence_hit": 0.6875,
-      "path": "data/eval/adversarial_eval.json"
-    },
-    "calibrated_adversarial_test": {
-      "route_accuracy": 0.875,
-      "answer_accuracy": 0.9583333333333334,
-      "evidence_hit_at_k": 0.9583333333333334,
-      "top1_evidence_hit": 0.9166666666666666,
-      "path": "data/eval/calibrated_router.json"
-    },
-    "ras_v3_adversarial_test": {
-      "route_accuracy": 0.8333333333333334,
-      "answer_accuracy": 0.9166666666666666,
-      "evidence_hit_at_k": 0.9583333333333334,
-      "top1_evidence_hit": 0.875,
-      "path": "data/eval/ras_v3_eval.json"
-    },
-    "ras_v4_adversarial_test": {
-      "route_accuracy": 0.75,
-      "answer_accuracy": 0.9166666666666666,
-      "evidence_hit_at_k": 0.9583333333333334,
-      "top1_evidence_hit": 0.875,
-      "path": "data/eval/ras_v4_eval.json"
-    },
-    "ras_v4_rescue_adversarial_test": {
-      "route_accuracy": 0.75,
-      "answer_accuracy": 0.9583333333333334,
-      "evidence_hit_at_k": 0.9583333333333334,
-      "top1_evidence_hit": 0.9166666666666666,
-      "path": "data/eval/ras_v4_eval.json"
-    },
-    "human_eval": {
-      "status": "annotations_loaded",
-      "packet_size": 36,
-      "annotation_count": 144,
-      "evaluator_count": 4,
-      "path": "data/human_eval/human_eval_summary.json"
-    },
-    "comparative_human_eval": {
-      "status": "comparative_annotations_loaded",
-      "packet_size": 28,
-      "annotation_count": 112,
-      "evaluator_count": 4,
-      "path": "data/human_eval/comparative_summary.json"
-    },
-    "open_corpus_smoke": {
-      "status": "passed",
-      "path": "data/eval/open_corpus_smoke.json"
-    }
-  },
+  "ready": true,
   "readiness": {
     "class_project_demo": "ready",
     "paper_draft_submission": "ready_with_caveats",
     "reproducibility_handoff": "ready"
-  }
+  },
+  "critical_components": [
+    {
+      "name": "curated_end_to_end",
+      "path": "data/eval/end_to_end_verification.json",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "external_mini",
+      "path": "data/eval/external_generalization_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "generalization_v2",
+      "path": "data/eval/generalization_v2_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "structure_shift",
+      "path": "data/eval/structure_shift_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "public_raw",
+      "path": "data/eval/public_corpus_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "public_graph",
+      "path": "data/eval/public_graph_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "adversarial",
+      "path": "data/eval/adversarial_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "calibration",
+      "path": "data/eval/calibrated_router_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_v3",
+      "path": "data/eval/ras_v3_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_v4",
+      "path": "data/eval/ras_v4_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "human_eval",
+      "path": "data/human_eval/human_eval_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "comparative_human_eval",
+      "path": "data/human_eval/comparative_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "open_corpus",
+      "path": "data/eval/open_workspace_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "report_artifacts",
+      "path": "data/eval/report/prism_report_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "demo_app",
+      "path": "prism/demo/app.py",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "optional_components": [
+    {
+      "name": "llm_experiments",
+      "path": "data/eval/llm_router_eval_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "ras_v4_vs_human",
+      "path": "data/human_eval/ras_v4_vs_human_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "ras_v4_vs_rescue",
+      "path": "data/eval/ras_v4_vs_rescue_summary.md",
+      "exists": true,
+      "required": false
+    },
+    {
+      "name": "release_plots_ras_v4",
+      "path": "data/eval/ras_v4_router_comparison.png",
+      "exists": true,
+      "required": false
+    }
+  ],
+  "release_components": [
+    {
+      "name": "final_project_overview",
+      "path": "data/final_release/final_project_overview.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "paper_ready_summary",
+      "path": "data/final_release/paper_ready_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "demo_runbook",
+      "path": "data/final_release/demo_runbook.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "demo_walkthrough_quick_reference",
+      "path": "data/final_release/demo_walkthrough_quick_reference.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ui_tour",
+      "path": "data/final_release/ui_tour.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_overview",
+      "path": "data/final_release/ras_overview.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_math_guide",
+      "path": "data/final_release/ras_math_guide.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_version_comparison",
+      "path": "data/final_release/ras_version_comparison.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_visual_explanation",
+      "path": "data/final_release/ras_visual_explanation.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "ras_quick_reference",
+      "path": "data/final_release/ras_quick_reference.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "reproducibility_runbook",
+      "path": "data/final_release/reproducibility_runbook.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "central_claim_summary",
+      "path": "data/final_release/central_claim_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "artifact_manifest",
+      "path": "data/final_release/artifact_manifest.json",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "known_results_summary",
+      "path": "data/final_release/known_results_summary.json",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "missing_critical": [],
+  "analysis_only": [
+    "calibrated_rescue",
+    "classifier_router",
+    "ras_v3",
+    "ras_v4",
+    "optional_llm"
+  ],
+  "limitations": [
+    "RAS_V3 and RAS_V4 are not production replacements.",
+    "Calibrated rescue is not the default production path.",
+    "Open-corpus mode is bounded source-pack/local-corpus QA, not web-scale search.",
+    "Optional local LLM results depend on local runtime availability."
+  ]
 }
