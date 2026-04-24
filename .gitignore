@@ -36,6 +36,8 @@ Thumbs.db
 *.temp
 tmp/
 temp/
+PROCESS_GUIDE_*.md
+logs/process/
 
 # Local-only model/vector caches
 .cache/
