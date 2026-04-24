@@ -128,6 +128,8 @@ def main() -> None:
 
     tabs = st.tabs(
         [
+            "Executive Summary",
+            "Results at a Glance",
             "Guided Demo",
             "RAS Explainer",
             "Demo / Query",
@@ -138,8 +140,12 @@ def main() -> None:
             "Results / Paper",
         ]
     )
-    tab_walkthrough, tab_ras, tab_query, tab_open, tab_compare, tab_evidence, tab_human, tab_results = tabs
+    tab_exec, tab_glance, tab_walkthrough, tab_ras, tab_query, tab_open, tab_compare, tab_evidence, tab_human, tab_results = tabs
 
+    with tab_exec:
+        _render_executive_summary()
+    with tab_glance:
+        _render_results_at_a_glance()
     with tab_walkthrough:
         _render_guided_demo()
     with tab_ras:
@@ -474,6 +480,145 @@ def _render_demo_overview() -> None:
     )
 
 
+def _render_executive_summary() -> None:
+    synthesis = _cached_json("data/final_release/synthesis_summary.json")
+    results = _cached_json("data/final_release/known_results_summary.json")
+    if not synthesis:
+        render_info_card("Final synthesis artifacts are missing. Rebuild the final release package to populate this view.", warning=True)
+        return
+
+    render_section_header(
+        "Executive summary",
+        "PRISM at a glance",
+        "A compact overview of the thesis, release status, benchmark profile, and the final production-versus-research decision.",
+    )
+    calibrated = _result_value(results, "calibrated_adversarial_test", "answer_accuracy", 0.0)
+    adversarial_test = _result_value(results, "adversarial_test", "answer_accuracy", 0.0)
+    cols = st.columns(6)
+    card_data = [
+        ("Production", "computed_ras", "Deterministic default router."),
+        ("Curated", _result_value(results, "curated", "answer_matches", "80/80"), "End-to-end restored benchmark."),
+        ("Public Raw", f"{_result_value(results, 'public_raw', 'answer_accuracy', 0.0):.3f}", "Held-out public-document test."),
+        ("Adversarial Test", f"{adversarial_test:.3f}", "Current production hard-case answer accuracy."),
+        ("Rescue Gain", f"{float(calibrated) - float(adversarial_test):+.3f}", "Adversarial test delta from calibrated rescue."),
+        ("Human Eval", f"{synthesis.get('human_eval', {}).get('evaluator_count', 'n/a')}", "Real annotators."),
+    ]
+    for col, (title, value, caption) in zip(cols, card_data):
+        with col:
+            render_card(title, value, caption)
+
+    left, right = st.columns([1.05, 1.25])
+    with left:
+        _render_image_block(
+            "Architecture",
+            "data/final_release/figures/architecture_diagram.png",
+            "Production routing, evidence retrieval, and answer tracing.",
+        )
+    with right:
+        _render_image_block(
+            "Benchmark overview",
+            "data/final_release/charts/benchmark_overview.png",
+            "Answer and route accuracy across the main evaluation layers.",
+        )
+
+    finding_cols = st.columns(3)
+    findings = [
+        ("Core claim", "Representation-aware routing improves retrieval reliability because different questions need different evidence structures."),
+        ("Main caveat", "Adversarial route-boundary cases remain the strongest weakness; calibrated rescue still improves answer accuracy beyond route-only RAS variants."),
+        ("Final posture", "Production remains conservative: computed_ras is production, while rescue and learned variants remain research overlays."),
+    ]
+    for col, (title, copy) in zip(finding_cols, findings):
+        with col:
+            render_mini_card(title, copy)
+
+    bottom_left, bottom_right = st.columns(2)
+    with bottom_left:
+        _render_image_block(
+            "Production vs research overlays",
+            "data/final_release/figures/production_vs_research_map.png",
+            "Production stays explicit; overlays remain comparison layers.",
+        )
+    with bottom_right:
+        _render_image_block(
+            "Human evaluation overview",
+            "data/final_release/charts/human_eval_overview.png",
+            "Mean human ratings across route, evidence, answer, and trace dimensions.",
+        )
+
+    with st.expander("Executive notes", expanded=False):
+        for line in synthesis.get("key_findings", []):
+            st.markdown(f"- {line}")
+        for line in synthesis.get("caveats", []):
+            render_status_line(str(line))
+
+
+def _render_results_at_a_glance() -> None:
+    synthesis = _cached_json("data/final_release/synthesis_summary.json")
+    results = _cached_json("data/final_release/known_results_summary.json")
+    if not synthesis:
+        render_info_card("Results-at-a-glance assets are missing. Rebuild the final release package to populate this view.", warning=True)
+        return
+
+    render_section_header(
+        "Results at a glance",
+        "What worked, what stayed hard, and what is production",
+        "This page compresses the main benchmark outcomes, adversarial caveats, human-eval results, and open-corpus status into a single view.",
+    )
+
+    cols = st.columns(7)
+    result_cards = [
+        ("Curated", _result_value(results, "curated", "answer_matches", "80/80"), "Restored end-to-end."),
+        ("External Mini", f"{_result_value(results, 'external_mini', 'answer_accuracy', 0.0):.3f}", "External sanity check."),
+        ("GenV2 Noisy", f"{_result_value(results, 'generalization_v2', 'answer_accuracy', 0.0):.3f}", "Held-out noisy test."),
+        ("Public Raw", f"{_result_value(results, 'public_raw', 'answer_accuracy', 0.0):.3f}", "Real raw-document test."),
+        ("Public Graph", f"{_result_value(results, 'public_graph_test', 'answer_accuracy', 0.0):.3f}", "Public structure test."),
+        ("Adversarial", f"{_result_value(results, 'adversarial_test', 'answer_accuracy', 0.0):.3f}", "Hard-case production test."),
+        ("Calibrated", f"{_result_value(results, 'calibrated_adversarial_test', 'answer_accuracy', 0.0):.3f}", "Hard-case rescue overlay."),
+    ]
+    for col, (title, value, caption) in zip(cols, result_cards):
+        with col:
+            render_card(title, value, caption)
+
+    top_left, top_right = st.columns(2)
+    with top_left:
+        _render_image_block(
+            "Benchmark overview",
+            "data/final_release/charts/benchmark_overview.png",
+            "Stable benchmark layers remain strong; adversarial remains the visible stress test.",
+        )
+    with top_right:
+        _render_image_block(
+            "Adversarial router comparison",
+            "data/final_release/charts/adversarial_router_comparison.png",
+            "Computed RAS remains production, while calibrated rescue is still strongest on adversarial answer accuracy.",
+        )
+
+    mid_left, mid_right = st.columns(2)
+    with mid_left:
+        _render_image_block(
+            "Overlay comparison",
+            "data/final_release/charts/production_vs_research_overlay.png",
+            "Stable-layer average versus adversarial test clarifies the production-versus-research tradeoff.",
+        )
+    with mid_right:
+        _render_image_block(
+            "Backend usage overview",
+            "data/final_release/charts/backend_usage_overview.png",
+            "Open-corpus smoke runs cover all four route families.",
+        )
+
+    summary_cols = st.columns(4)
+    summary_cards = [
+        ("What worked", "Curated, external, held-out, public raw, public graph, and open-corpus smoke evaluations remained strong."),
+        ("What stayed weak", "Adversarial route-boundary cases, especially misleading exact terms and low-margin ambiguity."),
+        ("Production", "`computed_ras` remains the production router because it is stable and interpretable."),
+        ("Research-only", "`calibrated_rescue`, `classifier_router`, `ras_v3`, and `ras_v4` remain overlays or analysis variants."),
+    ]
+    for col, (title, copy) in zip(summary_cols, summary_cards):
+        with col:
+            render_mini_card(title, copy)
+
+
 def _render_guided_demo() -> None:
     script = demo_script_payload()
     render_section_header(
@@ -506,6 +651,8 @@ def _render_guided_demo() -> None:
 
     st.markdown("### Workspace Map")
     tab_rows = [
+        {"tab": "Executive Summary", "purpose": "Show the thesis, architecture, benchmark profile, and production-versus-research posture at a glance."},
+        {"tab": "Results at a Glance", "purpose": "Summarize benchmark outcomes, adversarial caveats, human eval, and open-corpus status."},
         {"tab": "Demo / Query", "purpose": "Run the production path and inspect query, route, evidence, answer, trace."},
         {"tab": "RAS Explainer", "purpose": "Explain computed RAS, RAS_V2, RAS_V3, RAS_V4, margins, and ambiguity flags."},
         {"tab": "Open Corpus", "purpose": "Show source-pack/local-corpus metadata and query-local graph readiness."},
@@ -911,6 +1058,16 @@ def _markdown_expander(path: str, *, expanded: bool) -> None:
         return
     with st.expander(path, expanded=expanded):
         st.markdown(file_path.read_text(encoding="utf-8"))
+
+
+def _render_image_block(title: str, path: str, caption: str) -> None:
+    file_path = Path(path)
+    st.markdown(f"### {title}")
+    if not file_path.exists():
+        render_info_card(f"Missing artifact: {path}", warning=True)
+        return
+    st.image(str(file_path), use_container_width=True)
+    st.caption(caption)
 
 
 def _benchmark_overview_rows(results: dict[str, Any]) -> list[dict[str, object]]:

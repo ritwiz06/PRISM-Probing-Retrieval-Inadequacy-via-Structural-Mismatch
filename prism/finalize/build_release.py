@@ -9,6 +9,7 @@ from prism.demo.demo_script_data import demo_script_payload
 from prism.demo.presets import presets_payload
 from prism.open_corpus.source_packs import list_source_packs
 from prism.ras_explainer.export_explainer_artifacts import write_release_docs
+from prism.finalize.synthesis import build_synthesis_layer
 from prism.utils import read_json, write_json
 
 FINAL_RELEASE_DIR = Path("data/final_release")
@@ -46,6 +47,7 @@ def build_release(output_dir: str | Path = FINAL_RELEASE_DIR) -> dict[str, objec
     manifest = _artifact_manifest(target)
     files = {
         "final_project_overview": target / "final_project_overview.md",
+        "executive_summary": target / "executive_summary.md",
         "paper_ready_summary": target / "paper_ready_summary.md",
         "demo_runbook": target / "demo_runbook.md",
         "demo_walkthrough_quick_reference": target / "demo_walkthrough_quick_reference.md",
@@ -57,6 +59,15 @@ def build_release(output_dir: str | Path = FINAL_RELEASE_DIR) -> dict[str, objec
         "ras_quick_reference": target / "ras_quick_reference.md",
         "reproducibility_runbook": target / "reproducibility_runbook.md",
         "central_claim_summary": target / "central_claim_summary.md",
+        "final_speaker_script": target / "final_speaker_script.md",
+        "one_minute_pitch": target / "one_minute_pitch.md",
+        "three_minute_pitch": target / "three_minute_pitch.md",
+        "qa_cheat_sheet": target / "qa_cheat_sheet.md",
+        "final_wrapup_report": target / "final_wrapup_report.md",
+        "submission_checklist": target / "submission_checklist.md",
+        "demo_day_checklist": target / "demo_day_checklist.md",
+        "final_artifact_index": target / "final_artifact_index.md",
+        "synthesis_summary": target / "synthesis_summary.json",
         "artifact_manifest": target / "artifact_manifest.json",
         "known_results_summary": target / "known_results_summary.json",
     }
@@ -68,8 +79,26 @@ def build_release(output_dir: str | Path = FINAL_RELEASE_DIR) -> dict[str, objec
     write_release_docs(target)
     files["reproducibility_runbook"].write_text(_reproducibility_runbook(), encoding="utf-8")
     files["central_claim_summary"].write_text(_central_claim_summary(results), encoding="utf-8")
+    synthesis = build_synthesis_layer(target, known_results=results)
     write_json(files["artifact_manifest"], manifest)
     write_json(files["known_results_summary"], results)
+    if Path(synthesis["summary_path"]).exists():
+        files["synthesis_summary"] = Path(synthesis["summary_path"])
+    synthesis_docs = synthesis.get("documents", {}) if isinstance(synthesis, dict) else {}
+    for key in [
+        "executive_summary",
+        "final_speaker_script",
+        "one_minute_pitch",
+        "three_minute_pitch",
+        "qa_cheat_sheet",
+        "final_wrapup_report",
+        "submission_checklist",
+        "demo_day_checklist",
+        "final_artifact_index",
+    ]:
+        path = synthesis_docs.get(key)
+        if isinstance(path, str):
+            files[key] = Path(path)
     status = {
         "output_dir": str(target),
         "production_router": "computed_ras",
@@ -77,6 +106,7 @@ def build_release(output_dir: str | Path = FINAL_RELEASE_DIR) -> dict[str, objec
         "generated_files": {name: str(path) for name, path in files.items()},
         "manifest": manifest,
         "known_results": results,
+        "synthesis": synthesis,
         "readiness": {
             "class_project_demo": "ready",
             "paper_draft_submission": "ready_with_caveats",
@@ -104,7 +134,9 @@ def _known_results() -> dict[str, object]:
     _merge_external_mini(results)
     _merge_system_metric(results, "generalization_v2", "data/eval/generalization_v2.json", ("noisy", "test", "computed_ras"))
     _merge_system_metric(results, "public_raw", "data/eval/public_corpus_eval.json", ("test", "computed_ras"))
+    _merge_system_metric(results, "public_graph_test", "data/eval/public_graph_eval.json", ("runs", "public_graph", "test", "computed_ras"))
     _merge_system_metric(results, "adversarial", "data/eval/adversarial_eval.json", ("combined", "computed_ras"))
+    _merge_system_metric(results, "adversarial_test", "data/eval/adversarial_eval.json", ("systems", "splits", "test", "computed_ras"))
     _merge_system_metric(results, "calibrated_adversarial_test", "data/eval/calibrated_router.json", ("adversarial_test", "computed_ras_calibrated_topk_rescue"))
     _merge_system_metric(results, "ras_v3_adversarial_test", "data/eval/ras_v3_eval.json", ("adversarial_test", "ras_v3"))
     _merge_system_metric(results, "ras_v4_adversarial_test", "data/eval/ras_v4_eval.json", ("adversarial_test", "ras_v4"))
@@ -138,7 +170,7 @@ def _merge_system_metric(target: dict[str, object], key: str, path: str, lookup:
         return
     try:
         payload: Any = read_json(file_path)
-        current: Any = payload.get("systems", payload)
+        current: Any = payload if lookup and lookup[0] in payload else payload.get("systems", payload)
         for part in lookup:
             current = current[part]
         if isinstance(current, dict):
@@ -186,6 +218,7 @@ def _artifact_manifest(output_dir: Path) -> dict[str, object]:
         "optional_artifacts": optional,
         "generated_release_artifacts": [
             "final_project_overview.md",
+            "executive_summary.md",
             "paper_ready_summary.md",
             "demo_runbook.md",
             "demo_walkthrough_quick_reference.md",
@@ -197,6 +230,15 @@ def _artifact_manifest(output_dir: Path) -> dict[str, object]:
             "ras_quick_reference.md",
             "reproducibility_runbook.md",
             "central_claim_summary.md",
+            "final_speaker_script.md",
+            "one_minute_pitch.md",
+            "three_minute_pitch.md",
+            "qa_cheat_sheet.md",
+            "final_wrapup_report.md",
+            "submission_checklist.md",
+            "demo_day_checklist.md",
+            "final_artifact_index.md",
+            "synthesis_summary.json",
             "artifact_manifest.json",
             "known_results_summary.json",
             "release_checklist.md",
@@ -323,6 +365,14 @@ def _ui_tour() -> str:
     return """# PRISM UI Tour
 
 The Streamlit app is organized as a polished research workspace.
+
+## Executive Summary
+
+This is the highest-level project view. It shows the thesis, architecture, benchmark profile, release posture, and strongest caveats with minimal text.
+
+## Results at a Glance
+
+This page condenses benchmark outcomes, adversarial caveats, calibrated-rescue gains, human evaluation, and open-corpus status into summary cards and charts.
 
 ## Guided Demo
 

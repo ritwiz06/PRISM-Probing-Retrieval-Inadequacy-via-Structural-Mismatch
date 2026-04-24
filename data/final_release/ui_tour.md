@@ -2,6 +2,14 @@
 
 The Streamlit app is organized as a polished research workspace.
 
+## Executive Summary
+
+This is the highest-level project view. It shows the thesis, architecture, benchmark profile, release posture, and strongest caveats with minimal text.
+
+## Results at a Glance
+
+This page condenses benchmark outcomes, adversarial caveats, calibrated-rescue gains, human evaluation, and open-corpus status into summary cards and charts.
+
 ## Guided Demo
 
 This page presents a clean walkthrough of the main demonstration scenarios, with optional presenter notes hidden behind an explicit toggle.

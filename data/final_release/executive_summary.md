@@ -1,12 +1,22 @@
-# Paper-Ready Summary
+# Executive Summary
 
-PRISM tests the claim that retrieval failures often come from structural mismatch between the query and the retrieval representation. Computed RAS operationalizes this by estimating which representation is adequate for a query and routing to BM25, Dense, KG, or Hybrid.
+PRISM is a representation-aware retrieval system that routes queries to BM25, Dense, KG, or Hybrid evidence according to structural adequacy.
 
-RAS_V3 formalizes route adequacy as an interpretable feature-based model. RAS_V4 extends this to joint route-and-evidence adequacy by adding evidence diagnostics from top-k retrieval. The key empirical finding is honest: route adequacy helps and remains interpretable, but route-only adequacy is insufficient on hard adversarial cases. Calibrated top-k rescue remains complementary and stronger on adversarial answer accuracy.
+- Production router: `computed_ras`
+- Research overlays: `calibrated_rescue`, `classifier_router`, `ras_v3`, `ras_v4`, optional LLM
+- Bounded scope: benchmark corpora, source packs, local folders, and URL-list runtime corpora
 
-Human evaluation with four annotators supports the usefulness of PRISM's evidence and trace presentation, while comparative results retain ties and adjudication cases. The project should not claim that RAS_V3 or RAS_V4 replace computed RAS in production. Instead, the publishable story is that RAS provides a transparent framework for representation-aware routing, and RAS_V4 exposes why answer support must be modeled alongside route choice.
+## Key Results
 
-Relevant result snapshot:
+- Curated benchmark: `80/80`
+- External mini-benchmark: `1.000` answer accuracy
+- Generalization v2 noisy test: `0.975` answer accuracy
+- Public raw test: `1.000` answer accuracy
+- Adversarial test: computed RAS `0.917`; calibrated rescue `0.958`
+
+## Final Position
+
+PRISM is release-ready and demo-ready. The production decision stays conservative: `computed_ras` remains the production router, while rescue and learned RAS variants remain explicitly labeled research overlays.
 
 ```json
 {

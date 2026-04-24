@@ -139,6 +139,12 @@
       "required": true
     },
     {
+      "name": "executive_summary",
+      "path": "data/final_release/executive_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
       "name": "paper_ready_summary",
       "path": "data/final_release/paper_ready_summary.md",
       "exists": true,
@@ -201,6 +207,90 @@
     {
       "name": "central_claim_summary",
       "path": "data/final_release/central_claim_summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "final_speaker_script",
+      "path": "data/final_release/final_speaker_script.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "one_minute_pitch",
+      "path": "data/final_release/one_minute_pitch.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "three_minute_pitch",
+      "path": "data/final_release/three_minute_pitch.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "qa_cheat_sheet",
+      "path": "data/final_release/qa_cheat_sheet.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "final_wrapup_report",
+      "path": "data/final_release/final_wrapup_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "submission_checklist",
+      "path": "data/final_release/submission_checklist.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "demo_day_checklist",
+      "path": "data/final_release/demo_day_checklist.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "final_artifact_index",
+      "path": "data/final_release/final_artifact_index.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "synthesis_summary",
+      "path": "data/final_release/synthesis_summary.json",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "chart_benchmark_overview",
+      "path": "data/final_release/charts/benchmark_overview.png",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "chart_adversarial_router_comparison",
+      "path": "data/final_release/charts/adversarial_router_comparison.png",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "chart_human_eval_overview",
+      "path": "data/final_release/charts/human_eval_overview.png",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "figure_architecture_diagram",
+      "path": "data/final_release/figures/architecture_diagram.png",
+      "exists": true,
+      "required": true
+    },
+    {
+      "name": "figure_ras_family_overview",
+      "path": "data/final_release/figures/ras_family_overview.png",
       "exists": true,
       "required": true
     },

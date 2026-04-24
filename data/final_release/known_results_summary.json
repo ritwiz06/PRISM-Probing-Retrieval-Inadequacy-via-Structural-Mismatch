@@ -43,11 +43,25 @@
     "top1_evidence_hit": null,
     "path": "data/eval/public_corpus_eval.json"
   },
+  "public_graph_test": {
+    "route_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "evidence_hit_at_k": 1.0,
+    "top1_evidence_hit": null,
+    "path": "data/eval/public_graph_eval.json"
+  },
   "adversarial": {
     "route_accuracy": 0.7291666666666666,
     "answer_accuracy": 0.7291666666666666,
     "evidence_hit_at_k": 0.8958333333333334,
     "top1_evidence_hit": 0.6875,
+    "path": "data/eval/adversarial_eval.json"
+  },
+  "adversarial_test": {
+    "route_accuracy": 0.75,
+    "answer_accuracy": 0.9166666666666666,
+    "evidence_hit_at_k": 0.9583333333333334,
+    "top1_evidence_hit": 0.875,
     "path": "data/eval/adversarial_eval.json"
   },
   "calibrated_adversarial_test": {

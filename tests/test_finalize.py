@@ -34,16 +34,26 @@ def test_release_build_artifact_structure(tmp_path: Path) -> None:
     status = build_release(tmp_path)
     assert status["production_router"] == "computed_ras"
     assert Path(status["generated_files"]["central_claim_summary"]).exists()
+    assert Path(status["generated_files"]["executive_summary"]).exists()
     assert Path(status["generated_files"]["demo_walkthrough_quick_reference"]).exists()
     assert Path(status["generated_files"]["ui_tour"]).exists()
     assert Path(status["generated_files"]["ras_math_guide"]).exists()
     assert Path(status["generated_files"]["ras_quick_reference"]).exists()
+    assert Path(status["generated_files"]["final_speaker_script"]).exists()
+    assert Path(status["generated_files"]["final_wrapup_report"]).exists()
+    assert Path(status["generated_files"]["final_artifact_index"]).exists()
+    assert Path(status["generated_files"]["synthesis_summary"]).exists()
     assert Path(status["generated_files"]["artifact_manifest"]).exists()
+    assert (tmp_path / "charts" / "benchmark_overview.png").exists()
+    assert (tmp_path / "charts" / "adversarial_router_comparison.png").exists()
+    assert (tmp_path / "figures" / "architecture_diagram.png").exists()
     manifest = status["manifest"]
     assert manifest["critical_artifacts"]
     assert manifest["generated_release_artifacts"]
     assert "demo_walkthrough_quick_reference.md" in manifest["generated_release_artifacts"]
     assert "ras_math_guide.md" in manifest["generated_release_artifacts"]
+    assert "final_wrapup_report.md" in manifest["generated_release_artifacts"]
+    assert "synthesis_summary.json" in manifest["generated_release_artifacts"]
 
 
 def test_release_verifier_status_structure(tmp_path: Path) -> None:
@@ -56,3 +66,6 @@ def test_release_verifier_status_structure(tmp_path: Path) -> None:
     assert (tmp_path / "release_checklist.md").exists()
     assert any(row["name"] == "ui_tour" for row in status["release_components"])
     assert any(row["name"] == "ras_quick_reference" for row in status["release_components"])
+    assert any(row["name"] == "executive_summary" for row in status["release_components"])
+    assert any(row["name"] == "chart_benchmark_overview" for row in status["release_components"])
+    assert any(row["name"] == "figure_architecture_diagram" for row in status["release_components"])

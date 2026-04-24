@@ -1,0 +1,225 @@
+{
+  "production_router": "computed_ras",
+  "research_overlays": [
+    "calibrated_rescue",
+    "classifier_router",
+    "ras_v3",
+    "ras_v4",
+    "optional_llm"
+  ],
+  "thesis": "PRISM routes queries to the evidence representation that is structurally adequate for the question.",
+  "benchmark_overview": [
+    {
+      "benchmark": "Curated",
+      "route_accuracy": 1.0,
+      "answer_accuracy": 1.0
+    },
+    {
+      "benchmark": "External Mini",
+      "route_accuracy": 1.0,
+      "answer_accuracy": 1.0
+    },
+    {
+      "benchmark": "GenV2 Clean",
+      "route_accuracy": 0.95,
+      "answer_accuracy": 1.0
+    },
+    {
+      "benchmark": "GenV2 Noisy",
+      "route_accuracy": 0.95,
+      "answer_accuracy": 0.975
+    },
+    {
+      "benchmark": "Public Raw",
+      "route_accuracy": 0.9166666666666666,
+      "answer_accuracy": 1.0
+    },
+    {
+      "benchmark": "Public Graph",
+      "route_accuracy": 1.0,
+      "answer_accuracy": 1.0
+    },
+    {
+      "benchmark": "Adversarial Test",
+      "route_accuracy": 0.75,
+      "answer_accuracy": 0.9166666666666666
+    }
+  ],
+  "adversarial_router_comparison": [
+    {
+      "system": "computed_ras",
+      "answer_accuracy": 0.9166666666666666,
+      "route_accuracy": 0.75,
+      "status": "production"
+    },
+    {
+      "system": "calibrated_rescue",
+      "answer_accuracy": 0.9583333333333334,
+      "route_accuracy": 0.875,
+      "status": "research overlay"
+    },
+    {
+      "system": "classifier_router",
+      "answer_accuracy": 0.875,
+      "route_accuracy": 0.7916666666666666,
+      "status": "research baseline"
+    },
+    {
+      "system": "ras_v3",
+      "answer_accuracy": 0.9166666666666666,
+      "route_accuracy": 0.8333333333333334,
+      "status": "analysis-only"
+    },
+    {
+      "system": "ras_v4",
+      "answer_accuracy": 0.9166666666666666,
+      "route_accuracy": 0.75,
+      "status": "analysis-only"
+    }
+  ],
+  "production_vs_research_overlay": [
+    {
+      "system": "computed_ras",
+      "stable_average": 1.0,
+      "adversarial_test": 0.9166666666666666,
+      "status": "production"
+    },
+    {
+      "system": "calibrated_rescue",
+      "stable_average": 1.0,
+      "adversarial_test": 0.9583333333333334,
+      "status": "research overlay"
+    },
+    {
+      "system": "classifier_router",
+      "stable_average": 1.0,
+      "adversarial_test": 0.875,
+      "status": "research baseline"
+    },
+    {
+      "system": "ras_v3",
+      "stable_average": 1.0,
+      "adversarial_test": 0.9166666666666666,
+      "status": "analysis-only"
+    },
+    {
+      "system": "ras_v4",
+      "stable_average": 1.0,
+      "adversarial_test": 0.9166666666666666,
+      "status": "analysis-only"
+    }
+  ],
+  "human_eval": {
+    "dimension_means": [
+      {
+        "dimension": "route appropriateness",
+        "mean_score": 2.8958333333333335
+      },
+      {
+        "dimension": "evidence sufficiency",
+        "mean_score": 2.9166666666666665
+      },
+      {
+        "dimension": "answer faithfulness",
+        "mean_score": 2.9166666666666665
+      },
+      {
+        "dimension": "trace faithfulness",
+        "mean_score": 2.9305555555555554
+      },
+      {
+        "dimension": "trace clarity",
+        "mean_score": 2.9444444444444446
+      },
+      {
+        "dimension": "overall usefulness",
+        "mean_score": 2.875
+      }
+    ],
+    "pair_preferences": [
+      {
+        "pair": "computed_ras_vs_always_bm25",
+        "a_win_rate": 0.625,
+        "b_win_rate": 0.0,
+        "tie_rate": 0.375
+      },
+      {
+        "pair": "computed_ras_vs_always_dense",
+        "a_win_rate": 0.375,
+        "b_win_rate": 0.125,
+        "tie_rate": 0.5
+      },
+      {
+        "pair": "computed_ras_vs_calibrated_rescue",
+        "a_win_rate": 0.0,
+        "b_win_rate": 0.0625,
+        "tie_rate": 0.9375
+      },
+      {
+        "pair": "computed_ras_vs_classifier_router",
+        "a_win_rate": 0.041666666666666664,
+        "b_win_rate": 0.041666666666666664,
+        "tie_rate": 0.9166666666666666
+      }
+    ],
+    "evaluator_count": 4,
+    "annotation_count": 144
+  },
+  "open_corpus": {
+    "total": 5,
+    "route_accuracy": 1.0,
+    "answer_accuracy": 1.0,
+    "evidence_hit_at_k": 1.0,
+    "source_modes": {
+      "source_pack:wikipedia": 2,
+      "source_pack:rfc_specs": 1,
+      "local_folder:demo": 2
+    },
+    "route_distribution": {
+      "dense": 1,
+      "hybrid": 2,
+      "bm25": 1,
+      "kg": 1
+    }
+  },
+  "key_findings": [
+    "computed_ras remains the production router because it is stable across curated, external, generalization, and public-document layers.",
+    "Adversarial hard cases remain the main weakness; calibrated rescue is still stronger than route-only RAS variants on adversarial answer accuracy.",
+    "RAS_V3 and RAS_V4 improve the research story and interpretability, but they remain analysis-only.",
+    "Human evaluation supports evidence/trace usefulness while preserving ties and adjudication cases.",
+    "Open-corpus mode is functional and bounded; it is not arbitrary web-scale search."
+  ],
+  "caveats": [
+    "production router = computed_ras",
+    "calibrated_rescue remains a complementary research overlay",
+    "ras_v3 and ras_v4 remain analysis-only",
+    "PRISM is bounded source-pack/local/open-corpus QA, not web-scale search"
+  ],
+  "charts": {
+    "benchmark_overview": "data/final_release/charts/benchmark_overview.png",
+    "adversarial_router_comparison": "data/final_release/charts/adversarial_router_comparison.png",
+    "production_vs_research_overlay": "data/final_release/charts/production_vs_research_overlay.png",
+    "human_eval_overview": "data/final_release/charts/human_eval_overview.png",
+    "backend_usage_overview": "data/final_release/charts/backend_usage_overview.png",
+    "comparative_preferences_overview": "data/final_release/charts/comparative_preferences_overview.png"
+  },
+  "figures": {
+    "architecture_diagram": "data/final_release/figures/architecture_diagram.png",
+    "why_routing_matters": "data/final_release/figures/why_routing_matters.png",
+    "ras_family_overview": "data/final_release/figures/ras_family_overview.png",
+    "production_vs_research_map": "data/final_release/figures/production_vs_research_map.png",
+    "route_evidence_adequacy": "data/final_release/figures/route_evidence_adequacy.png",
+    "evaluation_stack": "data/final_release/figures/evaluation_stack.png"
+  },
+  "documents": {
+    "final_speaker_script": "data/final_release/final_speaker_script.md",
+    "one_minute_pitch": "data/final_release/one_minute_pitch.md",
+    "three_minute_pitch": "data/final_release/three_minute_pitch.md",
+    "qa_cheat_sheet": "data/final_release/qa_cheat_sheet.md",
+    "final_wrapup_report": "data/final_release/final_wrapup_report.md",
+    "submission_checklist": "data/final_release/submission_checklist.md",
+    "demo_day_checklist": "data/final_release/demo_day_checklist.md",
+    "final_artifact_index": "data/final_release/final_artifact_index.md",
+    "executive_summary": "data/final_release/executive_summary.md"
+  }
+}

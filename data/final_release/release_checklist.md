@@ -30,6 +30,7 @@ Production router: `computed_ras`.
 ## Release Package Components
 
 - [x] final_project_overview: `data/final_release/final_project_overview.md`
+- [x] executive_summary: `data/final_release/executive_summary.md`
 - [x] paper_ready_summary: `data/final_release/paper_ready_summary.md`
 - [x] demo_runbook: `data/final_release/demo_runbook.md`
 - [x] demo_walkthrough_quick_reference: `data/final_release/demo_walkthrough_quick_reference.md`
@@ -41,6 +42,20 @@ Production router: `computed_ras`.
 - [x] ras_quick_reference: `data/final_release/ras_quick_reference.md`
 - [x] reproducibility_runbook: `data/final_release/reproducibility_runbook.md`
 - [x] central_claim_summary: `data/final_release/central_claim_summary.md`
+- [x] final_speaker_script: `data/final_release/final_speaker_script.md`
+- [x] one_minute_pitch: `data/final_release/one_minute_pitch.md`
+- [x] three_minute_pitch: `data/final_release/three_minute_pitch.md`
+- [x] qa_cheat_sheet: `data/final_release/qa_cheat_sheet.md`
+- [x] final_wrapup_report: `data/final_release/final_wrapup_report.md`
+- [x] submission_checklist: `data/final_release/submission_checklist.md`
+- [x] demo_day_checklist: `data/final_release/demo_day_checklist.md`
+- [x] final_artifact_index: `data/final_release/final_artifact_index.md`
+- [x] synthesis_summary: `data/final_release/synthesis_summary.json`
+- [x] chart_benchmark_overview: `data/final_release/charts/benchmark_overview.png`
+- [x] chart_adversarial_router_comparison: `data/final_release/charts/adversarial_router_comparison.png`
+- [x] chart_human_eval_overview: `data/final_release/charts/human_eval_overview.png`
+- [x] figure_architecture_diagram: `data/final_release/figures/architecture_diagram.png`
+- [x] figure_ras_family_overview: `data/final_release/figures/ras_family_overview.png`
 - [x] artifact_manifest: `data/final_release/artifact_manifest.json`
 - [x] known_results_summary: `data/final_release/known_results_summary.json`
 
